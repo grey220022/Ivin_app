@@ -1,0 +1,65 @@
+//
+//  DetailView.m
+//  Ivin
+//
+//  Created by user on 4/28/14.
+//  Copyright (c) 2014 user. All rights reserved.
+//
+
+#import "DetailView.h"
+#import "SingletonClass.h"
+
+@interface DetailView ()
+
+@end
+
+@implementation DetailView
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        // Custom initialization
+    }
+    return self;
+}
+
+- (void)viewDidLoad
+{
+    [super viewDidLoad];
+	// Do any additional setup after loading the view.
+    self.rateView.notSelectedImage = [UIImage imageNamed:@"kermit_empty.png"];
+    self.rateView.halfSelectedImage = [UIImage imageNamed:@"kermit_half.png"];
+    self.rateView.fullSelectedImage = [UIImage imageNamed:@"kermit_full.png"];
+
+    self.rateView.rating = [SingletonClass sharedInstance].rating;
+    
+    
+    
+    self.rateView.editable = YES;
+    self.rateView.maxRating = 5;
+    self.rateView.delegate = self;
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+
+//    [self rateView: ratingDidChange:3];
+    
+    //NSString* myNewString =[NSString stringWithFormat:@"%i", self.rateView.rating];
+
+    //self.statusLabel.text = @"Rating: 0";
+   // self rateView:<#(RateView *)#> ratingDidChange:<#(float)#>
+    self.statusLabel.text = [NSString stringWithFormat:@"Rating: %.01f", self.rateView.rating];
+
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)rateView:(RateView *)rateView ratingDidChange:(float)rating {
+    self.statusLabel.text = [NSString stringWithFormat:@"Rating: %.01f", rating];
+}
+
+
+@end

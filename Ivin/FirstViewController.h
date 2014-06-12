@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FirstViewController : UIViewController
 
+
+@interface FirstViewController : UIViewController <UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate, UINavigationControllerDelegate>
+//@property(nonatomic,retain) IBOutlet UIWebView *webView;
+
+@property(nonatomic,retain) IBOutlet UITableView *tableview;
 @end
