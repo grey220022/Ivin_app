@@ -55,6 +55,8 @@
 		CE8A9BA518C2354700F76A4A /* kermit_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8A9BA218C2354700F76A4A /* kermit_empty.png */; };
 		CE8A9BA618C2354700F76A4A /* kermit_full.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8A9BA318C2354700F76A4A /* kermit_full.png */; };
 		CE8A9BA718C2354700F76A4A /* kermit_half.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8A9BA418C2354700F76A4A /* kermit_half.png */; };
+		CE95FB1A194F70F300D882C1 /* GrapeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE95FB19194F70F300D882C1 /* GrapeViewController.m */; };
+		CE95FB5E194F89C000D882C1 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE95FB5D194F89C000D882C1 /* ContentViewController.m */; };
 		CE97622C18CD240D00A8C6AC /* WineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97622B18CD240D00A8C6AC /* WineView.m */; };
 		CE97622F18CFD79B00A8C6AC /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97622E18CFD79B00A8C6AC /* CommentView.m */; };
 		CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */ = {isa = PBXBuildFile; fileRef = CE97623118CFD82000A8C6AC /* bubbleMine.png */; };
@@ -190,6 +192,10 @@
 		CE8A9BA218C2354700F76A4A /* kermit_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_empty.png; sourceTree = "<group>"; };
 		CE8A9BA318C2354700F76A4A /* kermit_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_full.png; sourceTree = "<group>"; };
 		CE8A9BA418C2354700F76A4A /* kermit_half.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = kermit_half.png; sourceTree = "<group>"; };
+		CE95FB18194F70F300D882C1 /* GrapeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GrapeViewController.h; sourceTree = "<group>"; };
+		CE95FB19194F70F300D882C1 /* GrapeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GrapeViewController.m; sourceTree = "<group>"; };
+		CE95FB5C194F89C000D882C1 /* ContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContentViewController.h; sourceTree = "<group>"; };
+		CE95FB5D194F89C000D882C1 /* ContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContentViewController.m; sourceTree = "<group>"; };
 		CE97622A18CD240D00A8C6AC /* WineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineView.h; sourceTree = "<group>"; };
 		CE97622B18CD240D00A8C6AC /* WineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineView.m; sourceTree = "<group>"; };
 		CE97622D18CFD79B00A8C6AC /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
@@ -442,6 +448,10 @@
 				CED34F0818CC7A3100640DFD /* TableCell */,
 				CE8419A718BEAF0200ECC402 /* AppDelegate.m */,
 				CE8419A918BEAF0200ECC402 /* Main.storyboard */,
+				CE95FB5C194F89C000D882C1 /* ContentViewController.h */,
+				CE95FB5D194F89C000D882C1 /* ContentViewController.m */,
+				CE95FB18194F70F300D882C1 /* GrapeViewController.h */,
+				CE95FB19194F70F300D882C1 /* GrapeViewController.m */,
 				CE8918201928965100231FBB /* HistoryViewCell.h */,
 				CE8918211928965100231FBB /* HistoryViewCell.m */,
 				CE8917B7190EEBF700231FBB /* DetailView.h */,
@@ -822,7 +832,9 @@
 				CEB4A53C18C69B720037C867 /* split.c in Sources */,
 				CE189AC318E0E50300F8942F /* APPViewController.m in Sources */,
 				CE97625318CFD85800A8C6AC /* UIBubbleTableViewCell.m in Sources */,
+				CE95FB1A194F70F300D882C1 /* GrapeViewController.m in Sources */,
 				CEB4A53B18C69B720037C867 /* rscode.c in Sources */,
+				CE95FB5E194F89C000D882C1 /* ContentViewController.m in Sources */,
 				CED34F0B18CCA8C700640DFD /* SendViewController.m in Sources */,
 				CE8917B9190EEBF700231FBB /* DetailView.m in Sources */,
 				CE8A9BA118C234AA00F76A4A /* RateView.m in Sources */,

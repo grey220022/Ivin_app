@@ -16,6 +16,9 @@
 #import "words.h"
 #import "SingletonClass.h"
 #import "words.h"
+#import "VinViewController.h"
+#import "WineryViewController.h"
+#import "GrapeViewController.h"
 
 @interface AcceptWineViewController ()
 //@property(nonatomic,retain) UIWebView *webView;
@@ -157,6 +160,7 @@
 
 -(IBAction)showgrapes
 {
+    /*
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:[words getword:@"grape"]
                                   
                                                             delegate:self
@@ -168,12 +172,20 @@
                                                    otherButtonTitles:@"葡萄一",@"葡萄二",@"葡萄三",nil];
     
     actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
-    [actionSheet showInView:self.view];
+    [actionSheet showInView:self.view];*/
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    GrapeViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"grapeview"];
+    
+    nextController.title=[words getword:@"grape"];
+    [self.navigationController pushViewController:nextController animated:YES];
+    
 }
 
 
 -(IBAction) showwinery
 {
+    /*
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:[words getword:@"winery"]
                                   
                                                             delegate:self
@@ -186,6 +198,17 @@
     
     actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
     [actionSheet showInView:self.view];
+    */
+    
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    WineryViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"wineryview"];
+    
+    nextController.title=[words getword:@"winery"];
+    [self.navigationController pushViewController:nextController animated:YES];
+    
     
 }
 
@@ -193,6 +216,7 @@
 
 -(IBAction) showwine
 {
+    /*
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:[words getword:@"wine"]
                                   
                                                             delegate:self
@@ -205,7 +229,12 @@
     
     actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
     [actionSheet showInView:self.view];
+    */
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
+    VinViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"vinview"];
+    nextController.title=[words getword:@"wine"];
+    [self.navigationController pushViewController:nextController animated:YES];
 }
 
 /*
