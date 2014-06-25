@@ -1,4 +1,6 @@
 #import <Foundation/Foundation.h>
+#import "Winery.h"
+#import "Wine.h"
 
 @interface SingletonClass : NSObject {
   NSString *username_;
@@ -12,6 +14,8 @@
 @property(nonatomic,retain) NSString *password;
 @property(nonatomic,retain) NSString *lang;
 @property ( nonatomic) float rating;
+@property(nonatomic,retain) Wine *wine;
+@property(nonatomic,retain) Wine *winery;
 
 
 

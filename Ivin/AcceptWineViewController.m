@@ -38,6 +38,9 @@
 @synthesize price;
 @synthesize personalnote;
 
+
+
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -50,6 +53,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    
+    
+    
     //self.view.contentSize=CGSizeMake(400,400);
     //self.navigationController.title=@"fdasf";
     self.navigationItem.title=@"Chateau XXX";
@@ -178,6 +185,7 @@
     GrapeViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"grapeview"];
     
     nextController.title=[words getword:@"grape"];
+    nextController.grapearray=[[NSMutableArray alloc] initWithObjects:@"Grape 1",@"Grape 2",@"Grape 3",@"Grape 4",@"Grape 5",@"Grape 6",nil];
     [self.navigationController pushViewController:nextController animated:YES];
     
 }

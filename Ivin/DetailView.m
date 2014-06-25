@@ -33,9 +33,9 @@
     self.rateView.fullSelectedImage = [UIImage imageNamed:@"kermit_full.png"];
 
     self.rateView.rating = [SingletonClass sharedInstance].rating;
+    //self.commenttext.
     
-    
-    
+    self.commenttext.delegate=self;
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
     self.rateView.delegate = self;
@@ -61,5 +61,25 @@
     self.statusLabel.text = [NSString stringWithFormat:@"Rating: %.01f", rating];
 }
 
+/*
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    if (![text isEqualToString:@""]) {
+        _label1.hidden = YES;
+    }
+    
+    if ([text isEqualToString:@""] && range.location == 0 && range.length == 1) {
+        _label1.hidden = NO;
+    }
+    
+    return YES;
+}
+*/
+
+- (void)textViewDidBeginEditing:(UITextView *)textView
+{
+    _label1.hidden = YES;
+    NSLog(@"hahahah");
+}
 
 @end

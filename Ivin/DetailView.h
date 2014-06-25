@@ -11,10 +11,12 @@
 #import "RateView.h"
 
 
-@interface DetailView : UIViewController<RateViewDelegate>
+@interface DetailView : UIViewController<RateViewDelegate,UITextViewDelegate>
 
 @property (weak, nonatomic) IBOutlet RateView *rateView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UITextView *commenttext;
+@property (weak, nonatomic) IBOutlet UILabel *label1;
 
 
 @end

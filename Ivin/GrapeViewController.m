@@ -7,6 +7,9 @@
 //
 
 #import "GrapeViewController.h"
+#import "ContentViewController.h"
+#import "words.h"
+
 
 @interface GrapeViewController ()
 
@@ -26,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+   // _grapearray=[[NSMutableArray alloc] initWithObjects:@"Grape 1",@"Grape 2",@"Grape 3",@"Grape 4",@"Grape 5",@"Grape 6",nil];
     
     self.tableview.delegate=self;
     self.tableview.dataSource=self;
@@ -47,7 +52,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 3;
+    return [_grapearray count];
 }
 
 // Customize the appearance of table view cells.
@@ -56,22 +61,26 @@
     
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    switch ( indexPath.row ) {
-        case 0: {
-            cell.textLabel.text = @"第一种葡萄" ;
-            break ;
-        }
-        case 1: {
-            cell.textLabel.text =@"第二种葡萄";
-            break ;
-        }
-        case 2: {
-            cell.textLabel.text = @"第三种葡萄" ;
-            break ;
-        }
-    }
+    cell.textLabel.text = [_grapearray objectAtIndex:indexPath.row];
     return cell;
 }
+
+
+- (void)deselect
+{
+    [self.tableview deselectRowAtIndexPath:[self.tableview indexPathForSelectedRow] animated:YES];
+}
+
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
+    [self.navigationController pushViewController:nextController animated:YES];
+    nextController.title=[_grapearray objectAtIndex:indexPath.row];
+}
+
 
 
 @end
