@@ -16,6 +16,7 @@
 @property ( nonatomic) float rating;
 @property(nonatomic,retain) Wine *wine;
 @property(nonatomic,retain) Wine *winery;
+@property(nonatomic) int fromscan;
 
 
 

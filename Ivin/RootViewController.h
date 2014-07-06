@@ -21,4 +21,8 @@
 @property (strong,nonatomic)AVCaptureSession * session;
 @property (strong,nonatomic)AVCaptureVideoPreviewLayer * preview;
 @property (nonatomic, retain) UIImageView * line;
+//@property (nonatomic) BOOL isReading;
+
+
+
 @end

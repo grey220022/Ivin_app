@@ -34,7 +34,9 @@
     
     self.tableview.delegate=self;
     self.tableview.dataSource=self;
-
+    self.tableview.backgroundColor=[UIColor blackColor];
+    self.view.backgroundColor=[UIColor blackColor];
+    [self.tableview setSeparatorColor:[UIColor clearColor]];
 	// Do any additional setup after loading the view.
 }
 
@@ -62,6 +64,9 @@
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     cell.textLabel.text = [_grapearray objectAtIndex:indexPath.row];
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"backlist.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
+    cell.backgroundColor=[UIColor blackColor];
+    cell.textColor=[UIColor whiteColor];
     return cell;
 }
 
@@ -69,6 +74,11 @@
 - (void)deselect
 {
     [self.tableview deselectRowAtIndexPath:[self.tableview indexPathForSelectedRow] animated:YES];
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 50;
 }
 
 

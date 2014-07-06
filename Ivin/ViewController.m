@@ -39,8 +39,8 @@
 
 
 -(void)setupCamera
-{          
-    if(IOS7)
+{    /*
+    if (1==0)//(IOS7)
     {
         RootViewController * rt = [[RootViewController alloc]init];
         [self presentViewController:rt animated:YES completion:^{
@@ -51,7 +51,8 @@
     else
     {
         [self scanBtnAction];
-    }
+    }*/
+    [self scanBtnAction];
 }
 
 

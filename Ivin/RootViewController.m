@@ -8,6 +8,8 @@
 //
 
 #import "RootViewController.h"
+#import "AcceptWineViewController.h"
+#import "SingletonClass.h"
 
 @interface RootViewController ()
 
@@ -26,12 +28,13 @@
 
 - (void)viewDidLoad
 {
+    
     NSLog(@"firstappear");
     [super viewDidLoad];
-   // self.view.backgroundColor = [UIColor grayColor];
+     self.view.backgroundColor = [UIColor blackColor];
     
     
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"chateau" ofType:@"png"]]];
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"chateau" ofType:@"png"]]];
 
     
 	//UIButton * scanButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -39,6 +42,8 @@
     //scanButton.frame = CGRectMake(100, 420, 120, 40);
     //[scanButton addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     //[self.view addSubview:scanButton];
+
+
     
     UILabel * labIntroudction= [[UILabel alloc] initWithFrame:CGRectMake(15, 40, 290, 50)];
     labIntroudction.backgroundColor = [UIColor clearColor];
@@ -61,8 +66,9 @@
     timer = [NSTimer scheduledTimerWithTimeInterval:.02 target:self selector:@selector(animation1) userInfo:nil repeats:YES];
     
    
-    [self setupCamera];
+    //[self setupCamera];
 
+  //  [self updateName];
 }
 -(void)animation1
 {
@@ -93,10 +99,25 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     NSLog(@"appear");
-    //[self setupCamera];
+    
+    [self setupCamera];
 }
+
+-(void)viewWillDisappear:(BOOL)animated
+{
+    NSLog(@"disappear");
+    [_session stopRunning];
+    [_preview removeFromSuperlayer];
+}
+
+
+
+
+
 - (void)setupCamera
 {
+    
+    
     // Device
     _device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
     
@@ -134,26 +155,55 @@
     // Start
     [_session startRunning];
 }
+
+
+
+
+- (IBAction)updateName{
+    [_session stopRunning];
+    [_preview removeFromSuperlayer];
+    [SingletonClass sharedInstance].fromscan=1;
+    [self.tabBarController setSelectedIndex:1];
+    /*
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
+//    [self.navigationController pushViewController:nextController animated:YES];
+    NSLog(@"abb");
+//    AcceptWineViewController * nextController = [[AcceptWineViewController alloc]init];
+
+    [self presentViewController:nextController animated:YES completion:^{
+        
+    }];
+*/
+}
+
+
 #pragma mark AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
     
-   
+    
+    
     NSString *stringValue;
     
     if ([metadataObjects count] >0)
     {
+        
+        //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
+
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         stringValue = metadataObject.stringValue;
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
-    }
-    [_session stopRunning];
-   [self dismissViewControllerAnimated:YES completion:^
-    {
-        [timer invalidate];
+        
         NSLog(@"%@",stringValue);
-       // [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
-    }];
+        [self performSelectorOnMainThread:@selector(updateName) withObject:nil waitUntilDone:NO];
+        
+      //  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
+    }
+   // [_session stopRunning];
+//   [self dismissViewControllerAnimated:YES completion:^
+//    {
+//        [timer invalidate];
+//    }];
 }
 
 - (void)didReceiveMemoryWarning

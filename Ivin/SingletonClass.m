@@ -33,6 +33,7 @@ static SingletonClass *sharedInstance = nil;
 // We can still have a regular init method, that will get called the first time the Singleton is used.
 - (id)init
 {
+    self.fromscan=0;
     self = [super init];
     
     if (self) {

@@ -59,10 +59,11 @@
 		CE95FB5E194F89C000D882C1 /* ContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE95FB5D194F89C000D882C1 /* ContentViewController.m */; };
 		CE95FB61195043E600D882C1 /* Wine.m in Sources */ = {isa = PBXBuildFile; fileRef = CE95FB60195043E600D882C1 /* Wine.m */; };
 		CE95FB641950440000D882C1 /* Winery.m in Sources */ = {isa = PBXBuildFile; fileRef = CE95FB631950440000D882C1 /* Winery.m */; };
-		CE95FB691957513B00D882C1 /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB651957513B00D882C1 /* cal.png */; };
-		CE95FB6A1957513B00D882C1 /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB661957513B00D882C1 /* collect.png */; };
-		CE95FB6B1957513B00D882C1 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB671957513B00D882C1 /* like.png */; };
-		CE95FB6C1957513B00D882C1 /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB681957513B00D882C1 /* point.png */; };
+		CE95FB75196096FA00D882C1 /* cal.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB70196096FA00D882C1 /* cal.png */; };
+		CE95FB76196096FA00D882C1 /* emptybook.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB71196096FA00D882C1 /* emptybook.png */; };
+		CE95FB77196096FA00D882C1 /* emptyticket.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB72196096FA00D882C1 /* emptyticket.png */; };
+		CE95FB78196096FA00D882C1 /* fullticket.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB73196096FA00D882C1 /* fullticket.png */; };
+		CE95FB79196096FA00D882C1 /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB74196096FA00D882C1 /* point.png */; };
 		CE97622C18CD240D00A8C6AC /* WineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97622B18CD240D00A8C6AC /* WineView.m */; };
 		CE97622F18CFD79B00A8C6AC /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97622E18CFD79B00A8C6AC /* CommentView.m */; };
 		CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */ = {isa = PBXBuildFile; fileRef = CE97623118CFD82000A8C6AC /* bubbleMine.png */; };
@@ -206,10 +207,11 @@
 		CE95FB60195043E600D882C1 /* Wine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wine.m; sourceTree = "<group>"; };
 		CE95FB621950440000D882C1 /* Winery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Winery.h; sourceTree = "<group>"; };
 		CE95FB631950440000D882C1 /* Winery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Winery.m; sourceTree = "<group>"; };
-		CE95FB651957513B00D882C1 /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
-		CE95FB661957513B00D882C1 /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
-		CE95FB671957513B00D882C1 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
-		CE95FB681957513B00D882C1 /* point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point.png; sourceTree = "<group>"; };
+		CE95FB70196096FA00D882C1 /* cal.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cal.png; sourceTree = "<group>"; };
+		CE95FB71196096FA00D882C1 /* emptybook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptybook.png; sourceTree = "<group>"; };
+		CE95FB72196096FA00D882C1 /* emptyticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyticket.png; sourceTree = "<group>"; };
+		CE95FB73196096FA00D882C1 /* fullticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullticket.png; sourceTree = "<group>"; };
+		CE95FB74196096FA00D882C1 /* point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point.png; sourceTree = "<group>"; };
 		CE97622A18CD240D00A8C6AC /* WineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineView.h; sourceTree = "<group>"; };
 		CE97622B18CD240D00A8C6AC /* WineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineView.m; sourceTree = "<group>"; };
 		CE97622D18CFD79B00A8C6AC /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
@@ -349,10 +351,11 @@
 		CE084C8C18F489CE0062BB5F /* newresources */ = {
 			isa = PBXGroup;
 			children = (
-				CE95FB651957513B00D882C1 /* cal.png */,
-				CE95FB661957513B00D882C1 /* collect.png */,
-				CE95FB671957513B00D882C1 /* like.png */,
-				CE95FB681957513B00D882C1 /* point.png */,
+				CE95FB70196096FA00D882C1 /* cal.png */,
+				CE95FB71196096FA00D882C1 /* emptybook.png */,
+				CE95FB72196096FA00D882C1 /* emptyticket.png */,
+				CE95FB73196096FA00D882C1 /* fullticket.png */,
+				CE95FB74196096FA00D882C1 /* point.png */,
 				CE084CA518F4A11A0062BB5F /* 3.png */,
 				CE89180E1915261E00231FBB /* newsort.png */,
 				CE89181619152B7200231FBB /* noir1.png */,
@@ -781,12 +784,11 @@
 			files = (
 				CE89181B19153C6200231FBB /* cup.png in Resources */,
 				CEB4A54018C69B720037C867 /* zbar-helpicons.png in Resources */,
-				CE95FB6C1957513B00D882C1 /* point.png in Resources */,
+				CE95FB79196096FA00D882C1 /* point.png in Resources */,
 				CE084CAA18F60C270062BB5F /* gline.png in Resources */,
 				CE97624418CFD82000A8C6AC /* typingSomeone@2x.png in Resources */,
 				CE97624318CFD82000A8C6AC /* typingSomeone.png in Resources */,
 				CE89181919152C7F00231FBB /* noirnew.png in Resources */,
-				CE95FB6B1957513B00D882C1 /* like.png in Resources */,
 				CE084CA618F4A11A0062BB5F /* 3.png in Resources */,
 				CEF3B79E1934FDF3002D7D6E /* foodpair.png in Resources */,
 				CE8A9BA718C2354700F76A4A /* kermit_half.png in Resources */,
@@ -797,6 +799,7 @@
 				CEFF3F4A18E2396600785AD7 /* RadioButtonViewController.xib in Resources */,
 				CEB4A55518C69C5D0037C867 /* pick_bg@2x.png in Resources */,
 				CE97624118CFD82000A8C6AC /* typingMine.png in Resources */,
+				CE95FB76196096FA00D882C1 /* emptybook.png in Resources */,
 				CEB4A55418C69C5D0037C867 /* line@2x.png in Resources */,
 				CE97625918CFDF5800A8C6AC /* halloween.jpg in Resources */,
 				CE97623D18CFD82000A8C6AC /* bubbleSomeone.png in Resources */,
@@ -817,19 +820,20 @@
 				CEF8CF6E18C1434D00943823 /* wine.jpg in Resources */,
 				CE97623C18CFD82000A8C6AC /* bubbleMine@2x.png in Resources */,
 				CEB4A53E18C69B720037C867 /* zbar-back.png in Resources */,
-				CE95FB6A1957513B00D882C1 /* collect.png in Resources */,
 				CE8918241928A13200231FBB /* backlist.png in Resources */,
 				CE8917BC1914F7B600231FBB /* 111.png in Resources */,
+				CE95FB78196096FA00D882C1 /* fullticket.png in Resources */,
 				CE89180F1915261E00231FBB /* newsort.png in Resources */,
 				CE8A9BA518C2354700F76A4A /* kermit_empty.png in Resources */,
 				CE084C9118F48D660062BB5F /* chateau.png in Resources */,
 				CEFF3F5418E246C500785AD7 /* RadioButton-Selected.png in Resources */,
-				CE95FB691957513B00D882C1 /* cal.png in Resources */,
+				CE95FB75196096FA00D882C1 /* cal.png in Resources */,
 				CE97623F18CFD82000A8C6AC /* missingAvatar.png in Resources */,
 				CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */,
 				CE97624218CFD82000A8C6AC /* typingMine@2x.png in Resources */,
 				CE8419AB18BEAF0200ECC402 /* Main.storyboard in Resources */,
 				CE97624018CFD82000A8C6AC /* missingAvatar@2x.png in Resources */,
+				CE95FB77196096FA00D882C1 /* emptyticket.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

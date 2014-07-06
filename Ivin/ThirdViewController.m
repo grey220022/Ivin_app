@@ -10,6 +10,7 @@
 #import "AcceptWineViewController.h"
 #import "words.h"
 #import "HistoryViewCell.h"
+#import "SingletonClass.h"
 
 @interface ThirdViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -103,7 +104,13 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     [self.tableView setBackgroundColor:[UIColor blackColor]];
       //  _sw.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
-    
+    if ([SingletonClass sharedInstance].fromscan==1)
+    {
+        [SingletonClass sharedInstance].fromscan=0;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
+        [self.navigationController pushViewController:nextController animated:YES];
+    }
 }
 
 

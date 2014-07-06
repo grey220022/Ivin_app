@@ -17,3 +17,4 @@
 @end
 UIAlertView *myAlertView;
 int lang;
+

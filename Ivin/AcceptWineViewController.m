@@ -59,7 +59,7 @@
     
     //self.view.contentSize=CGSizeMake(400,400);
     //self.navigationController.title=@"fdasf";
-    self.navigationItem.title=@"Chateau XXX";
+    self.navigationItem.title=@"Chateau IVin";
    // UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sort.png"]]];
    // self.navigationItem.rightBarButtonItem = rightButton;
     
@@ -158,7 +158,8 @@
     _la3.text=[words getword:@"winery"];
     _la4.text=[words getword:@"recommandationofwinemaker"];
     _la5.text=[words getword:@"averagerating"];
-    _la6.text=[words getword:@"averageprice"];
+    _la6.text=@"Like";
+    //[words getword:@"averageprice"];
     NSString* num=@"189 ";
     _la7.text=[num stringByAppendingString:[words getword:@"ratings"]];
 }
@@ -185,7 +186,7 @@
     GrapeViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"grapeview"];
     
     nextController.title=[words getword:@"grape"];
-    nextController.grapearray=[[NSMutableArray alloc] initWithObjects:@"Grape 1",@"Grape 2",@"Grape 3",@"Grape 4",@"Grape 5",@"Grape 6",nil];
+    nextController.grapearray=[[NSMutableArray alloc] initWithObjects:@"CABERNET-SAUVIGNON",@"SYRAH",@"MALBEC",@"MERLOT",@"PINOT NOIR",@"GAMAY",nil];
     [self.navigationController pushViewController:nextController animated:YES];
     
 }
