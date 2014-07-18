@@ -12,7 +12,6 @@
 
 
 @interface VinViewController ()
-
 @end
 
 @implementation VinViewController
@@ -42,6 +41,9 @@
     
     
 }
+
+
+
 
 - (void)didReceiveMemoryWarning
 {

@@ -19,6 +19,8 @@
 #import "VinViewController.h"
 #import "WineryViewController.h"
 #import "GrapeViewController.h"
+#import "IvinHelp.h"
+
 
 @interface AcceptWineViewController ()
 //@property(nonatomic,retain) UIWebView *webView;
@@ -54,12 +56,27 @@
 {
     [super viewDidLoad];
     
+
+    /*
+    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]
+                                                  initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
+    [self.view addSubview:activityIndicator];
+    [activityIndicator startAnimating];
     
     
     
+    NSString* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
+    [SingletonClass sharedInstance].wine= [IvinHelp wineparse:winestring];
+    [activityIndicator stopAnimating];
+    */
     //self.view.contentSize=CGSizeMake(400,400);
     //self.navigationController.title=@"fdasf";
-    self.navigationItem.title=@"Chateau IVin";
+    //self.navigationItem.title=@"Chateau IVin";
+    NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+    self.navigationItem.title= [SingletonClass sharedInstance].winery.Name;  //[_winery Name];
+    
+
    // UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sort.png"]]];
    // self.navigationItem.rightBarButtonItem = rightButton;
     
@@ -164,6 +181,16 @@
     _la7.text=[num stringByAppendingString:[words getword:@"ratings"]];
 }
 
+
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"acceptappear");
+    self.wine=[SingletonClass sharedInstance].wine;
+    self.winery=[SingletonClass sharedInstance].winery;
+    
+}
 
 
 -(IBAction)showgrapes
@@ -316,6 +343,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
 //    nextController.rateView.rating=3;
     //self.rateView.rating;
     //nextController.maintext=@"酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事";
+    
 }
 
 
@@ -457,7 +485,11 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
         
         nextController.title=@"酒庄故事";
         [self.navigationController pushViewController:nextController animated:YES];
-        nextController.maintext=@"酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事";
+//        nextController.maintext=@"酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事";
+        NSString * ggg=[_winery Description];
+        
+        nextController.maintext=ggg;
+
     }
     
     if ([buttonTitle isEqualToString:@"酒的故事"]) {

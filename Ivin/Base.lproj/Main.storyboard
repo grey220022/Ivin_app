@@ -1043,6 +1043,7 @@
                         <outlet property="b3" destination="cTU-tg-Zr9" id="u7H-KG-dH0"/>
                         <outlet property="b4" destination="dhC-Mp-1pW" id="do2-vg-Nwd"/>
                         <outlet property="b5" destination="Zhd-wL-G0s" id="K6k-4f-3ub"/>
+                        <outlet property="ima" destination="SL3-rk-xC0" id="rT7-KE-6i1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mQ-QP-OaP" userLabel="First Responder" sceneMemberID="firstResponder"/>

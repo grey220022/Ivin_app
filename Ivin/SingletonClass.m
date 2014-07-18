@@ -30,11 +30,16 @@ static SingletonClass *sharedInstance = nil;
     return sharedInstance;
 }
 
+
+
 // We can still have a regular init method, that will get called the first time the Singleton is used.
 - (id)init
 {
     self.fromscan=0;
     self = [super init];
+    
+    _wine=[[Wine alloc]init];
+    _winery=[[Winery alloc]init];
     
     if (self) {
         // Work your initialising magic here as you normally would

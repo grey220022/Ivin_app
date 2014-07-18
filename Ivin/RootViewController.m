@@ -12,6 +12,7 @@
 #import "SingletonClass.h"
 
 @interface RootViewController ()
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -32,7 +33,13 @@
     NSLog(@"firstappear");
     [super viewDidLoad];
      self.view.backgroundColor = [UIColor blackColor];
-    
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+
     
     //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"chateau" ofType:@"png"]]];
 
@@ -157,11 +164,20 @@
 }
 
 
+-(void)actIndicatorBegin
+{
+    [_activityIndicator startAnimating];
+}
+
+
 
 
 - (IBAction)updateName{
     [_session stopRunning];
     [_preview removeFromSuperlayer];
+    
+    
+    
     [SingletonClass sharedInstance].fromscan=1;
     [self.tabBarController setSelectedIndex:1];
     /*

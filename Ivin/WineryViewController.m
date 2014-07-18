@@ -12,6 +12,7 @@
 
 
 @interface WineryViewController ()
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -26,6 +27,22 @@
     return self;
 }
 
+
+-(void)actIndicatorBegin
+{
+    [_activityIndicator startAnimating];
+}
+
+
+-(void)loadima
+{
+    [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
+    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.ivindigital.com/content/images/carte/chateau.png"]]];
+    _ima.image=image;
+    [_activityIndicator stopAnimating];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -35,7 +52,22 @@
     [_b3 setTitle:[words getword:@"wineyard"] forState:UIControlStateNormal];
     [_b4 setTitle:[words getword:@"winetourism"] forState:UIControlStateNormal];
     [_b5 setTitle:[words getword:@"contact"] forState:UIControlStateNormal];
+    
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+    [self performSelectorOnMainThread:@selector(loadima) withObject:nil waitUntilDone:NO];
 }
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

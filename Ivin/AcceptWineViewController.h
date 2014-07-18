@@ -9,11 +9,15 @@
 #import <UIKit/UIKit.h>
 #import "RateView.h"
 #import "Wine.h"
+#import "Winery.h"
+
 
 @interface AcceptWineViewController : UIViewController<RateViewDelegate,UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>//,UIScrollViewDelegate>
 
 
 @property (weak, nonatomic) Wine  *wine;
+@property (weak, nonatomic) Winery  *winery;
+
 
 @property (weak, nonatomic) IBOutlet UILabel *la1;
 @property (weak, nonatomic) IBOutlet UILabel *la2;

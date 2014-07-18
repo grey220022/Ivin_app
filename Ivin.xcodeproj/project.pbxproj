@@ -64,6 +64,7 @@
 		CE95FB77196096FA00D882C1 /* emptyticket.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB72196096FA00D882C1 /* emptyticket.png */; };
 		CE95FB78196096FA00D882C1 /* fullticket.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB73196096FA00D882C1 /* fullticket.png */; };
 		CE95FB79196096FA00D882C1 /* point.png in Resources */ = {isa = PBXBuildFile; fileRef = CE95FB74196096FA00D882C1 /* point.png */; };
+		CE95FB7C196A0F8300D882C1 /* IvinHelp.m in Sources */ = {isa = PBXBuildFile; fileRef = CE95FB7B196A0F8300D882C1 /* IvinHelp.m */; };
 		CE97622C18CD240D00A8C6AC /* WineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97622B18CD240D00A8C6AC /* WineView.m */; };
 		CE97622F18CFD79B00A8C6AC /* CommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97622E18CFD79B00A8C6AC /* CommentView.m */; };
 		CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */ = {isa = PBXBuildFile; fileRef = CE97623118CFD82000A8C6AC /* bubbleMine.png */; };
@@ -212,6 +213,8 @@
 		CE95FB72196096FA00D882C1 /* emptyticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyticket.png; sourceTree = "<group>"; };
 		CE95FB73196096FA00D882C1 /* fullticket.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fullticket.png; sourceTree = "<group>"; };
 		CE95FB74196096FA00D882C1 /* point.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = point.png; sourceTree = "<group>"; };
+		CE95FB7A196A0F8300D882C1 /* IvinHelp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IvinHelp.h; sourceTree = "<group>"; };
+		CE95FB7B196A0F8300D882C1 /* IvinHelp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IvinHelp.m; sourceTree = "<group>"; };
 		CE97622A18CD240D00A8C6AC /* WineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineView.h; sourceTree = "<group>"; };
 		CE97622B18CD240D00A8C6AC /* WineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineView.m; sourceTree = "<group>"; };
 		CE97622D18CFD79B00A8C6AC /* CommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentView.h; sourceTree = "<group>"; };
@@ -487,6 +490,8 @@
 				CEFF3F5A18E3526A00785AD7 /* ProfileCityView.m */,
 				CE084BF718F0392F0062BB5F /* SingletonClass.h */,
 				CE084BF818F0392F0062BB5F /* SingletonClass.m */,
+				CE95FB7A196A0F8300D882C1 /* IvinHelp.h */,
+				CE95FB7B196A0F8300D882C1 /* IvinHelp.m */,
 				CE084BFA18F047CF0062BB5F /* words.h */,
 				CE084BFB18F047CF0062BB5F /* words.m */,
 				CEFF3F5118E23F5A00785AD7 /* Signature */,
@@ -887,6 +892,7 @@
 				CE2A3F8E18C7F910008212A4 /* RootViewController.m in Sources */,
 				CE084C0118F0D2CD0062BB5F /* LangView.m in Sources */,
 				CE5481151947798D001ED112 /* VinViewController.m in Sources */,
+				CE95FB7C196A0F8300D882C1 /* IvinHelp.m in Sources */,
 				CEB4A53618C69B720037C867 /* mask.c in Sources */,
 				CE97622C18CD240D00A8C6AC /* WineView.m in Sources */,
 				CE084BF918F0392F0062BB5F /* SingletonClass.m in Sources */,

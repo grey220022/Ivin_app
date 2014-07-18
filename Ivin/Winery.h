@@ -11,7 +11,7 @@
 @interface Winery : NSObject
 
 @property(nonatomic,retain) NSString *Id;
-@property(nonatomic,retain) NSString *Name;
+@property(nonatomic,assign) NSString *Name;
 @property(nonatomic,retain) NSString *RegionName;
 @property(nonatomic,retain) NSString *Description;
 @property(nonatomic,retain) NSString *RegionId;

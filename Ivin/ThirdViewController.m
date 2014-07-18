@@ -11,12 +11,16 @@
 #import "words.h"
 #import "HistoryViewCell.h"
 #import "SingletonClass.h"
+#import "IvinHelp.h"
+
+
 
 @interface ThirdViewController ()
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,retain) NSArray * listData;
 @property(nonatomic,retain) NSArray * sublistData;
 @property (nonatomic,retain) IBOutlet UISearchBar *searchBar;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 //-(void)refreshPropertyList;
 
@@ -61,9 +65,43 @@
 
 }
 
+- (void)getwinedata:(NSString *) url
+{
+    
+    
+}
+
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    NSLog(@"thirdappear");
+    if ([SingletonClass sharedInstance].fromscan==1)
+    {
+        [SingletonClass sharedInstance].fromscan=0;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
+        [self.navigationController pushViewController:nextController animated:YES];
+    }
+}
+
+
+
 - (void)viewDidLoad
 {
+    NSLog(@"thirddidload");
+
     [super viewDidLoad];
+    
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                         initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+
+    
+    
+    
     NSArray *array=[[NSArray alloc] initWithObjects:@"Vin 1",@"Vin 2",@"Vin 3",@"Vin 4",@"Vin 5",@"Vin 6",nil];
     NSArray *subarray=[[NSArray alloc] initWithObjects:@"detail 1",@"detail 1",@"detail 1",@"detail 1",@"detail 1",@"detail 1",nil];
     self.listData=array;
@@ -76,6 +114,9 @@
     
     //self.searchBar.backgroundColor=[UIColor colorWithRed:235.0f/255.0f green:216.0f/255.0f blue:145.0f/255.0f alpha:0.0];
     self.searchBar.barStyle=UIBarStyleBlackTranslucent;
+    
+    
+    
     
     /*
     self.searchBar.backgroundColor=[UIColor clearColor];
@@ -95,7 +136,7 @@
 //    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sort.png"]] ];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"noirnew.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
 
-     self.navigationItem.rightBarButtonItem = rightButton;
+    self.navigationItem.rightBarButtonItem = rightButton;
     self.navigationItem.title=[words getword:@"mywines"];
     //self.navigationController.title=@"fadsfds";//[words getword:@"mywines"];
     //self.navigationItem.rightBarButtonItem = rightButton;
@@ -104,6 +145,8 @@
     [self.view setBackgroundColor:[UIColor blackColor]];
     [self.tableView setBackgroundColor:[UIColor blackColor]];
       //  _sw.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+    
+    /*
     if ([SingletonClass sharedInstance].fromscan==1)
     {
         [SingletonClass sharedInstance].fromscan=0;
@@ -111,6 +154,8 @@
         AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
         [self.navigationController pushViewController:nextController animated:YES];
     }
+    */
+
 }
 
 
@@ -133,7 +178,7 @@
 }
 
 //4
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+-(UITableViewCell *)tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"historycell";
     HistoryViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -148,7 +193,7 @@
     cell.nameLabel.text=@"Château pichon 2009";
     cell.priceLabel.text=@"9€";
     cell.dateLabel.text=@"12/12/2009";
-    
+    //cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
     
     
@@ -193,29 +238,48 @@
     [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES];
 }
 
+-(void)actIndicatorBegin
+{
+    [_activityIndicator startAnimating];
+}
+
+
+
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //该方法响应列表中行的点击事件
-    NSLog(@"here");
-    //self.navigationController.title=@"fdasf";
-    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
 
+    
+    [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
+    
+    //[_activityIndicator startAnimating];
+    
+    
+    NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
+    NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+    
+    if ((!winerystring) || (!winestring))
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:@"Network error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
+    
+    
+    [IvinHelp wineryparse:winerystring];
+    [IvinHelp wineparse:winestring];
+    
+    //[NSThread sleepForTimeInterval:10000];
+    [_activityIndicator stopAnimating];
+
+    
+    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
     //nextController.title=@"语言";
     [self.navigationController pushViewController:nextController animated:YES];
     
-    
-    //NSString *heroSelected=[myListArray objectAtIndex:indexPath.row];
-    //indexPath.row得到选中的行号，提取出在数组中的内容。
-    
-    /*
-    UIAlertView *myAlertView;
-    myAlertView = [[UIAlertView alloc]initWithTitle:@"喝酒纪录，日期，种类" message:@"123" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-    [myAlertView show];
-     */
-    //点击后弹出该对话框。
 }
 
 /*
