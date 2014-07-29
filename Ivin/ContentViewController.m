@@ -7,6 +7,7 @@
 //
 
 #import "ContentViewController.h"
+#import "SingletonClass.h"
 
 @interface ContentViewController ()
 
@@ -30,7 +31,36 @@
     self.view.backgroundColor=[UIColor clearColor];
     
     self.content1.backgroundColor=[UIColor blackColor];
-    _content1.text=@"adsfafsd fdqsdfs  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsd  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq q";
+    
+    if ([_contenttype isEqual:@"winery"])
+    {
+        _content1.text=[SingletonClass sharedInstance].winery.Description;
+
+    }
+    else if ([_contenttype isEqual:@"winemaker"])
+    {
+        _content1.text=[SingletonClass sharedInstance].winery.OtherHistory;
+        
+    }
+    else if ([_contenttype isEqual:@"wineyard"])
+    {
+        _content1.text=[SingletonClass sharedInstance].winery.VinePresentation;
+        
+    }
+    else if ([_contenttype isEqual:@"winetourism"])
+    {
+        _content1.text=[SingletonClass sharedInstance].winery.Winetours;
+        
+    }
+    else if ([_contenttype isEqual:@"contact"])
+    {
+        _content1.text=[SingletonClass sharedInstance].winery.Contact;
+        
+    }
+
+    
+    
+    //@"adsfafsd fdqsdfs  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsd  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq q";
     
    // [_content sizeToFit];
    // _content.text=@"adsfafsd fdqsdfs  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsd  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq q";

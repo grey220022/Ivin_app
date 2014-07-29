@@ -20,7 +20,7 @@
 @property(nonatomic,retain) NSArray * listData;
 @property(nonatomic,retain) NSArray * sublistData;
 @property (nonatomic,retain) IBOutlet UISearchBar *searchBar;
-@property (strong) UIActivityIndicatorView *activityIndicator;
+//@property (strong) UIActivityIndicatorView *activityIndicator;
 
 //-(void)refreshPropertyList;
 
@@ -74,9 +74,17 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    
+    [SingletonClass sharedInstance].listview=self;
     NSLog(@"thirdappear");
     if ([SingletonClass sharedInstance].fromscan==1)
     {
+        
+        NSLog(@"3");
+        NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+
+        
+        
         [SingletonClass sharedInstance].fromscan=0;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
@@ -341,7 +349,7 @@
   //  self.tableView.scrollEnabled = NO;
     
     //[searchBar resignFirstResponder];
-    NSLog(@"begin editing");
+    //NSLog(@"begin editing");
     _searchBar.showsCancelButton=YES;
     [_searchBar setShowsCancelButton:YES animated:YES];
 
@@ -413,6 +421,9 @@
 //    return NO;
 //}
 
-
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [_activityIndicator stopAnimating];
+}
 
 @end

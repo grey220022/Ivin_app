@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UITextView *commenttext;
 @property (weak, nonatomic) IBOutlet UILabel *label1;
-
+@property (weak, nonatomic) UIViewController * gg;
 
 @end
+

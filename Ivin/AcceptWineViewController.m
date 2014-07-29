@@ -73,8 +73,13 @@
     //self.view.contentSize=CGSizeMake(400,400);
     //self.navigationController.title=@"fdasf";
     //self.navigationItem.title=@"Chateau IVin";
-    NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+    
+    //NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+
+    
     self.navigationItem.title= [SingletonClass sharedInstance].winery.Name;  //[_winery Name];
+    
+//    self.navigationItem.title= @"string";//[SingletonClass sharedInstance].winery.Name;  //[_winery Name];
     
 
    // UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sort.png"]]];
@@ -179,6 +184,9 @@
     //[words getword:@"averageprice"];
     NSString* num=@"189 ";
     _la7.text=[num stringByAppendingString:[words getword:@"ratings"]];
+    
+    
+    
 }
 
 
@@ -337,7 +345,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DetailView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"detailview"];
-    
+    nextController.gg=self;
     nextController.title=[words getword:@"rating"];
     [self.navigationController pushViewController:nextController animated:YES];
 //    nextController.rateView.rating=3;

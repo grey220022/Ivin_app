@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface RootViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate>
+@interface RootViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate, UITabBarControllerDelegate>
 {
     int num;
     BOOL upOrdown;
-      NSTimer * timer;
+    NSTimer * timer;
 }
 @property (strong,nonatomic)AVCaptureDevice * device;
 @property (strong,nonatomic)AVCaptureDeviceInput * input;
@@ -22,6 +22,7 @@
 @property (strong,nonatomic)AVCaptureVideoPreviewLayer * preview;
 @property (nonatomic, retain) UIImageView * line;
 //@property (nonatomic) BOOL isReading;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 
 

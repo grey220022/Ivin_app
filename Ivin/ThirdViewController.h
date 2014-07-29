@@ -8,13 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ThirdViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UIActionSheetDelegate>
+@interface ThirdViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UIActionSheetDelegate, UIAlertViewDelegate>
 //<UITableViewDataSource,UITableViewDelegate>
 //{
 //    NSArray * listData;
 //}
 //@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 
 @end

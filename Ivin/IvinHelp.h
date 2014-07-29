@@ -14,7 +14,7 @@
 @interface IvinHelp : NSObject//<NSURLConnectionDelegate>
 
 + (NSData *) geturlcontent:(NSString *) url;
-+ (Wine *) wineparse:(NSData *) winecontent;
++ (void) wineparse:(NSData *) winecontent;
 //+ (Winery *) wineryparse:(NSData *) winerycontent;
 + (void) wineryparse:(NSData *) winerycontent;
 

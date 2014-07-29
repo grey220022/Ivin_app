@@ -24,7 +24,7 @@
     NSString* kk;
     kk = [currentlang stringByAppendingString:@"."];
     kk = [kk stringByAppendingString:text];
-    NSLog(@"%@",kk);
+    //NSLog(@"%@",kk);
     return dictionary[kk];
 }
 

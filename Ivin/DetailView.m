@@ -89,6 +89,9 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
+    
+    
+    //[_gg.navigationController popToRootViewControllerAnimated:NO];
     _label1.hidden = YES;
     NSLog(@"hahahah");
 }

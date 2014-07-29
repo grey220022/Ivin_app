@@ -35,6 +35,7 @@
 @property(nonatomic,retain) NSString *Winetours;
 @property(nonatomic,retain) NSString *OtherHistoryTitle;
 @property(nonatomic,retain) NSString *OtherHistory;
+@property(nonatomic,retain) NSString *Contact;
 
 
 @end

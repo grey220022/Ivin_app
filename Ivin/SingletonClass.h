@@ -13,10 +13,11 @@
 @property(nonatomic,retain) NSString *username;
 @property(nonatomic,retain) NSString *password;
 @property(nonatomic,retain) NSString *lang;
-@property ( nonatomic) float rating;
+@property (nonatomic) float rating;
 @property(nonatomic,retain) Wine *wine;
 @property(nonatomic,retain) Winery *winery;
 @property(nonatomic) int fromscan;
+@property(nonatomic,retain) UIViewController *listview;
 
 
 

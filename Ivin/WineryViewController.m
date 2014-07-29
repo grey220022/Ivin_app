@@ -9,6 +9,7 @@
 #import "WineryViewController.h"
 #import "words.h"
 #import "ContentViewController.h"
+#import "SingletonClass.h"
 
 
 @interface WineryViewController ()
@@ -82,7 +83,7 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"winery"];
-
+    nextController.contenttype=@"winery";
 }
 
 -(IBAction) b2_push
@@ -90,7 +91,8 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
-    nextController.title=[words getword:@"winemaker"];
+    nextController.title=[SingletonClass sharedInstance].winery.OtherHistoryTitle;//[words getword:@"winemaker"];
+    nextController.contenttype=@"winemaker";
     
 }
 
@@ -100,6 +102,7 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"wineyard"];
+    nextController.contenttype=@"wineyard";
 
 }
 
@@ -109,6 +112,7 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"winetourism"];
+    nextController.contenttype=@"winetourism";
 
 }
 
@@ -118,6 +122,7 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"contact"];
+    nextController.contenttype=@"contact";
 
 }
 

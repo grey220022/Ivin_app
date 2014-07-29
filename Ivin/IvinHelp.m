@@ -35,11 +35,34 @@
     return nil;
 }
 
-+ (Wine *) wineparse:(NSData *) winecontent
++ (void) wineparse:(NSData *) winecontent
 {
     Wine * temp;
     
-    return temp;
+    NSError *error;
+    NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:winecontent options:NSJSONReadingMutableLeaves error:&error];
+
+    [SingletonClass sharedInstance].wine.WineName=[tempdic objectForKey:@"WineName"];
+    [SingletonClass sharedInstance].wine.Vintage=[tempdic objectForKey:@"Vintage"];
+    [SingletonClass sharedInstance].wine.WineTypeName=[tempdic objectForKey:@"WineTypeName"];
+    [SingletonClass sharedInstance].wine.WineryRecommandation=[tempdic objectForKey:@"WineryRecommandation"];
+    [SingletonClass sharedInstance].wine.FoodParing=[tempdic objectForKey:@"FoodParing"];
+    
+    /*
+    [SingletonClass sharedInstance].wine.Winetours=[tempdic objectForKey:@"Winetours"];
+    
+    [SingletonClass sharedInstance].wine.Mail=[tempdic objectForKey:@"Mail"];
+    [SingletonClass sharedInstance].wine.Facebook=[tempdic objectForKey:@"Facebook"];*/
+/*
+    NSMutableString* someString = [NSMutableString stringWithString: [SingletonClass sharedInstance].winery.Mail];
+    [someString appendString: [SingletonClass sharedInstance].winery.Facebook];
+    
+    [SingletonClass sharedInstance].winery.Contact=someString;
+  */
+    
+    
+    
+   // return temp;
 }
 
 
@@ -52,6 +75,11 @@
     Winery * temp=[[Winery alloc] init];
     NSError *error;
     NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:winerycontent options:NSJSONReadingMutableLeaves error:&error];
+
+    
+    
+    
+    
     
     //NSArray * keys=[tempdic allKeys];
     
@@ -71,10 +99,26 @@
     
 //    temp.Name=;
 //    [=temp;
-     
 //    [SingletonClass sharedInstance].winery=temp;
     [SingletonClass sharedInstance].winery.Name=[tempdic objectForKey:@"Name"];
-    NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+    [SingletonClass sharedInstance].winery.Description=[tempdic objectForKey:@"Description"];
+    [SingletonClass sharedInstance].winery.VinePresentation=[tempdic objectForKey:@"VinePresentation"];
+    [SingletonClass sharedInstance].winery.OtherHistory=[tempdic objectForKey:@"OtherHistory"];
+    [SingletonClass sharedInstance].winery.OtherHistoryTitle=[tempdic objectForKey:@"OtherHistoryTitle"]; //Les hommes
+    [SingletonClass sharedInstance].winery.Winetours=[tempdic objectForKey:@"Winetours"]; //Les hommes
+    
+    [SingletonClass sharedInstance].winery.Mail=[tempdic objectForKey:@"Mail"]; //Les hommes
+    [SingletonClass sharedInstance].winery.Facebook=[tempdic objectForKey:@"Facebook"]; //Les hommes
+
+    NSMutableString* someString = [NSMutableString stringWithString: [SingletonClass sharedInstance].winery.Mail];
+    [someString appendString: [SingletonClass sharedInstance].winery.Facebook];
+    
+    [SingletonClass sharedInstance].winery.Contact=someString;
+
+    
+    //NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+
+    
     
     //return temp;
 }

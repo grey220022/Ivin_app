@@ -10,9 +10,9 @@
 #import "RootViewController.h"
 #import "AcceptWineViewController.h"
 #import "SingletonClass.h"
+#import "IvinHelp.h"
 
 @interface RootViewController ()
-@property (strong) UIActivityIndicatorView *activityIndicator;
 
 @end
 
@@ -76,7 +76,28 @@
     //[self setupCamera];
 
   //  [self updateName];
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+    
+    self.tabBarController.delegate=self;
 }
+
+
+
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
+{
+    if (self==viewController)
+    {
+        [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
+      NSLog(@"tabx");
+    }
+}
+
+
 -(void)animation1
 {
     if (upOrdown == NO) {
@@ -106,7 +127,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     NSLog(@"appear");
-    
     [self setupCamera];
 }
 
@@ -177,41 +197,47 @@
     [_preview removeFromSuperlayer];
     
     
-    
-    [SingletonClass sharedInstance].fromscan=1;
-    [self.tabBarController setSelectedIndex:1];
-    /*
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
-//    [self.navigationController pushViewController:nextController animated:YES];
-    NSLog(@"abb");
-//    AcceptWineViewController * nextController = [[AcceptWineViewController alloc]init];
-
-    [self presentViewController:nextController animated:YES completion:^{
-        
-    }];
-*/
 }
 
 
 #pragma mark AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
-    
-    
-    
     NSString *stringValue;
-    
     if ([metadataObjects count] >0)
     {
-        
         //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
-
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         stringValue = metadataObject.stringValue;
-        
         NSLog(@"%@",stringValue);
-        [self performSelectorOnMainThread:@selector(updateName) withObject:nil waitUntilDone:NO];
+
+        [self performSelectorOnMainThread:@selector(updateName) withObject:nil waitUntilDone:YES];
+        
+        
+        [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
+        NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
+        NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+        
+        if ((!winerystring) || (!winestring))
+        {
+            UIAlertView *myAlertView;
+            myAlertView = [[UIAlertView alloc]initWithTitle:@"Network error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [myAlertView show];
+        }
+        
+        [IvinHelp wineryparse:winerystring];
+        
+        [IvinHelp wineparse:winestring];
+        
+        [_activityIndicator stopAnimating];
+        
+        NSLog(@"2");
+        NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+
+        [SingletonClass sharedInstance].fromscan=1;
+        [self.tabBarController setSelectedIndex:1];
+
+        
         
       //  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
     }
