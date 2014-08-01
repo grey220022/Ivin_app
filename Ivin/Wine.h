@@ -34,5 +34,7 @@
 @property(nonatomic,retain) NSString *WineMaking;
 @property(nonatomic,retain) NSString *VintageDescription;
 @property(nonatomic,retain) NSString *Distributor;
-
+@property(nonatomic,retain) NSString *Wine;
+@property(nonatomic,retain) NSString *Making;
+@property(nonatomic,retain) NSString *Tasting;
 @end

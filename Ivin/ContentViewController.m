@@ -28,6 +28,7 @@
 {
     [super viewDidLoad];
     _content.numberOfLines = 3;
+    
     self.view.backgroundColor=[UIColor clearColor];
     
     self.content1.backgroundColor=[UIColor blackColor];
@@ -39,7 +40,7 @@
     }
     else if ([_contenttype isEqual:@"winemaker"])
     {
-        _content1.text=[SingletonClass sharedInstance].winery.OtherHistory;
+        _content1.text=[SingletonClass sharedInstance].winery.OtherHistoryTitle;
         
     }
     else if ([_contenttype isEqual:@"wineyard"])
@@ -57,9 +58,29 @@
         _content1.text=[SingletonClass sharedInstance].winery.Contact;
         
     }
+    else if ([_contenttype isEqual:@"thewine"])
+    {
+        _content1.text=[SingletonClass sharedInstance].wine.Wine;
+        
+    }
+    else if ([_contenttype isEqual:@"winetasting"])
+    {
+        _content1.text=[SingletonClass sharedInstance].wine.Tasting;
+        
+    }
+    else if ([_contenttype isEqual:@"winemaking"])
+    {
+        _content1.text=[SingletonClass sharedInstance].wine.Making;
+        
+    }
+    else if ([_contenttype isEqual:@"advice"])
+    {
+        _content1.text=[SingletonClass sharedInstance].wine.WineryRecommandation;
+        
+    }
 
     
-    
+    [_content1 setUserInteractionEnabled:TRUE];
     //@"adsfafsd fdqsdfs  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsd  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq q";
     
    // [_content sizeToFit];

@@ -81,9 +81,12 @@
     {
         
         NSLog(@"3");
+        NSLog(@"%@",[SingletonClass sharedInstance].wine.Wine);
+        
         NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
 
         
+        NSLog(@"4");
         
         [SingletonClass sharedInstance].fromscan=0;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -262,14 +265,15 @@
     //[_activityIndicator startAnimating];
     
     
-    NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
-    NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+    NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/9"];
+    NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/9"];
     
-    if ((!winerystring) || (!winestring))
+    if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
     {
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:@"Network error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
+        [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
         return;
     }
     

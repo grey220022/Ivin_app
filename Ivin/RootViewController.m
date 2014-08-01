@@ -12,8 +12,11 @@
 #import "SingletonClass.h"
 #import "IvinHelp.h"
 
-@interface RootViewController ()
 
+bool isreading;
+int tim;
+
+@interface RootViewController ()
 @end
 
 @implementation RootViewController
@@ -29,7 +32,8 @@
 
 - (void)viewDidLoad
 {
-    
+    isreading=NO;
+    tim=0;
     NSLog(@"firstappear");
     [super viewDidLoad];
      self.view.backgroundColor = [UIColor blackColor];
@@ -84,6 +88,21 @@
     _activityIndicator.hidesWhenStopped = YES;
     
     self.tabBarController.delegate=self;
+    
+    
+    
+//    NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
+//    NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+//    [IvinHelp wineryparse:winerystring];
+//    [IvinHelp wineparse:winestring];
+
+   // [SingletonClass sharedInstance].wine.Wine=@"bbb";
+   // [SingletonClass sharedInstance].winery.Name=@"ccc";
+    
+    
+//    NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+//    NSLog(@"%@",[SingletonClass sharedInstance].wine.Wine);
+    
 }
 
 
@@ -196,13 +215,17 @@
     [_session stopRunning];
     [_preview removeFromSuperlayer];
     
-    
 }
 
 
 #pragma mark AVCaptureMetadataOutputObjectsDelegate
 - (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
 {
+//    tim++;
+//    NSLog(@"times : %d",tim);
+    if (isreading)
+        return;
+    isreading=YES;
     NSString *stringValue;
     if ([metadataObjects count] >0)
     {
@@ -210,35 +233,26 @@
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         stringValue = metadataObject.stringValue;
         NSLog(@"%@",stringValue);
-
-        [self performSelectorOnMainThread:@selector(updateName) withObject:nil waitUntilDone:YES];
-        
-        
         [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
+        
+        //NSLog(@"begin");
         NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
         NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
-        
-        if ((!winerystring) || (!winestring))
+        //NSLog(@"end");
+        if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
         {
             UIAlertView *myAlertView;
             myAlertView = [[UIAlertView alloc]initWithTitle:@"Network error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
+            return;
         }
         
+        [self performSelectorOnMainThread:@selector(updateName) withObject:nil waitUntilDone:NO];
         [IvinHelp wineryparse:winerystring];
-        
         [IvinHelp wineparse:winestring];
-        
         [_activityIndicator stopAnimating];
-        
-        NSLog(@"2");
-        NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
-
         [SingletonClass sharedInstance].fromscan=1;
         [self.tabBarController setSelectedIndex:1];
-
-        
-        
       //  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
     }
    // [_session stopRunning];
@@ -246,6 +260,7 @@
 //    {
 //        [timer invalidate];
 //    }];
+    //isreading=NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -253,5 +268,13 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [_activityIndicator stopAnimating];
+    isreading=NO;
+
+}
+
 
 @end

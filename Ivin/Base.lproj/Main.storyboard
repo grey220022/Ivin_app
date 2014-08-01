@@ -149,7 +149,7 @@
                                 <color key="textColor" red="0.92156862750000001" green="0.84705882349999995" blue="0.56862745100000001" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" id="Cdq-y2-x4L">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" id="Cdq-y2-x4L">
                                 <rect key="frame" x="20" y="59" width="285" height="424"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -676,22 +676,22 @@
                                             <action selector="showwinery" destination="DU5-cT-NPA" eventType="touchDown" id="22d-Vm-C7b"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marlborough, New Zealand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UfM-gd-8WO">
-                                        <rect key="frame" x="111" y="125" width="209" height="57"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seresin, Marlborough, New Zealand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UfM-gd-8WO">
+                                        <rect key="frame" x="111" y="130" width="209" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" red="0.50196081399917603" green="0.50196081399917603" blue="0.50196081399917603" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seresin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="97Z-Xd-n1b">
+                                    <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seresin" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="97Z-Xd-n1b">
                                         <rect key="frame" x="111" y="60" width="209" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
                                         <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marlborough Momo Sauvignon Blanc 2001" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DWJ-X7-igu">
-                                        <rect key="frame" x="111" y="80" width="189" height="101"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Marlborough Momo Sauvignon Blanc 2001 121jk21j212 j1k2121 21212" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DWJ-X7-igu">
+                                        <rect key="frame" x="111" y="60" width="189" height="101"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -834,6 +834,9 @@
                         <outlet property="la5" destination="DfR-OT-yuq" id="6Ix-q8-5ty"/>
                         <outlet property="la6" destination="Fwn-x4-2Yd" id="Xs8-8J-Po5"/>
                         <outlet property="la7" destination="SGP-9x-Dnl" id="lpO-JJ-MBe"/>
+                        <outlet property="li3" destination="UfM-gd-8WO" id="U8q-5f-cer"/>
+                        <outlet property="li4" destination="97Z-Xd-n1b" id="hwg-Mh-TjX"/>
+                        <outlet property="li8" destination="3f6-Q3-5sE" id="Lzy-sh-vyr"/>
                         <outlet property="nameandyear" destination="DWJ-X7-igu" id="PlB-Rm-rmi"/>
                         <outlet property="newtable" destination="rnl-xE-Iej" id="4VX-7G-1Qf"/>
                         <outlet property="personalnote" destination="6Tq-5l-HgW" id="mhz-uC-AiD"/>

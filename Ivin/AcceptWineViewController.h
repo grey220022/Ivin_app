@@ -28,6 +28,18 @@
 @property (weak, nonatomic) IBOutlet UILabel *la7;//评价
 
 
+//@property (weak, nonatomic) IBOutlet UILabel *li1;//酒名和年份
+//@property (weak, nonatomic) IBOutlet UILabel *li2;//
+@property (weak, nonatomic) IBOutlet UILabel *li3;//地区和国家
+@property (weak, nonatomic) IBOutlet UILabel *li4;//产区
+//@property (weak, nonatomic) IBOutlet UILabel *li5;//
+//@property (weak, nonatomic) IBOutlet UILabel *li6;//
+//@property (weak, nonatomic) IBOutlet UILabel *li7;//评论
+@property (weak, nonatomic) IBOutlet UILabel *li8;//食物
+
+
+
+
 @property(nonatomic,retain) IBOutlet UIWebView *webView;
 @property (weak, nonatomic) IBOutlet RateView *rateView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;

@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-@interface RootViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate, UITabBarControllerDelegate>
+@interface RootViewController : UIViewController<AVCaptureMetadataOutputObjectsDelegate, UITabBarControllerDelegate, UIAlertViewDelegate>
 {
     int num;
     BOOL upOrdown;

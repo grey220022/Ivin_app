@@ -91,7 +91,7 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
-    nextController.title=[SingletonClass sharedInstance].winery.OtherHistoryTitle;//[words getword:@"winemaker"];
+    nextController.title=[SingletonClass sharedInstance].winery.OtherHistory;//[words getword:@"winemaker"];
     nextController.contenttype=@"winemaker";
     
 }

@@ -186,11 +186,62 @@
     _la7.text=[num stringByAppendingString:[words getword:@"ratings"]];
     
     
+    _li4.text=[SingletonClass sharedInstance].wine.AppellationName;
+    _description.text=[SingletonClass sharedInstance].wine.WineryRecommandation;
+    _li8.text=[SingletonClass sharedInstance].wine.FoodParing;
     
+    NSLog(@"%@",[SingletonClass sharedInstance].wine.Vintage);
+    
+    
+    
+    NSMutableString* someString = [NSMutableString stringWithString: [SingletonClass sharedInstance].wine.WineName];
+    [someString appendString: @" "];
+    [someString appendString: [SingletonClass sharedInstance].wine.Vintage];
+    
+    _nameandyear.text=someString;
+    //_nameandyear.text=@"Château Pichon Longueville Baron 2009";
+    //NSLog(@"%@",someString);
+    
+    someString = [NSMutableString stringWithString: [SingletonClass sharedInstance].wine.AppellationName];
+    [someString appendString: @", "];
+    [someString appendString: [SingletonClass sharedInstance].winery.RegionName];
+//    someString = [NSMutableString stringWithString: ];
+    [someString appendString: @", "];
+    [someString appendString: [SingletonClass sharedInstance].winery.ContactCountryName];
+    _li3.text=someString;
+    
+    _li3.lineBreakMode = UILineBreakModeWordWrap;
+    _li3.numberOfLines = 0;
+    [_li3 sizeToFit];
+    NSLog(@"%@",someString);
+    
+    /*
+    UITapGestureRecognizer *navSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navSingleTap)];
+    navSingleTap.numberOfTapsRequired = 1;
+    [[self.navigationController.navigationBar.subviews objectAtIndex:1] setUserInteractionEnabled:YES];
+    [[self.navigationController.navigationBar.subviews objectAtIndex:1] addGestureRecognizer:navSingleTap];
+     */
+    
+    
+    
+    if ([SingletonClass sharedInstance].winery.Name.length>28)
+    {
+      UIButton *titleLabel = [UIButton buttonWithType:UIButtonTypeCustom];
+      [titleLabel setTitle:[SingletonClass sharedInstance].winery.Name forState:UIControlStateNormal];
+      titleLabel.frame = CGRectMake(0, 0, 70, 44);
+      titleLabel.font = [UIFont boldSystemFontOfSize:16];
+      [titleLabel setTitleColor:[UIColor colorWithRed:235.0f/255.0f green:216.0f/255.0f blue:145.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
+      //[titleLabel addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
+      self.navigationItem.titleView = titleLabel;
+    }
 }
 
-
-
+/*
+- (IBAction) titleTap:(id) sender
+{
+    NSLog(@"Title tap");
+}
+*/
 
 -(void)viewWillAppear:(BOOL)animated
 {

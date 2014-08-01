@@ -58,6 +58,7 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"thewine"];
+    nextController.contenttype=@"thewine";
 }
 
 -(IBAction) b2_push
@@ -66,7 +67,7 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"winetasting"];
-
+    nextController.contenttype=@"winetasting";
 }
 
 -(IBAction) b3_push
@@ -75,7 +76,7 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"winemaking"];
-
+    nextController.contenttype=@"winemaking";
 }
 
 -(IBAction) b4_push
@@ -84,7 +85,7 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"advice"];
-
+    nextController.contenttype=@"advice";
 }
 
 
