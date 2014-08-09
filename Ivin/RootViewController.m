@@ -145,6 +145,7 @@ int tim;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    isreading=NO;
     NSLog(@"appear");
     [self setupCamera];
 }

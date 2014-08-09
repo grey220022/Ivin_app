@@ -33,10 +33,12 @@
     
     self.content1.backgroundColor=[UIColor blackColor];
     
+    
+    
     if ([_contenttype isEqual:@"winery"])
     {
         _content1.text=[SingletonClass sharedInstance].winery.Description;
-
+        
     }
     else if ([_contenttype isEqual:@"winemaker"])
     {

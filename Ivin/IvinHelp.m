@@ -106,6 +106,7 @@
     someString3 =[IvinHelp strpreval: [SingletonClass sharedInstance].wine.VintageDescription prevalue:@"VintageDescription" join:@":"];
     [someString appendString: someString2];
     [someString appendString: someString3];
+    [SingletonClass sharedInstance].wine.PictureName=[tempdic objectForKey:@"PictureName"];
     [SingletonClass sharedInstance].wine.Making=someString;
     
     
@@ -148,6 +149,11 @@
     [SingletonClass sharedInstance].winery.Weibo=[tempdic objectForKey:@"Weibo"];
     [SingletonClass sharedInstance].winery.EShop=[tempdic objectForKey:@"EShop"];
     
+    [SingletonClass sharedInstance].winery.PictureName=[tempdic objectForKey:@"PictureName"];
+    [SingletonClass sharedInstance].winery.WineryPresentationPhotoName=[tempdic objectForKey:@"WineryPresentationPhotoName"];
+    [SingletonClass sharedInstance].winery.VinePresentationPhotoName=[tempdic objectForKey:@"VinePresentationPhotoName"];
+    [SingletonClass sharedInstance].winery.OtherHistoryPhotoName=[tempdic objectForKey:@"OtherHistoryPhotoName"];
+    [SingletonClass sharedInstance].winery.WinetoursPhotoName=[tempdic objectForKey:@"WinetoursPhotoName"];
     
     
     

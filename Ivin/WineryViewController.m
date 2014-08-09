@@ -38,7 +38,10 @@
 -(void)loadima
 {
     [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
-    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.ivindigital.com/content/images/carte/chateau.png"]]];
+    NSString *somestring=[SingletonClass sharedInstance].winery.PictureName;
+    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:somestring]]];
+    
+    //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.ivindigital.com/content/images/carte/chateau.png"]]];
     _ima.image=image;
     [_activityIndicator stopAnimating];
 }

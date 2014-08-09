@@ -121,9 +121,14 @@
     
     //UIImageView *someImageView
    // _iw= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wine.jpg"]];
-    [_iw setImage:[UIImage imageNamed:@"wine.jpg"]];
     //someImageView.image = someImage;
     //[self.view addSubview:someImageView];
+    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.PictureName]]];
+
+    
+    _iw.contentMode=UIViewContentModeScaleAspectFit;
+    
+    [_iw setImage:image];
     
     
     //[_iw addSubview:];

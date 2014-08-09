@@ -46,6 +46,8 @@
 @property (weak, nonatomic) IBOutlet UIScrollView *sw;
 @property (weak, nonatomic) IBOutlet UIImageView *iw;
 
+@property (weak, nonatomic) IBOutlet UIImageView *cup;
+
 
 //@property (weak, nonatomic) IBOutlet UILabel *winery;
 //@property (weak, nonatomic) IBOutlet UILabel *winename;

@@ -265,8 +265,8 @@
     //[_activityIndicator startAnimating];
     
     
-    NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/9"];
-    NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/9"];
+    NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
+    NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
     
     if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
     {

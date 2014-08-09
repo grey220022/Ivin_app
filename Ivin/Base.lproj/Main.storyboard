@@ -826,6 +826,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="p7n-mS-2vI"/>
                     <connections>
+                        <outlet property="cup" destination="kNC-q4-ZqG" id="Ou5-2x-1UB"/>
                         <outlet property="description" destination="DI8-V4-KcO" id="bV4-oa-C8e"/>
                         <outlet property="iw" destination="19H-t6-Y3r" id="vqd-y8-Tvg"/>
                         <outlet property="la1" destination="ahc-IG-2aB" id="6i6-3M-K19"/>
@@ -860,7 +861,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3.png" id="15g-4i-KXL">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="250"/>
+                                <rect key="frame" x="0.0" y="60" width="320" height="230"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="eiD-N4-Eed">
@@ -939,6 +940,7 @@
                         <outlet property="b2" destination="3SL-pY-CiW" id="Jot-nk-njb"/>
                         <outlet property="b3" destination="qIO-5h-7V4" id="7SQ-wa-DWY"/>
                         <outlet property="b4" destination="u0a-01-YKB" id="5Mg-ik-dUO"/>
+                        <outlet property="ima" destination="15g-4i-KXL" id="AmB-G0-5Sc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0d-mu-cck" userLabel="First Responder" sceneMemberID="firstResponder"/>

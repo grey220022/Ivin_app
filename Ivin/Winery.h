@@ -36,6 +36,11 @@
 @property(nonatomic,retain) NSString *OtherHistoryTitle;
 @property(nonatomic,retain) NSString *OtherHistory;
 @property(nonatomic,retain) NSString *Contact;
+@property(nonatomic,retain) NSString *PictureName;
+@property(nonatomic,retain) NSString *WineryPresentationPhotoName;
+@property(nonatomic,retain) NSString *VinePresentationPhotoName;
+@property(nonatomic,retain) NSString *OtherHistoryPhotoName;
+@property(nonatomic,retain) NSString *WinetoursPhotoName;
 
 
 @end

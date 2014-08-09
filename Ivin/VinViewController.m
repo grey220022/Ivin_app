@@ -9,9 +9,12 @@
 #import "VinViewController.h"
 #import "words.h"
 #import "ContentViewController.h"
+#import "SingletonClass.h"
 
 
 @interface VinViewController ()
+@property (strong) UIActivityIndicatorView *activityIndicator;
+
 @end
 
 @implementation VinViewController
@@ -24,6 +27,27 @@
     }
     return self;
 }
+
+
+
+-(void)actIndicatorBegin
+{
+    [_activityIndicator startAnimating];
+}
+
+
+-(void)loadima
+{
+    [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
+    NSString *somestring=[SingletonClass sharedInstance].wine.PictureName;
+    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:somestring]]];
+    
+    //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.ivindigital.com/content/images/carte/chateau.png"]]];
+    _ima.image=image;
+    _ima.contentMode=UIViewContentModeScaleAspectFit;
+    [_activityIndicator stopAnimating];
+}
+
 
 - (void)viewDidLoad
 {
@@ -38,6 +62,13 @@
     [_b3 setTitle:[words getword:@"winemaking"] forState:UIControlStateNormal];
     [_b4 setTitle:[words getword:@"advice"] forState:UIControlStateNormal];
     
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+    [self performSelectorOnMainThread:@selector(loadima) withObject:nil waitUntilDone:NO];
     
     
 }
