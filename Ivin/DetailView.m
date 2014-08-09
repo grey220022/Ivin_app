@@ -28,9 +28,9 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    self.rateView.notSelectedImage = [UIImage imageNamed:@"kermit_empty.png"];
-    self.rateView.halfSelectedImage = [UIImage imageNamed:@"kermit_half.png"];
-    self.rateView.fullSelectedImage = [UIImage imageNamed:@"kermit_full.png"];
+    self.rateView.notSelectedImage = [UIImage imageNamed:@"star1.png"];
+    self.rateView.halfSelectedImage = [UIImage imageNamed:@"star3.png"];
+    self.rateView.fullSelectedImage = [UIImage imageNamed:@"star2.png"];
 
     self.rateView.rating = [SingletonClass sharedInstance].rating;
     //self.commenttext.

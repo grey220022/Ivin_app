@@ -92,12 +92,12 @@
     [_sw setScrollEnabled:YES];
     //[_sw setContentSize:CGSizeMake(320, 2200)];
     
-    [_sw setContentSize:CGSizeMake(320, 700)];
+    [_sw setContentSize:CGSizeMake(320, 750)];
     
     _sw.delegate=self;
-    self.rateView.notSelectedImage = [UIImage imageNamed:@"kermit_empty.png"];
-    self.rateView.halfSelectedImage = [UIImage imageNamed:@"kermit_half.png"];
-    self.rateView.fullSelectedImage = [UIImage imageNamed:@"kermit_full.png"];
+    self.rateView.notSelectedImage = [UIImage imageNamed:@"star1.png"];
+    self.rateView.halfSelectedImage = [UIImage imageNamed:@"star3.png"];
+    self.rateView.fullSelectedImage = [UIImage imageNamed:@"star2.png"];
     //self.rateView.rating = 3;
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
@@ -185,7 +185,7 @@
     _la3.text=[words getword:@"winery"];
     _la4.text=[words getword:@"recommandationofwinemaker"];
     _la5.text=[words getword:@"averagerating"];
-    _la6.text=@"Like";
+    _la6.text=@"Like Rating";
     //[words getword:@"averageprice"];
     NSString* num=@"189 ";
     _la7.text=[num stringByAppendingString:[words getword:@"ratings"]];
@@ -196,6 +196,7 @@
     _li8.text=[SingletonClass sharedInstance].wine.FoodParing;
     
     NSLog(@"%@",[SingletonClass sharedInstance].wine.Vintage);
+    _li9.text=[SingletonClass sharedInstance].wine.ClassementName;
     
     
     

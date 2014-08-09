@@ -36,6 +36,7 @@
 //@property (weak, nonatomic) IBOutlet UILabel *li6;//
 //@property (weak, nonatomic) IBOutlet UILabel *li7;//评论
 @property (weak, nonatomic) IBOutlet UILabel *li8;//食物
+@property (weak, nonatomic) IBOutlet UILabel *li9;//食物
 
 
 

@@ -104,10 +104,14 @@
 		CEB4A54B18C69BCD0037C867 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB4A54A18C69BCD0037C867 /* QuartzCore.framework */; };
 		CEB4A55418C69C5D0037C867 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB4A55218C69C5D0037C867 /* line@2x.png */; };
 		CEB4A55518C69C5D0037C867 /* pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */; };
+		CEC934201996851E00FF2FB8 /* adward.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9341F1996851E00FF2FB8 /* adward.png */; };
 		CED34EC218CA4DB700640DFD /* FormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC018CA4DB700640DFD /* FormTableController.m */; };
 		CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC118CA4DB700640DFD /* RegisterFormTableController.m */; };
 		CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0618CC7A1800640DFD /* RecipeTableCell.m */; };
 		CED34F0B18CCA8C700640DFD /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0A18CCA8C700640DFD /* SendViewController.m */; };
+		CEDC465D19966AC300C1665F /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465A19966AC300C1665F /* star1.png */; };
+		CEDC465E19966AC300C1665F /* star2.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465B19966AC300C1665F /* star2.png */; };
+		CEDC465F19966AC300C1665F /* star3.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465C19966AC300C1665F /* star3.png */; };
 		CEF3B79D1934FDF3002D7D6E /* recomm.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3B79B1934FDF3002D7D6E /* recomm.png */; };
 		CEF3B79E1934FDF3002D7D6E /* foodpair.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3B79C1934FDF3002D7D6E /* foodpair.png */; };
 		CEF8CF6E18C1434D00943823 /* wine.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF8CF6D18C1434D00943823 /* wine.jpg */; };
@@ -290,6 +294,7 @@
 		CEB4A54A18C69BCD0037C867 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEB4A55218C69C5D0037C867 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
 		CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_bg@2x.png"; sourceTree = "<group>"; };
+		CEC9341F1996851E00FF2FB8 /* adward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adward.png; sourceTree = "<group>"; };
 		CED34EBE18CA4DB700640DFD /* FormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableController.h; sourceTree = "<group>"; };
 		CED34EBF18CA4DB700640DFD /* RegisterFormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFormTableController.h; sourceTree = "<group>"; };
 		CED34EC018CA4DB700640DFD /* FormTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableController.m; sourceTree = "<group>"; };
@@ -298,6 +303,9 @@
 		CED34F0618CC7A1800640DFD /* RecipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableCell.m; sourceTree = "<group>"; };
 		CED34F0918CCA8C700640DFD /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
 		CED34F0A18CCA8C700640DFD /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
+		CEDC465A19966AC300C1665F /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
+		CEDC465B19966AC300C1665F /* star2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star2.png; sourceTree = "<group>"; };
+		CEDC465C19966AC300C1665F /* star3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star3.png; sourceTree = "<group>"; };
 		CEF3B79B1934FDF3002D7D6E /* recomm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recomm.png; sourceTree = "<group>"; };
 		CEF3B79C1934FDF3002D7D6E /* foodpair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodpair.png; sourceTree = "<group>"; };
 		CEF8CF6D18C1434D00943823 /* wine.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wine.jpg; sourceTree = "<group>"; };
@@ -354,6 +362,9 @@
 		CE084C8C18F489CE0062BB5F /* newresources */ = {
 			isa = PBXGroup;
 			children = (
+				CEDC465A19966AC300C1665F /* star1.png */,
+				CEDC465B19966AC300C1665F /* star2.png */,
+				CEDC465C19966AC300C1665F /* star3.png */,
 				CE95FB70196096FA00D882C1 /* cal.png */,
 				CE95FB71196096FA00D882C1 /* emptybook.png */,
 				CE95FB72196096FA00D882C1 /* emptyticket.png */,
@@ -416,6 +427,7 @@
 				CE084C8C18F489CE0062BB5F /* newresources */,
 				CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */,
 				CE89181C191E327800231FBB /* caved.png */,
+				CEC9341F1996851E00FF2FB8 /* adward.png */,
 				CE89181D191E327800231FBB /* rated.png */,
 				CE8A9BA318C2354700F76A4A /* kermit_full.png */,
 				CE8A9BA418C2354700F76A4A /* kermit_half.png */,
@@ -792,6 +804,7 @@
 			files = (
 				CE89181B19153C6200231FBB /* cup.png in Resources */,
 				CEB4A54018C69B720037C867 /* zbar-helpicons.png in Resources */,
+				CEDC465F19966AC300C1665F /* star3.png in Resources */,
 				CE95FB79196096FA00D882C1 /* point.png in Resources */,
 				CE084CAA18F60C270062BB5F /* gline.png in Resources */,
 				CE97624418CFD82000A8C6AC /* typingSomeone@2x.png in Resources */,
@@ -816,10 +829,12 @@
 				CE8917BD1914F7B600231FBB /* 222.png in Resources */,
 				CE8419A218BEAF0200ECC402 /* InfoPlist.strings in Resources */,
 				CE89181E191E327800231FBB /* caved.png in Resources */,
+				CEDC465D19966AC300C1665F /* star1.png in Resources */,
 				CE084CAB18F60C270062BB5F /* 40.png in Resources */,
 				CE89181F191E327800231FBB /* rated.png in Resources */,
 				CE89181719152B7200231FBB /* noir1.png in Resources */,
 				CE8A9BA618C2354700F76A4A /* kermit_full.png in Resources */,
+				CEC934201996851E00FF2FB8 /* adward.png in Resources */,
 				CE084BFE18F0CE910062BB5F /* try.plist in Resources */,
 				CE8917C51914FECB00231FBB /* tabbar_4.png in Resources */,
 				CEB4A53F18C69B720037C867 /* zbar-help.html in Resources */,
@@ -835,6 +850,7 @@
 				CE8A9BA518C2354700F76A4A /* kermit_empty.png in Resources */,
 				CE084C9118F48D660062BB5F /* chateau.png in Resources */,
 				CEFF3F5418E246C500785AD7 /* RadioButton-Selected.png in Resources */,
+				CEDC465E19966AC300C1665F /* star2.png in Resources */,
 				CE95FB75196096FA00D882C1 /* cal.png in Resources */,
 				CE97623F18CFD82000A8C6AC /* missingAvatar.png in Resources */,
 				CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */,
