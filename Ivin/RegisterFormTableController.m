@@ -26,6 +26,8 @@
 	self.address     = @"" ;
 	self.password    = @"" ;
 	self.description = @"" ;
+    
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
 }
 
 
@@ -149,7 +151,7 @@
 	tf.autocorrectionType = UITextAutocorrectionTypeNo ;
 	tf.autocapitalizationType = UITextAutocapitalizationTypeNone;
 	tf.adjustsFontSizeToFitWidth = YES;
-	tf.textColor = [UIColor colorWithRed:56.0f/255.0f green:84.0f/255.0f blue:135.0f/255.0f alpha:1.0f]; 	
+	//tf.textColor = [UIColor colorWithRed:56.0f/255.0f green:84.0f/255.0f blue:135.0f/255.0f alpha:1.0f];
 	return tf ;
 }
 
@@ -159,7 +161,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
-    return 50;
+    return 150;
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
@@ -168,10 +170,22 @@
     
     UIButton *cancelButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     cancelButton.frame = CGRectMake(200.0, 20, 160.0, 40.0); // x,y,width,height
-    [cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    //[cancelButton setTitle:@"取消" forState:UIControlStateNormal];
+    
+    
+//    [cancelButton setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"cancel" ofType:@"png"]]]];
+    UIImage *btnImage =[UIImage imageNamed:@"cancel.png"];
+    
+   // UIImage *redIcon = [btnImage maskWithColor:UIColor.redColor];
+    
+    [cancelButton setImage:btnImage forState:UIControlStateNormal];
+    
+    
     [cancelButton addTarget:self
                      action:@selector(cancelbtnpress)
            forControlEvents:UIControlEventTouchDown];
+    
+    
     
     [headerView addSubview:cancelButton];
     
@@ -188,9 +202,15 @@
    // UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeCustom];
     
-    [loginButton setBackgroundColor:[UIColor blueColor]];
+    [loginButton setBackgroundColor:[UIColor redColor]];
+    
+    //[loginButton setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]]];
+    
     loginButton.frame = CGRectMake(110.0, 240, 160.0, 40.0); // x,y,width,height
-    [loginButton setTitle:[words getword:@"confirm"] forState:UIControlStateNormal];
+    //[loginButton setTitle:[words getword:@"confirm"] forState:UIControlStateNormal];
+    
+    
+    
     [loginButton addTarget:self
                     action:@selector(confirmbtnpress)
            forControlEvents:UIControlEventTouchDown];

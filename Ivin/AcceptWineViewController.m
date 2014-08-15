@@ -278,7 +278,10 @@
     GrapeViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"grapeview"];
     
     nextController.title=[words getword:@"grape"];
-    nextController.grapearray=[[NSMutableArray alloc] initWithObjects:@"CABERNET-SAUVIGNON",@"SYRAH",@"MALBEC",@"MERLOT",@"PINOT NOIR",@"GAMAY",nil];
+//    nextController.grapearray=[[NSMutableArray alloc] initWithObjects:@"CABERNET-SAUVIGNON",@"SYRAH",@"MALBEC",@"MERLOT",@"PINOT NOIR",@"GAMAY",nil];
+    
+    nextController.grapearray=[SingletonClass sharedInstance].wine.grapearray;
+    
     [self.navigationController pushViewController:nextController animated:YES];
     
 }

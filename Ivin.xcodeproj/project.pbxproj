@@ -105,6 +105,10 @@
 		CEB4A55418C69C5D0037C867 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB4A55218C69C5D0037C867 /* line@2x.png */; };
 		CEB4A55518C69C5D0037C867 /* pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */; };
 		CEC934201996851E00FF2FB8 /* adward.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9341F1996851E00FF2FB8 /* adward.png */; };
+		CEC93422199A9ABA00FF2FB8 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC93421199A9ABA00FF2FB8 /* cancel.png */; };
+		CEC93425199AA06A00FF2FB8 /* NewuserView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93424199AA06A00FF2FB8 /* NewuserView.m */; };
+		CEC93428199AA9A500FF2FB8 /* NewloginView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93427199AA9A500FF2FB8 /* NewloginView.m */; };
+		CEC9342A199AAABC00FF2FB8 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC93429199AAABC00FF2FB8 /* profile.png */; };
 		CED34EC218CA4DB700640DFD /* FormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC018CA4DB700640DFD /* FormTableController.m */; };
 		CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC118CA4DB700640DFD /* RegisterFormTableController.m */; };
 		CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0618CC7A1800640DFD /* RecipeTableCell.m */; };
@@ -295,6 +299,12 @@
 		CEB4A55218C69C5D0037C867 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
 		CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_bg@2x.png"; sourceTree = "<group>"; };
 		CEC9341F1996851E00FF2FB8 /* adward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adward.png; sourceTree = "<group>"; };
+		CEC93421199A9ABA00FF2FB8 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
+		CEC93423199AA06A00FF2FB8 /* NewuserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewuserView.h; sourceTree = "<group>"; };
+		CEC93424199AA06A00FF2FB8 /* NewuserView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewuserView.m; sourceTree = "<group>"; };
+		CEC93426199AA9A500FF2FB8 /* NewloginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewloginView.h; sourceTree = "<group>"; };
+		CEC93427199AA9A500FF2FB8 /* NewloginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewloginView.m; sourceTree = "<group>"; };
+		CEC93429199AAABC00FF2FB8 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
 		CED34EBE18CA4DB700640DFD /* FormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableController.h; sourceTree = "<group>"; };
 		CED34EBF18CA4DB700640DFD /* RegisterFormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFormTableController.h; sourceTree = "<group>"; };
 		CED34EC018CA4DB700640DFD /* FormTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableController.m; sourceTree = "<group>"; };
@@ -362,6 +372,7 @@
 		CE084C8C18F489CE0062BB5F /* newresources */ = {
 			isa = PBXGroup;
 			children = (
+				CEC93429199AAABC00FF2FB8 /* profile.png */,
 				CEDC465A19966AC300C1665F /* star1.png */,
 				CEDC465B19966AC300C1665F /* star2.png */,
 				CEDC465C19966AC300C1665F /* star3.png */,
@@ -399,6 +410,10 @@
 		CE2A3F8F18C93016008212A4 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				CEC93423199AA06A00FF2FB8 /* NewuserView.h */,
+				CEC93424199AA06A00FF2FB8 /* NewuserView.m */,
+				CEC93426199AA9A500FF2FB8 /* NewloginView.h */,
+				CEC93427199AA9A500FF2FB8 /* NewloginView.m */,
 				CED34EBE18CA4DB700640DFD /* FormTableController.h */,
 				CED34EBF18CA4DB700640DFD /* RegisterFormTableController.h */,
 				CED34EC018CA4DB700640DFD /* FormTableController.m */,
@@ -427,6 +442,7 @@
 				CE084C8C18F489CE0062BB5F /* newresources */,
 				CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */,
 				CE89181C191E327800231FBB /* caved.png */,
+				CEC93421199A9ABA00FF2FB8 /* cancel.png */,
 				CEC9341F1996851E00FF2FB8 /* adward.png */,
 				CE89181D191E327800231FBB /* rated.png */,
 				CE8A9BA318C2354700F76A4A /* kermit_full.png */,
@@ -850,8 +866,10 @@
 				CE8A9BA518C2354700F76A4A /* kermit_empty.png in Resources */,
 				CE084C9118F48D660062BB5F /* chateau.png in Resources */,
 				CEFF3F5418E246C500785AD7 /* RadioButton-Selected.png in Resources */,
+				CEC93422199A9ABA00FF2FB8 /* cancel.png in Resources */,
 				CEDC465E19966AC300C1665F /* star2.png in Resources */,
 				CE95FB75196096FA00D882C1 /* cal.png in Resources */,
+				CEC9342A199AAABC00FF2FB8 /* profile.png in Resources */,
 				CE97623F18CFD82000A8C6AC /* missingAvatar.png in Resources */,
 				CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */,
 				CE97624218CFD82000A8C6AC /* typingMine@2x.png in Resources */,
@@ -904,6 +922,7 @@
 				CE97625418CFD85800A8C6AC /* UIBubbleHeaderTableViewCell.m in Sources */,
 				CEFF3F4918E2396600785AD7 /* RadioButtonViewController.m in Sources */,
 				CEFF3F4D18E2397E00785AD7 /* RadioButton.m in Sources */,
+				CEC93425199AA06A00FF2FB8 /* NewuserView.m in Sources */,
 				CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */,
 				CE2A3F8D18C7F910008212A4 /* ViewController.m in Sources */,
 				CE8918221928965100231FBB /* HistoryViewCell.m in Sources */,
@@ -914,6 +933,7 @@
 				CE95FB7C196A0F8300D882C1 /* IvinHelp.m in Sources */,
 				CEB4A53618C69B720037C867 /* mask.c in Sources */,
 				CE97622C18CD240D00A8C6AC /* WineView.m in Sources */,
+				CEC93428199AA9A500FF2FB8 /* NewloginView.m in Sources */,
 				CE084BF918F0392F0062BB5F /* SingletonClass.m in Sources */,
 				CE8419A418BEAF0200ECC402 /* main.m in Sources */,
 				CE25A8F218D77D1500927856 /* ProfileView.m in Sources */,

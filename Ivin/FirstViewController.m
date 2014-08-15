@@ -12,6 +12,7 @@
 #import "ProfileView.h"
 #import "words.h"
 #import "LangView.h"
+#import "NewloginView.h"
 
 
 @interface FirstViewController ()
@@ -151,9 +152,15 @@ UITableViewCell * profilecell;
 
      case 0: {
          
-         FormTableController* formTable = [[FormTableController alloc ]  initWithStyle:UITableViewStyleGrouped];
-         [self presentModalViewController:formTable animated:NO];
+//         FormTableController* formTable = [[FormTableController alloc ]  initWithStyle:UITableViewStyleGrouped];
+//         [self presentModalViewController:formTable animated:NO];
 
+         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+         NewloginView *newloginview = [storyboard instantiateViewControllerWithIdentifier:@"newloginview"];
+         
+         [self presentModalViewController:newloginview animated:YES];
+         
+         
          break;
     }
         case 1: {

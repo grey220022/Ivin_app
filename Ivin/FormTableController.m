@@ -5,6 +5,10 @@
 //  Created by Andrew Lim on 4/15/11.
 #import "FormTableController.h"
 #import "RegisterFormTableController.h"
+#import "NewuserView.h"
+#import "AcceptWineViewController.h"
+#import "ContentViewController.h"
+
 
 
 @implementation FormTableController
@@ -115,11 +119,15 @@
     NSLog(@"create");
     
     
-    RegisterFormTableController * formTable = [[RegisterFormTableController alloc ] initWithStyle:UITableViewStyleGrouped];
+//    RegisterFormTableController * formTable = [[RegisterFormTableController alloc ] initWithStyle:UITableViewStyleGrouped];
     
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NewuserView *newuserview = [storyboard instantiateViewControllerWithIdentifier:@"newuserview"];
+
+//    NewuserView * newuserview = [[NewuserView alloc ] init];
+    // ContentViewController* newuserview = [[ContentViewController alloc ] init];
     
-    
-    [self presentModalViewController:formTable animated:YES];
+    [self presentModalViewController:newuserview animated:YES];
     
     
 }

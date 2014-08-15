@@ -69,6 +69,30 @@
     //[NSString stringWithFormat: @"%d",cc];
     [SingletonClass sharedInstance].wine.Vintage=[NSString stringWithFormat: @"%d",cc];
     
+    
+    NSArray *grapelist = [tempdic valueForKey:@"WineGrapeList"];
+    NSString * tmp;
+    
+    NSMutableArray *ttt =[[NSMutableArray alloc] initWithObjects: nil];
+    
+    for (NSDictionary *groupDic in grapelist) {
+        //Group *group = [[Group alloc] init];
+        //groupDic
+        tmp=[groupDic valueForKey:@"GrapeName"];
+        [ttt addObject:tmp];
+    }
+    
+    [SingletonClass sharedInstance].wine.grapearray=ttt;
+    
+    /*
+        for (NSString *key in groupDic) {
+            if ([group respondsToSelector:NSSelectorFromString(key)]) {
+                [group setValue:[groupDic valueForKey:key] forKey:key];
+            }
+    */
+    
+   // [SingletonClass sharedInstance].wine.grapearray=
+    
     //[tempdic objectForKey:@"Vintage"];
     [SingletonClass sharedInstance].wine.WineTypeName=[tempdic objectForKey:@"WineTypeName"];
     [SingletonClass sharedInstance].wine.WineryRecommandation=[tempdic objectForKey:@"WineryRecommandation"];
@@ -85,7 +109,7 @@
     [SingletonClass sharedInstance].wine.WineMaking=[tempdic objectForKey:@"WineMaking"];
     [SingletonClass sharedInstance].wine.VintageDescription=[tempdic objectForKey:@"VintageDescription"];
     
-
+    [tempdic objectForKey:@"WineGrapeList"];
     
     NSMutableString* someString = [IvinHelp strpreval: [SingletonClass sharedInstance].wine.PropertyOwner prevalue:@"PropertyOwner" join:@":"];
     NSMutableString* someString2 =[IvinHelp strpreval: [SingletonClass sharedInstance].wine.ClassementName prevalue:@"ClassementName" join:@":"];

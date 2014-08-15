@@ -38,5 +38,9 @@
 @property(nonatomic,retain) NSString *Making;
 @property(nonatomic,retain) NSString *Tasting;
 @property(nonatomic,retain) NSString *PictureName;
+@property(nonatomic,retain) NSMutableArray *grapearray;
+@property(nonatomic,retain) NSString *AverageMark;
+@property(nonatomic,retain) NSString *TotalLike;
+@property(nonatomic,retain) NSString *TotalMarkUser;
 
 @end

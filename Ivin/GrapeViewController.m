@@ -84,11 +84,12 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath*)indexPath
 {
-    [self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
+    //[self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
+    /*
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
-    nextController.title=[_grapearray objectAtIndex:indexPath.row];
+    nextController.title=[_grapearray objectAtIndex:indexPath.row];*/
 }
 
 
