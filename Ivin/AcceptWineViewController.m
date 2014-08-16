@@ -6,6 +6,7 @@
 //  Copyright (c) 2014 user. All rights reserved.
 //
 
+#import "UIImage+Network.h"
 #import "AcceptWineViewController.h"
 #import "FormTableController.h"
 #import "RegisterFormTableController.h"
@@ -135,7 +136,7 @@
     self.pair.numberOfLines = 0;
     [self.pair sizeToFit];
     
-    
+    //[afds
     
   //  [self.nameandyear setNumberOfLines:0];
     _nameandyear.lineBreakMode = UILineBreakModeWordWrap;
@@ -148,14 +149,15 @@
    // _iw= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wine.jpg"]];
     //someImageView.image = someImage;
     //[self.view addSubview:someImageView];
-    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.PictureName]]];
+    
+    
+    //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.PictureName]]];
 
-    
+
+   // UIImageView * image;
+    [_iw loadImageFromURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.PictureName] placeholderImage:nil cachingKey:@"ivincache"];
     _iw.contentMode=UIViewContentModeScaleAspectFit;
-    
-    [_iw setImage:image];
-    
-    
+    //[_iw setImage:image];
     //[_iw addSubview:];
     
     

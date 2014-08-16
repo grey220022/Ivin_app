@@ -114,6 +114,8 @@
 		CEC93432199F493000FF2FB8 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342D199F493000FF2FB8 /* red.png */; };
 		CEC93433199F493000FF2FB8 /* rose.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342E199F493000FF2FB8 /* rose.png */; };
 		CEC93434199F493000FF2FB8 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342F199F493000FF2FB8 /* white.png */; };
+		CEC93437199F536B00FF2FB8 /* UIImage+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93436199F536B00FF2FB8 /* UIImage+Network.m */; };
+		CEC9343A199F553C00FF2FB8 /* FTWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93439199F553C00FF2FB8 /* FTWCache.m */; };
 		CED34EC218CA4DB700640DFD /* FormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC018CA4DB700640DFD /* FormTableController.m */; };
 		CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC118CA4DB700640DFD /* RegisterFormTableController.m */; };
 		CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0618CC7A1800640DFD /* RecipeTableCell.m */; };
@@ -315,6 +317,10 @@
 		CEC9342D199F493000FF2FB8 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
 		CEC9342E199F493000FF2FB8 /* rose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rose.png; sourceTree = "<group>"; };
 		CEC9342F199F493000FF2FB8 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
+		CEC93435199F536B00FF2FB8 /* UIImage+Network.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIImage+Network.h"; path = "../UIImage+Network.h"; sourceTree = "<group>"; };
+		CEC93436199F536B00FF2FB8 /* UIImage+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Network.m"; path = "../UIImage+Network.m"; sourceTree = "<group>"; };
+		CEC93438199F553C00FF2FB8 /* FTWCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTWCache.h; path = ../FTWCache.h; sourceTree = "<group>"; };
+		CEC93439199F553C00FF2FB8 /* FTWCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTWCache.m; path = ../FTWCache.m; sourceTree = "<group>"; };
 		CED34EBE18CA4DB700640DFD /* FormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableController.h; sourceTree = "<group>"; };
 		CED34EBF18CA4DB700640DFD /* RegisterFormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFormTableController.h; sourceTree = "<group>"; };
 		CED34EC018CA4DB700640DFD /* FormTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableController.m; sourceTree = "<group>"; };
@@ -503,6 +509,7 @@
 		CE84199D18BEAF0200ECC402 /* Ivin */ = {
 			isa = PBXGroup;
 			children = (
+				CEC9343B199F559A00FF2FB8 /* NetWorkImage */,
 				CE2A3F9318C931A8008212A4 /* QRcode VIew */,
 				CE8A9B9F18C234AA00F76A4A /* RateView.h */,
 				CE8A9BA018C234AA00F76A4A /* RateView.m */,
@@ -722,6 +729,17 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		CEC9343B199F559A00FF2FB8 /* NetWorkImage */ = {
+			isa = PBXGroup;
+			children = (
+				CEC93438199F553C00FF2FB8 /* FTWCache.h */,
+				CEC93439199F553C00FF2FB8 /* FTWCache.m */,
+				CEC93435199F536B00FF2FB8 /* UIImage+Network.h */,
+				CEC93436199F536B00FF2FB8 /* UIImage+Network.m */,
+			);
+			name = NetWorkImage;
+			sourceTree = "<group>";
+		};
 		CED34F0818CC7A3100640DFD /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -916,6 +934,7 @@
 			files = (
 				CE95FB61195043E600D882C1 /* Wine.m in Sources */,
 				CE97625518CFD85800A8C6AC /* UIBubbleTypingTableViewCell.m in Sources */,
+				CEC9343A199F553C00FF2FB8 /* FTWCache.m in Sources */,
 				CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */,
 				CE8419B118BEAF0200ECC402 /* SecondViewController.m in Sources */,
 				CEFF3F5B18E3526A00785AD7 /* ProfileCityView.m in Sources */,
@@ -942,6 +961,7 @@
 				CE97625418CFD85800A8C6AC /* UIBubbleHeaderTableViewCell.m in Sources */,
 				CEFF3F4918E2396600785AD7 /* RadioButtonViewController.m in Sources */,
 				CEFF3F4D18E2397E00785AD7 /* RadioButton.m in Sources */,
+				CEC93437199F536B00FF2FB8 /* UIImage+Network.m in Sources */,
 				CEC93425199AA06A00FF2FB8 /* NewuserView.m in Sources */,
 				CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */,
 				CE2A3F8D18C7F910008212A4 /* ViewController.m in Sources */,
