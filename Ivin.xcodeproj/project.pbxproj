@@ -109,6 +109,11 @@
 		CEC93425199AA06A00FF2FB8 /* NewuserView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93424199AA06A00FF2FB8 /* NewuserView.m */; };
 		CEC93428199AA9A500FF2FB8 /* NewloginView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93427199AA9A500FF2FB8 /* NewloginView.m */; };
 		CEC9342A199AAABC00FF2FB8 /* profile.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC93429199AAABC00FF2FB8 /* profile.png */; };
+		CEC93430199F493000FF2FB8 /* champagne rose.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342B199F493000FF2FB8 /* champagne rose.png */; };
+		CEC93431199F493000FF2FB8 /* Champagne.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342C199F493000FF2FB8 /* Champagne.png */; };
+		CEC93432199F493000FF2FB8 /* red.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342D199F493000FF2FB8 /* red.png */; };
+		CEC93433199F493000FF2FB8 /* rose.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342E199F493000FF2FB8 /* rose.png */; };
+		CEC93434199F493000FF2FB8 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342F199F493000FF2FB8 /* white.png */; };
 		CED34EC218CA4DB700640DFD /* FormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC018CA4DB700640DFD /* FormTableController.m */; };
 		CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC118CA4DB700640DFD /* RegisterFormTableController.m */; };
 		CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0618CC7A1800640DFD /* RecipeTableCell.m */; };
@@ -305,6 +310,11 @@
 		CEC93426199AA9A500FF2FB8 /* NewloginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewloginView.h; sourceTree = "<group>"; };
 		CEC93427199AA9A500FF2FB8 /* NewloginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewloginView.m; sourceTree = "<group>"; };
 		CEC93429199AAABC00FF2FB8 /* profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = profile.png; sourceTree = "<group>"; };
+		CEC9342B199F493000FF2FB8 /* champagne rose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "champagne rose.png"; sourceTree = "<group>"; };
+		CEC9342C199F493000FF2FB8 /* Champagne.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Champagne.png; sourceTree = "<group>"; };
+		CEC9342D199F493000FF2FB8 /* red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = red.png; sourceTree = "<group>"; };
+		CEC9342E199F493000FF2FB8 /* rose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rose.png; sourceTree = "<group>"; };
+		CEC9342F199F493000FF2FB8 /* white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = white.png; sourceTree = "<group>"; };
 		CED34EBE18CA4DB700640DFD /* FormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableController.h; sourceTree = "<group>"; };
 		CED34EBF18CA4DB700640DFD /* RegisterFormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFormTableController.h; sourceTree = "<group>"; };
 		CED34EC018CA4DB700640DFD /* FormTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableController.m; sourceTree = "<group>"; };
@@ -372,6 +382,11 @@
 		CE084C8C18F489CE0062BB5F /* newresources */ = {
 			isa = PBXGroup;
 			children = (
+				CEC9342B199F493000FF2FB8 /* champagne rose.png */,
+				CEC9342C199F493000FF2FB8 /* Champagne.png */,
+				CEC9342D199F493000FF2FB8 /* red.png */,
+				CEC9342E199F493000FF2FB8 /* rose.png */,
+				CEC9342F199F493000FF2FB8 /* white.png */,
 				CEC93429199AAABC00FF2FB8 /* profile.png */,
 				CEDC465A19966AC300C1665F /* star1.png */,
 				CEDC465B19966AC300C1665F /* star2.png */,
@@ -834,6 +849,7 @@
 				CE89181519152AA600231FBB /* 30noir.png in Resources */,
 				CEB4A54118C69B720037C867 /* zbar-samples.png in Resources */,
 				CEFF3F4A18E2396600785AD7 /* RadioButtonViewController.xib in Resources */,
+				CEC93431199F493000FF2FB8 /* Champagne.png in Resources */,
 				CEB4A55518C69C5D0037C867 /* pick_bg@2x.png in Resources */,
 				CE97624118CFD82000A8C6AC /* typingMine.png in Resources */,
 				CE95FB76196096FA00D882C1 /* emptybook.png in Resources */,
@@ -853,6 +869,7 @@
 				CEC934201996851E00FF2FB8 /* adward.png in Resources */,
 				CE084BFE18F0CE910062BB5F /* try.plist in Resources */,
 				CE8917C51914FECB00231FBB /* tabbar_4.png in Resources */,
+				CEC93430199F493000FF2FB8 /* champagne rose.png in Resources */,
 				CEB4A53F18C69B720037C867 /* zbar-help.html in Resources */,
 				CEF3B79D1934FDF3002D7D6E /* recomm.png in Resources */,
 				CE97625818CFDF5800A8C6AC /* avatar1.png in Resources */,
@@ -863,15 +880,18 @@
 				CE8917BC1914F7B600231FBB /* 111.png in Resources */,
 				CE95FB78196096FA00D882C1 /* fullticket.png in Resources */,
 				CE89180F1915261E00231FBB /* newsort.png in Resources */,
+				CEC93434199F493000FF2FB8 /* white.png in Resources */,
 				CE8A9BA518C2354700F76A4A /* kermit_empty.png in Resources */,
 				CE084C9118F48D660062BB5F /* chateau.png in Resources */,
 				CEFF3F5418E246C500785AD7 /* RadioButton-Selected.png in Resources */,
 				CEC93422199A9ABA00FF2FB8 /* cancel.png in Resources */,
 				CEDC465E19966AC300C1665F /* star2.png in Resources */,
+				CEC93433199F493000FF2FB8 /* rose.png in Resources */,
 				CE95FB75196096FA00D882C1 /* cal.png in Resources */,
 				CEC9342A199AAABC00FF2FB8 /* profile.png in Resources */,
 				CE97623F18CFD82000A8C6AC /* missingAvatar.png in Resources */,
 				CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */,
+				CEC93432199F493000FF2FB8 /* red.png in Resources */,
 				CE97624218CFD82000A8C6AC /* typingMine@2x.png in Resources */,
 				CE8419AB18BEAF0200ECC402 /* Main.storyboard in Resources */,
 				CE97624018CFD82000A8C6AC /* missingAvatar@2x.png in Resources */,

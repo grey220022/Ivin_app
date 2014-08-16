@@ -970,7 +970,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="40.png" id="8rq-cG-LP7">
-                                        <rect key="frame" x="68" y="211" width="56" height="33"/>
+                                        <rect key="frame" x="68" y="211" width="56" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rnl-xE-Iej">
@@ -1040,10 +1040,14 @@
                         <outlet property="la5" destination="DfR-OT-yuq" id="6Ix-q8-5ty"/>
                         <outlet property="la6" destination="Fwn-x4-2Yd" id="Xs8-8J-Po5"/>
                         <outlet property="la7" destination="SGP-9x-Dnl" id="lpO-JJ-MBe"/>
+                        <outlet property="li2" destination="vMc-xE-uFd" id="iOh-2V-R3W"/>
                         <outlet property="li3" destination="UfM-gd-8WO" id="U8q-5f-cer"/>
                         <outlet property="li4" destination="97Z-Xd-n1b" id="hwg-Mh-TjX"/>
                         <outlet property="li8" destination="3f6-Q3-5sE" id="Lzy-sh-vyr"/>
                         <outlet property="li9" destination="LI3-ZJ-WLe" id="X3X-zV-gB9"/>
+                        <outlet property="n1" destination="Er4-jY-mvI" id="hCT-7J-YIP"/>
+                        <outlet property="n2" destination="SGP-9x-Dnl" id="a7r-w7-Ufp"/>
+                        <outlet property="n3" destination="xCa-Do-g3v" id="n6v-3L-7Zw"/>
                         <outlet property="nameandyear" destination="DWJ-X7-igu" id="PlB-Rm-rmi"/>
                         <outlet property="newtable" destination="rnl-xE-Iej" id="4VX-7G-1Qf"/>
                         <outlet property="personalnote" destination="6Tq-5l-HgW" id="mhz-uC-AiD"/>

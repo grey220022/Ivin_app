@@ -42,5 +42,8 @@
 @property(nonatomic,retain) NSString *AverageMark;
 @property(nonatomic,retain) NSString *TotalLike;
 @property(nonatomic,retain) NSString *TotalMarkUser;
+@property(nonatomic) int WineTypeId;
+
+
 
 @end

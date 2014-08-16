@@ -83,17 +83,6 @@
     }
     
     [SingletonClass sharedInstance].wine.grapearray=ttt;
-    
-    /*
-        for (NSString *key in groupDic) {
-            if ([group respondsToSelector:NSSelectorFromString(key)]) {
-                [group setValue:[groupDic valueForKey:key] forKey:key];
-            }
-    */
-    
-   // [SingletonClass sharedInstance].wine.grapearray=
-    
-    //[tempdic objectForKey:@"Vintage"];
     [SingletonClass sharedInstance].wine.WineTypeName=[tempdic objectForKey:@"WineTypeName"];
     [SingletonClass sharedInstance].wine.WineryRecommandation=[tempdic objectForKey:@"WineryRecommandation"];
     [SingletonClass sharedInstance].wine.FoodParing=[tempdic objectForKey:@"FoodParing"];
@@ -103,13 +92,31 @@
     [SingletonClass sharedInstance].wine.ClassementName=[tempdic objectForKey:@"ClassementName"];
     [SingletonClass sharedInstance].wine.ViticultureTypename=[tempdic objectForKey:@"ViticultureTypename"];
 //    [SingletonClass sharedInstance].wine.WineryRecommandation=[tempdic objectForKey:@"WineryRecommandation"];
+    
+    
+//  Number value
+    NSNumber *ccc=[tempdic objectForKey:@"AverageMark"];
+    NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
+    [fmt setMinimumFractionDigits:1];
+    [SingletonClass sharedInstance].wine.AverageMark=[fmt stringFromNumber:ccc];
+    NSMutableString * tempstring;
+    tempstring=[[NSMutableString alloc] initWithString:[NSString stringWithFormat: @"%d", [[tempdic objectForKey:@"TotalMarkUser"] intValue]]];
+    [SingletonClass sharedInstance].wine.TotalLike=[NSString stringWithFormat: @"%d", [[tempdic objectForKey:@"TotalLike"] intValue]];
+    [tempstring appendString:@" ratings"];
+    [SingletonClass sharedInstance].wine.TotalMarkUser= tempstring;
+    
+    
+    
+    
     [SingletonClass sharedInstance].wine.Tastingnotes=[tempdic objectForKey:@"Tastingnotes"];
     [SingletonClass sharedInstance].wine.WineGuide=[tempdic objectForKey:@"WineGuide"];
     [SingletonClass sharedInstance].wine.WineViticulture=[tempdic objectForKey:@"WineViticulture"];
     [SingletonClass sharedInstance].wine.WineMaking=[tempdic objectForKey:@"WineMaking"];
     [SingletonClass sharedInstance].wine.VintageDescription=[tempdic objectForKey:@"VintageDescription"];
     
+    [SingletonClass sharedInstance].wine.WineTypeId=[[tempdic objectForKey:@"WineTypeId"] intValue];
     [tempdic objectForKey:@"WineGrapeList"];
+    
     
     NSMutableString* someString = [IvinHelp strpreval: [SingletonClass sharedInstance].wine.PropertyOwner prevalue:@"PropertyOwner" join:@":"];
     NSMutableString* someString2 =[IvinHelp strpreval: [SingletonClass sharedInstance].wine.ClassementName prevalue:@"ClassementName" join:@":"];

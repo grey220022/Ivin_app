@@ -56,6 +56,31 @@
 {
     [super viewDidLoad];
     
+    
+    switch ([SingletonClass sharedInstance].wine.WineTypeId) {
+        case 1:
+            _cup.image=[UIImage imageNamed:@"cup.png"];
+            break;
+        case 2:
+            _cup.image=[UIImage imageNamed:@"red.png"];
+            break;
+        case 3:
+            _cup.image=[UIImage imageNamed:@"rose.png"];
+            break;
+        case 4:
+            _cup.image=[UIImage imageNamed:@"Champagne.png"];
+            break;
+        case 5:
+            _cup.image=[UIImage imageNamed:@"champagne rose.png"];
+            break;
+            
+        default:
+            _cup.image=[UIImage imageNamed:@"white.png"];
+            break;
+    }
+    //cup.image=[UIImage imageNamed:@"star.png"];
+    
+      ;
 
     /*
     UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]
@@ -186,9 +211,18 @@
     _la4.text=[words getword:@"recommandationofwinemaker"];
     _la5.text=[words getword:@"averagerating"];
     _la6.text=@"Like Rating";
+    
+    
+    
+    _n1.text=[SingletonClass sharedInstance].wine.AverageMark;
+    _n2.text=[SingletonClass sharedInstance].wine.TotalMarkUser;
+    _n3.text=[SingletonClass sharedInstance].wine.TotalLike;
+    
+    
+    
     //[words getword:@"averageprice"];
-    NSString* num=@"189 ";
-    _la7.text=[num stringByAppendingString:[words getword:@"ratings"]];
+//    NSString* num=@"189 ";
+//    _la7.text=[num stringByAppendingString:[words getword:@"ratings"]];
     
     
     _li4.text=[SingletonClass sharedInstance].wine.AppellationName;
@@ -215,7 +249,7 @@
     [someString appendString: @", "];
     [someString appendString: [SingletonClass sharedInstance].winery.ContactCountryName];
     _li3.text=someString;
-    
+    _li2.text=[SingletonClass sharedInstance].wine.WineTypeName;
     _li3.lineBreakMode = UILineBreakModeWordWrap;
     _li3.numberOfLines = 0;
     [_li3 sizeToFit];

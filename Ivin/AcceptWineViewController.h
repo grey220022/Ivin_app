@@ -29,7 +29,7 @@
 
 
 //@property (weak, nonatomic) IBOutlet UILabel *li1;//酒名和年份
-//@property (weak, nonatomic) IBOutlet UILabel *li2;//
+@property (weak, nonatomic) IBOutlet UILabel *li2;//酒总类
 @property (weak, nonatomic) IBOutlet UILabel *li3;//地区和国家
 @property (weak, nonatomic) IBOutlet UILabel *li4;//产区
 //@property (weak, nonatomic) IBOutlet UILabel *li5;//
@@ -75,6 +75,11 @@
 
 
 @property (weak, nonatomic) IBOutlet UILabel *nameandyear;
+
+@property (weak, nonatomic) IBOutlet UILabel *n1;
+@property (weak, nonatomic) IBOutlet UILabel *n2;
+@property (weak, nonatomic) IBOutlet UILabel *n3;
+
 
 
 -(IBAction) showgrapes;
