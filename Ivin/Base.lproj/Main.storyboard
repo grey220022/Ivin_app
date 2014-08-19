@@ -19,7 +19,7 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="MoreCell" id="ne2-0R-t7O">
-                                        <rect key="frame" x="0.0" y="119" width="300" height="44"/>
+                                        <rect key="frame" x="0.0" y="55" width="300" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ne2-0R-t7O" id="JPe-PK-UH0">
                                             <rect key="frame" x="0.0" y="0.0" width="253" height="43"/>
@@ -215,6 +215,90 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zm4-uL-GD5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="742" y="-1550"/>
+        </scene>
+        <!--Setup View-->
+        <scene sceneID="HdH-ZH-2Ab">
+            <objects>
+                <viewController id="dgM-kp-qI8" customClass="SetupView" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="I2k-Jr-ocR">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="afW-vP-avd">
+                                <rect key="frame" x="0.0" y="190" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="backlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="zjz-Ua-Tep">
+                                <rect key="frame" x="0.0" y="115" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="backlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="SRU-wE-aKT">
+                                <rect key="frame" x="0.0" y="64" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="backlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HmW-H3-8uU">
+                                <rect key="frame" x="0.0" y="390" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="backlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="HWk-k2-E4w">
+                                <rect key="frame" x="0.0" y="440" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="backlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="rxn-3c-IfA">
+                                <rect key="frame" x="0.0" y="240" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="backlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KaG-oB-bCV">
+                                <rect key="frame" x="0.0" y="290" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="backlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="oI9-8I-Ipj">
+                                <rect key="frame" x="0.0" y="340" width="320" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" backgroundImage="backlist.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="setup" id="Ujh-Mf-lEs"/>
+                    <navigationItem key="navigationItem" id="aNR-Da-wjR"/>
+                    <connections>
+                        <outlet property="li1" destination="SRU-wE-aKT" id="EnT-cX-Ag8"/>
+                        <outlet property="li2" destination="zjz-Ua-Tep" id="PQs-eb-mCj"/>
+                        <outlet property="li3" destination="afW-vP-avd" id="rBF-K0-xPx"/>
+                        <outlet property="li4" destination="rxn-3c-IfA" id="Nxe-La-jjc"/>
+                        <outlet property="li5" destination="KaG-oB-bCV" id="nBq-sg-bHD"/>
+                        <outlet property="li6" destination="oI9-8I-Ipj" id="Qkg-PD-CBi"/>
+                        <outlet property="li7" destination="HmW-H3-8uU" id="csc-5G-6lY"/>
+                        <outlet property="li8" destination="HWk-k2-E4w" id="UyC-PI-uyj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kv8-2K-qug" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="858" y="-848"/>
         </scene>
         <!--Sign View-->
         <scene sceneID="KY1-RO-p5B">
@@ -1527,7 +1611,7 @@
                         <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="CZ4-MO-1fc" kind="relationship" relationship="rootViewController" id="EWo-Qm-aik"/>
+                        <segue destination="dgM-kp-qI8" kind="relationship" relationship="rootViewController" id="w3O-Gy-hMT"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ie3-uH-vNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1539,6 +1623,7 @@
         <image name="3.png" width="320" height="460"/>
         <image name="40.png" width="40" height="23"/>
         <image name="adward.png" width="300" height="300"/>
+        <image name="backlist.png" width="320" height="87"/>
         <image name="cal.png" width="250" height="250"/>
         <image name="cancel.png" width="100" height="100"/>
         <image name="caved.png" width="60" height="60"/>

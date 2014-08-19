@@ -63,7 +63,7 @@
             _cup.image=[UIImage imageNamed:@"cup.png"];
             break;
         case 2:
-            _cup.image=[UIImage imageNamed:@"red.png"];
+            _cup.image=[UIImage imageNamed:@"Redwine.png"];
             break;
         case 3:
             _cup.image=[UIImage imageNamed:@"rose.png"];

@@ -116,6 +116,8 @@
 		CEC93434199F493000FF2FB8 /* white.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9342F199F493000FF2FB8 /* white.png */; };
 		CEC93437199F536B00FF2FB8 /* UIImage+Network.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93436199F536B00FF2FB8 /* UIImage+Network.m */; };
 		CEC9343A199F553C00FF2FB8 /* FTWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93439199F553C00FF2FB8 /* FTWCache.m */; };
+		CEC9343E199F640D00FF2FB8 /* SetupView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9343D199F640D00FF2FB8 /* SetupView.m */; };
+		CEC93440199F6A9700FF2FB8 /* Redwine.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9343F199F6A9700FF2FB8 /* Redwine.png */; };
 		CED34EC218CA4DB700640DFD /* FormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC018CA4DB700640DFD /* FormTableController.m */; };
 		CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC118CA4DB700640DFD /* RegisterFormTableController.m */; };
 		CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0618CC7A1800640DFD /* RecipeTableCell.m */; };
@@ -321,6 +323,9 @@
 		CEC93436199F536B00FF2FB8 /* UIImage+Network.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIImage+Network.m"; path = "../UIImage+Network.m"; sourceTree = "<group>"; };
 		CEC93438199F553C00FF2FB8 /* FTWCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FTWCache.h; path = ../FTWCache.h; sourceTree = "<group>"; };
 		CEC93439199F553C00FF2FB8 /* FTWCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FTWCache.m; path = ../FTWCache.m; sourceTree = "<group>"; };
+		CEC9343C199F640D00FF2FB8 /* SetupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupView.h; sourceTree = "<group>"; };
+		CEC9343D199F640D00FF2FB8 /* SetupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupView.m; sourceTree = "<group>"; };
+		CEC9343F199F6A9700FF2FB8 /* Redwine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Redwine.png; sourceTree = "<group>"; };
 		CED34EBE18CA4DB700640DFD /* FormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableController.h; sourceTree = "<group>"; };
 		CED34EBF18CA4DB700640DFD /* RegisterFormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFormTableController.h; sourceTree = "<group>"; };
 		CED34EC018CA4DB700640DFD /* FormTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableController.m; sourceTree = "<group>"; };
@@ -412,6 +417,7 @@
 				CE8917C41914FECB00231FBB /* tabbar_4.png */,
 				CE8917BB1914F7B600231FBB /* 222.png */,
 				CE084CA718F60C270062BB5F /* gline.png */,
+				CEC9343F199F6A9700FF2FB8 /* Redwine.png */,
 				CE89181A19153C6200231FBB /* cup.png */,
 				CE084CA818F60C270062BB5F /* 40.png */,
 				CE084C8D18F48D660062BB5F /* chateau.png */,
@@ -524,6 +530,8 @@
 				CE8419A918BEAF0200ECC402 /* Main.storyboard */,
 				CE95FB5C194F89C000D882C1 /* ContentViewController.h */,
 				CE95FB5D194F89C000D882C1 /* ContentViewController.m */,
+				CEC9343C199F640D00FF2FB8 /* SetupView.h */,
+				CEC9343D199F640D00FF2FB8 /* SetupView.m */,
 				CE95FB18194F70F300D882C1 /* GrapeViewController.h */,
 				CE95FB19194F70F300D882C1 /* GrapeViewController.m */,
 				CE8918201928965100231FBB /* HistoryViewCell.h */,
@@ -863,6 +871,7 @@
 				CEF3B79E1934FDF3002D7D6E /* foodpair.png in Resources */,
 				CE8A9BA718C2354700F76A4A /* kermit_half.png in Resources */,
 				CE8419B318BEAF0200ECC402 /* Images.xcassets in Resources */,
+				CEC93440199F6A9700FF2FB8 /* Redwine.png in Resources */,
 				CE8917C31914FD7A00231FBB /* tabbar_mainbtn.png in Resources */,
 				CE89181519152AA600231FBB /* 30noir.png in Resources */,
 				CEB4A54118C69B720037C867 /* zbar-samples.png in Resources */,
@@ -938,6 +947,7 @@
 				CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */,
 				CE8419B118BEAF0200ECC402 /* SecondViewController.m in Sources */,
 				CEFF3F5B18E3526A00785AD7 /* ProfileCityView.m in Sources */,
+				CEC9343E199F640D00FF2FB8 /* SetupView.m in Sources */,
 				CE54811819478D42001ED112 /* WineryViewController.m in Sources */,
 				CEF8CF7518C1889600943823 /* AcceptWineViewController.m in Sources */,
 				CE8419D218BEB2CA00ECC402 /* ThirdViewController.m in Sources */,
