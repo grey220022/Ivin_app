@@ -54,8 +54,41 @@
 
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+   // _t1.placeholder=@"Username";
+   // _t2.placeholder=@"Password";
+    
+    
 
+    _t1.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    _t1.leftViewMode = UITextFieldViewModeAlways;
+    
+
+    
+    _t2.leftView =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
+    _t2.leftViewMode = UITextFieldViewModeAlways;
+    
+    
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    self.t1.attributedPlaceholder = str;
+
+    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    self.t2.attributedPlaceholder = str2;
+    _t2.delegate=self;
+    _t1.delegate=self;
+    _t2.secureTextEntry=YES;
 }
+
+
+//-(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if ([string isEqualToString:@"\n"]) {
+        [textField resignFirstResponder];
+        return NO;
+    }
+    return YES;
+}
+
 
 - (void)didReceiveMemoryWarning
 {

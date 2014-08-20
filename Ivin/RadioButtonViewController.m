@@ -29,7 +29,9 @@
 - (void)viewDidLoad
 {
     UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 480, 400)];
-
+    
+    self.navigationItem.title=@"用户类别";
+    
     //container.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:container];
     
@@ -61,29 +63,36 @@
     UILabel *label1 =[[UILabel alloc] initWithFrame:CGRectMake(40, 30, 260, 20)];
     label1.backgroundColor = [UIColor clearColor];
     label1.text = @"葡萄酒酒农";
+    label1.textColor=[UIColor whiteColor];
     [container addSubview:label1];
 
     UILabel *label2 =[[UILabel alloc] initWithFrame:CGRectMake(40, 60, 260, 20)];
     label2.backgroundColor = [UIColor clearColor];
     label2.text = @"葡萄酒从业者";
-    [container addSubview:label2];    
+    label2.textColor=[UIColor whiteColor];
+    [container addSubview:label2];
 
     UILabel *label3 =[[UILabel alloc] initWithFrame:CGRectMake(40, 90, 260, 20)];
     label3.backgroundColor = [UIColor clearColor];
     label3.text = @"葡萄酒记者";
+    label3.textColor=[UIColor whiteColor];
     [container addSubview:label3];
 
     UILabel *label4 =[[UILabel alloc] initWithFrame:CGRectMake(40, 120, 260, 20)];
     label4.backgroundColor = [UIColor clearColor];
     label4.text = @"葡萄酒爱好者";
+    label4.textColor=[UIColor whiteColor];
     [container addSubview:label4];
 
     UILabel *label5 =[[UILabel alloc] initWithFrame:CGRectMake(40, 150, 260, 20)];
     label5.backgroundColor = [UIColor clearColor];
     label5.text = @"葡萄酒消费者";
+    label5.textColor=[UIColor whiteColor];
     [container addSubview:label5];
     
     [RadioButton addObserverForGroupId:@"first group" observer:self];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+
 
     [super viewDidLoad];
 }

@@ -8,6 +8,10 @@
 
 #import "SetupView.h"
 #import "words.h"
+#import "SendViewController.h"
+#import "NewloginView.h"
+#import "LangView.h"
+#import "ProfileView.h"
 
 
 @interface SetupView ()
@@ -30,6 +34,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
+    self.navigationItem.title=@"设置";
+    //self.navigationController.
     [_li3 setTitle:[words getword:@"userlogin"] forState:UIControlStateNormal];
     [_li4 setTitle:[words getword:@"website"] forState:UIControlStateNormal];
     [_li5 setTitle:[words getword:@"feedback"] forState:UIControlStateNormal];
@@ -38,11 +44,12 @@
     [_li8 setTitle:[words getword:@"lang"] forState:UIControlStateNormal];
     
     
-    [_li1 setTitle:  [words getword:@"photo"] forState:UIControlStateNormal];
-    [_li2 setTitle:[words getword:@"profile"] forState:UIControlStateNormal];
+    [_li1 setTitle:  @"Huiqi" forState:UIControlStateNormal];
+    //[_li1 setTitle:  [words getword:@"photo"] forState:UIControlStateNormal];
+    //[_li2 setTitle:[words getword:@"profile"] forState:UIControlStateNormal];
     
     
-    [_li1 setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10, 0.0, 0.0)];
+    [_li1 setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 100, 0.0, 0.0)];
     [_li2 setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10, 0.0, 0.0)];
     [_li3 setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10, 0.0, 0.0)];
     [_li4 setTitleEdgeInsets:UIEdgeInsetsMake(0.0, 10, 0.0, 0.0)];
@@ -61,6 +68,58 @@
     [_li8 setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     
 }
+
+
+-(IBAction)profilepress
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ProfileView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"profileview"];
+    nextController.title=@"帐户信息";
+    [self.navigationController pushViewController:nextController animated:YES];
+}
+
+-(IBAction)loginpress
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NewloginView *newloginview = [storyboard instantiateViewControllerWithIdentifier:@"newloginview"];
+    
+    [self presentModalViewController:newloginview animated:YES];
+    
+    
+}
+-(IBAction)websitepress
+{
+    
+}
+
+-(IBAction)feedbackpress
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SendViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"sendview"];
+    [self presentModalViewController:vc animated:NO];
+}
+
+-(IBAction)appratingpress
+{
+    
+}
+
+-(IBAction)aboutpress
+{
+    UIAlertView *myAlertView;
+    myAlertView = [[UIAlertView alloc]initWithTitle:@"制作团队" message:@"巴黎酒社团队制作" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    [myAlertView show];
+}
+
+-(IBAction)languagepress
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LangView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"langview"];
+    nextController.title=[words getword:@"lang"];
+    [self.navigationController pushViewController:nextController animated:YES];
+}
+
+
 
 - (void)didReceiveMemoryWarning
 {

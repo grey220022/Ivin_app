@@ -118,6 +118,7 @@
 		CEC9343A199F553C00FF2FB8 /* FTWCache.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93439199F553C00FF2FB8 /* FTWCache.m */; };
 		CEC9343E199F640D00FF2FB8 /* SetupView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9343D199F640D00FF2FB8 /* SetupView.m */; };
 		CEC93440199F6A9700FF2FB8 /* Redwine.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9343F199F6A9700FF2FB8 /* Redwine.png */; };
+		CEC9344619A55E1B00FF2FB8 /* ProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC9344519A55E1B00FF2FB8 /* ProfileCell.m */; };
 		CED34EC218CA4DB700640DFD /* FormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC018CA4DB700640DFD /* FormTableController.m */; };
 		CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC118CA4DB700640DFD /* RegisterFormTableController.m */; };
 		CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0618CC7A1800640DFD /* RecipeTableCell.m */; };
@@ -326,6 +327,8 @@
 		CEC9343C199F640D00FF2FB8 /* SetupView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SetupView.h; sourceTree = "<group>"; };
 		CEC9343D199F640D00FF2FB8 /* SetupView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SetupView.m; sourceTree = "<group>"; };
 		CEC9343F199F6A9700FF2FB8 /* Redwine.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Redwine.png; sourceTree = "<group>"; };
+		CEC9344419A55E1B00FF2FB8 /* ProfileCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ProfileCell.h; path = ../ProfileCell.h; sourceTree = "<group>"; };
+		CEC9344519A55E1B00FF2FB8 /* ProfileCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ProfileCell.m; path = ../ProfileCell.m; sourceTree = "<group>"; };
 		CED34EBE18CA4DB700640DFD /* FormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FormTableController.h; sourceTree = "<group>"; };
 		CED34EBF18CA4DB700640DFD /* RegisterFormTableController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterFormTableController.h; sourceTree = "<group>"; };
 		CED34EC018CA4DB700640DFD /* FormTableController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FormTableController.m; sourceTree = "<group>"; };
@@ -534,8 +537,6 @@
 				CEC9343D199F640D00FF2FB8 /* SetupView.m */,
 				CE95FB18194F70F300D882C1 /* GrapeViewController.h */,
 				CE95FB19194F70F300D882C1 /* GrapeViewController.m */,
-				CE8918201928965100231FBB /* HistoryViewCell.h */,
-				CE8918211928965100231FBB /* HistoryViewCell.m */,
 				CE8917B7190EEBF700231FBB /* DetailView.h */,
 				CE8917B8190EEBF700231FBB /* DetailView.m */,
 				CE5481131947798D001ED112 /* VinViewController.h */,
@@ -751,8 +752,12 @@
 		CED34F0818CC7A3100640DFD /* TableCell */ = {
 			isa = PBXGroup;
 			children = (
+				CEC9344419A55E1B00FF2FB8 /* ProfileCell.h */,
+				CEC9344519A55E1B00FF2FB8 /* ProfileCell.m */,
 				CED34F0518CC7A1800640DFD /* RecipeTableCell.h */,
 				CED34F0618CC7A1800640DFD /* RecipeTableCell.m */,
+				CE8918201928965100231FBB /* HistoryViewCell.h */,
+				CE8918211928965100231FBB /* HistoryViewCell.m */,
 			);
 			name = TableCell;
 			sourceTree = "<group>";
@@ -957,6 +962,7 @@
 				CE95FB641950440000D882C1 /* Winery.m in Sources */,
 				CE95FB1A194F70F300D882C1 /* GrapeViewController.m in Sources */,
 				CEB4A53B18C69B720037C867 /* rscode.c in Sources */,
+				CEC9344619A55E1B00FF2FB8 /* ProfileCell.m in Sources */,
 				CE95FB5E194F89C000D882C1 /* ContentViewController.m in Sources */,
 				CED34F0B18CCA8C700640DFD /* SendViewController.m in Sources */,
 				CE8917B9190EEBF700231FBB /* DetailView.m in Sources */,

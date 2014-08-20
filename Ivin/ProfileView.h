@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileView : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface ProfileView : UIViewController<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 @property(nonatomic,retain) IBOutlet UITableView *tableview;
 
 @end

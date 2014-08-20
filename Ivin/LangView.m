@@ -69,7 +69,8 @@
 {
     [super viewDidLoad];
     
-    
+    //self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+
     UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:self action:@selector(confirm)];
     self.navigationItem.rightBarButtonItem = anotherButton;
     
@@ -93,6 +94,10 @@
     }
 	// Do any additional setup after loading the view.
     
+    self.tableview.backgroundColor=[UIColor clearColor];
+    self.view.backgroundColor=[UIColor clearColor];
+    [self.tableview setSeparatorColor:[UIColor clearColor]];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -150,6 +155,12 @@
          cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
+    
+
+    
+    cell.backgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"backlist.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
+    cell.backgroundColor=[UIColor clearColor];
+    cell.textColor=[UIColor whiteColor];
     
     
     //cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;

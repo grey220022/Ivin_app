@@ -29,6 +29,8 @@
     self.text.layer.borderWidth =1.0;
     self.text.layer.cornerRadius =5.0;
 	// Do any additional setup after loading the view.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+
 }
 
 - (void)didReceiveMemoryWarning

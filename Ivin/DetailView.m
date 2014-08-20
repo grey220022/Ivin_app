@@ -15,6 +15,13 @@
 
 @implementation DetailView
 
+
+-(void)oov
+{
+    NSLog(@"confirm");
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -48,8 +55,10 @@
     //self.statusLabel.text = @"Rating: 0";
    // self rateView:<#(RateView *)#> ratingDidChange:<#(float)#>
     self.statusLabel.text = [NSString stringWithFormat:@"Rating: %.01f", self.rateView.rating];
-
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"  style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
+    self.navigationItem.rightBarButtonItem = rightButton;
 }
+
 
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text

@@ -30,6 +30,9 @@
     self.text.layer.borderWidth =1.0;
     self.text.layer.cornerRadius =5.0;
     [self.text setContentInset:UIEdgeInsetsMake(-45, 0, 5,0)];
+    self.navigationItem.title=@"个性签名";
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+
 }
 
 - (void)didReceiveMemoryWarning

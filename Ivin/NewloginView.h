@@ -8,8 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface NewloginView : UIViewController
+@interface NewloginView : UIViewController<UITextFieldDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *signuplabel;
 @property (weak, nonatomic) IBOutlet UILabel *loginlabel;
+@property (weak, nonatomic) IBOutlet UITextField *t1;
+@property (weak, nonatomic) IBOutlet UITextField *t2;
+@property(nonatomic, copy) NSAttributedString *attributedPlaceholder;
 
 @end
