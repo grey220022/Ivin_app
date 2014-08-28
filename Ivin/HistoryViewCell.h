@@ -10,11 +10,14 @@
 
 @interface HistoryViewCell : UITableViewCell
 @property ( nonatomic) IBOutlet UILabel * nameLabel;
+@property ( nonatomic) IBOutlet UILabel * subnameLabel;
+@property ( nonatomic) IBOutlet UILabel * subnameLabel2;
 @property ( nonatomic) IBOutlet UILabel * dateLabel;
 @property ( nonatomic) IBOutlet UILabel * priceLabel;
 //@property ( nonatomic) IBOutlet UILabel * nameLabel;
 
 @property ( nonatomic) IBOutlet UIImageView * imageLable;
+@property ( nonatomic) IBOutlet UIImageView * ratingLable;
 
 
 @end

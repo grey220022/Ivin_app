@@ -102,7 +102,7 @@ ProfileCell * profilecell;
                 break ;
             }
             case 4: {
-                cell.textLabel.text = @"城市" ;
+                cell.textLabel.text = @"地点" ;
                 break ;
             }
             case 0: {
@@ -205,7 +205,7 @@ ProfileCell * profilecell;
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 ProfileCityView *vc = [storyboard instantiateViewControllerWithIdentifier:@"profilecityview"];
                 //[self.navigationController setTitle:@"城市"];
-                vc.title=@"城市";
+                vc.title=@"地点";
                 
                 UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:self action:@selector(confirm)];
                 vc.navigationItem.rightBarButtonItem = anotherButton;

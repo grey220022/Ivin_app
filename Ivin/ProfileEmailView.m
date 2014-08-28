@@ -23,6 +23,12 @@
     return self;
 }
 
+
+-(void)click1
+{
+    [self.text resignFirstResponder];    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -31,6 +37,10 @@
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
 
 	// Do any additional setup after loading the view.
+    UITapGestureRecognizer* gesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click1)];
+    [self.view setUserInteractionEnabled:YES];
+    [self.view addGestureRecognizer:gesture1];
+
 }
 
 - (void)didReceiveMemoryWarning

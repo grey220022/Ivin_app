@@ -166,7 +166,6 @@
         [self.navigationController pushViewController:nextController animated:YES];
     }
     */
-
 }
 
 
@@ -179,7 +178,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 70;
+    return 180;
 }
 
 
@@ -192,7 +191,7 @@
 -(UITableViewCell *)tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *cellIdentifier = @"historycell";
     HistoryViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    
+    cell.backgroundColor=[UIColor blackColor];
     if (cell == nil){
         // 这种方式，将会调用cell中的initWithStyle方法
         cell = [[HistoryViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
@@ -200,8 +199,13 @@
     
     UIImage * bgImage =[UIImage imageNamed:@"wine.jpg"];
     [cell.imageLable setImage:bgImage];
+    UIImage * ratingImage =[UIImage imageNamed:@"40.png"];
+    [cell.ratingLable setImage: ratingImage];
     //cell.nameLabel=@"xxxxx";
-    cell.nameLabel.text=@"Château pichon 2009";
+    cell.nameLabel.text=@"Château pichon";
+    cell.subnameLabel.text=@"Château Pichon Longueville Baron 2009";
+    cell.subnameLabel2.text=@"Pauillac, France";
+    
     cell.priceLabel.text=@"9€";
     cell.dateLabel.text=@"12/12/2009";
     //cell.selectionStyle=UITableViewCellSelectionStyleNone;

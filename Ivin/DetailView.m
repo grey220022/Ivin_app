@@ -13,6 +13,10 @@
 
 @end
 
+int pricestate;
+int placestate;
+
+
 @implementation DetailView
 
 
@@ -57,6 +61,21 @@
     self.statusLabel.text = [NSString stringWithFormat:@"Rating: %.01f", self.rateView.rating];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"  style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
     self.navigationItem.rightBarButtonItem = rightButton;
+    pricestate=0;
+    placestate=0;
+}
+
+
+-(void)pricetoggle
+{
+    pricestate=1-pricestate;
+    
+}
+
+-(void)placetoggle
+{
+    placestate=1-placestate;
+    
 }
 
 

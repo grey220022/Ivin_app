@@ -13,7 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UITextView *content1;
 @property (weak, nonatomic) NSString *contenttype;
-
+@property (weak, nonatomic) IBOutlet UIImageView *ima;
 
 
 @end

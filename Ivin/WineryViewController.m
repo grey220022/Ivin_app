@@ -91,6 +91,10 @@
     ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
     [self.navigationController pushViewController:nextController animated:YES];
     nextController.title=[words getword:@"winery"];
+    
+    
+    //nextController.img=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wine.jpg"]];
+    
     nextController.contenttype=@"winery";
 }
 

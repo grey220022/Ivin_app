@@ -19,6 +19,8 @@
 		CE25A8F218D77D1500927856 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE25A8F118D77D1500927856 /* ProfileView.m */; };
 		CE2A3F8D18C7F910008212A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A3F8A18C7F910008212A4 /* ViewController.m */; };
 		CE2A3F8E18C7F910008212A4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A3F8C18C7F910008212A4 /* RootViewController.m */; };
+		CE31139019AE8D8A00D05C08 /* newline.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31138F19AE8D8A00D05C08 /* newline.png */; };
+		CE31139219AF7A0D00D05C08 /* cancel2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31139119AF7A0D00D05C08 /* cancel2.png */; };
 		CE5481151947798D001ED112 /* VinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5481141947798D001ED112 /* VinViewController.m */; };
 		CE54811819478D42001ED112 /* WineryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54811719478D42001ED112 /* WineryViewController.m */; };
 		CE84199818BEAF0200ECC402 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199718BEAF0200ECC402 /* Foundation.framework */; };
@@ -170,6 +172,8 @@
 		CE2A3F8A18C7F910008212A4 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		CE2A3F8B18C7F910008212A4 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		CE2A3F8C18C7F910008212A4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		CE31138F19AE8D8A00D05C08 /* newline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newline.png; sourceTree = "<group>"; };
+		CE31139119AF7A0D00D05C08 /* cancel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel2.png; sourceTree = "<group>"; };
 		CE5481131947798D001ED112 /* VinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VinViewController.h; sourceTree = "<group>"; };
 		CE5481141947798D001ED112 /* VinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VinViewController.m; sourceTree = "<group>"; };
 		CE54811619478D42001ED112 /* WineryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryViewController.h; sourceTree = "<group>"; };
@@ -473,6 +477,7 @@
 				CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */,
 				CE89181C191E327800231FBB /* caved.png */,
 				CEC93421199A9ABA00FF2FB8 /* cancel.png */,
+				CE31139119AF7A0D00D05C08 /* cancel2.png */,
 				CEC9341F1996851E00FF2FB8 /* adward.png */,
 				CE89181D191E327800231FBB /* rated.png */,
 				CE8A9BA318C2354700F76A4A /* kermit_full.png */,
@@ -480,6 +485,7 @@
 				CE89181819152C7F00231FBB /* noirnew.png */,
 				CEF3B79B1934FDF3002D7D6E /* recomm.png */,
 				CEF3B79C1934FDF3002D7D6E /* foodpair.png */,
+				CE31138F19AE8D8A00D05C08 /* newline.png */,
 				CEF8CF7118C14F9700943823 /* wine 58.png */,
 				CEF8CF7018C14F8500943823 /* wine 80.png */,
 				CEF8CF6F18C14E9E00943823 /* wine 120.png */,
@@ -872,6 +878,7 @@
 				CE97624418CFD82000A8C6AC /* typingSomeone@2x.png in Resources */,
 				CE97624318CFD82000A8C6AC /* typingSomeone.png in Resources */,
 				CE89181919152C7F00231FBB /* noirnew.png in Resources */,
+				CE31139219AF7A0D00D05C08 /* cancel2.png in Resources */,
 				CE084CA618F4A11A0062BB5F /* 3.png in Resources */,
 				CEF3B79E1934FDF3002D7D6E /* foodpair.png in Resources */,
 				CE8A9BA718C2354700F76A4A /* kermit_half.png in Resources */,
@@ -909,6 +916,7 @@
 				CE97623C18CFD82000A8C6AC /* bubbleMine@2x.png in Resources */,
 				CEB4A53E18C69B720037C867 /* zbar-back.png in Resources */,
 				CE8918241928A13200231FBB /* backlist.png in Resources */,
+				CE31139019AE8D8A00D05C08 /* newline.png in Resources */,
 				CE8917BC1914F7B600231FBB /* 111.png in Resources */,
 				CE95FB78196096FA00D882C1 /* fullticket.png in Resources */,
 				CE89180F1915261E00231FBB /* newsort.png in Resources */,

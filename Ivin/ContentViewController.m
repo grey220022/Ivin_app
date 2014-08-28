@@ -8,6 +8,7 @@
 
 #import "ContentViewController.h"
 #import "SingletonClass.h"
+#import "UIImage+Network.h"
 
 @interface ContentViewController ()
 
@@ -33,8 +34,25 @@
     
     self.content1.backgroundColor=[UIColor blackColor];
     
+//    self.imge=[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"wine.jpg"]];
+    //NSString *somestring=[SingletonClass sharedInstance].wine.PictureName;
+    //    UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:somestring]]];
+    
+    //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.ivindigital.com/content/images/carte/chateau.png"]]];
     
     
+    //[self.ima loadImageFromURL:[NSURL URLWithString:somestring] placeholderImage:nil cachingKey:@"iwinecache"];
+    
+    
+    // _ima.image=image;
+    
+    /*
+    UIImageView *imgView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, 100, 50)];
+    
+    imgView.image = [UIImage imageNamed:@"wine.jpg"];
+    imgView.contentMode=UIViewContentModeScaleAspectFit;
+    [self.view addSubview: imgView];
+    */
     if ([_contenttype isEqual:@"winery"])
     {
         _content1.text=[SingletonClass sharedInstance].winery.Description;

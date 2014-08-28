@@ -15,10 +15,13 @@
 @interface RadioButton : UIView {
     NSString *_groupId;
     NSUInteger _index;
-    UIButton *_button;
+   // UIButton *_button;
 }
 @property(nonatomic,retain)NSString *groupId;
 @property(nonatomic,assign)NSUInteger index;
+@property(nonatomic)UIButton * button;
+
+
 
 -(id)initWithGroupId:(NSString*)groupId index:(NSUInteger)index;
 +(void)addObserverForGroupId:(NSString*)groupId observer:(id)observer;

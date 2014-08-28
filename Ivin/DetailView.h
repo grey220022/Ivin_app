@@ -19,5 +19,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *label1;
 @property (weak, nonatomic) UIViewController * gg;
 
+
+
 @end
 

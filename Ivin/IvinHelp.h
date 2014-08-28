@@ -19,3 +19,4 @@
 + (void) wineryparse:(NSData *) winerycontent;
 
 @end
+

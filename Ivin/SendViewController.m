@@ -26,6 +26,12 @@
     return self;
 }
 */
+
+- (void)click1
+{
+    [self.text resignFirstResponder];
+}
+
 - (void)viewDidLoad
 {
     self.text.layer.borderWidth =1.0;
@@ -33,6 +39,11 @@
     [super viewDidLoad];
     NSLog(@"load");
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+    
+    
+    UITapGestureRecognizer* gesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click1)];
+    [self.view setUserInteractionEnabled:YES];
+    [self.view addGestureRecognizer:gesture1];
 
 	// Do any additional setup after loading the view.
 }

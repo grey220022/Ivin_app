@@ -8,7 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ProfileCityView : UIViewController
+@interface ProfileCityView : UIViewController<UIPickerViewDelegate,UIPickerViewDataSource,UITextFieldDelegate>
 @property(nonatomic,retain) IBOutlet UITextField *text;
+@property(nonatomic,retain) IBOutlet UITextField *t2;
+@property (weak, nonatomic) IBOutlet UIPickerView *picker;
 
 @end

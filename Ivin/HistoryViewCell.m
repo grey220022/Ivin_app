@@ -14,29 +14,55 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(85, 15, 320, 20)];
-        _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(85, 45, 90, 20)];
+        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 15, 220, 40)];
+        _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 135, 90, 20)];
         _priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(230, 45, 90, 20)];
+        _subnameLabel= [[UILabel alloc]initWithFrame:CGRectMake(100, 40, 200, 80)];
+        _subnameLabel2= [[UILabel alloc]initWithFrame:CGRectMake(100, 130, 220, 20)];
         
-        _imageLable = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 50, 50)];
+        _imageLable = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 70, 100)];
         
-        [_nameLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:20]];
+        [_nameLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:14]];
+        [_subnameLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:18]];
+        [_subnameLabel2 setFont:[UIFont fontWithName:@"Arial-BoldMT" size:14]];
+        
+        _subnameLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _subnameLabel.numberOfLines = 0;
+        
+        
+        _nameLabel.lineBreakMode = NSLineBreakByWordWrapping;
+        _nameLabel.numberOfLines = 0;
+        
+        
         
         _dateLabel.font=[UIFont fontWithName:@"ArialMT" size:13];
         _priceLabel.font=[UIFont fontWithName:@"Helvetica-BoldOblique" size:13];
         
-        _nameLabel.textColor=[UIColor whiteColor];
+        _nameLabel.textColor=[UIColor grayColor];
         _priceLabel.textColor=[UIColor whiteColor];
         _dateLabel.textColor=[UIColor whiteColor];
+        _subnameLabel.textColor=[UIColor whiteColor];
+        _subnameLabel2.textColor=[UIColor grayColor];
+        
+        _ratingLable=[[UIImageView alloc] initWithFrame:CGRectMake(100, 140, 40, 40)];
+        _ratingLable.contentMode=UIViewContentModeScaleAspectFit;
+        //_imageLable.contentMode=UIViewContentModeScaleAspectFit;
+        
+        //[self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backlist.png"]]];
         
         
-        [self setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"backlist.png"]]];
+        self.backgroundView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"newline.png"] ];//:[ [UIImage imageNamed:@"backlist.png"] ] ];
         
         [self addSubview:_nameLabel];
         [self addSubview:_dateLabel];
-        [self addSubview:_priceLabel];
+        //[self addSubview:_priceLabel];
         
         [self addSubview:_imageLable];
+        [self addSubview:_ratingLable];
+        [self addSubview:_subnameLabel];
+        [self addSubview:_subnameLabel2];
+        
+        
         
     }
     return self;
