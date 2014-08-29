@@ -15,6 +15,10 @@
 
 int pricestate;
 int placestate;
+int likestate;
+int collectstate;
+int alertstate;
+
 
 
 @implementation DetailView
@@ -61,22 +65,74 @@ int placestate;
     self.statusLabel.text = [NSString stringWithFormat:@"Rating: %.01f", self.rateView.rating];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"  style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
     self.navigationItem.rightBarButtonItem = rightButton;
-    pricestate=0;
-    placestate=0;
+    likestate=0;
+    collectstate=0;
 }
 
 
--(void)pricetoggle
+-(IBAction)pricepress
 {
-    pricestate=1-pricestate;
-    
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Price" message:@"Enter the price" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert addButtonWithTitle:@"OK"];
+    [alert textFieldAtIndex:0].keyboardType=UIKeyboardTypeNumbersAndPunctuation;
+    [alert show];
+    alertstate=0;
 }
 
--(void)placetoggle
+-(IBAction)placepress
 {
-    placestate=1-placestate;
-    
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Place" message:@"Enter the place" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert addButtonWithTitle:@"OK"];
+    [alert textFieldAtIndex:0].keyboardType=UIKeyboardTypeASCIICapable;
+    [alert show];
+    alertstate=1;
 }
+
+- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 1) {  //OK button
+        if (alertstate==0)
+            _pricelabel.text=[alertView textFieldAtIndex:0].text;
+        else
+            _placelabel.text=[alertView textFieldAtIndex:0].text;
+    }
+}
+
+-(IBAction)collectpress
+{
+    UIImage *image;
+    collectstate=1-collectstate;
+    if (collectstate==0)
+    {
+        image = [UIImage imageNamed: @"book-vide.png"];
+        
+    }
+    else
+    {
+        image = [UIImage imageNamed: @"book.png"];
+        
+    }
+    _collectimg.image=image;
+}
+
+-(IBAction)likepress
+{
+    UIImage *image;
+    likestate=1-likestate;
+    if (likestate==0)
+    {
+        image = [UIImage imageNamed: @"collect-vide.png"];
+    }
+    else
+    {
+        image = [UIImage imageNamed: @"collect.png"];
+        
+    }
+    _likeimg.image=image;
+}
+
 
 
 

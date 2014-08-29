@@ -1602,6 +1602,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="likepress" destination="SJl-GU-35y" eventType="touchDown" id="ECL-lD-HZ7"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.50999999046325684" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="bUy-qb-Blk">
                                 <rect key="frame" x="21" y="413" width="130" height="67"/>
@@ -1610,6 +1613,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="pricepress" destination="SJl-GU-35y" eventType="touchDown" id="VZa-dv-EHH"/>
+                                </connections>
                             </button>
                             <button opaque="NO" alpha="0.50999999046325684" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="n3T-rO-KAl">
                                 <rect key="frame" x="168" y="413" width="130" height="67"/>
@@ -1618,6 +1624,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="placepress" destination="SJl-GU-35y" eventType="touchDown" id="1k7-DZ-xIt"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="DFq-Co-H8P">
                                 <rect key="frame" x="59" y="375" width="42" height="21"/>
@@ -1633,8 +1642,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emptybook.png" id="4bE-8v-mgD">
-                                <rect key="frame" x="219" y="343" width="34" height="29"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="book-vide.png" id="4bE-8v-mgD">
+                                <rect key="frame" x="219" y="343" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <button opaque="NO" alpha="0.5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="vIr-SY-606">
@@ -1644,6 +1653,9 @@
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <action selector="collectpress" destination="SJl-GU-35y" eventType="touchDown" id="yJV-Vg-eZP"/>
+                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Collect" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ioP-kw-DD1">
                                 <rect key="frame" x="209" y="375" width="54" height="21"/>
@@ -1659,8 +1671,8 @@
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fullticket.png" id="fnK-Qb-rUD">
-                                <rect key="frame" x="65" y="343" width="31" height="29"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="collect-vide.png" id="fnK-Qb-rUD">
+                                <rect key="frame" x="65" y="343" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cal.png" id="rPO-Bz-wL3">
@@ -1675,8 +1687,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="collectimg" destination="4bE-8v-mgD" id="rL1-5z-pEq"/>
                         <outlet property="commenttext" destination="367-V5-tPW" id="XEv-hh-ohb"/>
                         <outlet property="label1" destination="GTP-Ps-m0x" id="0ew-KB-niL"/>
+                        <outlet property="likeimg" destination="fnK-Qb-rUD" id="BcL-ck-Iql"/>
+                        <outlet property="placelabel" destination="cwh-Uz-Zf8" id="e8A-nR-6hC"/>
+                        <outlet property="pricelabel" destination="T75-Wu-Q8U" id="QWV-pR-7iw"/>
                         <outlet property="rateView" destination="PzG-3b-nhK" id="gKg-Gh-dSC"/>
                         <outlet property="statusLabel" destination="UdW-fE-oQ0" id="nqx-sw-iYx"/>
                     </connections>
@@ -1743,13 +1759,13 @@
         <image name="40.png" width="40" height="23"/>
         <image name="adward.png" width="300" height="300"/>
         <image name="backlist.png" width="320" height="87"/>
+        <image name="book-vide.png" width="400" height="400"/>
         <image name="cal.png" width="250" height="250"/>
         <image name="cancel2.png" width="400" height="400"/>
         <image name="caved.png" width="60" height="60"/>
+        <image name="collect-vide.png" width="400" height="400"/>
         <image name="cup.png" width="50" height="50"/>
-        <image name="emptybook.png" width="300" height="300"/>
         <image name="foodpair.png" width="300" height="300"/>
-        <image name="fullticket.png" width="300" height="300"/>
         <image name="gline.png" width="320" height="24"/>
         <image name="list" width="30" height="30"/>
         <image name="point.png" width="250" height="250"/>

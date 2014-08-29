@@ -21,6 +21,10 @@
 		CE2A3F8E18C7F910008212A4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A3F8C18C7F910008212A4 /* RootViewController.m */; };
 		CE31139019AE8D8A00D05C08 /* newline.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31138F19AE8D8A00D05C08 /* newline.png */; };
 		CE31139219AF7A0D00D05C08 /* cancel2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31139119AF7A0D00D05C08 /* cancel2.png */; };
+		CE31139719B071C000D05C08 /* book-vide.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31139319B071BF00D05C08 /* book-vide.png */; };
+		CE31139819B071C000D05C08 /* book.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31139419B071BF00D05C08 /* book.png */; };
+		CE31139919B071C000D05C08 /* collect-vide.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31139519B071C000D05C08 /* collect-vide.png */; };
+		CE31139A19B071C000D05C08 /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31139619B071C000D05C08 /* collect.png */; };
 		CE5481151947798D001ED112 /* VinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5481141947798D001ED112 /* VinViewController.m */; };
 		CE54811819478D42001ED112 /* WineryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54811719478D42001ED112 /* WineryViewController.m */; };
 		CE84199818BEAF0200ECC402 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199718BEAF0200ECC402 /* Foundation.framework */; };
@@ -174,6 +178,10 @@
 		CE2A3F8C18C7F910008212A4 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		CE31138F19AE8D8A00D05C08 /* newline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = newline.png; sourceTree = "<group>"; };
 		CE31139119AF7A0D00D05C08 /* cancel2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel2.png; sourceTree = "<group>"; };
+		CE31139319B071BF00D05C08 /* book-vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "book-vide.png"; sourceTree = "<group>"; };
+		CE31139419B071BF00D05C08 /* book.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = book.png; sourceTree = "<group>"; };
+		CE31139519B071C000D05C08 /* collect-vide.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "collect-vide.png"; sourceTree = "<group>"; };
+		CE31139619B071C000D05C08 /* collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = collect.png; sourceTree = "<group>"; };
 		CE5481131947798D001ED112 /* VinViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VinViewController.h; sourceTree = "<group>"; };
 		CE5481141947798D001ED112 /* VinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VinViewController.m; sourceTree = "<group>"; };
 		CE54811619478D42001ED112 /* WineryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryViewController.h; sourceTree = "<group>"; };
@@ -482,6 +490,10 @@
 				CE89181D191E327800231FBB /* rated.png */,
 				CE8A9BA318C2354700F76A4A /* kermit_full.png */,
 				CE8A9BA418C2354700F76A4A /* kermit_half.png */,
+				CE31139319B071BF00D05C08 /* book-vide.png */,
+				CE31139419B071BF00D05C08 /* book.png */,
+				CE31139519B071C000D05C08 /* collect-vide.png */,
+				CE31139619B071C000D05C08 /* collect.png */,
 				CE89181819152C7F00231FBB /* noirnew.png */,
 				CEF3B79B1934FDF3002D7D6E /* recomm.png */,
 				CEF3B79C1934FDF3002D7D6E /* foodpair.png */,
@@ -892,6 +904,8 @@
 				CEB4A55518C69C5D0037C867 /* pick_bg@2x.png in Resources */,
 				CE97624118CFD82000A8C6AC /* typingMine.png in Resources */,
 				CE95FB76196096FA00D882C1 /* emptybook.png in Resources */,
+				CE31139A19B071C000D05C08 /* collect.png in Resources */,
+				CE31139819B071C000D05C08 /* book.png in Resources */,
 				CEB4A55418C69C5D0037C867 /* line@2x.png in Resources */,
 				CE97625918CFDF5800A8C6AC /* halloween.jpg in Resources */,
 				CE97623D18CFD82000A8C6AC /* bubbleSomeone.png in Resources */,
@@ -913,10 +927,12 @@
 				CEF3B79D1934FDF3002D7D6E /* recomm.png in Resources */,
 				CE97625818CFDF5800A8C6AC /* avatar1.png in Resources */,
 				CEF8CF6E18C1434D00943823 /* wine.jpg in Resources */,
+				CE31139719B071C000D05C08 /* book-vide.png in Resources */,
 				CE97623C18CFD82000A8C6AC /* bubbleMine@2x.png in Resources */,
 				CEB4A53E18C69B720037C867 /* zbar-back.png in Resources */,
 				CE8918241928A13200231FBB /* backlist.png in Resources */,
 				CE31139019AE8D8A00D05C08 /* newline.png in Resources */,
+				CE31139919B071C000D05C08 /* collect-vide.png in Resources */,
 				CE8917BC1914F7B600231FBB /* 111.png in Resources */,
 				CE95FB78196096FA00D882C1 /* fullticket.png in Resources */,
 				CE89180F1915261E00231FBB /* newsort.png in Resources */,

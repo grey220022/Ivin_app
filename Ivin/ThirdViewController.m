@@ -205,7 +205,7 @@
     cell.nameLabel.text=@"Château pichon";
     cell.subnameLabel.text=@"Château Pichon Longueville Baron 2009";
     cell.subnameLabel2.text=@"Pauillac, France";
-    
+    cell.ratingnumberLable.text=@"4.0";
     cell.priceLabel.text=@"9€";
     cell.dateLabel.text=@"12/12/2009";
     //cell.selectionStyle=UITableViewCellSelectionStyleNone;

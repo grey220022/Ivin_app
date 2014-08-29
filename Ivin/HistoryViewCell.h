@@ -18,6 +18,7 @@
 
 @property ( nonatomic) IBOutlet UIImageView * imageLable;
 @property ( nonatomic) IBOutlet UIImageView * ratingLable;
+@property ( nonatomic) IBOutlet UILabel * ratingnumberLable;
 
 
 @end
