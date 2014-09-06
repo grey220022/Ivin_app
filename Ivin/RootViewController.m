@@ -234,11 +234,46 @@ int tim;
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         stringValue = metadataObject.stringValue;
         NSLog(@"%@",stringValue);
+        
+        
+        
         [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
         
-        //NSLog(@"begin");
-        NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
-        NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+//        NSLog(@"%d",[stringValue rangeOfString:@"lapinroi-001-site1"].location);
+        if ([stringValue rangeOfString:@"lapinroi-001-site1"].location==NSNotFound)
+        {
+            UIAlertView *myAlertView;
+            myAlertView = [[UIAlertView alloc]initWithTitle:@"qr code error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [myAlertView show];
+            return;
+        }
+        NSString * wineurl;
+        NSString * wineryurl;
+        
+        int nn=stringValue.length;
+        
+//         NSString *winenumber=[stringValue substringToIndex:nn-4];
+        
+        NSString *winenumber=[[stringValue substringFromIndex:nn-4]substringToIndex:1];
+        
+        //@"http://lapinroi-001-site1.smarterasp.net/WineCard/DetailsWineryIndex?wineCode=FR00009001"
+        
+        
+        wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine/",winenumber];
+        wineryurl= [NSString stringWithFormat:@"%@%@", @"http://lapinroi-001-site1.smarterasp.net/api/winery/",winenumber];
+        
+        
+//        NSLog(@"%@",wineurl);
+//        NSLog(@"%@",wineryurl);
+        
+//        NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
+//        NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+        
+        
+        NSData* winestring=[IvinHelp geturlcontent:wineurl];
+        NSData* winerystring=[IvinHelp geturlcontent:wineryurl];
+
+        
         //NSLog(@"end");
         if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
         {

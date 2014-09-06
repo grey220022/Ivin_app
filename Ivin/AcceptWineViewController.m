@@ -133,6 +133,47 @@
     [self.description sizeToFit];
     self.description.lineBreakMode=UILineBreakModeWordWrap;
     
+    
+    NSString *filePath;//=[[NSBundle mainBundle] pathForResource:@"30" ofType:@"png"];
+    
+    int ratingvalue;
+    
+    
+    if ([SingletonClass sharedInstance].wine.AverageMark)
+    
+    ratingvalue=(int)([[SingletonClass sharedInstance].wine.AverageMark floatValue]+0.5);
+    
+    
+    
+    switch (ratingvalue) {
+        case 1:
+            filePath=[[NSBundle mainBundle] pathForResource:@"10" ofType:@"png"];
+            break;
+        case 2:
+            filePath=[[NSBundle mainBundle] pathForResource:@"20" ofType:@"png"];
+            break;
+        case 3:
+            filePath=[[NSBundle mainBundle] pathForResource:@"30" ofType:@"png"];
+            break;
+        case 4:
+            filePath=[[NSBundle mainBundle] pathForResource:@"40" ofType:@"png"];
+            break;
+        case 5:
+            filePath=[[NSBundle mainBundle] pathForResource:@"50" ofType:@"png"];
+            break;
+        case 0:
+            filePath=[[NSBundle mainBundle] pathForResource:@"00" ofType:@"png"];
+            break;
+            
+        default:
+            filePath=[[NSBundle mainBundle] pathForResource:@"00" ofType:@"png"];
+            break;
+    }
+    UIImage *startimages=[UIImage imageWithContentsOfFile:filePath];
+    self.starts.image=startimages;
+
+    
+    
     self.pair.numberOfLines = 0;
     [self.pair sizeToFit];
     
@@ -155,7 +196,7 @@
 
 
    // UIImageView * image;
-    [_iw loadImageFromURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.PictureName] placeholderImage:nil cachingKey:@"ivincache"];
+    [_iw loadImageFromURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.WinePhotoUrl] placeholderImage:nil cachingKey:@"ivincache"];
     _iw.contentMode=UIViewContentModeScaleAspectFit;
     //[_iw setImage:image];
     //[_iw addSubview:];

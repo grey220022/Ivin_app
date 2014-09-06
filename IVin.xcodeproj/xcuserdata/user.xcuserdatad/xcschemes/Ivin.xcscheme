@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE84199318BEAF0200ECC402"
                BuildableName = "Ivin.app"
-               BlueprintName = "Ivin"
-               ReferencedContainer = "container:Ivin.xcodeproj">
+               BlueprintName = "IVin.temp_caseinsensitive_rename"
+               ReferencedContainer = "container:IVin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -34,8 +34,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE8419B718BEAF0200ECC402"
                BuildableName = "IvinTests.xctest"
-               BlueprintName = "IvinTests"
-               ReferencedContainer = "container:Ivin.xcodeproj">
+               BlueprintName = "IVin.temp_caseinsensitive_renameTests"
+               ReferencedContainer = "container:IVin.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
             BuildableName = "Ivin.app"
-            BlueprintName = "Ivin"
-            ReferencedContainer = "container:Ivin.xcodeproj">
+            BlueprintName = "IVin.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -63,8 +63,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
             BuildableName = "Ivin.app"
-            BlueprintName = "Ivin"
-            ReferencedContainer = "container:Ivin.xcodeproj">
+            BlueprintName = "IVin.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -81,8 +81,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
             BuildableName = "Ivin.app"
-            BlueprintName = "Ivin"
-            ReferencedContainer = "container:Ivin.xcodeproj">
+            BlueprintName = "IVin.temp_caseinsensitive_rename"
+            ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

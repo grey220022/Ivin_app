@@ -51,6 +51,7 @@ int alertstate;
     //self.commenttext.
     
     self.commenttext.delegate=self;
+    //self.commenttext.textColor=[UIColor whiteColor];
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
     self.rateView.delegate = self;

@@ -18,7 +18,8 @@
 {
     NSMutableString * somestring;
     if (initval == nil || [initval isKindOfClass:[NSNull class]])
-        return @"";
+        //return @"";
+        somestring=[NSMutableString stringWithString:@""];
     else
     {
         somestring = [NSMutableString stringWithString: pre];
@@ -28,8 +29,8 @@
         [somestring appendString: initval];
         
         [somestring appendString: @"\r\n\r\n"];
-        return somestring;
     }
+    return somestring;
 }
 
 + (NSString *) strval:(NSString *) initval replacevalue:(NSString *) replace
@@ -85,6 +86,7 @@
     [SingletonClass sharedInstance].wine.grapearray=ttt;
     [SingletonClass sharedInstance].wine.WineTypeName=[tempdic objectForKey:@"WineTypeName"];
     [SingletonClass sharedInstance].wine.WineryRecommandation=[tempdic objectForKey:@"WineryRecommandation"];
+    NSLog(@"%@",[SingletonClass sharedInstance].wine.WineryRecommandation);
     [SingletonClass sharedInstance].wine.FoodParing=[tempdic objectForKey:@"FoodParing"];
     [SingletonClass sharedInstance].wine.AppellationName=[tempdic objectForKey:@"AppellationName"];
     
@@ -98,7 +100,12 @@
     NSNumber *ccc=[tempdic objectForKey:@"AverageMark"];
     NSNumberFormatter *fmt = [[NSNumberFormatter alloc] init];
     [fmt setMinimumFractionDigits:1];
-    [SingletonClass sharedInstance].wine.AverageMark=[fmt stringFromNumber:ccc];
+//    [SingletonClass sharedInstance].wine.AverageMark=[fmt stringFromNumber:ccc];
+    
+    [SingletonClass sharedInstance].wine.AverageMark=[IvinHelp strval:[fmt stringFromNumber:ccc] replacevalue:@"0.0"];
+
+    
+    
     NSMutableString * tempstring;
     tempstring=[[NSMutableString alloc] initWithString:[NSString stringWithFormat: @"%d", [[tempdic objectForKey:@"TotalMarkUser"] intValue]]];
     [SingletonClass sharedInstance].wine.TotalLike=[NSString stringWithFormat: @"%d", [[tempdic objectForKey:@"TotalLike"] intValue]];
@@ -137,31 +144,52 @@
     someString3 =[IvinHelp strpreval: [SingletonClass sharedInstance].wine.VintageDescription prevalue:@"VintageDescription" join:@":"];
     [someString appendString: someString2];
     [someString appendString: someString3];
-    [SingletonClass sharedInstance].wine.PictureName=[tempdic objectForKey:@"PictureName"];
+    //[SingletonClass sharedInstance].wine.PictureName=[tempdic objectForKey:@"PictureName"];
     [SingletonClass sharedInstance].wine.Making=someString;
     
     
-   // return temp;
+    [SingletonClass sharedInstance].wine.WinePhotoUrl=[tempdic objectForKey:@"WinePhotoUrl"];
+
+    
+    [SingletonClass sharedInstance].wine.bi1=[SingletonClass sharedInstance].wine.Tastingnotes;
+    [SingletonClass sharedInstance].wine.bi2=[SingletonClass sharedInstance].wine.WineGuide;
+    [SingletonClass sharedInstance].wine.bi3=[SingletonClass sharedInstance].wine.VintageDescription;
+    [SingletonClass sharedInstance].wine.bi4=[SingletonClass sharedInstance].wine.WineViticulture;
+    [SingletonClass sharedInstance].wine.bi5=[SingletonClass sharedInstance].wine.WineMaking;
+    
 }
 
 
 + (void) wineryparse:(NSData *) winerycontent
 //+ (Winery *) wineryparse:(NSData *) winerycontent
 {
-    //NSString * ggg=[[NSString alloc] initWithData:winerycontent encoding:NSASCIIStringEncoding];
+    //NSString * ggg=[[NSString alloc] initWithData:winerycontent encoding:NSUTF8StringEncoding];
     //NSLog(@"%@",ggg);
     
     Winery * temp=[[Winery alloc] init];
     NSError *error;
     NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:winerycontent options:NSJSONReadingMutableLeaves error:&error];
     [SingletonClass sharedInstance].winery.Name=[tempdic objectForKey:@"Name"];
+    
     [SingletonClass sharedInstance].winery.Description=[tempdic objectForKey:@"Description"];
+    [SingletonClass sharedInstance].winery.DescriptionTitle=[tempdic objectForKey:@"DescriptionTitle"];
+    [SingletonClass sharedInstance].winery.OwnerDescriptionTitle=[tempdic objectForKey:@"OwnerDescriptionTitle"];
+    [SingletonClass sharedInstance].winery.OwnerDescription=[tempdic objectForKey:@"OwnerDescription"];
+    [SingletonClass sharedInstance].winery.VineyardPresentationTitle=[tempdic objectForKey:@"VineyardPresentationTitle"];
+    [SingletonClass sharedInstance].winery.VineyardPresentation=[tempdic objectForKey:@"VineyardPresentation"];
+    [SingletonClass sharedInstance].winery.WinetoursTitle=[tempdic objectForKey:@"WinetoursTitle"];
+    [SingletonClass sharedInstance].winery.Winetours=[tempdic objectForKey:@"Winetours"];
+    
+    
+
+    
+    
     [SingletonClass sharedInstance].winery.VinePresentation=[tempdic objectForKey:@"VinePresentation"];
     [SingletonClass sharedInstance].winery.OtherHistory=[IvinHelp strval:[tempdic objectForKey:@"OtherHistory"] replacevalue:@"Les hommes"];
     NSLog(@"");
     [SingletonClass sharedInstance].winery.OtherHistoryTitle=[IvinHelp strval:[tempdic objectForKey:@"OtherHistoryTitle"] replacevalue:@"No data"];//Les hommes
     
-    [SingletonClass sharedInstance].winery.Winetours=[tempdic objectForKey:@"Winetours"];
+//    [SingletonClass sharedInstance].winery.Winetours=[tempdic objectForKey:@"Winetours"];
 
     
     [SingletonClass sharedInstance].winery.Mail=[tempdic objectForKey:@"Mail"];
@@ -222,6 +250,19 @@
     [someString appendString: someString13];
     [SingletonClass sharedInstance].winery.Contact=someString;
     NSLog(@"%@",someString);
+    [SingletonClass sharedInstance].winery.WineryPhotoUrl=[tempdic objectForKey:@"WineryPhotoUrl"];
+    
+    
+    //small pictures
+    [SingletonClass sharedInstance].winery.VineyardPresentationPhotoUrl=[IvinHelp strval:[tempdic objectForKey:@"VineyardPresentationPhotoUrl"] replacevalue:@"NOIMG"];
+    [SingletonClass sharedInstance].winery.OwnerDescriptionPhotoUrl=[IvinHelp strval:[tempdic objectForKey:@"OwnerDescriptionPhotoUrl"] replacevalue:@"NOIMG"];
+    [SingletonClass sharedInstance].winery.WinetoursPhotoUrl=[IvinHelp strval:[tempdic objectForKey:@"WinetoursPhotoUrl"] replacevalue:@"NOIMG"];
+
+    [SingletonClass sharedInstance].winery.bc1=[SingletonClass sharedInstance].winery.Description;
+    [SingletonClass sharedInstance].winery.bc2=[SingletonClass sharedInstance].winery.OwnerDescription;
+    [SingletonClass sharedInstance].winery.bc3=[SingletonClass sharedInstance].winery.VineyardPresentation;
+    [SingletonClass sharedInstance].winery.bc4=[SingletonClass sharedInstance].winery.Winetours;
+    [SingletonClass sharedInstance].winery.bc5=[SingletonClass sharedInstance].winery.Contact;
 }
 
 @end

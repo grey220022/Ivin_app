@@ -178,7 +178,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 180;
+    return 150;
 }
 
 
@@ -269,8 +269,13 @@
     //[_activityIndicator startAnimating];
     
     
-    NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
-    NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+    //NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
+    //NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+    
+    
+    NSData* winestring=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/wine/5"];
+    NSData* winerystring=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/winery/5"];
+    
     
     if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
     {

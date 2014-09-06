@@ -14,7 +14,6 @@
 		CE084C9118F48D660062BB5F /* chateau.png in Resources */ = {isa = PBXBuildFile; fileRef = CE084C8D18F48D660062BB5F /* chateau.png */; };
 		CE084CA618F4A11A0062BB5F /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE084CA518F4A11A0062BB5F /* 3.png */; };
 		CE084CAA18F60C270062BB5F /* gline.png in Resources */ = {isa = PBXBuildFile; fileRef = CE084CA718F60C270062BB5F /* gline.png */; };
-		CE084CAB18F60C270062BB5F /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = CE084CA818F60C270062BB5F /* 40.png */; };
 		CE189AC318E0E50300F8942F /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE189AC218E0E50300F8942F /* APPViewController.m */; };
 		CE25A8F218D77D1500927856 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE25A8F118D77D1500927856 /* ProfileView.m */; };
 		CE2A3F8D18C7F910008212A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A3F8A18C7F910008212A4 /* ViewController.m */; };
@@ -90,6 +89,12 @@
 		CE97625518CFD85800A8C6AC /* UIBubbleTypingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97624F18CFD85800A8C6AC /* UIBubbleTypingTableViewCell.m */; };
 		CE97625818CFDF5800A8C6AC /* avatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE97625618CFDF5800A8C6AC /* avatar1.png */; };
 		CE97625918CFDF5800A8C6AC /* halloween.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE97625718CFDF5800A8C6AC /* halloween.jpg */; };
+		CEA073E519B1D09E009A3351 /* 00.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073DF19B1D09E009A3351 /* 00.png */; };
+		CEA073E619B1D09E009A3351 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073E019B1D09E009A3351 /* 10.png */; };
+		CEA073E719B1D09E009A3351 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073E119B1D09E009A3351 /* 20.png */; };
+		CEA073E819B1D09E009A3351 /* 30.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073E219B1D09E009A3351 /* 30.png */; };
+		CEA073E919B1D09E009A3351 /* 40.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073E319B1D09E009A3351 /* 40.png */; };
+		CEA073EA19B1D09E009A3351 /* 50.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073E419B1D09E009A3351 /* 50.png */; };
 		CEB4A53518C69B720037C867 /* bitstream.c in Sources */ = {isa = PBXBuildFile; fileRef = CEB4A51F18C69B710037C867 /* bitstream.c */; };
 		CEB4A53618C69B720037C867 /* mask.c in Sources */ = {isa = PBXBuildFile; fileRef = CEB4A52118C69B710037C867 /* mask.c */; };
 		CEB4A53718C69B720037C867 /* QRCodeGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB4A52418C69B710037C867 /* QRCodeGenerator.m */; };
@@ -167,7 +172,6 @@
 		CE084C8D18F48D660062BB5F /* chateau.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = chateau.png; sourceTree = "<group>"; };
 		CE084CA518F4A11A0062BB5F /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		CE084CA718F60C270062BB5F /* gline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gline.png; sourceTree = "<group>"; };
-		CE084CA818F60C270062BB5F /* 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40.png; sourceTree = "<group>"; };
 		CE189AC118E0E50300F8942F /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
 		CE189AC218E0E50300F8942F /* APPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPViewController.m; sourceTree = "<group>"; };
 		CE25A8F018D77D1500927856 /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
@@ -186,14 +190,14 @@
 		CE5481141947798D001ED112 /* VinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VinViewController.m; sourceTree = "<group>"; };
 		CE54811619478D42001ED112 /* WineryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryViewController.h; sourceTree = "<group>"; };
 		CE54811719478D42001ED112 /* WineryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryViewController.m; sourceTree = "<group>"; };
-		CE84199418BEAF0200ECC402 /* Ivin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Ivin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE84199418BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IVin.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE84199718BEAF0200ECC402 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE84199918BEAF0200ECC402 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CE84199B18BEAF0200ECC402 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CE84199F18BEAF0200ECC402 /* Ivin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Ivin-Info.plist"; sourceTree = "<group>"; };
+		CE84199F18BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IVin.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
 		CE8419A118BEAF0200ECC402 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE8419A318BEAF0200ECC402 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CE8419A518BEAF0200ECC402 /* Ivin-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Ivin-Prefix.pch"; sourceTree = "<group>"; };
+		CE8419A518BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IVin.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
 		CE8419A618BEAF0200ECC402 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE8419A718BEAF0200ECC402 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CE8419AA18BEAF0200ECC402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -202,9 +206,9 @@
 		CE8419AF18BEAF0200ECC402 /* SecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		CE8419B018BEAF0200ECC402 /* SecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		CE8419B218BEAF0200ECC402 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		CE8419B818BEAF0200ECC402 /* IvinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IvinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE8419B818BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IVin.temp_caseinsensitive_renameTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE8419B918BEAF0200ECC402 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		CE8419C118BEAF0200ECC402 /* IvinTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IvinTests-Info.plist"; sourceTree = "<group>"; };
+		CE8419C118BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IVin.temp_caseinsensitive_renameTests-Info.plist"; sourceTree = "<group>"; };
 		CE8419C318BEAF0200ECC402 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE8419C518BEAF0200ECC402 /* IvinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IvinTests.m; sourceTree = "<group>"; };
 		CE8419CF18BEB2CA00ECC402 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
@@ -272,6 +276,12 @@
 		CE97625018CFD85800A8C6AC /* UIBubbleTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableViewDataSource.h; sourceTree = "<group>"; };
 		CE97625618CFDF5800A8C6AC /* avatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar1.png; sourceTree = "<group>"; };
 		CE97625718CFDF5800A8C6AC /* halloween.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = halloween.jpg; sourceTree = "<group>"; };
+		CEA073DF19B1D09E009A3351 /* 00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00.png; sourceTree = "<group>"; };
+		CEA073E019B1D09E009A3351 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
+		CEA073E119B1D09E009A3351 /* 20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20.png; sourceTree = "<group>"; };
+		CEA073E219B1D09E009A3351 /* 30.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 30.png; sourceTree = "<group>"; };
+		CEA073E319B1D09E009A3351 /* 40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 40.png; sourceTree = "<group>"; };
+		CEA073E419B1D09E009A3351 /* 50.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 50.png; sourceTree = "<group>"; };
 		CEB4A50A18C69B710037C867 /* Decoder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Decoder.h; sourceTree = "<group>"; };
 		CEB4A50B18C69B710037C867 /* Exception.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Exception.h; sourceTree = "<group>"; };
 		CEB4A50C18C69B710037C867 /* Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Image.h; sourceTree = "<group>"; };
@@ -434,8 +444,13 @@
 				CE084CA718F60C270062BB5F /* gline.png */,
 				CEC9343F199F6A9700FF2FB8 /* Redwine.png */,
 				CE89181A19153C6200231FBB /* cup.png */,
-				CE084CA818F60C270062BB5F /* 40.png */,
 				CE084C8D18F48D660062BB5F /* chateau.png */,
+				CEA073DF19B1D09E009A3351 /* 00.png */,
+				CEA073E019B1D09E009A3351 /* 10.png */,
+				CEA073E119B1D09E009A3351 /* 20.png */,
+				CEA073E219B1D09E009A3351 /* 30.png */,
+				CEA073E319B1D09E009A3351 /* 40.png */,
+				CEA073E419B1D09E009A3351 /* 50.png */,
 			);
 			name = newresources;
 			sourceTree = "<group>";
@@ -511,8 +526,8 @@
 		CE84199518BEAF0200ECC402 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE84199418BEAF0200ECC402 /* Ivin.app */,
-				CE8419B818BEAF0200ECC402 /* IvinTests.xctest */,
+				CE84199418BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename.app */,
+				CE8419B818BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -604,11 +619,11 @@
 		CE84199E18BEAF0200ECC402 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE84199F18BEAF0200ECC402 /* Ivin-Info.plist */,
+				CE84199F18BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename-Info.plist */,
 				CE084BFD18F0CE910062BB5F /* try.plist */,
 				CE8419A018BEAF0200ECC402 /* InfoPlist.strings */,
 				CE8419A318BEAF0200ECC402 /* main.m */,
-				CE8419A518BEAF0200ECC402 /* Ivin-Prefix.pch */,
+				CE8419A518BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -625,7 +640,7 @@
 		CE8419C018BEAF0200ECC402 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE8419C118BEAF0200ECC402 /* IvinTests-Info.plist */,
+				CE8419C118BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests-Info.plist */,
 				CE8419C218BEAF0200ECC402 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -806,9 +821,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE84199318BEAF0200ECC402 /* Ivin */ = {
+		CE84199318BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE8419C918BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "Ivin" */;
+			buildConfigurationList = CE8419C918BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin.temp_caseinsensitive_rename" */;
 			buildPhases = (
 				CE84199018BEAF0200ECC402 /* Sources */,
 				CE84199118BEAF0200ECC402 /* Frameworks */,
@@ -818,14 +833,14 @@
 			);
 			dependencies = (
 			);
-			name = Ivin;
+			name = IVin.temp_caseinsensitive_rename;
 			productName = Ivin;
-			productReference = CE84199418BEAF0200ECC402 /* Ivin.app */;
+			productReference = CE84199418BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CE8419B718BEAF0200ECC402 /* IvinTests */ = {
+		CE8419B718BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE8419CC18BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IvinTests" */;
+			buildConfigurationList = CE8419CC18BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin.temp_caseinsensitive_renameTests" */;
 			buildPhases = (
 				CE8419B418BEAF0200ECC402 /* Sources */,
 				CE8419B518BEAF0200ECC402 /* Frameworks */,
@@ -836,9 +851,9 @@
 			dependencies = (
 				CE8419BE18BEAF0200ECC402 /* PBXTargetDependency */,
 			);
-			name = IvinTests;
+			name = IVin.temp_caseinsensitive_renameTests;
 			productName = IvinTests;
-			productReference = CE8419B818BEAF0200ECC402 /* IvinTests.xctest */;
+			productReference = CE8419B818BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -858,7 +873,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CE84198F18BEAF0200ECC402 /* Build configuration list for PBXProject "Ivin" */;
+			buildConfigurationList = CE84198F18BEAF0200ECC402 /* Build configuration list for PBXProject "IVin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -871,8 +886,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE84199318BEAF0200ECC402 /* Ivin */,
-				CE8419B718BEAF0200ECC402 /* IvinTests */,
+				CE84199318BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename */,
+				CE8419B718BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests */,
 			);
 		};
 /* End PBXProject section */
@@ -884,6 +899,7 @@
 			files = (
 				CE89181B19153C6200231FBB /* cup.png in Resources */,
 				CEB4A54018C69B720037C867 /* zbar-helpicons.png in Resources */,
+				CEA073E619B1D09E009A3351 /* 10.png in Resources */,
 				CEDC465F19966AC300C1665F /* star3.png in Resources */,
 				CE95FB79196096FA00D882C1 /* point.png in Resources */,
 				CE084CAA18F60C270062BB5F /* gline.png in Resources */,
@@ -896,6 +912,7 @@
 				CE8A9BA718C2354700F76A4A /* kermit_half.png in Resources */,
 				CE8419B318BEAF0200ECC402 /* Images.xcassets in Resources */,
 				CEC93440199F6A9700FF2FB8 /* Redwine.png in Resources */,
+				CEA073E919B1D09E009A3351 /* 40.png in Resources */,
 				CE8917C31914FD7A00231FBB /* tabbar_mainbtn.png in Resources */,
 				CE89181519152AA600231FBB /* 30noir.png in Resources */,
 				CEB4A54118C69B720037C867 /* zbar-samples.png in Resources */,
@@ -908,6 +925,7 @@
 				CE31139819B071C000D05C08 /* book.png in Resources */,
 				CEB4A55418C69C5D0037C867 /* line@2x.png in Resources */,
 				CE97625918CFDF5800A8C6AC /* halloween.jpg in Resources */,
+				CEA073E719B1D09E009A3351 /* 20.png in Resources */,
 				CE97623D18CFD82000A8C6AC /* bubbleSomeone.png in Resources */,
 				CE97623E18CFD82000A8C6AC /* bubbleSomeone@2x.png in Resources */,
 				CEFF3F5518E246C500785AD7 /* RadioButton-Unselected.png in Resources */,
@@ -915,7 +933,6 @@
 				CE8419A218BEAF0200ECC402 /* InfoPlist.strings in Resources */,
 				CE89181E191E327800231FBB /* caved.png in Resources */,
 				CEDC465D19966AC300C1665F /* star1.png in Resources */,
-				CE084CAB18F60C270062BB5F /* 40.png in Resources */,
 				CE89181F191E327800231FBB /* rated.png in Resources */,
 				CE89181719152B7200231FBB /* noir1.png in Resources */,
 				CE8A9BA618C2354700F76A4A /* kermit_full.png in Resources */,
@@ -925,6 +942,7 @@
 				CEC93430199F493000FF2FB8 /* champagne rose.png in Resources */,
 				CEB4A53F18C69B720037C867 /* zbar-help.html in Resources */,
 				CEF3B79D1934FDF3002D7D6E /* recomm.png in Resources */,
+				CEA073EA19B1D09E009A3351 /* 50.png in Resources */,
 				CE97625818CFDF5800A8C6AC /* avatar1.png in Resources */,
 				CEF8CF6E18C1434D00943823 /* wine.jpg in Resources */,
 				CE31139719B071C000D05C08 /* book-vide.png in Resources */,
@@ -938,6 +956,7 @@
 				CE89180F1915261E00231FBB /* newsort.png in Resources */,
 				CEC93434199F493000FF2FB8 /* white.png in Resources */,
 				CE8A9BA518C2354700F76A4A /* kermit_empty.png in Resources */,
+				CEA073E819B1D09E009A3351 /* 30.png in Resources */,
 				CE084C9118F48D660062BB5F /* chateau.png in Resources */,
 				CEFF3F5418E246C500785AD7 /* RadioButton-Selected.png in Resources */,
 				CEC93422199A9ABA00FF2FB8 /* cancel.png in Resources */,
@@ -948,6 +967,7 @@
 				CE97623F18CFD82000A8C6AC /* missingAvatar.png in Resources */,
 				CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */,
 				CEC93432199F493000FF2FB8 /* red.png in Resources */,
+				CEA073E519B1D09E009A3351 /* 00.png in Resources */,
 				CE97624218CFD82000A8C6AC /* typingMine@2x.png in Resources */,
 				CE8419AB18BEAF0200ECC402 /* Main.storyboard in Resources */,
 				CE97624018CFD82000A8C6AC /* missingAvatar@2x.png in Resources */,
@@ -1039,7 +1059,7 @@
 /* Begin PBXTargetDependency section */
 		CE8419BE18BEAF0200ECC402 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CE84199318BEAF0200ECC402 /* Ivin */;
+			target = CE84199318BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename */;
 			targetProxy = CE8419BD18BEAF0200ECC402 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1155,14 +1175,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ivin/Ivin-Prefix.pch";
-				INFOPLIST_FILE = "Ivin/Ivin-Info.plist";
+				GCC_PREFIX_HEADER = "Ivin/IVin.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "Ivin/IVin.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/user/Documents/v5/Ivin/ZBarSDK,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = IVin.temp_caseinsensitive_rename;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1174,14 +1194,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ivin/Ivin-Prefix.pch";
-				INFOPLIST_FILE = "Ivin/Ivin-Info.plist";
+				GCC_PREFIX_HEADER = "Ivin/IVin.temp_caseinsensitive_rename-Prefix.pch";
+				INFOPLIST_FILE = "Ivin/IVin.temp_caseinsensitive_rename-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/user/Documents/v5/Ivin/ZBarSDK,
 				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = IVin.temp_caseinsensitive_rename;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1202,8 +1222,8 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "IvinTests/IvinTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "IvinTests/IVin.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = IVin.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1221,8 +1241,8 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Ivin/Ivin-Prefix.pch";
-				INFOPLIST_FILE = "IvinTests/IvinTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				INFOPLIST_FILE = "IvinTests/IVin.temp_caseinsensitive_renameTests-Info.plist";
+				PRODUCT_NAME = IVin.temp_caseinsensitive_renameTests;
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -1231,7 +1251,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CE84198F18BEAF0200ECC402 /* Build configuration list for PBXProject "Ivin" */ = {
+		CE84198F18BEAF0200ECC402 /* Build configuration list for PBXProject "IVin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE8419C718BEAF0200ECC402 /* Debug */,
@@ -1240,7 +1260,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE8419C918BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "Ivin" */ = {
+		CE8419C918BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin.temp_caseinsensitive_rename" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE8419CA18BEAF0200ECC402 /* Debug */,
@@ -1249,7 +1269,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE8419CC18BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IvinTests" */ = {
+		CE8419CC18BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin.temp_caseinsensitive_renameTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE8419CD18BEAF0200ECC402 /* Debug */,

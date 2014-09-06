@@ -19,6 +19,9 @@
 @property (weak, nonatomic) Winery  *winery;
 
 
+@property (weak, nonatomic) IBOutlet UIImageView  *starts;
+
+
 @property (weak, nonatomic) IBOutlet UILabel *la1;
 @property (weak, nonatomic) IBOutlet UILabel *la2;
 @property (weak, nonatomic) IBOutlet UILabel *la3;

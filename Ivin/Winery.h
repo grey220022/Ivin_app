@@ -41,6 +41,27 @@
 @property(nonatomic,retain) NSString *VinePresentationPhotoName;
 @property(nonatomic,retain) NSString *OtherHistoryPhotoName;
 @property(nonatomic,retain) NSString *WinetoursPhotoName;
+@property(nonatomic,retain) NSString *WineryPhotoUrl;
 
+
+@property(nonatomic,retain) NSString *DescriptionTitle;
+@property(nonatomic,retain) NSString *OwnerDescriptionTitle;
+@property(nonatomic,retain) NSString *OwnerDescription;
+@property(nonatomic,retain) NSString *VineyardPresentationTitle;
+@property(nonatomic,retain) NSString *VineyardPresentation;
+@property(nonatomic,retain) NSString *WinetoursTitle;
+
+
+
+@property(nonatomic,retain) NSString *OwnerDescriptionPhotoUrl;
+@property(nonatomic,retain) NSString *VineyardPresentationPhotoUrl;
+@property(nonatomic,retain) NSString *WinetoursPhotoUrl;
+
+
+@property(nonatomic,retain) NSString *bc1;
+@property(nonatomic,retain) NSString *bc2;
+@property(nonatomic,retain) NSString *bc3;
+@property(nonatomic,retain) NSString *bc4;
+@property(nonatomic,retain) NSString *bc5;
 
 @end

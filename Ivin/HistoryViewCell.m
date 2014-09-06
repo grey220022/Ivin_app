@@ -15,11 +15,11 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 15, 220, 40)];
-        _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 135, 90, 20)];
+        _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(15, 130, 90, 20)];
         _priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(230, 45, 90, 20)];
         _subnameLabel= [[UILabel alloc]initWithFrame:CGRectMake(100, 40, 200, 80)];
-        _subnameLabel2= [[UILabel alloc]initWithFrame:CGRectMake(100, 130, 220, 20)];
-        _ratingnumberLable= [[UILabel alloc]initWithFrame:CGRectMake(140, 150, 50, 20)];
+        _subnameLabel2= [[UILabel alloc]initWithFrame:CGRectMake(100, 121, 220, 20)];
+        _ratingnumberLable= [[UILabel alloc]initWithFrame:CGRectMake(67, 115, 50, 20)];
         
         _imageLable = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 70, 100)];
         
@@ -48,7 +48,7 @@
         _subnameLabel2.textColor=[UIColor grayColor];
         _ratingnumberLable.textColor=[UIColor whiteColor];
         
-        _ratingLable=[[UIImageView alloc] initWithFrame:CGRectMake(100, 140, 40, 40)];
+        _ratingLable=[[UIImageView alloc] initWithFrame:CGRectMake(20, 105, 40, 40)];
         _ratingLable.contentMode=UIViewContentModeScaleAspectFit;
         //_imageLable.contentMode=UIViewContentModeScaleAspectFit;
         

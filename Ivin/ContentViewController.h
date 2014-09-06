@@ -15,5 +15,7 @@
 @property (weak, nonatomic) NSString *contenttype;
 @property (weak, nonatomic) IBOutlet UIImageView *ima;
 
+@property (weak, nonatomic)  NSString *imageurl;
+
 
 @end
