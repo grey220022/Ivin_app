@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE84199318BEAF0200ECC402"
-               BuildableName = "Ivin.app"
+               BuildableName = "IVin.temp_caseinsensitive_rename.app"
                BlueprintName = "IVin.temp_caseinsensitive_rename"
                ReferencedContainer = "container:IVin.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE8419B718BEAF0200ECC402"
-               BuildableName = "IvinTests.xctest"
+               BuildableName = "IVin.temp_caseinsensitive_renameTests.xctest"
                BlueprintName = "IVin.temp_caseinsensitive_renameTests"
                ReferencedContainer = "container:IVin.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
-            BuildableName = "Ivin.app"
+            BuildableName = "IVin.temp_caseinsensitive_rename.app"
             BlueprintName = "IVin.temp_caseinsensitive_rename"
             ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
-            BuildableName = "Ivin.app"
+            BuildableName = "IVin.temp_caseinsensitive_rename.app"
             BlueprintName = "IVin.temp_caseinsensitive_rename"
             ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>
@@ -80,7 +80,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
-            BuildableName = "Ivin.app"
+            BuildableName = "IVin.temp_caseinsensitive_rename.app"
             BlueprintName = "IVin.temp_caseinsensitive_rename"
             ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>

@@ -40,6 +40,15 @@
     else return initval;
 }
 
+
++ (NSString *) purge:(NSString *) initval
+{
+    NSString * ret;
+    ret=[initval stringByReplacingOccurrencesOfString:@"&#039;" withString:@"'"];
+    return ret;
+}
+
+
 + (NSData *) geturlcontent:(NSString *) url
 {
     NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
@@ -85,9 +94,9 @@
     
     [SingletonClass sharedInstance].wine.grapearray=ttt;
     [SingletonClass sharedInstance].wine.WineTypeName=[tempdic objectForKey:@"WineTypeName"];
-    [SingletonClass sharedInstance].wine.WineryRecommandation=[tempdic objectForKey:@"WineryRecommandation"];
-    NSLog(@"%@",[SingletonClass sharedInstance].wine.WineryRecommandation);
-    [SingletonClass sharedInstance].wine.FoodParing=[tempdic objectForKey:@"FoodParing"];
+    [SingletonClass sharedInstance].wine.WineryRecommandation=[IvinHelp purge:[tempdic objectForKey:@"WineryRecommandation"]];
+//    NSLog(@"%@",[SingletonClass sharedInstance].wine.WineryRecommandation);
+    [SingletonClass sharedInstance].wine.FoodParing=[IvinHelp purge:[tempdic objectForKey:@"FoodParing"]];
     [SingletonClass sharedInstance].wine.AppellationName=[tempdic objectForKey:@"AppellationName"];
     
     [SingletonClass sharedInstance].wine.PropertyOwner=[tempdic objectForKey:@"PropertyOwner"];
@@ -151,11 +160,11 @@
     [SingletonClass sharedInstance].wine.WinePhotoUrl=[tempdic objectForKey:@"WinePhotoUrl"];
 
     
-    [SingletonClass sharedInstance].wine.bi1=[SingletonClass sharedInstance].wine.Tastingnotes;
-    [SingletonClass sharedInstance].wine.bi2=[SingletonClass sharedInstance].wine.WineGuide;
-    [SingletonClass sharedInstance].wine.bi3=[SingletonClass sharedInstance].wine.VintageDescription;
-    [SingletonClass sharedInstance].wine.bi4=[SingletonClass sharedInstance].wine.WineViticulture;
-    [SingletonClass sharedInstance].wine.bi5=[SingletonClass sharedInstance].wine.WineMaking;
+    [SingletonClass sharedInstance].wine.bi1=[IvinHelp purge:[SingletonClass sharedInstance].wine.Tastingnotes];
+    [SingletonClass sharedInstance].wine.bi2=[IvinHelp purge:[SingletonClass sharedInstance].wine.WineGuide];
+    [SingletonClass sharedInstance].wine.bi3=[IvinHelp purge:[SingletonClass sharedInstance].wine.VintageDescription];
+    [SingletonClass sharedInstance].wine.bi4=[IvinHelp purge:[SingletonClass sharedInstance].wine.WineViticulture];
+    [SingletonClass sharedInstance].wine.bi5=[IvinHelp purge:[SingletonClass sharedInstance].wine.WineMaking];
     
 }
 
@@ -258,11 +267,11 @@
     [SingletonClass sharedInstance].winery.OwnerDescriptionPhotoUrl=[IvinHelp strval:[tempdic objectForKey:@"OwnerDescriptionPhotoUrl"] replacevalue:@"NOIMG"];
     [SingletonClass sharedInstance].winery.WinetoursPhotoUrl=[IvinHelp strval:[tempdic objectForKey:@"WinetoursPhotoUrl"] replacevalue:@"NOIMG"];
 
-    [SingletonClass sharedInstance].winery.bc1=[SingletonClass sharedInstance].winery.Description;
-    [SingletonClass sharedInstance].winery.bc2=[SingletonClass sharedInstance].winery.OwnerDescription;
-    [SingletonClass sharedInstance].winery.bc3=[SingletonClass sharedInstance].winery.VineyardPresentation;
-    [SingletonClass sharedInstance].winery.bc4=[SingletonClass sharedInstance].winery.Winetours;
-    [SingletonClass sharedInstance].winery.bc5=[SingletonClass sharedInstance].winery.Contact;
+    [SingletonClass sharedInstance].winery.bc1=[IvinHelp purge:[SingletonClass sharedInstance].winery.Description];
+    [SingletonClass sharedInstance].winery.bc2=[IvinHelp purge:[SingletonClass sharedInstance].winery.OwnerDescription];
+    [SingletonClass sharedInstance].winery.bc3=[IvinHelp purge:[SingletonClass sharedInstance].winery.VineyardPresentation];
+    [SingletonClass sharedInstance].winery.bc4=[IvinHelp purge:[SingletonClass sharedInstance].winery.Winetours];
+    [SingletonClass sharedInstance].winery.bc5=[IvinHelp purge:[SingletonClass sharedInstance].winery.Contact];
 }
 
 @end

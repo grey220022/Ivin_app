@@ -243,7 +243,7 @@ int tim;
         if ([stringValue rangeOfString:@"lapinroi-001-site1"].location==NSNotFound)
         {
             UIAlertView *myAlertView;
-            myAlertView = [[UIAlertView alloc]initWithTitle:@"qr code error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            myAlertView = [[UIAlertView alloc]initWithTitle:@"QR code erreur" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
             return;
         }
@@ -278,7 +278,7 @@ int tim;
         if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
         {
             UIAlertView *myAlertView;
-            myAlertView = [[UIAlertView alloc]initWithTitle:@"Network error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
             return;
         }
