@@ -5,7 +5,7 @@
 //  Created by user on 2/27/14.
 //  Copyright (c) 2014 user. All rights reserved.
 //
-
+#import "UIImage+Network.h"
 #import "ThirdViewController.h"
 #import "AcceptWineViewController.h"
 #import "words.h"
@@ -36,6 +36,8 @@ NSMutableArray *WineryCountry;//=[[NSMutableArray alloc] initWithObjects: nil];
 NSMutableArray *Appellation;//=[[NSMutableArray alloc] initWithObjects: nil];
 NSMutableArray *Year;//=[[NSMutableArray alloc] initWithObjects: nil];
 NSMutableArray *AverageMark;//=[[NSMutableArray alloc] initWithObjects: nil];
+NSMutableArray *CreateDate;
+NSMutableArray *WineCode;
 
 
 @implementation ThirdViewController
@@ -93,6 +95,8 @@ NSMutableArray *AverageMark;//=[[NSMutableArray alloc] initWithObjects: nil];
     Appellation=[[NSMutableArray alloc] initWithObjects: nil];
     Year=[[NSMutableArray alloc] initWithObjects: nil];
     AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
+    CreateDate=[[NSMutableArray alloc] initWithObjects: nil];
+    WineCode=[[NSMutableArray alloc] initWithObjects: nil];
     
     
     [SingletonClass sharedInstance].listview=self;
@@ -114,17 +118,25 @@ NSMutableArray *AverageMark;//=[[NSMutableArray alloc] initWithObjects: nil];
         [self.navigationController pushViewController:nextController animated:YES];
         return;
     }
-    NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=14"];
+    NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
+    
+    
+    //winelistdata
     
     
     NSDictionary *tempdic;
     NSError *error;
     NSArray *winelist= [NSJSONSerialization JSONObjectWithData:winelistdata options:NSJSONReadingMutableLeaves error:&error];
     
+   // NSString* newStr = [[NSString alloc] initWithData:winelistdata encoding:NSUTF8StringEncoding];
+    
+    //NSLog(@"%@",newStr);
+    
+    
+    
     NSString * tmp;
     
     
-    wine_num=WineName.count;
     
     for (NSDictionary *wine in winelist) {
         tmp=[wine valueForKey:@"WineName"];
@@ -141,8 +153,14 @@ NSMutableArray *AverageMark;//=[[NSMutableArray alloc] initWithObjects: nil];
         [Year addObject:tmp];
         tmp=[wine valueForKey:@"AverageMark"];
         [AverageMark addObject:tmp];
+        tmp=[wine valueForKey:@"WineCode"];
+        [WineCode addObject:tmp];
+        tmp=[wine valueForKey:@"CreateDate"];
+        [CreateDate addObject:tmp];
+        
     }
 
+    wine_num=WineName.count;
     
     
     
@@ -261,17 +279,72 @@ NSMutableArray *AverageMark;//=[[NSMutableArray alloc] initWithObjects: nil];
         cell = [[HistoryViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    UIImage * bgImage =[UIImage imageNamed:@"wine.jpg"];
-    [cell.imageLable setImage:bgImage];
-    UIImage * ratingImage =[UIImage imageNamed:@"40.png"];
+    [cell.imageLable loadImageFromURL:[NSURL URLWithString:[WineImageUrl objectAtIndex:indexPath.row]] placeholderImage:nil cachingKey:@"iwinerycache"];
+    
+    //UIImage * bgImage =[UIImage imageNamed:@"wine.jpg"];
+    //[cell.imageLable setImage:bgImage];
+    
+    
+    NSString * filePath;
+    float ratingvalue=[[AverageMark objectAtIndex:indexPath.row] floatValue];
+    
+    if (ratingvalue>=4.5)
+        filePath=[[NSBundle mainBundle] pathForResource:@"50" ofType:@"png"];
+    else if (ratingvalue>=3.5)
+        filePath=[[NSBundle mainBundle] pathForResource:@"40" ofType:@"png"];
+    else if (ratingvalue>=2.5)
+        filePath=[[NSBundle mainBundle] pathForResource:@"30" ofType:@"png"];
+    else if (ratingvalue>=1.5)
+        filePath=[[NSBundle mainBundle] pathForResource:@"20" ofType:@"png"];
+    else if (ratingvalue>=0.5)
+        filePath=[[NSBundle mainBundle] pathForResource:@"10" ofType:@"png"];
+    else
+        filePath=[[NSBundle mainBundle] pathForResource:@"00" ofType:@"png"];
+    
+    
+    
+    
+    
+    UIImage * ratingImage = [UIImage imageWithContentsOfFile:filePath];//[UIImage imageNamed:@"40.png"];
+    //[UIImage imageWithContentsOfFile:filePath];
     [cell.ratingLable setImage: ratingImage];
     //cell.nameLabel=@"xxxxx";
     cell.nameLabel.text= [WineryName objectAtIndex:indexPath.row]; //@"Château pichon";
-    cell.subnameLabel.text= [WineryName objectAtIndex:indexPath.row];    //@"Château Pichon Longueville Baron 2009";
-    cell.subnameLabel2.text=@"Pauillac, France";
-    cell.ratingnumberLable.text=@"4.0";
+    
+    
+//    NSMutableString* someString = [NSMutableString stringWithString: [WineryName objectAtIndex:indexPath.row]];
+//    [someString appendString: @" "];
+//    [someString appendString: [Year objectAtIndex:indexPath.row]];
+    
+    
+//    NSMutableString* someString = [NSMutableString stringWithString: [WineryName objectAtIndex:indexPath.row]];
+    
+  //  NSLog(@"%@",someString);
+  //  [someString appendString: @" "];
+    
+    //NSString* fd=[Year objectAtIndex:indexPath.row];
+    //[someString appendString: fd];
+    
+    cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[WineryName objectAtIndex:indexPath.row] , [Year objectAtIndex:indexPath.row]];
+    //someString;    //@"Château Pichon Longueville Baron 2009";
+
+    
+    //someString = [NSMutableString stringWithString: [Appellation objectAtIndex:indexPath.row]];
+    //[someString appendString: @", "];
+    //[someString appendString: WineryCountry];
+    
+    cell.subnameLabel2.text=[NSString stringWithFormat:@"%@, %@",[Appellation objectAtIndex:indexPath.row] , [WineryCountry objectAtIndex:indexPath.row]];//someString;//@"Pauillac, France";
+    
+    
+    NSNumber *vvv=[AverageMark objectAtIndex:indexPath.row];
+    
+    
+    cell.ratingnumberLable.text=[[NSString alloc] initWithFormat:@"%0.1f",[vvv floatValue]];
+    
+    [AverageMark objectAtIndex:indexPath.row];//@"4.0";
+    
     cell.priceLabel.text=@"9€";
-    cell.dateLabel.text=@"12/12/2009";
+    cell.dateLabel.text=[CreateDate objectAtIndex:indexPath.row];//@"12/12/2009";
     //cell.selectionStyle=UITableViewCellSelectionStyleNone;
     return cell;
     
