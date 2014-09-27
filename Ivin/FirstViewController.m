@@ -13,6 +13,7 @@
 #import "words.h"
 #import "LangView.h"
 #import "NewloginView.h"
+#import "SingletonClass.h"
 
 
 @interface FirstViewController ()
@@ -20,6 +21,7 @@
 @end
 
 UITableViewCell * profilecell;
+UITableViewCell *logincell;
 
 @implementation FirstViewController
 
@@ -34,7 +36,20 @@ UITableViewCell * profilecell;
 }
 
 
-
+-(void)viewWillAppear:(BOOL)animated
+{
+    if (logincell== nil)
+        return;
+    if ([SingletonClass sharedInstance].username == nil)
+    {
+        logincell.textLabel.text =  [words getword:@"userlogin"]; //@"用户帐号" ;
+    }
+    else
+    {
+        logincell.textLabel.text =  @"注销用户"; //@"用户帐号" ;
+    }
+    
+}
 
 
 
@@ -81,7 +96,16 @@ UITableViewCell * profilecell;
 //	UITextField* tf = nil ;
 	switch ( indexPath.row ) {
 		case 0: {
-			cell.textLabel.text =  [words getword:@"userlogin"]; //@"用户帐号" ;
+            
+            if ([SingletonClass sharedInstance].username == nil)
+            {
+                cell.textLabel.text =  [words getword:@"userlogin"]; //@"用户帐号" ;
+            }
+            else
+            {
+                cell.textLabel.text =  @"注销用户"; //@"用户帐号" ;
+            }
+            logincell=cell;
 			break ;
 		}
 		case 1: {
@@ -203,15 +227,19 @@ UITableViewCell * profilecell;
                 break;
             }
             case 1: {
+                
+                if ([SingletonClass sharedInstance].username!=nil)
+                {
+                    [SingletonClass sharedInstance].username=nil;
+                    UIAlertView *myAlertView;
+                    myAlertView = [[UIAlertView alloc]initWithTitle:@"注销" message:@"用户已注销" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                    [myAlertView show];
+                    break;
+                }
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 ProfileView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"profileview"];
                 nextController.title=@"帐户信息";
-                //nextController.toplabel.text=@"葡萄种类";
-                //nextController.mainlabel.text=@"葡萄葡萄葡萄";
-                
                 [self.navigationController pushViewController:nextController animated:YES];
-                
-                
                 break;
             }
         }

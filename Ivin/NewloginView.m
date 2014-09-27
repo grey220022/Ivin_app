@@ -6,8 +6,11 @@
 //  Copyright (c) 2014 user. All rights reserved.
 //
 
+
+#import "SingletonClass.h"
 #import "NewloginView.h"
 #import "NewuserView.h"
+#import "IvinHelp.h"
 
 @interface NewloginView ()
 
@@ -25,6 +28,29 @@
 
 -(IBAction) loginbutton
 {
+    
+    NSString * request=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUser/Login?username=%@&password=%@", _t1.text,[IvinHelp md5HexDigest:_t2.text]];
+    
+    NSLog(@"%@",request);
+    NSString * response=[[NSString alloc] initWithData:[IvinHelp geturlcontent:request] encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",response);
+    
+    if ([response isEqual:@"0"])
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:@"登录" message:@"用户名或密码错误" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+    }
+    else
+    {
+        //todo remember login information.
+        [SingletonClass sharedInstance].username=response;
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:@"登录" message:@"登录成功" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
+    
 //    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -33,6 +59,7 @@
     NSLog(@"signupbutton press");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NewuserView *newuserview = [storyboard instantiateViewControllerWithIdentifier:@"newuserview"];
+    newuserview.previousController=self;
     [self presentModalViewController:newuserview animated:YES];
 }
 
@@ -44,6 +71,14 @@
         // Custom initialization
     }
     return self;
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    if ([SingletonClass sharedInstance].username!=nil)
+    {
+        [self dismissViewControllerAnimated:YES completion:nil];
+    }
 }
 
 - (void)viewDidLoad

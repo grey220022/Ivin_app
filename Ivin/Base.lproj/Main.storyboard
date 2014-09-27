@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13D65" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <deployment defaultVersion="1536" identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
     </dependencies>
     <scenes>
-        <!--First View Controller - First-->
+        <!--First-->
         <scene sceneID="W3I-pn-N6e">
             <objects>
                 <viewController title="First" id="CZ4-MO-1fc" customClass="FirstViewController" sceneMemberID="viewController">
@@ -676,7 +675,7 @@
             </objects>
             <point key="canvasLocation" x="3166" y="-532"/>
         </scene>
-        <!--Table View Controller - Root View Controller-->
+        <!--Root View Controller-->
         <scene sceneID="pvS-Bi-VjY">
             <objects>
                 <tableViewController id="mOv-FI-Z9r" sceneMemberID="viewController">
@@ -701,7 +700,7 @@
             </objects>
             <point key="canvasLocation" x="1833" y="-589"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Item-->
         <scene sceneID="ndh-ZL-u7N">
             <objects>
                 <navigationController definesPresentationContext="YES" id="PvG-7W-GLi" sceneMemberID="viewController">
@@ -818,12 +817,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="qr" id="lu9-Tk-pkr"/>
+                    <navigationItem key="navigationItem" id="eQm-U4-Sik"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xpS-8q-3EH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="415" y="699"/>
+            <point key="canvasLocation" x="597" y="665"/>
         </scene>
-        <!--Second View Controller - Second-->
+        <!--Second-->
         <scene sceneID="ot8-2e-RuS">
             <objects>
                 <viewController title="Second" id="QUy-BD-bpt" customClass="SecondViewController" sceneMemberID="viewController">
@@ -995,7 +995,6 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="k9G-W4-lfy">
-                                        <rect key="frame" x="0.0" y="630" width="320" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <prototypes>
@@ -1178,7 +1177,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="rnl-xE-Iej">
-                                        <rect key="frame" x="0.0" y="583" width="320" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                         <prototypes>
@@ -1236,7 +1234,7 @@
                     <navigationItem key="navigationItem" id="p7n-mS-2vI"/>
                     <connections>
                         <outlet property="cup" destination="kNC-q4-ZqG" id="Ou5-2x-1UB"/>
-                        <outlet property="description" destination="DI8-V4-KcO" id="bV4-oa-C8e"/>
+                        <outlet property="description1" destination="DI8-V4-KcO" id="a7x-DU-wBH"/>
                         <outlet property="iw" destination="19H-t6-Y3r" id="vqd-y8-Tvg"/>
                         <outlet property="la1" destination="ahc-IG-2aB" id="6i6-3M-K19"/>
                         <outlet property="la2" destination="qK9-IY-4TP" id="ZRJ-gk-cSD"/>
@@ -1369,6 +1367,11 @@
                         <outlet property="b4" destination="u0a-01-YKB" id="5Mg-ik-dUO"/>
                         <outlet property="b5" destination="DkM-jS-nzG" id="SGV-Aq-KNr"/>
                         <outlet property="ima" destination="15g-4i-KXL" id="AmB-G0-5Sc"/>
+                        <outlet property="ll1" destination="eiD-N4-Eed" id="sWp-aO-zrg"/>
+                        <outlet property="ll2" destination="qg1-ea-jqM" id="aW9-ml-71n"/>
+                        <outlet property="ll3" destination="zRR-YD-EB7" id="lr8-AR-H0x"/>
+                        <outlet property="ll4" destination="4t5-dN-SrC" id="Q9L-cw-ZXG"/>
+                        <outlet property="ll5" destination="fhw-SJ-Lke" id="dUw-6i-9ha"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0d-mu-cck" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1477,6 +1480,11 @@
                         <outlet property="b4" destination="dhC-Mp-1pW" id="do2-vg-Nwd"/>
                         <outlet property="b5" destination="Zhd-wL-G0s" id="K6k-4f-3ub"/>
                         <outlet property="ima" destination="SL3-rk-xC0" id="rT7-KE-6i1"/>
+                        <outlet property="ll1" destination="7Q3-0z-ykG" id="Qoh-83-aBz"/>
+                        <outlet property="ll2" destination="NY4-YB-9eD" id="9jy-xb-7kh"/>
+                        <outlet property="ll3" destination="ayw-Ru-SW2" id="5Sz-HI-sST"/>
+                        <outlet property="ll4" destination="jKl-RO-Epy" id="q2l-Ec-VTQ"/>
+                        <outlet property="ll5" destination="uXq-84-abm" id="vw2-I7-zN9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6mQ-QP-OaP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1724,7 +1732,7 @@
             </objects>
             <point key="canvasLocation" x="2452" y="2706"/>
         </scene>
-        <!--View Controller - Item-->
+        <!--Item-->
         <scene sceneID="42M-ah-GuK">
             <objects>
                 <viewController storyboardIdentifier="QRcode" useStoryboardIdentifierAsRestorationIdentifier="YES" id="hpI-g7-laL" customClass="ViewController" sceneMemberID="viewController">
@@ -1759,7 +1767,7 @@
             </objects>
             <point key="canvasLocation" x="-756" y="140"/>
         </scene>
-        <!--Navigation Controller - Item-->
+        <!--Item-->
         <scene sceneID="n6R-3T-AKn">
             <objects>
                 <navigationController definesPresentationContext="YES" id="fuu-au-BjO" sceneMemberID="viewController">
@@ -1774,7 +1782,24 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ie3-uH-vNC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="187" y="-527"/>
+            <point key="canvasLocation" x="-41" y="-503"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="Jmk-Q7-MJo">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="rgO-Kh-ocZ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="XZh-la-KKv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="i6E-fr-4ZA">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zSh-20-LIG" kind="relationship" relationship="rootViewController" id="hfb-gC-nOC"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6FT-KQ-gCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-103" y="817"/>
         </scene>
     </scenes>
     <resources>
@@ -1800,10 +1825,13 @@
         <image name="setup" width="30" height="30"/>
         <image name="wine.jpg" width="1000" height="790"/>
     </resources>
-    <color key="tintColor" red="0.92156862745098034" green="0.84705882352941175" blue="0.56862745098039214" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="deN-QM-ega"/>
+    </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.92156862745098034" green="0.84705882352941175" blue="0.56862745098039214" alpha="0.93000000000000005" colorSpace="calibratedRGB"/>
 </document>

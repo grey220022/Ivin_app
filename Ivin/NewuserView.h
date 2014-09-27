@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UITextField *t1;
 @property (weak, nonatomic) IBOutlet UITextField *t2;
 @property (weak, nonatomic) IBOutlet UITextField *t3;
+@property (weak, nonatomic) IBOutlet UIViewController *previousController;
+
 @property(nonatomic, copy) NSAttributedString *attributedPlaceholder;
 
 

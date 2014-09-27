@@ -148,6 +148,61 @@ int tim;
     isreading=NO;
     NSLog(@"appear");
     [self setupCamera];
+    
+    
+    
+    //todo : unline the following code before submitting
+    
+    /*
+    
+    
+    NSString * wineurl;
+    NSString * wineryurl;
+    
+    
+    NSString *winenumber=@"2";//[[stringValue substringFromIndex:nn-4]substringToIndex:1];
+    
+    //@"http://lapinroi-001-site1.smarterasp.net/WineCard/DetailsWineryIndex?wineCode=FR00009001"
+    
+    
+    wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine/",winenumber];
+    wineryurl= [NSString stringWithFormat:@"%@%@", @"http://lapinroi-001-site1.smarterasp.net/api/winery/",winenumber];
+    
+    
+    //        NSLog(@"%@",wineurl);
+    //        NSLog(@"%@",wineryurl);
+    
+    //        NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
+    //        NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
+    
+    
+    NSData* winestring=[IvinHelp geturlcontent:wineurl];
+    NSData* winerystring=[IvinHelp geturlcontent:wineryurl];
+    
+    
+    //NSLog(@"end");
+    if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
+    
+    [self performSelectorOnMainThread:@selector(updateName) withObject:nil waitUntilDone:NO];
+    [IvinHelp wineryparse:winerystring];
+    [IvinHelp wineparse:winestring];
+    [_activityIndicator stopAnimating];
+    
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
+    [self.navigationController pushViewController:nextController animated:YES];
+    
+    
+    
+    */
+    
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -189,6 +244,7 @@ int tim;
     }
     
     // 条码类型 AVMetadataObjectTypeQRCode
+    //todo
     _output.metadataObjectTypes =@[AVMetadataObjectTypeQRCode];
     
     // Preview
@@ -287,8 +343,18 @@ int tim;
         [IvinHelp wineryparse:winerystring];
         [IvinHelp wineparse:winestring];
         [_activityIndicator stopAnimating];
+        
+        
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
+        [self.navigationController pushViewController:nextController animated:YES];
+        
+        /*
         [SingletonClass sharedInstance].fromscan=1;
         [self.tabBarController setSelectedIndex:1];
+        */
+        
+        
       //  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
     }
    // [_session stopRunning];

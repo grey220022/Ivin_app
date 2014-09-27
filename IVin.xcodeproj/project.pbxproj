@@ -190,14 +190,14 @@
 		CE5481141947798D001ED112 /* VinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VinViewController.m; sourceTree = "<group>"; };
 		CE54811619478D42001ED112 /* WineryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryViewController.h; sourceTree = "<group>"; };
 		CE54811719478D42001ED112 /* WineryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryViewController.m; sourceTree = "<group>"; };
-		CE84199418BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IVin.temp_caseinsensitive_rename.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE84199418BEAF0200ECC402 /* IVin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IVin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE84199718BEAF0200ECC402 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE84199918BEAF0200ECC402 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CE84199B18BEAF0200ECC402 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		CE84199F18BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IVin.temp_caseinsensitive_rename-Info.plist"; sourceTree = "<group>"; };
+		CE84199F18BEAF0200ECC402 /* IVin-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "IVin-Info.plist"; sourceTree = "<group>"; };
 		CE8419A118BEAF0200ECC402 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE8419A318BEAF0200ECC402 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		CE8419A518BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IVin.temp_caseinsensitive_rename-Prefix.pch"; sourceTree = "<group>"; };
+		CE8419A518BEAF0200ECC402 /* IVin.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IVin.pch; sourceTree = "<group>"; };
 		CE8419A618BEAF0200ECC402 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		CE8419A718BEAF0200ECC402 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		CE8419AA18BEAF0200ECC402 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -526,7 +526,7 @@
 		CE84199518BEAF0200ECC402 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CE84199418BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename.app */,
+				CE84199418BEAF0200ECC402 /* IVin.app */,
 				CE8419B818BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests.xctest */,
 			);
 			name = Products;
@@ -619,11 +619,11 @@
 		CE84199E18BEAF0200ECC402 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				CE84199F18BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename-Info.plist */,
+				CE84199F18BEAF0200ECC402 /* IVin-Info.plist */,
 				CE084BFD18F0CE910062BB5F /* try.plist */,
 				CE8419A018BEAF0200ECC402 /* InfoPlist.strings */,
 				CE8419A318BEAF0200ECC402 /* main.m */,
-				CE8419A518BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename-Prefix.pch */,
+				CE8419A518BEAF0200ECC402 /* IVin.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -821,9 +821,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CE84199318BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename */ = {
+		CE84199318BEAF0200ECC402 /* IVin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE8419C918BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin.temp_caseinsensitive_rename" */;
+			buildConfigurationList = CE8419C918BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin" */;
 			buildPhases = (
 				CE84199018BEAF0200ECC402 /* Sources */,
 				CE84199118BEAF0200ECC402 /* Frameworks */,
@@ -833,14 +833,14 @@
 			);
 			dependencies = (
 			);
-			name = IVin.temp_caseinsensitive_rename;
+			name = IVin;
 			productName = Ivin;
-			productReference = CE84199418BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename.app */;
+			productReference = CE84199418BEAF0200ECC402 /* IVin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		CE8419B718BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests */ = {
+		CE8419B718BEAF0200ECC402 /* IVin_Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE8419CC18BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin.temp_caseinsensitive_renameTests" */;
+			buildConfigurationList = CE8419CC18BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin_Tests" */;
 			buildPhases = (
 				CE8419B418BEAF0200ECC402 /* Sources */,
 				CE8419B518BEAF0200ECC402 /* Frameworks */,
@@ -851,7 +851,7 @@
 			dependencies = (
 				CE8419BE18BEAF0200ECC402 /* PBXTargetDependency */,
 			);
-			name = IVin.temp_caseinsensitive_renameTests;
+			name = IVin_Tests;
 			productName = IvinTests;
 			productReference = CE8419B818BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -862,7 +862,7 @@
 		CE84198C18BEAF0200ECC402 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = user;
 				TargetAttributes = {
 					CE84199318BEAF0200ECC402 = {
@@ -886,8 +886,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				CE84199318BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename */,
-				CE8419B718BEAF0200ECC402 /* IVin.temp_caseinsensitive_renameTests */,
+				CE84199318BEAF0200ECC402 /* IVin */,
+				CE8419B718BEAF0200ECC402 /* IVin_Tests */,
 			);
 		};
 /* End PBXProject section */
@@ -1059,7 +1059,7 @@
 /* Begin PBXTargetDependency section */
 		CE8419BE18BEAF0200ECC402 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CE84199318BEAF0200ECC402 /* IVin.temp_caseinsensitive_rename */;
+			target = CE84199318BEAF0200ECC402 /* IVin */;
 			targetProxy = CE8419BD18BEAF0200ECC402 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1095,8 +1095,13 @@
 		CE8419C718BEAF0200ECC402 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1115,6 +1120,8 @@
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Ivin/IVin.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1126,18 +1133,32 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
+					/Users/user/Documents/v8simple/Ivin/ZBarSDK/Headers,
+				);
 				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "32E5A59D-F9CA-400D-84C4-92582A4C3AA2";
 				SDKROOT = iphoneos;
+				VALID_ARCHS = "armv6 armv7 armv7s arm64";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
 		};
 		CE8419C818BEAF0200ECC402 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ARCHS = (
+					armv7,
+					armv7s,
+				);
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -1150,21 +1171,32 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Huiqi ZHENG (B8R3WBG58Z)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Huiqi ZHENG (B8R3WBG58Z)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = Ivin/IVin.pch;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
+					/Users/user/Documents/v8simple/Ivin/ZBarSDK/Headers,
+				);
+				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "32E5A59D-F9CA-400D-84C4-92582A4C3AA2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv6 armv7 armv7s arm64";
+				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
 		};
@@ -1175,14 +1207,14 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ivin/IVin.temp_caseinsensitive_rename-Prefix.pch";
-				INFOPLIST_FILE = "Ivin/IVin.temp_caseinsensitive_rename-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				GCC_PREFIX_HEADER = Ivin/IVin.pch;
+				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/user/Documents/v5/Ivin/ZBarSDK,
+					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
 				);
-				PRODUCT_NAME = IVin.temp_caseinsensitive_rename;
+				PRODUCT_NAME = IVin;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1192,16 +1224,16 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "Ivin/IVin.temp_caseinsensitive_rename-Prefix.pch";
-				INFOPLIST_FILE = "Ivin/IVin.temp_caseinsensitive_rename-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				GCC_PREFIX_HEADER = Ivin/IVin.pch;
+				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/user/Documents/v5/Ivin/ZBarSDK,
+					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
 				);
-				PRODUCT_NAME = IVin.temp_caseinsensitive_rename;
+				PRODUCT_NAME = IVin;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1209,7 +1241,6 @@
 		CE8419CD18BEAF0200ECC402 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Ivin.app/Ivin";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1232,7 +1263,6 @@
 		CE8419CE18BEAF0200ECC402 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Ivin.app/Ivin";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
@@ -1260,7 +1290,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE8419C918BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin.temp_caseinsensitive_rename" */ = {
+		CE8419C918BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE8419CA18BEAF0200ECC402 /* Debug */,
@@ -1269,7 +1299,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE8419CC18BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin.temp_caseinsensitive_renameTests" */ = {
+		CE8419CC18BEAF0200ECC402 /* Build configuration list for PBXNativeTarget "IVin_Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE8419CD18BEAF0200ECC402 /* Debug */,

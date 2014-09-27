@@ -118,20 +118,32 @@
     [_sw setScrollEnabled:YES];
     //[_sw setContentSize:CGSizeMake(320, 2200)];
     
-    [_sw setContentSize:CGSizeMake(320, 750)];
+    [_sw setContentSize:CGSizeMake(320, 820)];
+    
+    
+    if([UIScreen mainScreen].bounds.size.height < 568){
+        
+        CGPoint point =CGPointMake(0, -23.0);
+        //_sw.frame.origin;
+        
+        CGRect frame = _sw.frame;
+        frame.origin = point;
+        _sw.frame=frame;
+    }
+    
     
     _sw.delegate=self;
     self.rateView.notSelectedImage = [UIImage imageNamed:@"star1.png"];
     self.rateView.halfSelectedImage = [UIImage imageNamed:@"star3.png"];
     self.rateView.fullSelectedImage = [UIImage imageNamed:@"star2.png"];
     //self.rateView.rating = 3;
-    self.rateView.editable = YES;
+    self.rateView.editable = NO;
     self.rateView.maxRating = 5;
     self.rateView.delegate = self;
     self.statusLabel.text=@"Rating: 0";
     //self.description.numberOfLines = 0;
-    [self.description sizeToFit];
-    self.description.lineBreakMode=UILineBreakModeWordWrap;
+    [self.description1 sizeToFit];
+    self.description1.lineBreakMode=UILineBreakModeWordWrap;
     
     
     NSString *filePath;//=[[NSBundle mainBundle] pathForResource:@"30" ofType:@"png"];
@@ -141,7 +153,7 @@
     
     if ([SingletonClass sharedInstance].wine.AverageMark)
     
-    ratingvalue=(int)([[SingletonClass sharedInstance].wine.AverageMark floatValue]+0.5);
+        ratingvalue=(int)([[SingletonClass sharedInstance].wine.AverageMark floatValue]+0.5);
     
     
     
@@ -269,7 +281,7 @@
     
     
     _li4.text=[SingletonClass sharedInstance].wine.AppellationName;
-    _description.text=[SingletonClass sharedInstance].wine.WineryRecommandation;
+    _description1.text=[SingletonClass sharedInstance].wine.WineryRecommandation;
     _li8.text=[SingletonClass sharedInstance].wine.FoodParing;
     
     NSLog(@"%@",[SingletonClass sharedInstance].wine.Vintage);
@@ -479,12 +491,13 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
 
     
     
-    
+    /*
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DetailView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"detailview"];
     nextController.gg=self;
     nextController.title=[words getword:@"rating"];
     [self.navigationController pushViewController:nextController animated:YES];
+     */
 //    nextController.rateView.rating=3;
     //self.rateView.rating;
     //nextController.maintext=@"酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事";

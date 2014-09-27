@@ -7,6 +7,8 @@
 //
 
 #import "NewuserView.h"
+#import "IvinHelp.h"
+#import "SingletonClass.h"
 
 @interface NewuserView ()
 
@@ -74,6 +76,33 @@
 {
 //    [self dismissViewControllerAnimated:YES completion:nil];
     NSLog(@"signup button pressed");
+    
+    NSString * request=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUser/SignIn?username=%@&password=%@&email=%@&profileId=2",_t1.text,  [IvinHelp md5HexDigest:_t2.text], _t3.text];
+    
+    NSLog(@"%@",request);
+    NSString * response=[[NSString alloc] initWithData:[IvinHelp geturlcontent:request] encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",response);
+    
+    if ([response isEqual:@"0"])
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:@"注册" message:@"用户名已被注册" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+    }
+    else
+    {
+        //todo remember login information.
+        [SingletonClass sharedInstance].username=response;
+        
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:@"注册" message:@"成功注册" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        [self dismissViewControllerAnimated:NO completion:nil];
+       // [self.previousController dismissViewControllerAnimated:YES completion:NULL];
+     //   [self dismissViewControllerAnimated:NO completion:^(void) {
+     //       [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
+     //   }];
+    }
 }
 
 

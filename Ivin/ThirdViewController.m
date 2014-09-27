@@ -20,11 +20,23 @@
 @property(nonatomic,retain) NSArray * listData;
 @property(nonatomic,retain) NSArray * sublistData;
 @property (nonatomic,retain) IBOutlet UISearchBar *searchBar;
+
 //@property (strong) UIActivityIndicatorView *activityIndicator;
 
 //-(void)refreshPropertyList;
 
 @end
+
+
+int wine_num;
+NSMutableArray *WineName;// =[[NSMutableArray alloc] initWithObjects: nil];
+NSMutableArray *WineImageUrl; //=[[NSMutableArray alloc] initWithObjects: nil];
+NSMutableArray *WineryName;//=[[NSMutableArray alloc] initWithObjects: nil];
+NSMutableArray *WineryCountry;//=[[NSMutableArray alloc] initWithObjects: nil];
+NSMutableArray *Appellation;//=[[NSMutableArray alloc] initWithObjects: nil];
+NSMutableArray *Year;//=[[NSMutableArray alloc] initWithObjects: nil];
+NSMutableArray *AverageMark;//=[[NSMutableArray alloc] initWithObjects: nil];
+
 
 @implementation ThirdViewController
 
@@ -35,13 +47,13 @@
 {
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:[words getword:@"sort"]
                                   
-                                                           delegate:self
+                                                            delegate:self
                                   
-                                                  cancelButtonTitle:[words getword:@"cancel"]
+                                                   cancelButtonTitle:[words getword:@"cancel"]
                                   
-                                             destructiveButtonTitle:nil
+                                              destructiveButtonTitle:nil
                                   
-                                                  otherButtonTitles:[words getword:@"sortbyname"],[words getword:@"sortbywinery"],[words getword:@"sortbyyear"],[words getword:@"sortbytype"],nil];
+                                                   otherButtonTitles:[words getword:@"sortbyname"],[words getword:@"sortbywinery"],[words getword:@"sortbyyear"],[words getword:@"sortbytype"],nil];
     
     actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
     
@@ -52,7 +64,7 @@
 
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
-
+    
     if ([buttonTitle isEqualToString:@"名字排序"]) {
         NSLog(@"Cancel pressed --> 1");
     }
@@ -62,7 +74,7 @@
     if ([buttonTitle isEqualToString:@"年份排序"]) {
         NSLog(@"Cancel pressed --> 3");
     }
-
+    
 }
 
 - (void)getwinedata:(NSString *) url
@@ -74,6 +86,14 @@
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    WineName =[[NSMutableArray alloc] initWithObjects: nil];
+    WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
+    WineryName=[[NSMutableArray alloc] initWithObjects: nil];
+    WineryCountry=[[NSMutableArray alloc] initWithObjects: nil];
+    Appellation=[[NSMutableArray alloc] initWithObjects: nil];
+    Year=[[NSMutableArray alloc] initWithObjects: nil];
+    AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
+    
     
     [SingletonClass sharedInstance].listview=self;
     NSLog(@"thirdappear");
@@ -84,7 +104,7 @@
         NSLog(@"%@",[SingletonClass sharedInstance].wine.Wine);
         
         NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
-
+        
         
         NSLog(@"4");
         
@@ -92,7 +112,44 @@
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
         [self.navigationController pushViewController:nextController animated:YES];
+        return;
     }
+    NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=14"];
+    
+    
+    NSDictionary *tempdic;
+    NSError *error;
+    NSArray *winelist= [NSJSONSerialization JSONObjectWithData:winelistdata options:NSJSONReadingMutableLeaves error:&error];
+    
+    NSString * tmp;
+    
+    
+    wine_num=WineName.count;
+    
+    for (NSDictionary *wine in winelist) {
+        tmp=[wine valueForKey:@"WineName"];
+        [WineName addObject:tmp];
+        tmp=[wine valueForKey:@"WineImageUrl"];
+        [WineImageUrl addObject:tmp];
+        tmp=[wine valueForKey:@"WineryName"];
+        [WineryName addObject:tmp];
+        tmp=[wine valueForKey:@"WineryCountry"];
+        [WineryCountry addObject:tmp];
+        tmp=[wine valueForKey:@"Appellation"];
+        [Appellation addObject:tmp];
+        tmp=[wine valueForKey:@"Year"];
+        [Year addObject:tmp];
+        tmp=[wine valueForKey:@"AverageMark"];
+        [AverageMark addObject:tmp];
+    }
+
+    
+    
+    
+    
+//    if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
+
+    
 }
 
 
@@ -100,16 +157,22 @@
 - (void)viewDidLoad
 {
     NSLog(@"thirddidload");
-
+    
     [super viewDidLoad];
     
+    
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] init];
+    barButtonItem.title = @"";
+    self.navigationItem.backBarButtonItem = barButtonItem;
+    
+    
     _activityIndicator = [[UIActivityIndicatorView alloc]
-                         initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
     [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
     [self.view addSubview:_activityIndicator];
     _activityIndicator.center=CGPointMake(160, 250);
     _activityIndicator.hidesWhenStopped = YES;
-
+    
     
     
     
@@ -130,23 +193,23 @@
     
     
     /*
-    self.searchBar.backgroundColor=[UIColor clearColor];
-    [[self.searchBar.subviews objectAtIndex:0]removeFromSuperview];
-    for (UIView *subview in self.searchBar.subviews)
-    {
-        if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")])
-        {
-            [subview removeFromSuperview];
-            break;
-        }
-    }*/
+     self.searchBar.backgroundColor=[UIColor clearColor];
+     [[self.searchBar.subviews objectAtIndex:0]removeFromSuperview];
+     for (UIView *subview in self.searchBar.subviews)
+     {
+     if ([subview isKindOfClass:NSClassFromString(@"UISearchBarBackground")])
+     {
+     [subview removeFromSuperview];
+     break;
+     }
+     }*/
     
     
-   // UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"排序" style:UIBarButtonItemStylePlain target:self action:@selector(oov)];
+    // UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"排序" style:UIBarButtonItemStylePlain target:self action:@selector(oov)];
     
-//    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sort.png"]] ];
+    //    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sort.png"]] ];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"noirnew.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
-
+    
     self.navigationItem.rightBarButtonItem = rightButton;
     self.navigationItem.title=[words getword:@"mywines"];
     //self.navigationController.title=@"fadsfds";//[words getword:@"mywines"];
@@ -155,17 +218,17 @@
     
     [self.view setBackgroundColor:[UIColor blackColor]];
     [self.tableView setBackgroundColor:[UIColor blackColor]];
-      //  _sw.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
+    //  _sw.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
     
     /*
-    if ([SingletonClass sharedInstance].fromscan==1)
-    {
-        [SingletonClass sharedInstance].fromscan=0;
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
-        [self.navigationController pushViewController:nextController animated:YES];
-    }
-    */
+     if ([SingletonClass sharedInstance].fromscan==1)
+     {
+     [SingletonClass sharedInstance].fromscan=0;
+     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+     AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
+     [self.navigationController pushViewController:nextController animated:YES];
+     }
+     */
 }
 
 
@@ -184,7 +247,8 @@
 
 //3
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [self.listData count];
+    return wine_num;
+    //return [self.listData count];
 }
 
 //4
@@ -202,8 +266,8 @@
     UIImage * ratingImage =[UIImage imageNamed:@"40.png"];
     [cell.ratingLable setImage: ratingImage];
     //cell.nameLabel=@"xxxxx";
-    cell.nameLabel.text=@"Château pichon";
-    cell.subnameLabel.text=@"Château Pichon Longueville Baron 2009";
+    cell.nameLabel.text= [WineryName objectAtIndex:indexPath.row]; //@"Château pichon";
+    cell.subnameLabel.text= [WineryName objectAtIndex:indexPath.row];    //@"Château Pichon Longueville Baron 2009";
     cell.subnameLabel2.text=@"Pauillac, France";
     cell.ratingnumberLable.text=@"4.0";
     cell.priceLabel.text=@"9€";
@@ -240,13 +304,13 @@
     
 }
 /*
--(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-    //我们设分区标题，不设分区标尾
-    NSLog(@"there");
-    return @"喝酒历史纪录";
-}
-*/
+ -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+ {
+ //我们设分区标题，不设分区标尾
+ NSLog(@"there");
+ return @"喝酒历史纪录";
+ }
+ */
 
 - (void)deselect
 {
@@ -262,7 +326,7 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
+    
     
     [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
     
@@ -292,7 +356,7 @@
     
     //[NSThread sleepForTimeInterval:10000];
     [_activityIndicator stopAnimating];
-
+    
     
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
     
@@ -304,22 +368,22 @@
 }
 
 /*
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
-        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        AcceptWineViewController *destViewController = segue.destinationViewController;
-        
-        //Recipe *recipe = [recipes objectAtIndex:indexPath.row];
-        //destViewController.recipe = recipe;
-    }
-}
-*/
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ if ([segue.identifier isEqualToString:@"showRecipeDetail"]) {
+ NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
+ AcceptWineViewController *destViewController = segue.destinationViewController;
+ 
+ //Recipe *recipe = [recipes objectAtIndex:indexPath.row];
+ //destViewController.recipe = recipe;
+ }
+ }
+ */
 
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView {
     //[searchBar setShowsCancelButton:NO animated:YES];
     [self.searchBar setShowsCancelButton:NO animated:YES];
-
+    
     [self.searchBar resignFirstResponder];
     
 }
@@ -353,19 +417,19 @@
 -(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
 {
     // 进入搜索状态
-//    isSearchOn = YES;
+    //    isSearchOn = YES;
     
     // 不能选择行
-  //  canSelectRow = NO;
+    //  canSelectRow = NO;
     
     // 关闭滚动条的显示
-  //  self.tableView.scrollEnabled = NO;
+    //  self.tableView.scrollEnabled = NO;
     
     //[searchBar resignFirstResponder];
     //NSLog(@"begin editing");
     _searchBar.showsCancelButton=YES;
     [_searchBar setShowsCancelButton:YES animated:YES];
-
+    
 }
 
 
@@ -375,44 +439,44 @@
 -(void) searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     /*
-    if ([searchText length]>0)
-    {
-    //    isSearchOn = YES;
-    //    canSelectRow = YES;
-    //    self.tableView.scrollEnabled = YES;
-        [self searchMoviesTableView];
-    }
-    else
-    {
-        isSearchOn = NO;
-        canSelectRow = NO;
-        self.tableView.scrollEnabled = NO;
-    }
-    [self.tableView reloadData];*/
+     if ([searchText length]>0)
+     {
+     //    isSearchOn = YES;
+     //    canSelectRow = YES;
+     //    self.tableView.scrollEnabled = YES;
+     [self searchMoviesTableView];
+     }
+     else
+     {
+     isSearchOn = NO;
+     canSelectRow = NO;
+     self.tableView.scrollEnabled = NO;
+     }
+     [self.tableView reloadData];*/
 }
 
 // 方法：搜索结果
 /*
--(void) searchMoviesTableView
-{
-    [searchResult removeAllObjects];
-    for (NSString *str in listOfMovies) {
-        NSRange titleResultsRange=[str rangeOfString:searchBar.text
-                                             options:NSCaseInsensitiveSearch];
-        if(titleResultsRange.length>0)
-            [searchResult addObject:str];
-    }
-    
-}
-
- */
+ -(void) searchMoviesTableView
+ {
+ [searchResult removeAllObjects];
+ for (NSString *str in listOfMovies) {
+ NSRange titleResultsRange=[str rangeOfString:searchBar.text
+ options:NSCaseInsensitiveSearch];
+ if(titleResultsRange.length>0)
+ [searchResult addObject:str];
+ }
  
+ }
+ 
+ */
+
 // 事件：键盘上的搜索按钮事件
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
     NSLog(@"search clicked");
     [searchBar resignFirstResponder];
-   // [self searchMoviesTableView];
+    // [self searchMoviesTableView];
 }
 
 // 事件：搜索框里取消按钮事件
@@ -426,7 +490,7 @@
     [searchBar setShowsCancelButton:NO animated:YES];
     [self.searchBar resignFirstResponder];
     //[self.tableView reloadData];
-
+    
 }
 
 //-(BOOL)searchBarShouldBeginEditing:(UISearchBar *) searchBar

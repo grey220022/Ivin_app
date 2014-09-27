@@ -17,6 +17,8 @@
 + (void) wineparse:(NSData *) winecontent;
 //+ (Winery *) wineryparse:(NSData *) winerycontent;
 + (void) wineryparse:(NSData *) winerycontent;
++ (NSString *) strval:(NSString *) initval replacevalue:(NSString *) replace;
++ (NSString*)md5HexDigest:(NSString*)input ;
 
 @end
 

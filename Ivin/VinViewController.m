@@ -63,7 +63,7 @@
     
     
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] init];
-    barButtonItem.title = @"1";
+    barButtonItem.title = @"";
     self.navigationItem.backBarButtonItem = barButtonItem;
 
 
@@ -92,7 +92,22 @@
      */
     [self performSelectorOnMainThread:@selector(loadima) withObject:nil waitUntilDone:NO];
     
-    
+    if([UIScreen mainScreen].bounds.size.height < 568){
+        [self ios6move:_b1];
+        [self ios6move:_b2];
+        [self ios6move:_b3];
+        [self ios6move:_b4];
+        [self ios6move:_b5];
+        
+        [self ios6move:_ll1];
+        [self ios6move:_ll2];
+        [self ios6move:_ll3];
+        [self ios6move:_ll4];
+        [self ios6move:_ll5];
+        [self ios6posmove:_ima];
+        
+    }
+
 }
 
 
@@ -178,5 +193,21 @@
 
 
 
+-(void)ios6move: (UIView *)u
+{
+    CGPoint point =CGPointMake(0, u.frame.origin.y-30);
+    CGRect frame = u.frame;
+    frame.origin=point;
+    u.frame=frame;
+}
+
+
+-(void)ios6posmove: (UIView *)u
+{
+    CGPoint point =CGPointMake(0, u.frame.origin.y+20);
+    CGRect frame = u.frame;
+    frame.origin=point;
+    u.frame=frame;
+}
 
 @end

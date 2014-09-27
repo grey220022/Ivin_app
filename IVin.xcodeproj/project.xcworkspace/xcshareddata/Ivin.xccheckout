@@ -10,29 +10,29 @@
 	<string>Ivin</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>AEDF63E5-9581-4152-B57F-303E30FFDA7C</key>
+		<key>11DA6FE0365B071AB71D2B2581FDBEF26D8FC359</key>
 		<string>https://github.com/grey220022/Ivin_app.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
 	<string>Ivin.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AEDF63E5-9581-4152-B57F-303E30FFDA7C</key>
+		<key>11DA6FE0365B071AB71D2B2581FDBEF26D8FC359</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
 	<string>https://github.com/grey220022/Ivin_app.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AEDF63E5-9581-4152-B57F-303E30FFDA7C</string>
+	<string>11DA6FE0365B071AB71D2B2581FDBEF26D8FC359</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AEDF63E5-9581-4152-B57F-303E30FFDA7C</string>
+			<string>11DA6FE0365B071AB71D2B2581FDBEF26D8FC359</string>
 			<key>IDESourceControlWCCName</key>
 			<string>Ivin</string>
 		</dict>

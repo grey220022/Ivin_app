@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0500"
+   LastUpgradeVersion = "0600"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE84199318BEAF0200ECC402"
-               BuildableName = "IVin.temp_caseinsensitive_rename.app"
-               BlueprintName = "IVin.temp_caseinsensitive_rename"
+               BuildableName = "IVin.app"
+               BlueprintName = "IVin"
                ReferencedContainer = "container:IVin.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -34,7 +34,7 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE8419B718BEAF0200ECC402"
                BuildableName = "IVin.temp_caseinsensitive_renameTests.xctest"
-               BlueprintName = "IVin.temp_caseinsensitive_renameTests"
+               BlueprintName = "IVin_Tests"
                ReferencedContainer = "container:IVin.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -43,8 +43,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
-            BuildableName = "IVin.temp_caseinsensitive_rename.app"
-            BlueprintName = "IVin.temp_caseinsensitive_rename"
+            BuildableName = "IVin.app"
+            BlueprintName = "IVin"
             ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -54,7 +54,7 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
-            BuildableName = "IVin.temp_caseinsensitive_rename.app"
-            BlueprintName = "IVin.temp_caseinsensitive_rename"
+            BuildableName = "IVin.app"
+            BlueprintName = "IVin"
             ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -80,17 +80,18 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE84199318BEAF0200ECC402"
-            BuildableName = "IVin.temp_caseinsensitive_rename.app"
-            BlueprintName = "IVin.temp_caseinsensitive_rename"
+            BuildableName = "IVin.app"
+            BlueprintName = "IVin"
             ReferencedContainer = "container:IVin.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
-      buildConfiguration = "Debug">
+      buildConfiguration = "Release">
    </AnalyzeAction>
    <ArchiveAction
       buildConfiguration = "Release"
+      customArchiveName = "IVin"
       revealArchiveInOrganizer = "YES">
    </ArchiveAction>
 </Scheme>

@@ -68,7 +68,7 @@
         
         
     }
-    NSString* curlang=[dic objectForKey:@"lang"];
+    NSString* curlang=@"fr";//[dic objectForKey:@"lang"];
     [SingletonClass sharedInstance].lang=curlang;
     [words changelang: curlang];
     NSLog(@"cl = %@", curlang);
@@ -136,6 +136,11 @@
 //    for (id item in array) {
  //       NSLog(@"%@",item);
  //   }
+    
+    [[UITabBar appearance] setTintColor:[UIColor colorWithRed:235.0f/255.0f green:216.0f/255.0f blue:145.0f/255.0f alpha:1.0]];
+    [[UITabBar appearance] setBarTintColor:[UIColor blackColor]];
+    
+    
     [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
                                                            [UIColor colorWithRed:235.0f/255.0f green:216.0f/255.0f blue:145.0f/255.0f alpha:1.0],
                                                            UITextAttributeTextColor,

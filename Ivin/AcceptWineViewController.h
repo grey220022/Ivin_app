@@ -62,7 +62,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *ratevalue;
 
 //@property (weak, nonatomic) IBOutlet UILabel *la4;
-@property (weak, nonatomic) IBOutlet UILabel *description;
+
+@property (weak, nonatomic) IBOutlet UILabel *description1;
 
 @property (weak, nonatomic) IBOutlet UILabel *pair;
 @property (weak, nonatomic) IBOutlet UITextField *price;
