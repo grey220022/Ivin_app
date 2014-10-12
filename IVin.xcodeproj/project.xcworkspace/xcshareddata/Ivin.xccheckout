@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>CC6265AF-9C69-4FC2-AD75-EB9FC9680D80</string>
 	<key>IDESourceControlProjectName</key>
-	<string>Ivin</string>
+	<string>IVin</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>11DA6FE0365B071AB71D2B2581FDBEF26D8FC359</key>
 		<string>https://github.com/grey220022/Ivin_app.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>Ivin.xcodeproj/project.xcworkspace</string>
+	<string>IVin.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>11DA6FE0365B071AB71D2B2581FDBEF26D8FC359</key>

@@ -92,6 +92,15 @@
     else
     {
         //todo remember login information.
+        NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+        NSString *plistPath = [paths objectAtIndex:0];
+        //得到完整的文件名
+        NSString *filename=[plistPath stringByAppendingPathComponent:@"Info.plist"];
+        
+        NSMutableDictionary* dic =[[NSMutableDictionary alloc] initWithContentsOfFile:filename];
+        [dic setObject:response forKey: @"lang"];
+        [dic writeToFile:filename atomically:YES];
+        
         [SingletonClass sharedInstance].username=response;
         
         UIAlertView *myAlertView;
@@ -103,6 +112,17 @@
      //       [self.presentingViewController dismissViewControllerAnimated:NO completion:nil];
      //   }];
     }
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [SingletonClass sharedInstance].preview=@"signup";
 }
 
 

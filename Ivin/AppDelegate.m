@@ -46,6 +46,14 @@
     NSMutableDictionary *dic = [[NSMutableDictionary alloc]initWithContentsOfFile:filename];
     //[dic writeToFile:filename atomically:YES];
     
+    if (dic[@"username"]==nil)
+    {
+        [SingletonClass sharedInstance].username=nil;
+    }
+    else
+    {
+        [SingletonClass sharedInstance].username=dic[@"username"];
+    }
     
     
     NSLog(@"%d",[dic count] );
@@ -68,6 +76,9 @@
         
         
     }
+    
+    
+    
     NSString* curlang=@"fr";//[dic objectForKey:@"lang"];
     [SingletonClass sharedInstance].lang=curlang;
     [words changelang: curlang];

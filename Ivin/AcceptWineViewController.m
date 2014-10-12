@@ -58,6 +58,19 @@
     [super viewDidLoad];
     
     
+    if (([SingletonClass sharedInstance].username!=nil))
+    {
+        NSString *url=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/GetInfo?enduserid=%@&wineid=%@",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].wine.Id];
+        NSLog(@"%@",url);
+        NSData* userwine=[IvinHelp geturlcontent:url];
+        
+        NSString* newStr = [[NSString alloc] initWithData:userwine encoding:NSUTF8StringEncoding];
+        NSLog(@"%@",newStr);
+        [IvinHelp wineidparse:userwine];
+    }
+
+    
+    
     switch ([SingletonClass sharedInstance].wine.WineTypeId) {
         case 1:
             _cup.image=[UIImage imageNamed:@"cup.png"];
@@ -136,8 +149,8 @@
     self.rateView.notSelectedImage = [UIImage imageNamed:@"star1.png"];
     self.rateView.halfSelectedImage = [UIImage imageNamed:@"star3.png"];
     self.rateView.fullSelectedImage = [UIImage imageNamed:@"star2.png"];
-    //self.rateView.rating = 3;
-    self.rateView.editable = NO;
+    self.rateView.rating = [SingletonClass sharedInstance].rating;
+    self.rateView.editable = YES;
     self.rateView.maxRating = 5;
     self.rateView.delegate = self;
     self.statusLabel.text=@"Rating: 0";
@@ -329,6 +342,42 @@
       //[titleLabel addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
       self.navigationItem.titleView = titleLabel;
     }
+    
+    if ([SingletonClass sharedInstance].username!=nil)
+    {
+        //[SingletonClass sharedInstance].skiphistory=0;
+
+        
+        NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine"];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setHTTPMethod:@"POST"];
+        
+        [request setValue:@"Fiddler" forHTTPHeaderField:@"User-Agent"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+        [request setValue:@"lapinroi-001-site1.smarterasp.net" forHTTPHeaderField:@"Host"];
+        [request setValue:@"220" forHTTPHeaderField:@"Content-Length"];
+        
+        NSString * userid, *wineid;
+        
+        userid=[SingletonClass sharedInstance].username;
+        wineid=[SingletonClass sharedInstance].wine.Id;
+        
+        //NSString *bodyStr = [NSString stringWithFormat:@"{\"WineId\":\"%@\",\"EndUserId\":\"%@\",\"Mark\":\"3\",\"CurrencyId\":\"1\",\"Price\":\"20\",\"Like\":\"true\",\"Favorite\":\"true\",\"Comment\":\"Comment\",\"PersonalComment\":\"Comment\",\"GeoLocation\":\"Comment\",\"VocalComment\":\"Comment\"}",wineid,userid];
+
+        NSString *bodyStr = [NSString stringWithFormat:@"{\"WineId\":\"%@\",\"EndUserId\":\"%@\"}",wineid,userid];
+        
+        NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"body data :%@", bodyStr);
+        [request setHTTPBody:body];
+        
+        //3建立并启动连接NSRULConnection
+        NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
+        [conn start];
+        
+        
+    }
 }
 
 /*
@@ -343,9 +392,29 @@
     NSLog(@"acceptappear");
     self.wine=[SingletonClass sharedInstance].wine;
     self.winery=[SingletonClass sharedInstance].winery;
-    
+    if ([[SingletonClass sharedInstance].preview isEqual:@"detail"])
+    {
+        self.rateView.rating = [SingletonClass sharedInstance].rating;
+       // self.rateView.rating =3;
+        //self.rateView.delegate = self;
+        //self.rateView.reloadInputViews;
+        //[self.rateView refresh];
+        [self.rateView setRating:self.rateView.rating];
+        //[self.rateView setRating:2];
+    }
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [SingletonClass sharedInstance].preview=@"accept";
+}
 
 -(IBAction)showgrapes
 {
@@ -491,13 +560,13 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
 
     
     
-    /*
+    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DetailView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"detailview"];
     nextController.gg=self;
     nextController.title=[words getword:@"rating"];
     [self.navigationController pushViewController:nextController animated:YES];
-     */
+     
 //    nextController.rateView.rating=3;
     //self.rateView.rating;
     //nextController.maintext=@"酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事酒庄故事";

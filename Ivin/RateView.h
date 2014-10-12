@@ -12,6 +12,7 @@
 
 @protocol RateViewDelegate
 - (void)rateView:(RateView *)rateView ratingDidChange:(float)rating;
+
 //- (void)setstartview:(int)rating;
 @end
 
@@ -28,5 +29,8 @@
 @property (assign) int leftMargin;
 @property (assign) CGSize minImageSize;
 @property (assign) id <RateViewDelegate> delegate;
+
+- (void)refresh;
+- (void)setRating:(float)rating;
 
 @end

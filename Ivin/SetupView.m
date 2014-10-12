@@ -101,6 +101,18 @@
         [myAlertView show];
         [_li3 setTitle:[words getword:@"userlogin"] forState:UIControlStateNormal];
         
+        //todo
+        NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+        NSString *plistPath = [paths objectAtIndex:0];
+        //得到完整的文件名
+        NSString *filename=[plistPath stringByAppendingPathComponent:@"Info.plist"];
+        
+        NSMutableDictionary* dic =[[NSMutableDictionary alloc] initWithContentsOfFile:filename];
+        //[dic setObject:nil forKey: @"username"];
+        [dic removeObjectForKey:@"username"];
+
+        [dic writeToFile:filename atomically:YES];
+        
         return;
     }
     
@@ -155,6 +167,20 @@
     */
     
 }
+
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [SingletonClass sharedInstance].preview=@"setup";
+}
+
 
 -(IBAction)feedbackpress
 {

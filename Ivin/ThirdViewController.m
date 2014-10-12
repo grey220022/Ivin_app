@@ -12,6 +12,7 @@
 #import "HistoryViewCell.h"
 #import "SingletonClass.h"
 #import "IvinHelp.h"
+#import "NewloginView.h"
 
 
 
@@ -86,24 +87,39 @@ NSMutableArray *WineCode;
 }
 
 
+-(void)viewDidAppear:(BOOL)animated
+{
+    if ([SingletonClass sharedInstance].username==nil)
+    {
+        if ([[SingletonClass sharedInstance].preview isEqual:@"login"])
+        {
+            [self.tabBarController setSelectedIndex:0];
+            return;
+        }
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        NewloginView *newloginview = [storyboard instantiateViewControllerWithIdentifier:@"newloginview"];
+        
+        [self presentModalViewController:newloginview animated:YES];
+
+        return;
+    }
+    else{
+        [_tableView reloadData];
+    }
+}
+
+
+
 -(void)viewWillAppear:(BOOL)animated
 {
-    WineName =[[NSMutableArray alloc] initWithObjects: nil];
-    WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
-    WineryName=[[NSMutableArray alloc] initWithObjects: nil];
-    WineryCountry=[[NSMutableArray alloc] initWithObjects: nil];
-    Appellation=[[NSMutableArray alloc] initWithObjects: nil];
-    Year=[[NSMutableArray alloc] initWithObjects: nil];
-    AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
-    CreateDate=[[NSMutableArray alloc] initWithObjects: nil];
-    WineCode=[[NSMutableArray alloc] initWithObjects: nil];
     
     
     [SingletonClass sharedInstance].listview=self;
     NSLog(@"thirdappear");
     if ([SingletonClass sharedInstance].fromscan==1)
     {
-        
+        if ([SingletonClass sharedInstance].username!=nil)
+            [SingletonClass sharedInstance].skiphistory=0;
         NSLog(@"3");
         NSLog(@"%@",[SingletonClass sharedInstance].wine.Wine);
         
@@ -118,56 +134,73 @@ NSMutableArray *WineCode;
         [self.navigationController pushViewController:nextController animated:YES];
         return;
     }
-    NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
     
     
-    //winelistdata
+    if ([SingletonClass sharedInstance].skiphistory==0)
+    {
+        WineName =[[NSMutableArray alloc] initWithObjects: nil];
+        WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
+        WineryName=[[NSMutableArray alloc] initWithObjects: nil];
+        WineryCountry=[[NSMutableArray alloc] initWithObjects: nil];
+        Appellation=[[NSMutableArray alloc] initWithObjects: nil];
+        Year=[[NSMutableArray alloc] initWithObjects: nil];
+        AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
+        CreateDate=[[NSMutableArray alloc] initWithObjects: nil];
+        WineCode=[[NSMutableArray alloc] initWithObjects: nil];
+
     
-    
-    NSDictionary *tempdic;
-    NSError *error;
-    NSArray *winelist= [NSJSONSerialization JSONObjectWithData:winelistdata options:NSJSONReadingMutableLeaves error:&error];
+        if ([SingletonClass sharedInstance].username==nil)
+            return;
+        
+//        NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
+
+        NSData* winelistdata=[IvinHelp geturlcontent:[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+        NSString * bc=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
+        
+        NSLog(@"%@",bc);
+
+        if ((!winelistdata)||([winelistdata length]==0))
+        {
+            UIAlertView *myAlertView;
+            myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [myAlertView show];
+            return;
+        }
+        
+        NSError *error;
+        NSArray *winelist= [NSJSONSerialization JSONObjectWithData:winelistdata options:NSJSONReadingMutableLeaves error:&error];
     
    // NSString* newStr = [[NSString alloc] initWithData:winelistdata encoding:NSUTF8StringEncoding];
     
     //NSLog(@"%@",newStr);
     
+        NSString * tmp;
     
-    
-    NSString * tmp;
-    
-    
-    
-    for (NSDictionary *wine in winelist) {
-        tmp=[wine valueForKey:@"WineName"];
-        [WineName addObject:tmp];
-        tmp=[wine valueForKey:@"WineImageUrl"];
-        [WineImageUrl addObject:tmp];
-        tmp=[wine valueForKey:@"WineryName"];
-        [WineryName addObject:tmp];
-        tmp=[wine valueForKey:@"WineryCountry"];
-        [WineryCountry addObject:tmp];
-        tmp=[wine valueForKey:@"Appellation"];
-        [Appellation addObject:tmp];
-        tmp=[wine valueForKey:@"Year"];
-        [Year addObject:tmp];
-        tmp=[wine valueForKey:@"AverageMark"];
-        [AverageMark addObject:tmp];
-        tmp=[wine valueForKey:@"WineCode"];
-        [WineCode addObject:tmp];
-        tmp=[wine valueForKey:@"CreateDate"];
-        [CreateDate addObject:tmp];
-        
+        for (NSDictionary *wine in winelist) {
+            tmp=[wine valueForKey:@"WineName"];
+            [WineName addObject:tmp];
+            tmp=[wine valueForKey:@"WineImageUrl"];
+            [WineImageUrl addObject:tmp];
+            tmp=[wine valueForKey:@"WineryName"];
+            [WineryName addObject:tmp];
+            tmp=[wine valueForKey:@"WineryCountry"];
+            [WineryCountry addObject:tmp];
+            tmp=[wine valueForKey:@"Appellation"];
+            [Appellation addObject:tmp];
+            tmp=[wine valueForKey:@"Year"];
+            [Year addObject:tmp];
+            tmp=[wine valueForKey:@"AverageMark"];
+            if (tmp == nil || [tmp isKindOfClass:[NSNull class]])
+                tmp=@"0";//[[NSNumber alloc] initWithFloat: 0.0];
+            [AverageMark addObject:tmp];
+            tmp=[wine valueForKey:@"WineCode"];
+            [WineCode addObject:tmp];
+            tmp=[wine valueForKey:@"CreateDate"];
+            [CreateDate addObject:tmp];
+        }
+        wine_num=WineName.count;
+        [SingletonClass sharedInstance].skiphistory=1;
     }
-
-    wine_num=WineName.count;
-    
-    
-    
-    
-//    if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
-
-    
 }
 
 
@@ -247,6 +280,17 @@ NSMutableArray *WineCode;
      [self.navigationController pushViewController:nextController animated:YES];
      }
      */
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [SingletonClass sharedInstance].preview=@"history";
 }
 
 
@@ -410,11 +454,16 @@ NSMutableArray *WineCode;
     //NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
     
     
-    NSData* winestring=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/wine/5"];
-    NSData* winerystring=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/winery/5"];
+    //NSData* winestring=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/wine/5"];
+    //NSData* winerystring=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/winery/5"];
+    NSString *winenumber=[WineCode objectAtIndex:indexPath.row];
     
     
-    if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
+    NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=",winenumber];
+    NSData* winestring=[IvinHelp geturlcontent:wineurl];
+    
+    //if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
+    if ((!winestring)||([winestring length]==0))
     {
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:@"Network error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
@@ -424,7 +473,7 @@ NSMutableArray *WineCode;
     }
     
     
-    [IvinHelp wineryparse:winerystring];
+   // [IvinHelp wineryparse:winerystring];
     [IvinHelp wineparse:winestring];
     
     //[NSThread sleepForTimeInterval:10000];

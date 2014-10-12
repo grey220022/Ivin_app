@@ -12,6 +12,7 @@
 
 @implementation IvinHelp
 
+NSDictionary *winerydic;
 
 + (NSString*)md5HexDigest:(NSString*)input {
     const char* str = [input UTF8String];
@@ -77,6 +78,68 @@
     return nil;
 }
 
++ (void) wineidparse:(NSData *) winecontent
+{
+    NSError *error;
+    NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:winecontent options:NSJSONReadingMutableLeaves error:&error];
+    //[SingletonClass sharedInstance].rating=
+    NSString *mark=[tempdic objectForKey:@"Mark"];
+    
+    
+    
+    /*
+    CurrencyId
+    
+    Price
+    
+    Like
+    
+    Favorite
+    
+    Comment
+    
+    GeoLocation
+    */
+    if (![mark isKindOfClass:[NSNull class]])
+        [SingletonClass sharedInstance].rating=[mark floatValue];
+    else
+        [SingletonClass sharedInstance].rating=0;
+    
+    [SingletonClass sharedInstance].currency=[IvinHelp  strval:[tempdic objectForKey:@"CurrencyId"] replacevalue:@"1"];
+    [SingletonClass sharedInstance].price=[IvinHelp  strval:[[tempdic objectForKey:@"Price"] stringValue]replacevalue:@"0"];
+    [SingletonClass sharedInstance].place=[IvinHelp  strval:[tempdic objectForKey:@"GeoLocation"] replacevalue:@""];
+    [SingletonClass sharedInstance].comment=[IvinHelp  strval:[tempdic objectForKey:@"Comment"] replacevalue:@""];
+    [SingletonClass sharedInstance].like=[IvinHelp  strval:[tempdic objectForKey:@"Like"] replacevalue:@"false"];
+    [SingletonClass sharedInstance].collect=[IvinHelp  strval:[tempdic objectForKey:@"Favorite"] replacevalue:@"false"];
+    
+    
+/*
+    NSString *mark=[tempdic objectForKey:@"Mark"];
+    if (mark)
+        [SingletonClass sharedInstance].rating=[mark floatValue];
+    else
+        [SingletonClass sharedInstance].rating=-1;
+
+    NSString *mark=[tempdic objectForKey:@"Mark"];
+    if (mark)
+        [SingletonClass sharedInstance].rating=[mark floatValue];
+    else
+        [SingletonClass sharedInstance].rating=-1;
+
+    NSString *mark=[tempdic objectForKey:@"Mark"];
+    if (mark)
+        [SingletonClass sharedInstance].rating=[mark floatValue];
+    else
+        [SingletonClass sharedInstance].rating=-1;
+
+    NSString *mark=[tempdic objectForKey:@"Mark"];
+    if (mark)
+        [SingletonClass sharedInstance].rating=[mark floatValue];
+    else
+        [SingletonClass sharedInstance].rating=-1;
+*/
+}
+
 + (void) wineparse:(NSData *) winecontent
 {
     Wine * temp;
@@ -115,6 +178,8 @@
     [SingletonClass sharedInstance].wine.PropertyOwner=[tempdic objectForKey:@"PropertyOwner"];
     [SingletonClass sharedInstance].wine.ClassementName=[tempdic objectForKey:@"ClassementName"];
     [SingletonClass sharedInstance].wine.ViticultureTypename=[tempdic objectForKey:@"ViticultureTypename"];
+    [SingletonClass sharedInstance].wine.Id=[tempdic objectForKey:@"Id"];
+    
 //    [SingletonClass sharedInstance].wine.WineryRecommandation=[tempdic objectForKey:@"WineryRecommandation"];
     
     
@@ -179,10 +244,12 @@
     [SingletonClass sharedInstance].wine.bi4=[IvinHelp purge:[SingletonClass sharedInstance].wine.WineViticulture];
     [SingletonClass sharedInstance].wine.bi5=[IvinHelp purge:[SingletonClass sharedInstance].wine.WineMaking];
     
+    winerydic=[tempdic objectForKey:@"WineryViewModel"];
+    [self wineryparse];
 }
 
 
-+ (void) wineryparse:(NSData *) winerycontent
++ (void) wineryparse//:(NSData *) winerycontent
 //+ (Winery *) wineryparse:(NSData *) winerycontent
 {
     //NSString * ggg=[[NSString alloc] initWithData:winerycontent encoding:NSUTF8StringEncoding];
@@ -190,7 +257,8 @@
     
     Winery * temp=[[Winery alloc] init];
     NSError *error;
-    NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:winerycontent options:NSJSONReadingMutableLeaves error:&error];
+    NSDictionary *tempdic=winerydic;
+    // = [NSJSONSerialization JSONObjectWithData:winerycontent options:NSJSONReadingMutableLeaves error:&error];
     [SingletonClass sharedInstance].winery.Name=[tempdic objectForKey:@"Name"];
     
     [SingletonClass sharedInstance].winery.Description=[tempdic objectForKey:@"Description"];

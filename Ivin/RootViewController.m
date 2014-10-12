@@ -207,11 +207,16 @@ int tim;
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [SingletonClass sharedInstance].preview=@"scan";
     NSLog(@"disappear");
     [_session stopRunning];
     [_preview removeFromSuperlayer];
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
 
 
 
@@ -310,13 +315,13 @@ int tim;
         
 //         NSString *winenumber=[stringValue substringToIndex:nn-4];
         
-        NSString *winenumber=[[stringValue substringFromIndex:nn-4]substringToIndex:1];
-        
+        //NSString *winenumber=[[stringValue substringFromIndex:nn-4]substringToIndex:1];
+        NSString *winenumber=[stringValue substringFromIndex:nn-10];
         //@"http://lapinroi-001-site1.smarterasp.net/WineCard/DetailsWineryIndex?wineCode=FR00009001"
+        //http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=FR00009001
         
-        
-        wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine/",winenumber];
-        wineryurl= [NSString stringWithFormat:@"%@%@", @"http://lapinroi-001-site1.smarterasp.net/api/winery/",winenumber];
+        wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=",winenumber];
+      //  wineryurl= [NSString stringWithFormat:@"%@%@", @"http://lapinroi-001-site1.smarterasp.net/api/winery/",winenumber];
         
         
 //        NSLog(@"%@",wineurl);
@@ -327,11 +332,11 @@ int tim;
         
         
         NSData* winestring=[IvinHelp geturlcontent:wineurl];
-        NSData* winerystring=[IvinHelp geturlcontent:wineryurl];
+       // NSData* winerystring=[IvinHelp geturlcontent:wineryurl];
 
         
         //NSLog(@"end");
-        if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
+        if ((!winestring)||([winestring length]==0))
         {
             UIAlertView *myAlertView;
             myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
@@ -340,19 +345,34 @@ int tim;
         }
         
         [self performSelectorOnMainThread:@selector(updateName) withObject:nil waitUntilDone:NO];
-        [IvinHelp wineryparse:winerystring];
+//        [IvinHelp wineryparse:winerystring];
         [IvinHelp wineparse:winestring];
+        
+        
+        /*
+        if (([SingletonClass sharedInstance].username!=nil))
+            //&& ([[SingletonClass sharedInstance].wineset containsObject:[SingletonClass sharedInstance].wine.Id]))
+        {
+            NSString *url=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/GetInfo?enduserid=%@&wineid=%@",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].wine.Id];
+            NSLog(@"%@",url);
+            NSData* userwine=[IvinHelp geturlcontent:url];
+            
+            NSString* newStr = [[NSString alloc] initWithData:userwine encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",newStr);
+            [IvinHelp wineidparse:userwine];
+        }
+        */
         [_activityIndicator stopAnimating];
         
-        
+        /*
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
         [self.navigationController pushViewController:nextController animated:YES];
+        */
         
-        /*
         [SingletonClass sharedInstance].fromscan=1;
         [self.tabBarController setSelectedIndex:1];
-        */
+        
         
         
       //  [[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];

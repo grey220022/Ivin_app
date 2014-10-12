@@ -36,6 +36,8 @@ static SingletonClass *sharedInstance = nil;
 - (id)init
 {
     self.fromscan=0;
+    self.skiphistory=0;
+    self.wineset= [NSSet setWithObjects:nil];
     self = [super init];
     
     _wine=[[Wine alloc]init];

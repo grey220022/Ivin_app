@@ -15,8 +15,9 @@
 
 + (NSData *) geturlcontent:(NSString *) url;
 + (void) wineparse:(NSData *) winecontent;
++ (void) wineidparse:(NSData *) winecontent;
 //+ (Winery *) wineryparse:(NSData *) winerycontent;
-+ (void) wineryparse:(NSData *) winerycontent;
++ (void) wineryparse;//:(NSData *) winerycontent;
 + (NSString *) strval:(NSString *) initval replacevalue:(NSString *) replace;
 + (NSString*)md5HexDigest:(NSString*)input ;
 

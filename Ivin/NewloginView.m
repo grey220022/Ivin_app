@@ -44,6 +44,18 @@
     else
     {
         //todo remember login information.
+        
+        
+        NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+        NSString *plistPath = [paths objectAtIndex:0];
+        NSString *filename=[plistPath stringByAppendingPathComponent:@"Info.plist"];
+        
+        NSMutableDictionary* dic =[[NSMutableDictionary alloc] initWithContentsOfFile:filename];
+        [dic setObject:response forKey: @"username"];
+        [dic writeToFile:filename atomically:YES];
+        
+        
+        
         [SingletonClass sharedInstance].username=response;
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:@"登录" message:@"登录成功" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
@@ -80,6 +92,19 @@
         [self dismissViewControllerAnimated:YES completion:nil];
     }
 }
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [SingletonClass sharedInstance].preview=@"login";
+}
+
 
 - (void)viewDidLoad
 {
