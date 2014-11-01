@@ -66,7 +66,7 @@
     else
     {
         self.ima.contentMode=UIViewContentModeScaleAspectFit;
-        [self.ima loadImageFromURL:[NSURL URLWithString:_imageurl] placeholderImage:nil cachingKey:@"iwinecache"];
+        [self.ima loadImageFromURL:[NSURL URLWithString:_imageurl] placeholderImage:nil cachingKey:_imageurl];
     }
     
     // _ima.image=image;

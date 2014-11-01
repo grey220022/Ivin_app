@@ -13,6 +13,7 @@
 #import "SingletonClass.h"
 #import "IvinHelp.h"
 #import "NewloginView.h"
+#import "WQPlaySound.h"
 
 
 
@@ -22,29 +23,30 @@
 @property(nonatomic,retain) NSArray * sublistData;
 @property (nonatomic,retain) IBOutlet UISearchBar *searchBar;
 
-//@property (strong) UIActivityIndicatorView *activityIndicator;
-
-//-(void)refreshPropertyList;
-
 @end
 
 
-int wine_num;
-NSMutableArray *WineName;// =[[NSMutableArray alloc] initWithObjects: nil];
-NSMutableArray *WineImageUrl; //=[[NSMutableArray alloc] initWithObjects: nil];
-NSMutableArray *WineryName;//=[[NSMutableArray alloc] initWithObjects: nil];
-NSMutableArray *WineryCountry;//=[[NSMutableArray alloc] initWithObjects: nil];
-NSMutableArray *Appellation;//=[[NSMutableArray alloc] initWithObjects: nil];
-NSMutableArray *Year;//=[[NSMutableArray alloc] initWithObjects: nil];
-NSMutableArray *AverageMark;//=[[NSMutableArray alloc] initWithObjects: nil];
+int wine_num,like_num,favorite_num;
+bool filter;
+NSMutableArray *WineName;
+NSMutableArray *WineImageUrl;
+NSMutableArray *WineryName;
+NSMutableArray *WineryCountry;
+NSMutableArray *Appellation;
+NSMutableArray *Year;
+NSMutableArray *AverageMark;
 NSMutableArray *CreateDate;
 NSMutableArray *WineCode;
+NSMutableArray *WineId;
+NSMutableArray *Like;
+NSMutableArray *Favorite;
+NSMutableArray *filterarray;
+
+
 
 
 @implementation ThirdViewController
 
-
-//@"zh.mywines",@"zh.sort",@"zh.sortbyname",@"zh.sortbywinery",@"zh.sortbyyear",@"zh.sortbytype",
 
 -(void)oov
 {
@@ -59,9 +61,6 @@ NSMutableArray *WineCode;
                                                    otherButtonTitles:[words getword:@"sortbyname"],[words getword:@"sortbywinery"],[words getword:@"sortbyyear"],[words getword:@"sortbytype"],nil];
     
     actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
-    
-    // [actionSheet showInView:[UIApplication sharedApplication].keyWindow];
-    
     [actionSheet showInView:self.view];
 }
 
@@ -105,6 +104,7 @@ NSMutableArray *WineCode;
     }
     else{
         [_tableView reloadData];
+        filter=false;
     }
 }
 
@@ -138,72 +138,108 @@ NSMutableArray *WineCode;
     
     if ([SingletonClass sharedInstance].skiphistory==0)
     {
-        WineName =[[NSMutableArray alloc] initWithObjects: nil];
-        WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
-        WineryName=[[NSMutableArray alloc] initWithObjects: nil];
-        WineryCountry=[[NSMutableArray alloc] initWithObjects: nil];
-        Appellation=[[NSMutableArray alloc] initWithObjects: nil];
-        Year=[[NSMutableArray alloc] initWithObjects: nil];
-        AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
-        CreateDate=[[NSMutableArray alloc] initWithObjects: nil];
-        WineCode=[[NSMutableArray alloc] initWithObjects: nil];
-
-    
-        if ([SingletonClass sharedInstance].username==nil)
-            return;
-        
-//        NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
-
-        NSData* winelistdata=[IvinHelp geturlcontent:[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
-        NSString * bc=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
-        
-        NSLog(@"%@",bc);
-
-        if ((!winelistdata)||([winelistdata length]==0))
-        {
-            UIAlertView *myAlertView;
-            myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-            [myAlertView show];
-            return;
-        }
-        
-        NSError *error;
-        NSArray *winelist= [NSJSONSerialization JSONObjectWithData:winelistdata options:NSJSONReadingMutableLeaves error:&error];
-    
-   // NSString* newStr = [[NSString alloc] initWithData:winelistdata encoding:NSUTF8StringEncoding];
-    
-    //NSLog(@"%@",newStr);
-    
-        NSString * tmp;
-    
-        for (NSDictionary *wine in winelist) {
-            tmp=[wine valueForKey:@"WineName"];
-            [WineName addObject:tmp];
-            tmp=[wine valueForKey:@"WineImageUrl"];
-            [WineImageUrl addObject:tmp];
-            tmp=[wine valueForKey:@"WineryName"];
-            [WineryName addObject:tmp];
-            tmp=[wine valueForKey:@"WineryCountry"];
-            [WineryCountry addObject:tmp];
-            tmp=[wine valueForKey:@"Appellation"];
-            [Appellation addObject:tmp];
-            tmp=[wine valueForKey:@"Year"];
-            [Year addObject:tmp];
-            tmp=[wine valueForKey:@"AverageMark"];
-            if (tmp == nil || [tmp isKindOfClass:[NSNull class]])
-                tmp=@"0";//[[NSNumber alloc] initWithFloat: 0.0];
-            [AverageMark addObject:tmp];
-            tmp=[wine valueForKey:@"WineCode"];
-            [WineCode addObject:tmp];
-            tmp=[wine valueForKey:@"CreateDate"];
-            [CreateDate addObject:tmp];
-        }
-        wine_num=WineName.count;
-        [SingletonClass sharedInstance].skiphistory=1;
+        [self loaddata];
     }
 }
 
-
+-(void)loaddata
+{
+    WineName =[[NSMutableArray alloc] initWithObjects: nil];
+    WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
+    WineryName=[[NSMutableArray alloc] initWithObjects: nil];
+    WineryCountry=[[NSMutableArray alloc] initWithObjects: nil];
+    Appellation=[[NSMutableArray alloc] initWithObjects: nil];
+    Year=[[NSMutableArray alloc] initWithObjects: nil];
+    AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
+    CreateDate=[[NSMutableArray alloc] initWithObjects: nil];
+    WineCode=[[NSMutableArray alloc] initWithObjects: nil];
+    WineId=[[NSMutableArray alloc] initWithObjects: nil];
+    Like=[[NSMutableArray alloc] initWithObjects: nil];
+    Favorite=[[NSMutableArray alloc] initWithObjects: nil];
+    
+    
+    if ([SingletonClass sharedInstance].username==nil)
+        return;
+    
+    //        NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
+    
+    NSData* winelistdata=[IvinHelp geturlcontent:[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+    NSString * bc=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
+    
+    NSLog(@"%@",bc);
+    
+    if ((!winelistdata)||([winelistdata length]==0))
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
+    
+    NSError *error;
+    NSArray *winelist= [NSJSONSerialization JSONObjectWithData:winelistdata options:NSJSONReadingMutableLeaves error:&error];
+    
+    // NSString* newStr = [[NSString alloc] initWithData:winelistdata encoding:NSUTF8StringEncoding];
+    
+    //NSLog(@"%@",newStr);
+    
+    NSString * tmp;
+    favorite_num=like_num=0;
+    for (NSDictionary *wine in winelist) {
+        tmp=[wine valueForKey:@"WineName"];
+        [WineName addObject:tmp];
+        tmp=[wine valueForKey:@"WineImageUrl"];
+        [WineImageUrl addObject:tmp];
+        tmp=[wine valueForKey:@"WineryName"];
+        [WineryName addObject:tmp];
+        tmp=[wine valueForKey:@"WineryCountry"];
+        [WineryCountry addObject:tmp];
+        tmp=[wine valueForKey:@"Appellation"];
+        [Appellation addObject:tmp];
+        tmp=[wine valueForKey:@"Year"];
+        [Year addObject:tmp];
+        tmp=[wine valueForKey:@"AverageMark"];
+        if (tmp == nil || [tmp isKindOfClass:[NSNull class]])
+            tmp=@"0";//[[NSNumber alloc] initWithFloat: 0.0];
+        [AverageMark addObject:tmp];
+        tmp=[wine valueForKey:@"WineCode"];
+        [WineCode addObject:tmp];
+        tmp=[wine valueForKey:@"CreateDate"];
+        [CreateDate addObject:tmp];
+        
+        tmp=[wine valueForKey:@"WineId"];
+        [WineId addObject:tmp];
+        
+        tmp=[wine valueForKey:@"Like"];
+        if ((tmp == nil) || ([tmp isKindOfClass:[NSNull class]]) || (![tmp boolValue]))
+            tmp=@"false";
+        else tmp=@"true";
+        [Like addObject:tmp];
+        
+        NSLog(@"%@",tmp);
+        if ([tmp isEqual:@"true"])
+        {
+            like_num++;
+        }
+        
+        tmp=[wine valueForKey:@"Favorite"];
+        if ((tmp == nil) || ([tmp isKindOfClass:[NSNull class]]) || (![tmp boolValue]))
+            tmp=@"false";
+        else tmp=@"true";
+        [Favorite addObject:tmp];
+        if ([tmp isEqual:@"true"])
+        {
+            favorite_num++;
+        }
+    }
+    wine_num=WineName.count;
+    [SingletonClass sharedInstance].skiphistory=1;
+    _t1.text=[NSString stringWithFormat:@"%d wines",wine_num];
+    _t2.text=[NSString stringWithFormat:@"%d",like_num];
+    _t3.text=[NSString stringWithFormat:@"%d",favorite_num];
+    _t2.textColor=[UIColor whiteColor];
+    _t3.textColor=[UIColor whiteColor];
+}
 
 - (void)viewDidLoad
 {
@@ -319,15 +355,10 @@ NSMutableArray *WineCode;
     HistoryViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.backgroundColor=[UIColor blackColor];
     if (cell == nil){
-        // 这种方式，将会调用cell中的initWithStyle方法
         cell = [[HistoryViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    [cell.imageLable loadImageFromURL:[NSURL URLWithString:[WineImageUrl objectAtIndex:indexPath.row]] placeholderImage:nil cachingKey:@"iwinerycache"];
-    
-    //UIImage * bgImage =[UIImage imageNamed:@"wine.jpg"];
-    //[cell.imageLable setImage:bgImage];
-    
+    [cell.imageLable loadImageFromURL:[NSURL URLWithString:[WineImageUrl objectAtIndex:indexPath.row]] placeholderImage:nil cachingKey:[WineImageUrl objectAtIndex:indexPath.row]];
     
     NSString * filePath;
     float ratingvalue=[[AverageMark objectAtIndex:indexPath.row] floatValue];
@@ -345,80 +376,17 @@ NSMutableArray *WineCode;
     else
         filePath=[[NSBundle mainBundle] pathForResource:@"00" ofType:@"png"];
     
-    
-    
-    
-    
     UIImage * ratingImage = [UIImage imageWithContentsOfFile:filePath];//[UIImage imageNamed:@"40.png"];
-    //[UIImage imageWithContentsOfFile:filePath];
     [cell.ratingLable setImage: ratingImage];
-    //cell.nameLabel=@"xxxxx";
     cell.nameLabel.text= [WineryName objectAtIndex:indexPath.row]; //@"Château pichon";
-    
-    
-//    NSMutableString* someString = [NSMutableString stringWithString: [WineryName objectAtIndex:indexPath.row]];
-//    [someString appendString: @" "];
-//    [someString appendString: [Year objectAtIndex:indexPath.row]];
-    
-    
-//    NSMutableString* someString = [NSMutableString stringWithString: [WineryName objectAtIndex:indexPath.row]];
-    
-  //  NSLog(@"%@",someString);
-  //  [someString appendString: @" "];
-    
-    //NSString* fd=[Year objectAtIndex:indexPath.row];
-    //[someString appendString: fd];
-    
     cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[WineryName objectAtIndex:indexPath.row] , [Year objectAtIndex:indexPath.row]];
-    //someString;    //@"Château Pichon Longueville Baron 2009";
-
-    
-    //someString = [NSMutableString stringWithString: [Appellation objectAtIndex:indexPath.row]];
-    //[someString appendString: @", "];
-    //[someString appendString: WineryCountry];
-    
     cell.subnameLabel2.text=[NSString stringWithFormat:@"%@, %@",[Appellation objectAtIndex:indexPath.row] , [WineryCountry objectAtIndex:indexPath.row]];//someString;//@"Pauillac, France";
-    
-    
     NSNumber *vvv=[AverageMark objectAtIndex:indexPath.row];
-    
-    
     cell.ratingnumberLable.text=[[NSString alloc] initWithFormat:@"%0.1f",[vvv floatValue]];
-    
     [AverageMark objectAtIndex:indexPath.row];//@"4.0";
-    
     cell.priceLabel.text=@"9€";
-    cell.dateLabel.text=[CreateDate objectAtIndex:indexPath.row];//@"12/12/2009";
-    //cell.selectionStyle=UITableViewCellSelectionStyleNone;
+    cell.dateLabel.text=[CreateDate objectAtIndex:indexPath.row];
     return cell;
-    
-    
-    //static NSString *cellIdentifier = @"WineCell";
-    //UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
-    /*
-     NSString *tweet;
-     if (indexPath.section==0)
-     {
-     tweet = [self.listData objectAtIndex:indexPath.row];
-     }
-     else
-     {
-     tweet= [self.grapeData objectAtIndex:indexPath.row];
-     }*/
-    
-    //NSArray *arrtitle=[[NSArray alloc] initWithObjects:@"Tasting Notes",@"Wine's Rank",@"Winery",@"Grapes",@"Food Pairing",nil];
-    
-    //NSString *subtweet = [arrtitle objectAtIndex:indexPath.row];
-    
-    //[cell.textLabel setText:subtweet];
-    
-    
-    //UIImage * bgImage =[UIImage imageNamed:@"wine.jpg"];
-    //[cell.imageView setImage:bgImage];
-    //   [cell.detailTextLabel setText:subtweet];
-    //return cell;
-    
-    
 }
 /*
  -(NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
@@ -460,7 +428,7 @@ NSMutableArray *WineCode;
     
     
     NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=",winenumber];
-    NSData* winestring=[IvinHelp geturlcontent:wineurl];
+    NSData* winestring=[IvinHelp geturlcontentfromcache:wineurl];
     
     //if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
     if ((!winestring)||([winestring length]==0))
@@ -507,7 +475,8 @@ NSMutableArray *WineCode;
     [self.searchBar setShowsCancelButton:NO animated:YES];
     
     [self.searchBar resignFirstResponder];
-    
+    /*
+     */
 }
 
 
@@ -515,17 +484,75 @@ NSMutableArray *WineCode;
     return YES;
 }
 
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    
+
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        
         //[dataArray removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source.
+        wine_num--;
+        _t1.text=[NSString stringWithFormat:@"%d wines",wine_num];
+        
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         
+        NSString * userid, *wineid;
+        wineid=[WineId objectAtIndex:indexPath.row];
+        
+        if ([[Like objectAtIndex:indexPath.row]  isEqual: @"true"])
+        {
+            like_num--;
+            _t2.text=[NSString stringWithFormat:@"%d",like_num];
+            
+        }
+        
+        if ([[Favorite objectAtIndex:indexPath.row]  isEqual: @"true"])
+        {
+            favorite_num--;
+            _t3.text=[NSString stringWithFormat:@"%d",favorite_num];
+            
+        }
+        
+        [WineName removeObjectAtIndex:indexPath.row];
+        [WineImageUrl removeObjectAtIndex:indexPath.row];
+        [WineryName removeObjectAtIndex:indexPath.row];
+        [WineryCountry removeObjectAtIndex:indexPath.row];
+        [Appellation removeObjectAtIndex:indexPath.row];
+        [Year removeObjectAtIndex:indexPath.row];
+        [AverageMark removeObjectAtIndex:indexPath.row];
+        [WineCode removeObjectAtIndex:indexPath.row];
+        [CreateDate removeObjectAtIndex:indexPath.row];
+        [WineId removeObjectAtIndex:indexPath.row];
+        [Like removeObjectAtIndex:indexPath.row];
+        [Favorite removeObjectAtIndex:indexPath.row];
+        
+        
+        [SingletonClass sharedInstance].skiphistory=0;
+        
+  
+        NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine"];
+        NSURL *url = [NSURL URLWithString:urlString];
+        
+        NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+        [request setHTTPMethod:@"DELETE"];
+        [request setValue:@"Fiddler" forHTTPHeaderField:@"User-Agent"];
+        [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+        [request setValue:@"lapinroi-001-site1.smarterasp.net" forHTTPHeaderField:@"Host"];
+        [request setValue:@"220" forHTTPHeaderField:@"Content-Length"];
+        
+        userid=[SingletonClass sharedInstance].username;
+        NSString *bodyStr = [NSString stringWithFormat:@"{\"WineId\":\"%@\",\"EndUserId\":\"%@\"}",wineid ,userid];
+        NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"body data :%@", bodyStr);
+        [request setHTTPBody:body];
+        NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
+        [conn start];
+
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
     }
+ 
 }
 
 
@@ -598,7 +625,51 @@ NSMutableArray *WineCode;
 {
     NSLog(@"search clicked");
     [searchBar resignFirstResponder];
-    // [self searchMoviesTableView];
+    filter=true;
+    filterarray=[[NSMutableArray alloc] initWithObjects: nil];
+    
+    
+    
+    NSString *searchstring = [self.searchBar.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
+    
+    NSLog(@"%@",searchstring);
+    
+    int objectnumber=[WineName count];
+    for (int i=0; i<objectnumber; i++)
+    {
+//        NSLog(@"%@",[WineName objectAtIndex:i]);
+        NSRange r1= [[WineName objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSRange r2= [[WineryName objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSRange r3= [[Year objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSRange r4= [[Appellation objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSRange r5= [[WineryCountry objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        
+       if ((r1.location!=NSNotFound) || (r2.location!=NSNotFound) || (r3.location!=NSNotFound) ||(r4.location!=NSNotFound) ||(r5.location!=NSNotFound))
+       {
+           //NSLog(@"%d",i);
+           [filterarray addObject:[NSNumber numberWithInteger:i]];
+       }
+       /*
+        NSRange r1= [[WineName objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSRange r2= [[Year objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        
+        NSRange r3= [[WineryName objectAtIndex:i]  rangeOfString: searchstring options:
+                     NSCaseInsensitiveSearch];
+        if ((r1.location==NSNotFound) && (r2.location==NSNotFound) && (r3.location==NSNotFound))
+        {
+            [WineryName removeObjectAtIndex:i];
+            [WineImageUrl removeObjectAtIndex:i];
+            [WineName removeObjectAtIndex:i];
+            [WineryCountry removeObjectAtIndex:i];
+            [Appellation removeObjectAtIndex:i];
+            [Year removeObjectAtIndex:i];
+            [AverageMark removeObjectAtIndex:i];
+            [CreateDate removeObjectAtIndex:i];
+            [WineCode removeObjectAtIndex:i];
+        }*/
+    }
+    [self.tableView reloadData];
+    [SingletonClass sharedInstance].skiphistory=0;
 }
 
 // 事件：搜索框里取消按钮事件

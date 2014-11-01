@@ -14,8 +14,11 @@
 @interface IvinHelp : NSObject//<NSURLConnectionDelegate>
 
 + (NSData *) geturlcontent:(NSString *) url;
++ (NSData *) geturlcontentfromcache:(NSString *) url;
 + (void) wineparse:(NSData *) winecontent;
 + (void) wineidparse:(NSData *) winecontent;
+
++ (void) userprofileparse:(NSData *) userprofilecontent;
 //+ (Winery *) wineryparse:(NSData *) winerycontent;
 + (void) wineryparse;//:(NSData *) winerycontent;
 + (NSString *) strval:(NSString *) initval replacevalue:(NSString *) replace;

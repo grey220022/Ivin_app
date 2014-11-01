@@ -13,6 +13,7 @@
 #import "ProfileCityView.h"
 #import "words.h"
 #import "ProfileCell.h"
+#import "SingletonClass.h"
 
 
 @interface ProfileView ()
@@ -40,6 +41,10 @@ ProfileCell * profilecell;
     self.tableview.backgroundColor=[UIColor blackColor];
     self.view.backgroundColor=[UIColor blackColor];
     [self.tableview setSeparatorColor:[UIColor clearColor]];
+    if ((([SingletonClass sharedInstance].username!=nil) ) &&([SingletonClass sharedInstance].usertype==nil))
+        {
+            
+        }
 }
 
 - (void)didReceiveMemoryWarning

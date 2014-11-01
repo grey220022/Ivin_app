@@ -11,6 +11,7 @@
 #import "AcceptWineViewController.h"
 #import "SingletonClass.h"
 #import "IvinHelp.h"
+#import "WQPlaySound.h"
 
 
 bool isreading;
@@ -331,7 +332,7 @@ int tim;
 //        NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
         
         
-        NSData* winestring=[IvinHelp geturlcontent:wineurl];
+        NSData* winestring=[IvinHelp geturlcontentfromcache:wineurl];
        // NSData* winerystring=[IvinHelp geturlcontent:wineryurl];
 
         
@@ -369,7 +370,10 @@ int tim;
         AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
         [self.navigationController pushViewController:nextController animated:YES];
         */
+        WQPlaySound *sound = [[WQPlaySound alloc]initForPlayingVibrate];
         
+        [sound play];
+
         [SingletonClass sharedInstance].fromscan=1;
         [self.tabBarController setSelectedIndex:1];
         

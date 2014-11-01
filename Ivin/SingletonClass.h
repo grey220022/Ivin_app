@@ -30,4 +30,10 @@
 
 @property(nonatomic,retain) NSSet * wineset;
 
+@property(nonatomic,retain) NSString *city;
+@property(nonatomic,retain) NSString *email;
+@property(nonatomic,retain) NSString *usertype;
+@property(nonatomic,retain) NSString *signature;
+
+
 @end

@@ -104,21 +104,11 @@ int alertstate;
     self.rateView.fullSelectedImage = [UIImage imageNamed:@"star2.png"];
 
     self.rateView.rating = [SingletonClass sharedInstance].rating;
-    //self.commenttext.
-    
     self.commenttext.delegate=self;
-    //self.commenttext.textColor=[UIColor whiteColor];
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
     self.rateView.delegate = self;
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
-
-//    [self rateView: ratingDidChange:3];
-    
-    //NSString* myNewString =[NSString stringWithFormat:@"%i", self.rateView.rating];
-
-    //self.statusLabel.text = @"Rating: 0";
-   // self rateView:<#(RateView *)#> ratingDidChange:<#(float)#>
     self.statusLabel.text = [NSString stringWithFormat:@"Rating: %.01f", self.rateView.rating];
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"  style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
     self.navigationItem.rightBarButtonItem = rightButton;
@@ -196,6 +186,7 @@ int alertstate;
 {
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Price" message:@"Enter the price" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert textFieldAtIndex:0].text=_pricelabel.text;
     [alert addButtonWithTitle:@"OK"];
     [alert textFieldAtIndex:0].keyboardType=UIKeyboardTypeNumbersAndPunctuation;
     [alert show];
@@ -206,6 +197,7 @@ int alertstate;
 {
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Place" message:@"Enter the place" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
+    [alert textFieldAtIndex:0].text=_placelabel.text;
     [alert addButtonWithTitle:@"OK"];
     [alert textFieldAtIndex:0].keyboardType=UIKeyboardTypeASCIICapable;
     [alert show];

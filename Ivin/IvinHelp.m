@@ -9,6 +9,7 @@
 #import "IvinHelp.h"
 #import "SingletonClass.h"
 #import <CommonCrypto/CommonDigest.h>
+#import "FTWCache.h"
 
 @implementation IvinHelp
 
@@ -63,6 +64,18 @@ NSDictionary *winerydic;
 }
 
 
++ (NSData *) geturlcontentfromcache:(NSString *) url
+{
+    NSData *cachedData = [FTWCache objectForKey:url];
+    if (cachedData) {
+        return cachedData;
+    }
+    NSData * tmpdata;
+    tmpdata=[IvinHelp geturlcontent:url];
+    [FTWCache setObject:tmpdata forKey:url];
+    return tmpdata;
+}
+
 + (NSData *) geturlcontent:(NSString *) url
 {
     NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
@@ -78,40 +91,83 @@ NSDictionary *winerydic;
     return nil;
 }
 
++ (void) userprofileparse:(NSData *) userprofilecontent
+{
+    NSError *error;
+    NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:userprofilecontent options:NSJSONReadingMutableLeaves error:&error];
+
+    NSString *mark=[tempdic objectForKey:@"Mark"];
+    
+    [SingletonClass sharedInstance].signature=[IvinHelp  strval:[tempdic objectForKey:@"Signature"] replacevalue:@""];
+    [SingletonClass sharedInstance].usertype=[[tempdic objectForKey:@"EndUserProfileId"] stringValue];
+    [SingletonClass sharedInstance].like=[IvinHelp  strval:[tempdic objectForKey:@"Email"] replacevalue:@""];
+    [SingletonClass sharedInstance].city=[IvinHelp  strval:[tempdic objectForKey:@"Address"] replacevalue:@""];
+    
+}
+
+
 + (void) wineidparse:(NSData *) winecontent
 {
+    NSString* bnewStr = [[NSString alloc] initWithData:winecontent encoding:NSUTF8StringEncoding];
+    NSLog(@"%@",bnewStr);
+    
     NSError *error;
     NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:winecontent options:NSJSONReadingMutableLeaves error:&error];
     //[SingletonClass sharedInstance].rating=
     NSString *mark=[tempdic objectForKey:@"Mark"];
-    
-    
-    
-    /*
-    CurrencyId
-    
-    Price
-    
-    Like
-    
-    Favorite
-    
-    Comment
-    
-    GeoLocation
-    */
     if (![mark isKindOfClass:[NSNull class]])
         [SingletonClass sharedInstance].rating=[mark floatValue];
     else
         [SingletonClass sharedInstance].rating=0;
     
     [SingletonClass sharedInstance].currency=[IvinHelp  strval:[tempdic objectForKey:@"CurrencyId"] replacevalue:@"1"];
-    [SingletonClass sharedInstance].price=[IvinHelp  strval:[[tempdic objectForKey:@"Price"] stringValue]replacevalue:@"0"];
+    
+    if (![[tempdic objectForKey:@"Price"]  isKindOfClass:[NSNull class]])
+    {
+        [SingletonClass sharedInstance].price=[[tempdic objectForKey:@"Price"] stringValue];
+    }
+    else [SingletonClass sharedInstance].price=@"0";
+        
+//    [SingletonClass sharedInstance].price=[IvinHelp  strval:[[tempdic objectForKey:@"Price"] stringValue]replacevalue:@"0"];
+    
+    
     [SingletonClass sharedInstance].place=[IvinHelp  strval:[tempdic objectForKey:@"GeoLocation"] replacevalue:@""];
     [SingletonClass sharedInstance].comment=[IvinHelp  strval:[tempdic objectForKey:@"Comment"] replacevalue:@""];
-    [SingletonClass sharedInstance].like=[IvinHelp  strval:[tempdic objectForKey:@"Like"] replacevalue:@"false"];
-    [SingletonClass sharedInstance].collect=[IvinHelp  strval:[tempdic objectForKey:@"Favorite"] replacevalue:@"false"];
     
+    id tmp= [tempdic objectForKey:@"Like"];
+    
+    if (tmp == nil || [tmp isKindOfClass:[NSNull class]])
+    {
+        [SingletonClass sharedInstance].like=@"false";
+    }
+    else
+    {
+        if ([tmp boolValue])
+            [SingletonClass sharedInstance].like=@"true";
+        else
+            [SingletonClass sharedInstance].like=@"false";
+    }
+    
+    
+    tmp= [tempdic objectForKey:@"Favorite"];
+    
+    if (tmp == nil || [tmp isKindOfClass:[NSNull class]])
+    {
+        [SingletonClass sharedInstance].collect=@"false";
+    }
+    else
+    {
+        if ([tmp boolValue])
+            [SingletonClass sharedInstance].collect=@"true";
+        else
+            [SingletonClass sharedInstance].collect=@"false";
+    }
+
+    
+    //[SingletonClass sharedInstance].like=[IvinHelp  strval:[tempdic objectForKey:@"Like"] replacevalue:@"false"];
+    //[SingletonClass sharedInstance].collect=[IvinHelp  strval:[tempdic objectForKey:@"Favorite"] replacevalue:@"false"];
+    
+
     
 /*
     NSString *mark=[tempdic objectForKey:@"Mark"];

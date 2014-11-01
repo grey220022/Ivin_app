@@ -64,9 +64,16 @@
         NSLog(@"%@",url);
         NSData* userwine=[IvinHelp geturlcontent:url];
         
-        NSString* newStr = [[NSString alloc] initWithData:userwine encoding:NSUTF8StringEncoding];
-        NSLog(@"%@",newStr);
-        [IvinHelp wineidparse:userwine];
+        
+        if ((!userwine)||([userwine length]==0))
+        {
+            [SingletonClass sharedInstance].rating=0;
+        }
+        else {
+            NSString* newStr = [[NSString alloc] initWithData:userwine encoding:NSUTF8StringEncoding];
+            NSLog(@"%@",newStr);
+            [IvinHelp wineidparse:userwine];
+        }
     }
 
     
@@ -92,53 +99,14 @@
             _cup.image=[UIImage imageNamed:@"white.png"];
             break;
     }
-    //cup.image=[UIImage imageNamed:@"star.png"];
-    
-      ;
-
-    /*
-    UIActivityIndicatorView *activityIndicator = [[UIActivityIndicatorView alloc]
-                                                  initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
-    [activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleGray];
-    [self.view addSubview:activityIndicator];
-    [activityIndicator startAnimating];
-    
-    
-    
-    NSString* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
-    [SingletonClass sharedInstance].wine= [IvinHelp wineparse:winestring];
-    [activityIndicator stopAnimating];
-    */
-    //self.view.contentSize=CGSizeMake(400,400);
-    //self.navigationController.title=@"fdasf";
-    //self.navigationItem.title=@"Chateau IVin";
-    
-    //NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
-
-    
     self.navigationItem.title= [SingletonClass sharedInstance].winery.Name;  //[_winery Name];
-    
-//    self.navigationItem.title= @"string";//[SingletonClass sharedInstance].winery.Name;  //[_winery Name];
-    
-
-   // UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sort.png"]]];
-   // self.navigationItem.rightBarButtonItem = rightButton;
-    
-    
-//    self.navigationController.navigationBar.te
-    //navigationBar.tintColor=[UIColor colorWithRed:235.0f/255.0f green:216.0f/255.0f blue:145.0f/255.0f alpha:1.0f];
-    //barTintColor=[UIColor colorWithRed:235.0f/255.0f green:216.0f/255.0f blue:145.0f/255.0f alpha:1.0f];
     [_sw setScrollEnabled:YES];
-    //[_sw setContentSize:CGSizeMake(320, 2200)];
-    
     [_sw setContentSize:CGSizeMake(320, 820)];
     
     
     if([UIScreen mainScreen].bounds.size.height < 568){
         
         CGPoint point =CGPointMake(0, -23.0);
-        //_sw.frame.origin;
-        
         CGRect frame = _sw.frame;
         frame.origin = point;
         _sw.frame=frame;
@@ -159,7 +127,7 @@
     self.description1.lineBreakMode=UILineBreakModeWordWrap;
     
     
-    NSString *filePath;//=[[NSBundle mainBundle] pathForResource:@"30" ofType:@"png"];
+    NSString *filePath;
     
     int ratingvalue;
     
@@ -221,7 +189,7 @@
 
 
    // UIImageView * image;
-    [_iw loadImageFromURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.WinePhotoUrl] placeholderImage:nil cachingKey:@"ivincache"];
+    [_iw loadImageFromURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.WinePhotoUrl] placeholderImage:nil cachingKey:[SingletonClass sharedInstance].wine.WinePhotoUrl];
     _iw.contentMode=UIViewContentModeScaleAspectFit;
     //[_iw setImage:image];
     //[_iw addSubview:];
@@ -345,34 +313,22 @@
     
     if ([SingletonClass sharedInstance].username!=nil)
     {
-        //[SingletonClass sharedInstance].skiphistory=0;
-
-        
         NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine"];
         NSURL *url = [NSURL URLWithString:urlString];
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setHTTPMethod:@"POST"];
-        
         [request setValue:@"Fiddler" forHTTPHeaderField:@"User-Agent"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
         [request setValue:@"lapinroi-001-site1.smarterasp.net" forHTTPHeaderField:@"Host"];
         [request setValue:@"220" forHTTPHeaderField:@"Content-Length"];
-        
         NSString * userid, *wineid;
-        
         userid=[SingletonClass sharedInstance].username;
         wineid=[SingletonClass sharedInstance].wine.Id;
-        
-        //NSString *bodyStr = [NSString stringWithFormat:@"{\"WineId\":\"%@\",\"EndUserId\":\"%@\",\"Mark\":\"3\",\"CurrencyId\":\"1\",\"Price\":\"20\",\"Like\":\"true\",\"Favorite\":\"true\",\"Comment\":\"Comment\",\"PersonalComment\":\"Comment\",\"GeoLocation\":\"Comment\",\"VocalComment\":\"Comment\"}",wineid,userid];
-
         NSString *bodyStr = [NSString stringWithFormat:@"{\"WineId\":\"%@\",\"EndUserId\":\"%@\"}",wineid,userid];
-        
         NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
         NSLog(@"body data :%@", bodyStr);
         [request setHTTPBody:body];
-        
-        //3建立并启动连接NSRULConnection
         NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
         [conn start];
         
@@ -551,7 +507,8 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
 
 - (void)rateView:(RateView *)rateView ratingDidChange:(float)rating {
     
-
+    if (![SingletonClass sharedInstance].username)
+        return;
     NSLog(@"%f",rating);
     int rating_int=rating;
     self.statusLabel.text = [NSString stringWithFormat:@"Rating: %d", rating_int];

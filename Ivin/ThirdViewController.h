@@ -16,6 +16,9 @@
 //@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 
 @property (strong) UIActivityIndicatorView *activityIndicator;
+@property (strong) IBOutlet UITextView *t1;
+@property (strong) IBOutlet UITextView *t2;
+@property (strong) IBOutlet UITextView *t3;
 
 
 @end

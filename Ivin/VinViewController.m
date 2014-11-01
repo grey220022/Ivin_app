@@ -47,7 +47,7 @@
     //UIImage *image = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:@"http://www.ivindigital.com/content/images/carte/chateau.png"]]];
     
     
-    [_ima loadImageFromURL:[NSURL URLWithString:somestring] placeholderImage:nil cachingKey:@"iwinecache"];
+    [_ima loadImageFromURL:[NSURL URLWithString:somestring] placeholderImage:nil cachingKey:somestring];
 
     
    // _ima.image=image;

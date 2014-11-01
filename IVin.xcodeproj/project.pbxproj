@@ -42,6 +42,7 @@
 		CE8419C418BEAF0200ECC402 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE8419C218BEAF0200ECC402 /* InfoPlist.strings */; };
 		CE8419C618BEAF0200ECC402 /* IvinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8419C518BEAF0200ECC402 /* IvinTests.m */; };
 		CE8419D218BEB2CA00ECC402 /* ThirdViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8419D018BEB2CA00ECC402 /* ThirdViewController.m */; };
+		CE85706719F41BF700314A75 /* WQPlaySound.m in Sources */ = {isa = PBXBuildFile; fileRef = CE85706619F41BF700314A75 /* WQPlaySound.m */; };
 		CE8917B9190EEBF700231FBB /* DetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE8917B8190EEBF700231FBB /* DetailView.m */; };
 		CE8917BC1914F7B600231FBB /* 111.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8917BA1914F7B600231FBB /* 111.png */; };
 		CE8917BD1914F7B600231FBB /* 222.png in Resources */ = {isa = PBXBuildFile; fileRef = CE8917BB1914F7B600231FBB /* 222.png */; };
@@ -139,7 +140,6 @@
 		CEDC465F19966AC300C1665F /* star3.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465C19966AC300C1665F /* star3.png */; };
 		CEF3B79D1934FDF3002D7D6E /* recomm.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3B79B1934FDF3002D7D6E /* recomm.png */; };
 		CEF3B79E1934FDF3002D7D6E /* foodpair.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3B79C1934FDF3002D7D6E /* foodpair.png */; };
-		CEF8CF6E18C1434D00943823 /* wine.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CEF8CF6D18C1434D00943823 /* wine.jpg */; };
 		CEF8CF7518C1889600943823 /* AcceptWineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8CF7318C1889600943823 /* AcceptWineViewController.m */; };
 		CEFF3F4918E2396600785AD7 /* RadioButtonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEFF3F4718E2396600785AD7 /* RadioButtonViewController.m */; };
 		CEFF3F4A18E2396600785AD7 /* RadioButtonViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CEFF3F4818E2396600785AD7 /* RadioButtonViewController.xib */; };
@@ -213,6 +213,8 @@
 		CE8419C518BEAF0200ECC402 /* IvinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IvinTests.m; sourceTree = "<group>"; };
 		CE8419CF18BEB2CA00ECC402 /* ThirdViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdViewController.h; sourceTree = "<group>"; };
 		CE8419D018BEB2CA00ECC402 /* ThirdViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdViewController.m; sourceTree = "<group>"; };
+		CE85706619F41BF700314A75 /* WQPlaySound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WQPlaySound.m; sourceTree = "<group>"; };
+		CE85706819F41C1100314A75 /* WQPlaySound.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WQPlaySound.h; sourceTree = "<group>"; };
 		CE8917B7190EEBF700231FBB /* DetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailView.h; sourceTree = "<group>"; };
 		CE8917B8190EEBF700231FBB /* DetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailView.m; sourceTree = "<group>"; };
 		CE8917BA1914F7B600231FBB /* 111.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 111.png; sourceTree = "<group>"; };
@@ -364,7 +366,6 @@
 		CEDC465C19966AC300C1665F /* star3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star3.png; sourceTree = "<group>"; };
 		CEF3B79B1934FDF3002D7D6E /* recomm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recomm.png; sourceTree = "<group>"; };
 		CEF3B79C1934FDF3002D7D6E /* foodpair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodpair.png; sourceTree = "<group>"; };
-		CEF8CF6D18C1434D00943823 /* wine.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wine.jpg; sourceTree = "<group>"; };
 		CEF8CF6F18C14E9E00943823 /* wine 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wine 120.png"; sourceTree = "<group>"; };
 		CEF8CF7018C14F8500943823 /* wine 80.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wine 80.png"; sourceTree = "<group>"; };
 		CEF8CF7118C14F9700943823 /* wine 58.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wine 58.png"; sourceTree = "<group>"; };
@@ -418,6 +419,27 @@
 		CE084C8C18F489CE0062BB5F /* newresources */ = {
 			isa = PBXGroup;
 			children = (
+				CE8A9BA218C2354700F76A4A /* kermit_empty.png */,
+				CEB4A55218C69C5D0037C867 /* line@2x.png */,
+				CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */,
+				CE89181C191E327800231FBB /* caved.png */,
+				CEC93421199A9ABA00FF2FB8 /* cancel.png */,
+				CE31139119AF7A0D00D05C08 /* cancel2.png */,
+				CEC9341F1996851E00FF2FB8 /* adward.png */,
+				CE89181D191E327800231FBB /* rated.png */,
+				CE8A9BA318C2354700F76A4A /* kermit_full.png */,
+				CE8A9BA418C2354700F76A4A /* kermit_half.png */,
+				CE31139319B071BF00D05C08 /* book-vide.png */,
+				CE31139419B071BF00D05C08 /* book.png */,
+				CE31139519B071C000D05C08 /* collect-vide.png */,
+				CE31139619B071C000D05C08 /* collect.png */,
+				CE89181819152C7F00231FBB /* noirnew.png */,
+				CEF3B79B1934FDF3002D7D6E /* recomm.png */,
+				CEF3B79C1934FDF3002D7D6E /* foodpair.png */,
+				CE31138F19AE8D8A00D05C08 /* newline.png */,
+				CEF8CF7118C14F9700943823 /* wine 58.png */,
+				CEF8CF7018C14F8500943823 /* wine 80.png */,
+				CEF8CF6F18C14E9E00943823 /* wine 120.png */,
 				CEC9342B199F493000FF2FB8 /* champagne rose.png */,
 				CEC9342C199F493000FF2FB8 /* Champagne.png */,
 				CEC9342D199F493000FF2FB8 /* red.png */,
@@ -493,29 +515,10 @@
 		CE84198B18BEAF0200ECC402 = {
 			isa = PBXGroup;
 			children = (
+				CE85706619F41BF700314A75 /* WQPlaySound.m */,
+				CE85706819F41C1100314A75 /* WQPlaySound.h */,
 				CEB4A50618C69B710037C867 /* ZBarSDK */,
-				CE8A9BA218C2354700F76A4A /* kermit_empty.png */,
-				CEB4A55218C69C5D0037C867 /* line@2x.png */,
 				CE084C8C18F489CE0062BB5F /* newresources */,
-				CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */,
-				CE89181C191E327800231FBB /* caved.png */,
-				CEC93421199A9ABA00FF2FB8 /* cancel.png */,
-				CE31139119AF7A0D00D05C08 /* cancel2.png */,
-				CEC9341F1996851E00FF2FB8 /* adward.png */,
-				CE89181D191E327800231FBB /* rated.png */,
-				CE8A9BA318C2354700F76A4A /* kermit_full.png */,
-				CE8A9BA418C2354700F76A4A /* kermit_half.png */,
-				CE31139319B071BF00D05C08 /* book-vide.png */,
-				CE31139419B071BF00D05C08 /* book.png */,
-				CE31139519B071C000D05C08 /* collect-vide.png */,
-				CE31139619B071C000D05C08 /* collect.png */,
-				CE89181819152C7F00231FBB /* noirnew.png */,
-				CEF3B79B1934FDF3002D7D6E /* recomm.png */,
-				CEF3B79C1934FDF3002D7D6E /* foodpair.png */,
-				CE31138F19AE8D8A00D05C08 /* newline.png */,
-				CEF8CF7118C14F9700943823 /* wine 58.png */,
-				CEF8CF7018C14F8500943823 /* wine 80.png */,
-				CEF8CF6F18C14E9E00943823 /* wine 120.png */,
 				CE84199D18BEAF0200ECC402 /* Ivin */,
 				CE8419BF18BEAF0200ECC402 /* IvinTests */,
 				CE84199618BEAF0200ECC402 /* Frameworks */,
@@ -555,7 +558,6 @@
 				CE2A3F9318C931A8008212A4 /* QRcode VIew */,
 				CE8A9B9F18C234AA00F76A4A /* RateView.h */,
 				CE8A9BA018C234AA00F76A4A /* RateView.m */,
-				CEF8CF6D18C1434D00943823 /* wine.jpg */,
 				CE97624518CFD83A00A8C6AC /* BubbleSrc */,
 				CE97622D18CFD79B00A8C6AC /* CommentView.h */,
 				CE97622E18CFD79B00A8C6AC /* CommentView.m */,
@@ -944,7 +946,6 @@
 				CEF3B79D1934FDF3002D7D6E /* recomm.png in Resources */,
 				CEA073EA19B1D09E009A3351 /* 50.png in Resources */,
 				CE97625818CFDF5800A8C6AC /* avatar1.png in Resources */,
-				CEF8CF6E18C1434D00943823 /* wine.jpg in Resources */,
 				CE31139719B071C000D05C08 /* book-vide.png in Resources */,
 				CE97623C18CFD82000A8C6AC /* bubbleMine@2x.png in Resources */,
 				CEB4A53E18C69B720037C867 /* zbar-back.png in Resources */,
@@ -1025,6 +1026,7 @@
 				CEC93425199AA06A00FF2FB8 /* NewuserView.m in Sources */,
 				CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */,
 				CE2A3F8D18C7F910008212A4 /* ViewController.m in Sources */,
+				CE85706719F41BF700314A75 /* WQPlaySound.m in Sources */,
 				CE8918221928965100231FBB /* HistoryViewCell.m in Sources */,
 				CE8419AE18BEAF0200ECC402 /* FirstViewController.m in Sources */,
 				CE2A3F8E18C7F910008212A4 /* RootViewController.m in Sources */,

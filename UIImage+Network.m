@@ -20,13 +20,13 @@ static char URL_KEY;
 	self.imageURL = url;
 	self.image = placeholder;
 	
-    /*
+    
 	NSData *cachedData = [FTWCache objectForKey:key];
 	if (cachedData) {
         self.imageURL   = nil;
         self.image      = [UIImage imageWithData:cachedData];
         return;
-	}*/
+	}
     
 	dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_HIGH, 0ul);
 	dispatch_async(queue, ^{
@@ -34,7 +34,7 @@ static char URL_KEY;
 		
 		UIImage *imageFromData = [UIImage imageWithData:data];
 		
-		//[FTWCache setObject:data forKey:key];
+		[FTWCache setObject:data forKey:key];
         
 		if (imageFromData) {
 			if ([self.imageURL.absoluteString isEqualToString:url.absoluteString]) {

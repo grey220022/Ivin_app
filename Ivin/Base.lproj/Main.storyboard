@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
     <scenes>
         <!--First-->
@@ -768,7 +769,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="100 " selectable="NO" id="dr4-yN-mpa">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="100" selectable="NO" id="dr4-yN-mpa">
                                 <rect key="frame" x="254" y="65" width="46" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -777,7 +778,7 @@
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="100" selectable="NO" id="ZWv-px-rfr">
-                                <rect key="frame" x="254" y="95" width="46" height="22"/>
+                                <rect key="frame" x="254" y="93" width="46" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -792,6 +793,9 @@
                     <connections>
                         <outlet property="searchBar" destination="tMA-8e-DEo" id="6tY-le-CeL"/>
                         <outlet property="searchDisplayController" destination="HfE-ZQ-bxj" id="ylz-hw-Isr"/>
+                        <outlet property="t1" destination="Ixu-do-1ZM" id="Pr9-NS-Cbp"/>
+                        <outlet property="t2" destination="dr4-yN-mpa" id="czB-pS-u7R"/>
+                        <outlet property="t3" destination="ZWv-px-rfr" id="SMP-bZ-NUN"/>
                         <outlet property="tableView" destination="uZd-hC-gTj" id="1az-vG-nF0"/>
                     </connections>
                 </viewController>

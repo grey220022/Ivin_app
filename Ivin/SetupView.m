@@ -95,7 +95,9 @@
 {
     if ([SingletonClass sharedInstance].username!=nil)
     {
+        [SingletonClass sharedInstance].skiphistory=0;
         [SingletonClass sharedInstance].username=nil;
+        [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:@"注销" message:@"用户已注销" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];

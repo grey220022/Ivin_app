@@ -7,6 +7,7 @@
 //
 
 #import "FTWCache.h"
+#import "IvinHelp.h"
 
 static NSTimeInterval cacheTime =  (double)604800;
 
@@ -25,7 +26,7 @@ static NSTimeInterval cacheTime =  (double)604800;
 
 + (NSData*) objectForKey:(NSString*)key {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSString *filename = [self.cacheDirectory stringByAppendingPathComponent:key];
+	NSString *filename = [self.cacheDirectory stringByAppendingPathComponent:[IvinHelp md5HexDigest:key]];
 	
 	if ([fileManager fileExistsAtPath:filename])
 	{
@@ -42,7 +43,7 @@ static NSTimeInterval cacheTime =  (double)604800;
 
 + (void) setObject:(NSData*)data forKey:(NSString*)key {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
-	NSString *filename = [self.cacheDirectory stringByAppendingPathComponent:key];
+	NSString *filename = [self.cacheDirectory stringByAppendingPathComponent:[IvinHelp md5HexDigest:key]];
 
 	BOOL isDir = YES;
 	if (![fileManager fileExistsAtPath:self.cacheDirectory isDirectory:&isDir]) {
