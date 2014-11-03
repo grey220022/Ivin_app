@@ -304,13 +304,17 @@ int tim;
 //        NSLog(@"%d",[stringValue rangeOfString:@"lapinroi-001-site1"].location);
         if ([stringValue rangeOfString:@"lapinroi-001-site1"].location==NSNotFound)
         {
+            /*
             UIAlertView *myAlertView;
             myAlertView = [[UIAlertView alloc]initWithTitle:@"QR code erreur" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
+             */
+            NSURL *cleanURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", stringValue]];
+            [[UIApplication sharedApplication] openURL:cleanURL];
             return;
         }
         NSString * wineurl;
-        NSString * wineryurl;
+       // NSString * wineryurl;
         
         int nn=stringValue.length;
         

@@ -41,10 +41,7 @@ ProfileCell * profilecell;
     self.tableview.backgroundColor=[UIColor blackColor];
     self.view.backgroundColor=[UIColor blackColor];
     [self.tableview setSeparatorColor:[UIColor clearColor]];
-    if ((([SingletonClass sharedInstance].username!=nil) ) &&([SingletonClass sharedInstance].usertype==nil))
-        {
-            
-        }
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -171,7 +168,7 @@ ProfileCell * profilecell;
                 [self.navigationController pushViewController:vc animated:YES];
                 [self.navigationController setTitle:@"个性签名"];
                 
-                UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:self action:@selector(confirm)];
+                UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:vc action:@selector(confirm)];
                 vc.navigationItem.rightBarButtonItem = anotherButton;
 
                 
@@ -182,7 +179,7 @@ ProfileCell * profilecell;
                 RadioButtonViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"radioview"];
                 [self.navigationController pushViewController:vc animated:YES];
                 [self.navigationController setTitle:@"用户类型"];
-                UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:self action:@selector(confirm)];
+                UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:vc action:@selector(confirm)];
                 vc.navigationItem.rightBarButtonItem = anotherButton;
 
                 
@@ -195,7 +192,7 @@ ProfileCell * profilecell;
                 vc.title=@"Email";
                 
                 
-                UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:self action:@selector(confirm)];
+                UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:vc action:@selector(confirm)];
                 vc.navigationItem.rightBarButtonItem = anotherButton;
                 
                 
@@ -212,7 +209,7 @@ ProfileCell * profilecell;
                 //[self.navigationController setTitle:@"城市"];
                 vc.title=@"地点";
                 
-                UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:self action:@selector(confirm)];
+                UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:vc action:@selector(confirm)];
                 vc.navigationItem.rightBarButtonItem = anotherButton;
 
                 [self.navigationController pushViewController:vc animated:YES];

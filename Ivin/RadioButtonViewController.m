@@ -8,6 +8,7 @@
 
 #import "RadioButtonViewController.h"
 #import "RadioButton.h"
+#import "SingletonClass.h"
 
 
 @implementation RadioButtonViewController
@@ -18,6 +19,7 @@ RadioButton *rb2;
 RadioButton *rb3;
 RadioButton *rb4;
 RadioButton *rb5;
+int sel;
 
 
 - (void)dealloc
@@ -32,25 +34,57 @@ RadioButton *rb5;
     // Release any cached data, images, etc that aren't in use.
 }
 
+- (void)confirm
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    [SingletonClass sharedInstance].usertype=[NSString stringWithFormat:@"%i", sel];
+    NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUser"];
+    NSURL *url = [NSURL URLWithString:urlString];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    [request setHTTPMethod:@"POST"];
+    
+    [request setValue:@"Fiddler" forHTTPHeaderField:@"User-Agent"];
+    [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
+    [request setValue:@"lapinroi-001-site1.smarterasp.net" forHTTPHeaderField:@"Host"];
+    [request setValue:@"350" forHTTPHeaderField:@"Content-Length"];
+    
+    
+    NSString *bodyStr = [NSString stringWithFormat:@"{\"Id\":\"%@\",\"Email\":\"%@\",\"Address\":\"%@\",\"EndUserProfileId\":\"%@\",\"Signature\":\"%@\"}",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].email,[SingletonClass sharedInstance].city,[SingletonClass sharedInstance].usertype,[SingletonClass sharedInstance].signature];
+    NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"body data :%@", bodyStr);
+    [request setHTTPBody:body];
+    
+    NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
+    [conn start];
+
+}
+
+
 -(void)click1
 {
     [rb1.button sendActionsForControlEvents:UIControlEventTouchUpInside];
+    sel=1;
 }
 -(void)click2
 {
     [rb2.button sendActionsForControlEvents:UIControlEventTouchUpInside];
+    sel=2;
 }
 -(void)click3
 {
     [rb3.button sendActionsForControlEvents:UIControlEventTouchUpInside];
+    sel=3;
 }
 -(void)click4
 {
     [rb4.button sendActionsForControlEvents:UIControlEventTouchUpInside];
+    sel=4;
 }
 -(void)click5
 {
     [rb5.button sendActionsForControlEvents:UIControlEventTouchUpInside];
+    sel=5;
 }
 
 
@@ -96,9 +130,6 @@ RadioButton *rb5;
     label1.textColor=[UIColor whiteColor];
     [container addSubview:label1];
 
-    
-    
-    
     UITapGestureRecognizer* gesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click1)];
     [label1 setUserInteractionEnabled:YES];
     [label1 addGestureRecognizer:gesture1];
@@ -113,8 +144,6 @@ RadioButton *rb5;
     UITapGestureRecognizer* gesture2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click2)];
     [label2 setUserInteractionEnabled:YES];
     [label2 addGestureRecognizer:gesture2];
-    
-    
     
     UILabel *label3 =[[UILabel alloc] initWithFrame:CGRectMake(40, 110, 260, 20)];
     label3.backgroundColor = [UIColor clearColor];
@@ -153,8 +182,29 @@ RadioButton *rb5;
     
     [RadioButton addObserverForGroupId:@"first group" observer:self];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
-
-
+    
+    
+    
+    if ([[SingletonClass sharedInstance].usertype isEqualToString:@"1"])
+    {
+        [self click1];
+    }
+    else if ([[SingletonClass sharedInstance].usertype isEqualToString:@"2"])
+    {
+        [self click2];
+    }
+    else if ([[SingletonClass sharedInstance].usertype isEqualToString:@"3"])
+    {
+        [self click3];
+    }
+    else if ([[SingletonClass sharedInstance].usertype isEqualToString:@"4"])
+    {
+        [self click4];
+    }
+    else
+    {
+        [self click5];
+    }
     [super viewDidLoad];
 }
 

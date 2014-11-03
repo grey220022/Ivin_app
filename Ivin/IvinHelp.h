@@ -17,7 +17,6 @@
 + (NSData *) geturlcontentfromcache:(NSString *) url;
 + (void) wineparse:(NSData *) winecontent;
 + (void) wineidparse:(NSData *) winecontent;
-
 + (void) userprofileparse:(NSData *) userprofilecontent;
 //+ (Winery *) wineryparse:(NSData *) winerycontent;
 + (void) wineryparse;//:(NSData *) winerycontent;

@@ -13,6 +13,7 @@
 #import "LangView.h"
 #import "ProfileView.h"
 #import "SingletonClass.h"
+#import "IvinHelp.h"
 
 @interface SetupView ()
 
@@ -85,10 +86,33 @@
 
 -(IBAction)profilepress
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ProfileView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"profileview"];
-    nextController.title=@"帐户信息";
-    [self.navigationController pushViewController:nextController animated:YES];
+    if ([SingletonClass sharedInstance].username!=nil)
+    {
+        NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/EndUser/",[SingletonClass sharedInstance].username];
+        NSData* winestring=[IvinHelp geturlcontent:wineurl];
+        if ((!winestring)||([winestring length]==0))
+        {
+            UIAlertView *myAlertView;
+            myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            [myAlertView show];
+            return;
+        }
+        
+        NSString* newStr = [NSString stringWithUTF8String:[winestring bytes]];
+        NSLog(@"%@",newStr);
+        
+        [IvinHelp userprofileparse:winestring];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        ProfileView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"profileview"];
+        nextController.title=@"帐户信息";
+        [self.navigationController pushViewController:nextController animated:YES];
+    }
+    else
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        NewloginView *newloginview = [storyboard instantiateViewControllerWithIdentifier:@"newloginview"];
+        [self presentModalViewController:newloginview animated:YES];
+    }
 }
 
 -(IBAction)loginpress

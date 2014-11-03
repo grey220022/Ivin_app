@@ -103,8 +103,8 @@ NSMutableArray *filterarray;
         return;
     }
     else{
-        [_tableView reloadData];
         filter=false;
+        [_tableView reloadData];
     }
 }
 
@@ -345,7 +345,11 @@ NSMutableArray *filterarray;
 
 //3
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return wine_num;
+    
+    if (!filter)
+        return wine_num;
+    else
+        return [filterarray count];
     //return [self.listData count];
 }
 
@@ -358,10 +362,10 @@ NSMutableArray *filterarray;
         cell = [[HistoryViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    [cell.imageLable loadImageFromURL:[NSURL URLWithString:[WineImageUrl objectAtIndex:indexPath.row]] placeholderImage:nil cachingKey:[WineImageUrl objectAtIndex:indexPath.row]];
+    [cell.imageLable loadImageFromURL:[NSURL URLWithString:[WineImageUrl objectAtIndex: [self getvalue:indexPath.row] ]] placeholderImage:nil cachingKey:[WineImageUrl objectAtIndex:[self getvalue:indexPath.row]]];
     
     NSString * filePath;
-    float ratingvalue=[[AverageMark objectAtIndex:indexPath.row] floatValue];
+    float ratingvalue=[[AverageMark objectAtIndex:[self getvalue:indexPath.row]] floatValue];
     
     if (ratingvalue>=4.5)
         filePath=[[NSBundle mainBundle] pathForResource:@"50" ofType:@"png"];
@@ -378,14 +382,14 @@ NSMutableArray *filterarray;
     
     UIImage * ratingImage = [UIImage imageWithContentsOfFile:filePath];//[UIImage imageNamed:@"40.png"];
     [cell.ratingLable setImage: ratingImage];
-    cell.nameLabel.text= [WineryName objectAtIndex:indexPath.row]; //@"Château pichon";
-    cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[WineryName objectAtIndex:indexPath.row] , [Year objectAtIndex:indexPath.row]];
-    cell.subnameLabel2.text=[NSString stringWithFormat:@"%@, %@",[Appellation objectAtIndex:indexPath.row] , [WineryCountry objectAtIndex:indexPath.row]];//someString;//@"Pauillac, France";
-    NSNumber *vvv=[AverageMark objectAtIndex:indexPath.row];
+    cell.nameLabel.text= [WineryName objectAtIndex:[self getvalue:indexPath.row]]; //@"Château pichon";
+    cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[WineryName objectAtIndex:[self getvalue:indexPath.row]] , [Year objectAtIndex:[self getvalue:indexPath.row]]];
+    cell.subnameLabel2.text=[NSString stringWithFormat:@"%@, %@",[Appellation objectAtIndex:[self getvalue:indexPath.row]] , [WineryCountry objectAtIndex:[self getvalue:indexPath.row]]];//someString;//@"Pauillac, France";
+    NSNumber *vvv=[AverageMark objectAtIndex:[self getvalue:indexPath.row]];
     cell.ratingnumberLable.text=[[NSString alloc] initWithFormat:@"%0.1f",[vvv floatValue]];
-    [AverageMark objectAtIndex:indexPath.row];//@"4.0";
+    [AverageMark objectAtIndex:[self getvalue:indexPath.row]];//@"4.0";
     cell.priceLabel.text=@"9€";
-    cell.dateLabel.text=[CreateDate objectAtIndex:indexPath.row];
+    cell.dateLabel.text=[CreateDate objectAtIndex:[self getvalue:indexPath.row]];
     return cell;
 }
 /*
@@ -424,7 +428,7 @@ NSMutableArray *filterarray;
     
     //NSData* winestring=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/wine/5"];
     //NSData* winerystring=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/winery/5"];
-    NSString *winenumber=[WineCode objectAtIndex:indexPath.row];
+    NSString *winenumber=[WineCode objectAtIndex:[self getvalue:indexPath.row]];
     
     
     NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=",winenumber];
@@ -639,14 +643,18 @@ NSMutableArray *filterarray;
     {
 //        NSLog(@"%@",[WineName objectAtIndex:i]);
         NSRange r1= [[WineName objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSLog(@"1");
         NSRange r2= [[WineryName objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
-        NSRange r3= [[Year objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSLog(@"2");
+        NSRange r3= [[[Year objectAtIndex:i] stringValue]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSLog(@"3");
         NSRange r4= [[Appellation objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
+        NSLog(@"4");
         NSRange r5= [[WineryCountry objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
-        
+        NSLog(@"5");
        if ((r1.location!=NSNotFound) || (r2.location!=NSNotFound) || (r3.location!=NSNotFound) ||(r4.location!=NSNotFound) ||(r5.location!=NSNotFound))
        {
-           //NSLog(@"%d",i);
+           NSLog(@"%d",i);
            [filterarray addObject:[NSNumber numberWithInteger:i]];
        }
        /*
@@ -694,6 +702,14 @@ NSMutableArray *filterarray;
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     [_activityIndicator stopAnimating];
+}
+
+-(NSInteger)getvalue:(NSInteger) pam
+{
+    if (!filter)
+        return pam;
+    else
+        return [[filterarray objectAtIndex:pam] integerValue];
 }
 
 @end

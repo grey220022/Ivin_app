@@ -96,11 +96,11 @@ NSDictionary *winerydic;
     NSError *error;
     NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:userprofilecontent options:NSJSONReadingMutableLeaves error:&error];
 
-    NSString *mark=[tempdic objectForKey:@"Mark"];
+//    NSString *mark=[tempdic objectForKey:@"Mark"];
     
     [SingletonClass sharedInstance].signature=[IvinHelp  strval:[tempdic objectForKey:@"Signature"] replacevalue:@""];
     [SingletonClass sharedInstance].usertype=[[tempdic objectForKey:@"EndUserProfileId"] stringValue];
-    [SingletonClass sharedInstance].like=[IvinHelp  strval:[tempdic objectForKey:@"Email"] replacevalue:@""];
+    [SingletonClass sharedInstance].email=[IvinHelp  strval:[tempdic objectForKey:@"Email"] replacevalue:@""];
     [SingletonClass sharedInstance].city=[IvinHelp  strval:[tempdic objectForKey:@"Address"] replacevalue:@""];
     
 }
@@ -195,6 +195,8 @@ NSDictionary *winerydic;
         [SingletonClass sharedInstance].rating=-1;
 */
 }
+
+
 
 + (void) wineparse:(NSData *) winecontent
 {
