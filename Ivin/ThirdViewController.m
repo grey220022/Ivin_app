@@ -22,7 +22,10 @@
 @property(nonatomic,retain) NSArray * listData;
 @property(nonatomic,retain) NSArray * sublistData;
 @property (nonatomic,retain) IBOutlet UISearchBar *searchBar;
+@property (weak, nonatomic) IBOutlet UIButton *b1;
 
+@property (weak, nonatomic) IBOutlet UIButton *b2;
+@property (weak, nonatomic) IBOutlet UIButton *b3;
 @end
 
 
@@ -64,6 +67,50 @@ NSMutableArray *filterarray;
     [actionSheet showInView:self.view];
 }
 
+
+- (IBAction)allwines:(id)sender {
+    if ([SingletonClass sharedInstance].skiphistory==0)
+        [self loaddata];
+    filter=false;
+    [_tableView reloadData];
+}
+
+
+- (IBAction)likefilter:(id)sender {
+    if ([SingletonClass sharedInstance].skiphistory==0)
+        [self loaddata];
+    filter=true;
+    filterarray=[[NSMutableArray alloc] initWithObjects: nil];
+    int objectnumber=[WineName count];
+    for (int i=0; i<objectnumber; i++)
+    {
+        if ([[Like objectAtIndex:i] isEqual:@"true"])
+        {
+            NSLog(@"%d",i);
+            [filterarray addObject:[NSNumber numberWithInteger:i]];
+        }
+    }
+    [_tableView reloadData];
+}
+
+- (IBAction)collectfilter:(id)sender {
+    if ([SingletonClass sharedInstance].skiphistory==0)
+        [self loaddata];
+    filter=true;
+    int objectnumber=[WineName count];
+    filterarray=[[NSMutableArray alloc] initWithObjects: nil];
+    for (int i=0; i<objectnumber; i++)
+    {
+        NSLog(@"%@",[Favorite objectAtIndex:i]);
+        if ([[Favorite objectAtIndex:i] isEqual:@"true"])
+        {
+            NSLog(@"%d",i);
+            [filterarray addObject:[NSNumber numberWithInteger:i]];
+        }
+    }
+    [_tableView reloadData];
+}
+
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     
@@ -88,32 +135,6 @@ NSMutableArray *filterarray;
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    if ([SingletonClass sharedInstance].username==nil)
-    {
-        if ([[SingletonClass sharedInstance].preview isEqual:@"login"])
-        {
-            [self.tabBarController setSelectedIndex:0];
-            return;
-        }
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        NewloginView *newloginview = [storyboard instantiateViewControllerWithIdentifier:@"newloginview"];
-        
-        [self presentModalViewController:newloginview animated:YES];
-
-        return;
-    }
-    else{
-        filter=false;
-        [_tableView reloadData];
-    }
-}
-
-
-
--(void)viewWillAppear:(BOOL)animated
-{
-    
-    
     [SingletonClass sharedInstance].listview=self;
     NSLog(@"thirdappear");
     if ([SingletonClass sharedInstance].fromscan==1)
@@ -140,8 +161,36 @@ NSMutableArray *filterarray;
     {
         [self loaddata];
     }
+
+    if ([SingletonClass sharedInstance].username==nil)
+    {
+        if ([[SingletonClass sharedInstance].preview isEqual:@"login"])
+        {
+            [self.tabBarController setSelectedIndex:0];
+            return;
+        }
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        NewloginView *newloginview = [storyboard instantiateViewControllerWithIdentifier:@"newloginview"];
+        
+        [self presentModalViewController:newloginview animated:YES];
+
+        return;
+    }
+    else{
+        filter=false;
+        [_tableView reloadData];
+    }
 }
 
+/*
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    
+    
+
+}
+*/
 -(void)loaddata
 {
     WineName =[[NSMutableArray alloc] initWithObjects: nil];
@@ -295,9 +344,14 @@ NSMutableArray *filterarray;
     // UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:@"排序" style:UIBarButtonItemStylePlain target:self action:@selector(oov)];
     
     //    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithCustomView:[[UIImageView alloc] initWithImage:[UIImage imageNamed:@"sort.png"]] ];
+    
+//Todo: Add the sort feature
+    /*
     UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"noirnew.png"] style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
     
     self.navigationItem.rightBarButtonItem = rightButton;
+    */
+    
     self.navigationItem.title=[words getword:@"mywines"];
     //self.navigationController.title=@"fadsfds";//[words getword:@"mywines"];
     //self.navigationItem.rightBarButtonItem = rightButton;
@@ -349,7 +403,10 @@ NSMutableArray *filterarray;
     if (!filter)
         return wine_num;
     else
+    {
+        NSLog(@"%d",[filterarray count]);
         return [filterarray count];
+    }
     //return [self.listData count];
 }
 
@@ -484,6 +541,7 @@ NSMutableArray *filterarray;
 }
 
 
+
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return YES;
 }
@@ -497,43 +555,39 @@ NSMutableArray *filterarray;
         // Delete the row from the data source.
         wine_num--;
         _t1.text=[NSString stringWithFormat:@"%d wines",wine_num];
-        
-        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+//        NSLog(@"%d",indexPath.row);
         
         NSString * userid, *wineid;
-        wineid=[WineId objectAtIndex:indexPath.row];
+        wineid=[WineId objectAtIndex:[self getvalue:indexPath.row]];
         
-        if ([[Like objectAtIndex:indexPath.row]  isEqual: @"true"])
+        if ([[Like objectAtIndex:[self getvalue:indexPath.row]]  isEqual: @"true"])
         {
             like_num--;
             _t2.text=[NSString stringWithFormat:@"%d",like_num];
+            _t2.textColor=[UIColor whiteColor];
             
         }
         
-        if ([[Favorite objectAtIndex:indexPath.row]  isEqual: @"true"])
+        if ([[Favorite objectAtIndex:[self getvalue:indexPath.row]]  isEqual: @"true"])
         {
             favorite_num--;
             _t3.text=[NSString stringWithFormat:@"%d",favorite_num];
-            
+            _t3.textColor=[UIColor whiteColor];
         }
         
-        [WineName removeObjectAtIndex:indexPath.row];
-        [WineImageUrl removeObjectAtIndex:indexPath.row];
-        [WineryName removeObjectAtIndex:indexPath.row];
-        [WineryCountry removeObjectAtIndex:indexPath.row];
-        [Appellation removeObjectAtIndex:indexPath.row];
-        [Year removeObjectAtIndex:indexPath.row];
-        [AverageMark removeObjectAtIndex:indexPath.row];
-        [WineCode removeObjectAtIndex:indexPath.row];
-        [CreateDate removeObjectAtIndex:indexPath.row];
-        [WineId removeObjectAtIndex:indexPath.row];
-        [Like removeObjectAtIndex:indexPath.row];
-        [Favorite removeObjectAtIndex:indexPath.row];
-        
-        
-        [SingletonClass sharedInstance].skiphistory=0;
-        
-  
+        [WineName removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [WineImageUrl removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [WineryName removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [WineryCountry removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [Appellation removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [Year removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [AverageMark removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [WineCode removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [CreateDate removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [WineId removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [Like removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [Favorite removeObjectAtIndex:[self getvalue:indexPath.row]];
+        [filterarray removeObjectAtIndex:indexPath.row];
         NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine"];
         NSURL *url = [NSURL URLWithString:urlString];
         
@@ -551,7 +605,8 @@ NSMutableArray *filterarray;
         [request setHTTPBody:body];
         NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
         [conn start];
-
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        [SingletonClass sharedInstance].skiphistory=0;
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -629,15 +684,13 @@ NSMutableArray *filterarray;
 {
     NSLog(@"search clicked");
     [searchBar resignFirstResponder];
+    
+    if ([SingletonClass sharedInstance].skiphistory==0)
+        [self loaddata];
     filter=true;
     filterarray=[[NSMutableArray alloc] initWithObjects: nil];
-    
-    
-    
     NSString *searchstring = [self.searchBar.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    
     NSLog(@"%@",searchstring);
-    
     int objectnumber=[WineName count];
     for (int i=0; i<objectnumber; i++)
     {
@@ -677,7 +730,7 @@ NSMutableArray *filterarray;
         }*/
     }
     [self.tableView reloadData];
-    [SingletonClass sharedInstance].skiphistory=0;
+    
 }
 
 // 事件：搜索框里取消按钮事件

@@ -5,7 +5,7 @@
 //  Created by ohkawa on 11/03/23.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
-
+#import "words.h"
 #import "RadioButtonViewController.h"
 #import "RadioButton.h"
 #import "SingletonClass.h"
@@ -94,7 +94,7 @@ int sel;
 {
     UIView *container = [[UIView alloc] initWithFrame:CGRectMake(0, 100, 480, 400)];
     
-    self.navigationItem.title=@"用户类别";
+    self.navigationItem.title=[words getword:@"usertypeshort"];
     
     //container.backgroundColor = [UIColor lightGrayColor];
     [self.view addSubview:container];
@@ -126,7 +126,7 @@ int sel;
     
     UILabel *label1 =[[UILabel alloc] initWithFrame:CGRectMake(40, 30, 260, 20)];
     label1.backgroundColor = [UIColor clearColor];
-    label1.text = @"葡萄酒酒农";
+    label1.text = [words getword:@"t1"];
     label1.textColor=[UIColor whiteColor];
     [container addSubview:label1];
 
@@ -137,7 +137,7 @@ int sel;
     
     UILabel *label2 =[[UILabel alloc] initWithFrame:CGRectMake(40, 70, 260, 20)];
     label2.backgroundColor = [UIColor clearColor];
-    label2.text = @"葡萄酒从业者";
+    label2.text = [words getword:@"t2"];
     label2.textColor=[UIColor whiteColor];
     [container addSubview:label2];
 
@@ -147,7 +147,7 @@ int sel;
     
     UILabel *label3 =[[UILabel alloc] initWithFrame:CGRectMake(40, 110, 260, 20)];
     label3.backgroundColor = [UIColor clearColor];
-    label3.text = @"葡萄酒记者";
+    label3.text = [words getword:@"t3"];
     label3.textColor=[UIColor whiteColor];
     [container addSubview:label3];
 
@@ -159,7 +159,7 @@ int sel;
     
     UILabel *label4 =[[UILabel alloc] initWithFrame:CGRectMake(40, 150, 260, 20)];
     label4.backgroundColor = [UIColor clearColor];
-    label4.text = @"葡萄酒爱好者";
+    label4.text = [words getword:@"t4"];
     label4.textColor=[UIColor whiteColor];
     [container addSubview:label4];
     
@@ -171,7 +171,7 @@ int sel;
 
     UILabel *label5 =[[UILabel alloc] initWithFrame:CGRectMake(40, 190, 260, 20)];
     label5.backgroundColor = [UIColor clearColor];
-    label5.text = @"葡萄酒消费者";
+    label5.text = [words getword:@"t5"];
     label5.textColor=[UIColor whiteColor];
     [container addSubview:label5];
     

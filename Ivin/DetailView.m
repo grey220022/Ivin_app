@@ -169,6 +169,7 @@ int alertstate;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [SingletonClass sharedInstance].skiphistory=0;
     if ([SingletonClass sharedInstance].username==nil)
     {
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
