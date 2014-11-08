@@ -79,7 +79,7 @@
     
     
     
-    NSString* curlang=@"fr";//[dic objectForKey:@"lang"];
+    NSString* curlang=[dic objectForKey:@"lang"];
     [SingletonClass sharedInstance].lang=curlang;
     [words changelang: curlang];
     NSLog(@"cl = %@", curlang);

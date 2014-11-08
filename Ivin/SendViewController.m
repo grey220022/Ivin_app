@@ -7,6 +7,7 @@
 //
 
 #import "SendViewController.h"
+#import "words.h"
 
 @interface SendViewController ()
 
@@ -44,7 +45,9 @@
     UITapGestureRecognizer* gesture1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(click1)];
     [self.view setUserInteractionEnabled:YES];
     [self.view addGestureRecognizer:gesture1];
-
+    _text.text=[words getword:@"leavemessage"];
+    [_b1 setTitle: [words getword:@"cancel"] forState: UIControlStateNormal];
+    [_b2 setTitle: [words getword:@"send"] forState: UIControlStateNormal];
 	// Do any additional setup after loading the view.
 }
 

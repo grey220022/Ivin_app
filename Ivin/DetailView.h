@@ -29,6 +29,10 @@
 @property (weak, nonatomic) IBOutlet UIImageView *likeimg;
 @property (weak, nonatomic) IBOutlet UIImageView *collectimg;
 
+@property (weak, nonatomic) IBOutlet UILabel *l1;
+@property (weak, nonatomic) IBOutlet UILabel *l2;
+@property (weak, nonatomic) IBOutlet UILabel *l3;
+@property (weak, nonatomic) IBOutlet UILabel *l4;
 
 
 @end

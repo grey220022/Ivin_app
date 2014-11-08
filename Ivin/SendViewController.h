@@ -13,5 +13,7 @@
 @property(nonatomic,retain) IBOutlet UITextView *text;
 //@property(nonatomic,retain) IBOutlet UIButton *confirmbtn;
 //@property(nonatomic,retain) IBOutlet UIButton *cancelbut;
+@property (weak, nonatomic) IBOutlet UIButton *b1;
+@property (weak, nonatomic) IBOutlet UIButton *b2;
 
 @end

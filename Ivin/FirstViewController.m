@@ -46,7 +46,7 @@ UITableViewCell *logincell;
     }
     else
     {
-        logincell.textLabel.text =  @"注销用户"; //@"用户帐号" ;
+        logincell.textLabel.text =  [words getword:@"signout"]; //@"用户帐号" ;
     }
     
 }
@@ -103,7 +103,7 @@ UITableViewCell *logincell;
             }
             else
             {
-                cell.textLabel.text =  @"注销用户"; //@"用户帐号" ;
+                cell.textLabel.text =  [words getword:@"signout"]; //@"用户帐号" ;
             }
             logincell=cell;
 			break ;
@@ -232,7 +232,7 @@ UITableViewCell *logincell;
                 {
                     [SingletonClass sharedInstance].username=nil;
                     UIAlertView *myAlertView;
-                    myAlertView = [[UIAlertView alloc]initWithTitle:@"注销" message:@"用户已注销" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+                    myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signout"] message:[words getword:@"signoutok"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
                     [myAlertView show];
                     break;
                 }

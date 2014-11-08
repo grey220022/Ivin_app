@@ -29,7 +29,7 @@
 - (void)confirm
 {
     
-    myAlertView = [[UIAlertView alloc]initWithTitle:@"Attention" message:@"Vos changements seront effectifs au prochain démarrage de l'application" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"info"] message:[words getword:@"restartinfo"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
     [myAlertView show];
     [self.navigationController popViewControllerAnimated:YES];
     

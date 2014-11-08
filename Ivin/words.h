@@ -18,7 +18,7 @@
 
 
 @end
-static NSArray *keys;
+static NSMutableArray *keys;
 static NSArray *objects;
 static NSDictionary *dictionary;
 static NSString *currentlang;

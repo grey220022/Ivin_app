@@ -30,7 +30,7 @@
 
 
 int wine_num,like_num,favorite_num;
-bool filter;
+bool filter_wine;
 NSMutableArray *WineName;
 NSMutableArray *WineImageUrl;
 NSMutableArray *WineryName;
@@ -71,7 +71,7 @@ NSMutableArray *filterarray;
 - (IBAction)allwines:(id)sender {
     if ([SingletonClass sharedInstance].skiphistory==0)
         [self loaddata];
-    filter=false;
+    filter_wine=false;
     [_tableView reloadData];
 }
 
@@ -79,7 +79,7 @@ NSMutableArray *filterarray;
 - (IBAction)likefilter:(id)sender {
     if ([SingletonClass sharedInstance].skiphistory==0)
         [self loaddata];
-    filter=true;
+    filter_wine=true;
     filterarray=[[NSMutableArray alloc] initWithObjects: nil];
     int objectnumber=[WineName count];
     for (int i=0; i<objectnumber; i++)
@@ -96,7 +96,7 @@ NSMutableArray *filterarray;
 - (IBAction)collectfilter:(id)sender {
     if ([SingletonClass sharedInstance].skiphistory==0)
         [self loaddata];
-    filter=true;
+    filter_wine=true;
     int objectnumber=[WineName count];
     filterarray=[[NSMutableArray alloc] initWithObjects: nil];
     for (int i=0; i<objectnumber; i++)
@@ -177,7 +177,7 @@ NSMutableArray *filterarray;
         return;
     }
     else{
-        filter=false;
+        filter_wine=false;
         [_tableView reloadData];
     }
 }
@@ -220,7 +220,7 @@ NSMutableArray *filterarray;
     if ((!winelistdata)||([winelistdata length]==0))
     {
         UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
         return;
     }
@@ -283,7 +283,7 @@ NSMutableArray *filterarray;
     }
     wine_num=WineName.count;
     [SingletonClass sharedInstance].skiphistory=1;
-    _t1.text=[NSString stringWithFormat:@"%d wines",wine_num];
+    _t1.text=[NSString stringWithFormat:@"%d %@",wine_num,[words getword:@"wines"]];
     _t2.text=[NSString stringWithFormat:@"%d",like_num];
     _t3.text=[NSString stringWithFormat:@"%d",favorite_num];
     _t2.textColor=[UIColor whiteColor];
@@ -400,7 +400,7 @@ NSMutableArray *filterarray;
 //3
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     
-    if (!filter)
+    if (!filter_wine)
         return wine_num;
     else
     {
@@ -495,7 +495,7 @@ NSMutableArray *filterarray;
     if ((!winestring)||([winestring length]==0))
     {
         UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:@"Network error" message:@"Please try it later." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
         [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
         return;
@@ -554,7 +554,9 @@ NSMutableArray *filterarray;
         //[dataArray removeObjectAtIndex:indexPath.row];
         // Delete the row from the data source.
         wine_num--;
-        _t1.text=[NSString stringWithFormat:@"%d wines",wine_num];
+        _t1.text=[NSString stringWithFormat:@"%d %@",wine_num,[words getword:@"wines"]];
+        
+        
 //        NSLog(@"%d",indexPath.row);
         
         NSString * userid, *wineid;
@@ -687,7 +689,7 @@ NSMutableArray *filterarray;
     
     if ([SingletonClass sharedInstance].skiphistory==0)
         [self loaddata];
-    filter=true;
+    filter_wine=true;
     filterarray=[[NSMutableArray alloc] initWithObjects: nil];
     NSString *searchstring = [self.searchBar.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
     NSLog(@"%@",searchstring);
@@ -759,7 +761,7 @@ NSMutableArray *filterarray;
 
 -(NSInteger)getvalue:(NSInteger) pam
 {
-    if (!filter)
+    if (!filter_wine)
         return pam;
     else
         return [[filterarray objectAtIndex:pam] integerValue];

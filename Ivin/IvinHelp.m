@@ -10,6 +10,7 @@
 #import "SingletonClass.h"
 #import <CommonCrypto/CommonDigest.h>
 #import "FTWCache.h"
+#import "words.h"
 
 @implementation IvinHelp
 
@@ -252,9 +253,9 @@ NSDictionary *winerydic;
     
     
     NSMutableString * tempstring;
-    tempstring=[[NSMutableString alloc] initWithString:[NSString stringWithFormat: @"%d", [[tempdic objectForKey:@"TotalMarkUser"] intValue]]];
+    tempstring=[[NSMutableString alloc] initWithString:[NSString stringWithFormat: @"%d ", [[tempdic objectForKey:@"TotalMarkUser"] intValue]]];
     [SingletonClass sharedInstance].wine.TotalLike=[NSString stringWithFormat: @"%d", [[tempdic objectForKey:@"TotalLike"] intValue]];
-    [tempstring appendString:@" ratings"];
+    [tempstring appendString:[words getword:@"ratings"]];
     [SingletonClass sharedInstance].wine.TotalMarkUser= tempstring;
     
     

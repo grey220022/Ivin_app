@@ -35,7 +35,8 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
     
-    self.navigationItem.title=@"设置";
+    self.navigationItem.title=[words getword:@"setting"];
+    
     //self.navigationController.
     [_li3 setTitle:[words getword:@"userlogin"] forState:UIControlStateNormal];
     [_li4 setTitle:[words getword:@"website"] forState:UIControlStateNormal];
@@ -45,7 +46,7 @@
     [_li8 setTitle:[words getword:@"lang"] forState:UIControlStateNormal];
     
     
-    [_li1 setTitle:  @"Huiqi" forState:UIControlStateNormal];
+    [_li1 setTitle:  [words getword:@"profile"] forState:UIControlStateNormal];
     //[_li1 setTitle:  [words getword:@"photo"] forState:UIControlStateNormal];
     //[_li2 setTitle:[words getword:@"profile"] forState:UIControlStateNormal];
     
@@ -78,7 +79,7 @@
     }
     else
     {
-        [_li3 setTitle:@"注销" forState:UIControlStateNormal];
+        [_li3 setTitle:[words getword:@"signout"] forState:UIControlStateNormal];
     }
 }
 
@@ -93,7 +94,7 @@
         if ((!winestring)||([winestring length]==0))
         {
             UIAlertView *myAlertView;
-            myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
             return;
         }
@@ -104,7 +105,7 @@
         [IvinHelp userprofileparse:winestring];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         ProfileView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"profileview"];
-        nextController.title=@"帐户信息";
+        nextController.title=[words getword:@"profile"];
         [self.navigationController pushViewController:nextController animated:YES];
     }
     else
@@ -123,7 +124,7 @@
         [SingletonClass sharedInstance].username=nil;
         [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
         UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:@"注销" message:@"用户已注销" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signout"] message:[words getword:@"signoutok"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
         [_li3 setTitle:[words getword:@"userlogin"] forState:UIControlStateNormal];
         
@@ -264,7 +265,7 @@
 -(IBAction)aboutpress
 {
     UIAlertView *myAlertView;
-    myAlertView = [[UIAlertView alloc]initWithTitle:@"制作团队" message:@"巴黎酒社团队制作" delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+    myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"team"] message:[words getword:@"teaminfo"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
     [myAlertView show];
 }
 

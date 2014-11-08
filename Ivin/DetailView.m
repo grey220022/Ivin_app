@@ -9,6 +9,7 @@
 #import "DetailView.h"
 #import "SingletonClass.h"
 #import "NewloginView.h"
+#import "words.h"
 
 @interface DetailView ()
 
@@ -108,9 +109,13 @@ int alertstate;
     self.rateView.editable = YES;
     self.rateView.maxRating = 5;
     self.rateView.delegate = self;
+    _l1.text=[words getword:@"like"];
+    _l2.text=[words getword:@"collect"];
+    _pricelabel.text=[words getword:@"price"];
+    _placelabel.text=[words getword:@"place"];
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
-    self.statusLabel.text = [NSString stringWithFormat:@"Rating: %.01f", self.rateView.rating];
-    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:@"Save"  style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
+    self.statusLabel.text = [NSString stringWithFormat:@"%@: %.01f", [words getword:@"ratings"],self.rateView.rating];
+    UIBarButtonItem *rightButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"save"]  style:UIBarButtonItemStyleBordered target:self action:@selector(oov)];
     self.navigationItem.rightBarButtonItem = rightButton;
     _commenttext.text=[SingletonClass sharedInstance].comment;
     if ([[SingletonClass sharedInstance].like isEqual:@"true"])
@@ -131,7 +136,7 @@ int alertstate;
     NSString * temprice=[SingletonClass sharedInstance].price;
     NSString * templace=[SingletonClass sharedInstance].place;
     
-
+    _label1.text=[words getword:@"whatdoyouthink"];
     
     if (!(temprice == nil || [temprice isKindOfClass:[NSNull class]]))
     {
@@ -185,7 +190,7 @@ int alertstate;
 
 -(IBAction)pricepress
 {
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Price" message:@"Enter the price" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[words getword:@"price"] message:[words getword:@"entertheprice"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert textFieldAtIndex:0].text=_pricelabel.text;
     [alert addButtonWithTitle:@"OK"];
@@ -196,7 +201,7 @@ int alertstate;
 
 -(IBAction)placepress
 {
-    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:@"Place" message:@"Enter the place" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[words getword:@"place"] message:[words getword:@"entertheplace"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
     [alert textFieldAtIndex:0].text=_placelabel.text;
     [alert addButtonWithTitle:@"OK"];

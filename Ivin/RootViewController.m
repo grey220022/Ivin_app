@@ -12,7 +12,7 @@
 #import "SingletonClass.h"
 #import "IvinHelp.h"
 #import "WQPlaySound.h"
-
+#import "words.h"
 
 bool isreading;
 int tim;
@@ -344,7 +344,7 @@ int tim;
         if ((!winestring)||([winestring length]==0))
         {
             UIAlertView *myAlertView;
-            myAlertView = [[UIAlertView alloc]initWithTitle:@"Erreur de réseau" message:@"Essayez plus tard." delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+            myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
             return;
         }

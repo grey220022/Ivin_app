@@ -92,19 +92,19 @@ ProfileCell * profilecell;
         //	UITextField* tf = nil ;
         switch ( indexPath.row ) {
             case 1: {
-                cell.textLabel.text = @"用户签名" ;
+                cell.textLabel.text = [words getword:@"signature"];
                 break ;
             }
             case 2: {
-                cell.textLabel.text = @"用户类别" ;
+                cell.textLabel.text = [words getword:@"usertype"];
                 break ;
             }
             case 3: {
-                cell.textLabel.text = @"Email" ;
+                cell.textLabel.text = [words getword:@"email"] ;
                 break ;
             }
             case 4: {
-                cell.textLabel.text = @"地点" ;
+                cell.textLabel.text = [words getword:@"place"] ;
                 break ;
             }
             case 0: {
@@ -166,7 +166,7 @@ ProfileCell * profilecell;
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 SignView *vc = [storyboard instantiateViewControllerWithIdentifier:@"signview"];
                 [self.navigationController pushViewController:vc animated:YES];
-                [self.navigationController setTitle:@"个性签名"];
+                [self.navigationController setTitle:[words getword:@"signature"]];
                 
                 UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:vc action:@selector(confirm)];
                 vc.navigationItem.rightBarButtonItem = anotherButton;
@@ -189,7 +189,7 @@ ProfileCell * profilecell;
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 ProfileEmailView *vc = [storyboard instantiateViewControllerWithIdentifier:@"profileemailview"];
                 //[self.navigationController setTitle:@"Email"];
-                vc.title=@"Email";
+                vc.title=[words getword:@"email"] ;
                 
                 
                 UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:vc action:@selector(confirm)];
@@ -207,7 +207,7 @@ ProfileCell * profilecell;
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 ProfileCityView *vc = [storyboard instantiateViewControllerWithIdentifier:@"profilecityview"];
                 //[self.navigationController setTitle:@"城市"];
-                vc.title=@"地点";
+                vc.title=[words getword:@"place"];
                 
                 UIBarButtonItem *anotherButton = [[UIBarButtonItem alloc] initWithTitle:[words getword:@"confirm"] style:UIBarButtonItemStylePlain target:vc action:@selector(confirm)];
                 vc.navigationItem.rightBarButtonItem = anotherButton;

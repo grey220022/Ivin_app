@@ -246,7 +246,7 @@
     _la3.text=[words getword:@"winery"];
     _la4.text=[words getword:@"recommandationofwinemaker"];
     _la5.text=[words getword:@"averagerating"];
-    _la6.text=@"Like Rating";
+    _la6.text=[words getword:@"upvotes"];
     
     
     
