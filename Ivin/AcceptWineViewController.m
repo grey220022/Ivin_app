@@ -60,7 +60,7 @@
     
     if (([SingletonClass sharedInstance].username!=nil))
     {
-        NSString *url=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/GetInfo?enduserid=%@&wineid=%@",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].wine.Id];
+        NSString *url=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/GetInfo?enduserid=%@&wineid=%@",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].wine.Id];
         NSLog(@"%@",url);
         NSData* userwine=[IvinHelp geturlcontent:url];
         
@@ -313,14 +313,14 @@
     
     if ([SingletonClass sharedInstance].username!=nil)
     {
-        NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine"];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine"];
         NSURL *url = [NSURL URLWithString:urlString];
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setHTTPMethod:@"POST"];
         [request setValue:@"Fiddler" forHTTPHeaderField:@"User-Agent"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-        [request setValue:@"lapinroi-001-site1.smarterasp.net" forHTTPHeaderField:@"Host"];
+        [request setValue:@"www.ivintag.com" forHTTPHeaderField:@"Host"];
         [request setValue:@"220" forHTTPHeaderField:@"Content-Length"];
         NSString * userid, *wineid;
         userid=[SingletonClass sharedInstance].username;

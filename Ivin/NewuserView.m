@@ -77,7 +77,7 @@
 //    [self dismissViewControllerAnimated:YES completion:nil];
     NSLog(@"signup button pressed");
     
-    NSString * request=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUser/SignIn?username=%@&password=%@&email=%@&profileId=2",_t1.text,  [IvinHelp md5HexDigest:_t2.text], _t3.text];
+    NSString * request=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUser/SignIn?username=%@&password=%@&email=%@&profileId=2",_t1.text,  [IvinHelp md5HexDigest:_t2.text], _t3.text];
     
     NSLog(@"%@",request);
     NSString * response=[[NSString alloc] initWithData:[IvinHelp geturlcontent:request] encoding:NSUTF8StringEncoding];

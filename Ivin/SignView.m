@@ -36,7 +36,7 @@
     [SingletonClass sharedInstance].signature=self.text.text;
     
     
-    NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUser"];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.ivintag.com/api/EndUser"];
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -44,7 +44,7 @@
     
     [request setValue:@"Fiddler" forHTTPHeaderField:@"User-Agent"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    [request setValue:@"lapinroi-001-site1.smarterasp.net" forHTTPHeaderField:@"Host"];
+    [request setValue:@"www.ivintag.com" forHTTPHeaderField:@"Host"];
     [request setValue:@"350" forHTTPHeaderField:@"Content-Length"];
 
     

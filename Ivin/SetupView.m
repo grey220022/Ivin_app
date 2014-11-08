@@ -89,7 +89,7 @@
 {
     if ([SingletonClass sharedInstance].username!=nil)
     {
-        NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/EndUser/",[SingletonClass sharedInstance].username];
+        NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/EndUser/",[SingletonClass sharedInstance].username];
         NSData* winestring=[IvinHelp geturlcontent:wineurl];
         if ((!winestring)||([winestring length]==0))
         {

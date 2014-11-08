@@ -135,6 +135,7 @@ NSMutableArray *filterarray;
 
 -(void)viewDidAppear:(BOOL)animated
 {
+    
     [SingletonClass sharedInstance].listview=self;
     NSLog(@"thirdappear");
     if ([SingletonClass sharedInstance].fromscan==1)
@@ -180,6 +181,7 @@ NSMutableArray *filterarray;
         filter_wine=false;
         [_tableView reloadData];
     }
+    [_activityIndicator stopAnimating];
 }
 
 /*
@@ -212,8 +214,8 @@ NSMutableArray *filterarray;
     
     //        NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
     
-    NSData* winelistdata=[IvinHelp geturlcontent:[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
-    NSString * bc=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
+    NSData* winelistdata=[IvinHelp geturlcontent:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+    NSString * bc=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
     
     NSLog(@"%@",bc);
     
@@ -488,7 +490,7 @@ NSMutableArray *filterarray;
     NSString *winenumber=[WineCode objectAtIndex:[self getvalue:indexPath.row]];
     
     
-    NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=",winenumber];
+    NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber];
     NSData* winestring=[IvinHelp geturlcontentfromcache:wineurl];
     
     //if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
@@ -498,6 +500,7 @@ NSMutableArray *filterarray;
         myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
         [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
+        [_activityIndicator stopAnimating];
         return;
     }
     
@@ -590,14 +593,14 @@ NSMutableArray *filterarray;
         [Like removeObjectAtIndex:[self getvalue:indexPath.row]];
         [Favorite removeObjectAtIndex:[self getvalue:indexPath.row]];
         [filterarray removeObjectAtIndex:indexPath.row];
-        NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine"];
+        NSString *urlString = [NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine"];
         NSURL *url = [NSURL URLWithString:urlString];
         
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setHTTPMethod:@"DELETE"];
         [request setValue:@"Fiddler" forHTTPHeaderField:@"User-Agent"];
         [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-        [request setValue:@"lapinroi-001-site1.smarterasp.net" forHTTPHeaderField:@"Host"];
+        [request setValue:@"www.ivintag.com" forHTTPHeaderField:@"Host"];
         [request setValue:@"220" forHTTPHeaderField:@"Content-Length"];
         
         userid=[SingletonClass sharedInstance].username;

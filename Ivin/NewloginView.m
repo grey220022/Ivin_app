@@ -29,7 +29,7 @@
 -(IBAction) loginbutton
 {
     
-    NSString * request=[NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUser/Login?username=%@&password=%@", _t1.text,[IvinHelp md5HexDigest:_t2.text]];
+    NSString * request=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUser/Login?username=%@&password=%@", _t1.text,[IvinHelp md5HexDigest:_t2.text]];
     
     NSLog(@"%@",request);
     NSString * response=[[NSString alloc] initWithData:[IvinHelp geturlcontent:request] encoding:NSUTF8StringEncoding];

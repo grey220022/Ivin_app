@@ -33,7 +33,7 @@ int alertstate;
     [self.navigationController popViewControllerAnimated:YES];
     
     
-    NSString *urlString = [NSString stringWithFormat:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine"];
+    NSString *urlString = [NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine"];
     NSURL *url = [NSURL URLWithString:urlString];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
@@ -41,7 +41,7 @@ int alertstate;
     
     [request setValue:@"Fiddler" forHTTPHeaderField:@"User-Agent"];
     [request setValue:@"application/json" forHTTPHeaderField:@"Content-type"];
-    [request setValue:@"lapinroi-001-site1.smarterasp.net" forHTTPHeaderField:@"Host"];
+    [request setValue:@"www.ivintag.com" forHTTPHeaderField:@"Host"];
     [request setValue:@"350" forHTTPHeaderField:@"Content-Length"];
     
     NSString * userid, *wineid, *pricestring,*placestring, *likestring, *collectstring;

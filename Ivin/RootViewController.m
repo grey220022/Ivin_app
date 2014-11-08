@@ -302,7 +302,7 @@ int tim;
         [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
         
 //        NSLog(@"%d",[stringValue rangeOfString:@"lapinroi-001-site1"].location);
-        if ([stringValue rangeOfString:@"lapinroi-001-site1"].location==NSNotFound)
+        if ([stringValue rangeOfString:@"ivintag.com"].location==NSNotFound)
         {
             /*
             UIAlertView *myAlertView;
@@ -311,6 +311,7 @@ int tim;
              */
             NSURL *cleanURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", stringValue]];
             [[UIApplication sharedApplication] openURL:cleanURL];
+            [_activityIndicator stopAnimating];
             return;
         }
         NSString * wineurl;
@@ -325,9 +326,9 @@ int tim;
         //@"http://lapinroi-001-site1.smarterasp.net/WineCard/DetailsWineryIndex?wineCode=FR00009001"
         //http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=FR00009001
         
-        wineurl= [NSString stringWithFormat:@"%@%@",@"http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=",winenumber];
+        wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber];
       //  wineryurl= [NSString stringWithFormat:@"%@%@", @"http://lapinroi-001-site1.smarterasp.net/api/winery/",winenumber];
-        
+        //http://www.ivintag.com/api/wine?winecode=FR00009001
         
 //        NSLog(@"%@",wineurl);
 //        NSLog(@"%@",wineryurl);
@@ -346,6 +347,7 @@ int tim;
             UIAlertView *myAlertView;
             myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
+            [_activityIndicator stopAnimating];
             return;
         }
         
