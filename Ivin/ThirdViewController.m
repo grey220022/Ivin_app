@@ -30,7 +30,7 @@
 
 
 int wine_num,like_num,favorite_num;
-bool filter_wine;
+bool filter_wine, first_time, networkerror;
 NSMutableArray *WineName;
 NSMutableArray *WineImageUrl;
 NSMutableArray *WineryName;
@@ -160,7 +160,13 @@ NSMutableArray *filterarray;
     
     if ([SingletonClass sharedInstance].skiphistory==0)
     {
+        networkerror=false;
         [self loaddata];
+        if (networkerror)
+        {
+            [_activityIndicator stopAnimating];
+            return;
+        }
     }
 
     if ([SingletonClass sharedInstance].username==nil)
@@ -195,6 +201,33 @@ NSMutableArray *filterarray;
 */
 -(void)loaddata
 {
+    if ([SingletonClass sharedInstance].username==nil)
+        return;
+    
+    //        NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
+    NSData* winelistdata;
+    if (first_time)
+    {
+        winelistdata=[IvinHelp geturlcontentfromcache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+        first_time=false;
+    }
+    else
+    {
+    winelistdata=[IvinHelp geturlcontentintocache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+    }
+    NSString * bc=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
+    
+    NSLog(@"%@",bc);
+    
+    if ((!winelistdata)||([winelistdata length]==0))
+    {
+        networkerror=true;
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
+    
     WineName =[[NSMutableArray alloc] initWithObjects: nil];
     WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
     WineryName=[[NSMutableArray alloc] initWithObjects: nil];
@@ -209,23 +242,6 @@ NSMutableArray *filterarray;
     Favorite=[[NSMutableArray alloc] initWithObjects: nil];
     
     
-    if ([SingletonClass sharedInstance].username==nil)
-        return;
-    
-    //        NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
-    
-    NSData* winelistdata=[IvinHelp geturlcontent:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
-    NSString * bc=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
-    
-    NSLog(@"%@",bc);
-    
-    if ((!winelistdata)||([winelistdata length]==0))
-    {
-        UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
-        [myAlertView show];
-        return;
-    }
     
     NSError *error;
     NSArray *winelist= [NSJSONSerialization JSONObjectWithData:winelistdata options:NSJSONReadingMutableLeaves error:&error];
@@ -295,6 +311,12 @@ NSMutableArray *filterarray;
 - (void)viewDidLoad
 {
     NSLog(@"thirddidload");
+    
+    first_time=true;
+    if ([SingletonClass sharedInstance].username==nil)
+    {
+        first_time=false;
+    }
     
     [super viewDidLoad];
     
@@ -493,6 +515,8 @@ NSMutableArray *filterarray;
     NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber];
     NSData* winestring=[IvinHelp geturlcontentfromcache:wineurl];
     
+    NSLog(@"%@",wineurl);
+    
     //if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
     if ((!winestring)||([winestring length]==0))
     {
@@ -612,6 +636,15 @@ NSMutableArray *filterarray;
         [conn start];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationFade];
         [SingletonClass sharedInstance].skiphistory=0;
+        //[self performSelectorInBackground:@selector(loadcache) withObject:nil];
+        
+        double delayInSeconds = 2.0;
+        dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                       ^(void){
+                           [IvinHelp geturlcontentintocache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+                       });
+        
     }
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
@@ -769,5 +802,7 @@ NSMutableArray *filterarray;
     else
         return [[filterarray objectAtIndex:pam] integerValue];
 }
+
+
 
 @end

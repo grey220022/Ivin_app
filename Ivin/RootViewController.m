@@ -312,6 +312,7 @@ int tim;
             NSURL *cleanURL = [NSURL URLWithString:[NSString stringWithFormat:@"%@", stringValue]];
             [[UIApplication sharedApplication] openURL:cleanURL];
             [_activityIndicator stopAnimating];
+            isreading=NO;
             return;
         }
         NSString * wineurl;
@@ -330,7 +331,7 @@ int tim;
       //  wineryurl= [NSString stringWithFormat:@"%@%@", @"http://lapinroi-001-site1.smarterasp.net/api/winery/",winenumber];
         //http://www.ivintag.com/api/wine?winecode=FR00009001
         
-//        NSLog(@"%@",wineurl);
+        NSLog(@"%@",wineurl);
 //        NSLog(@"%@",wineryurl);
         
 //        NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];

@@ -57,6 +57,8 @@
     
     
     NSLog(@"%d",[dic count] );
+    
+    NSLog(@"%@",dic[@"lang"] );
     if (dic[@"lang"]==nil)
     //if (1==1)
     {
@@ -79,7 +81,14 @@
     
     
     
+    
     NSString* curlang=[dic objectForKey:@"lang"];
+    
+    if ((![curlang isEqual:@"fr"])&&(![curlang isEqual:@"zh"])&&(![curlang isEqual:@"en"]))
+    {
+        curlang=@"en";
+    }
+    
     [SingletonClass sharedInstance].lang=curlang;
     [words changelang: curlang];
     NSLog(@"cl = %@", curlang);

@@ -15,6 +15,8 @@
 
 + (NSData *) geturlcontent:(NSString *) url;
 + (NSData *) geturlcontentfromcache:(NSString *) url;
++ (NSData *) geturlcontentintocache:(NSString *) url;
++ (void) removeurlcontent:(NSString *) url;
 + (void) wineparse:(NSData *) winecontent;
 + (void) wineidparse:(NSData *) winecontent;
 + (void) userprofileparse:(NSData *) userprofilecontent;

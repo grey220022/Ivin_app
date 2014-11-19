@@ -26,6 +26,21 @@ int alertstate;
 @implementation DetailView
 
 
+
+-(void)ios6move: (UIView *)u
+{
+    CGRect screenSize=[UIScreen mainScreen].bounds;
+    CGFloat width=screenSize.size.width;
+    CGFloat height=screenSize.size.height;
+    CGFloat x = u.frame.origin.x;
+    CGFloat y = u.frame.origin.y;
+    CGFloat w=u.frame.size.width;
+    CGFloat h=u.frame.size.height;
+    CGRect newframe=CGRectMake(x/320*width, y/568*height, w/320*width, h/568*height);
+    u.frame=newframe;
+}
+
+
 -(void)oov
 {
     NSLog(@"confirm");
@@ -163,7 +178,12 @@ int alertstate;
             _placelabel.text=templace;
         }
     }
-    
+    if([UIScreen mainScreen].bounds.size.height < 568){
+        for (UIView *subview in self.view.subviews)
+        {
+            [self ios6move:subview];
+        }
+    }
 }
 
 - (void)viewWillDisappear:(BOOL)animated

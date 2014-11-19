@@ -8,6 +8,7 @@
 
 #import "NewuserView.h"
 #import "IvinHelp.h"
+#import "words.h"
 #import "SingletonClass.h"
 
 @interface NewuserView ()
@@ -25,10 +26,36 @@
     return self;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: YES];
+}
+
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    [self animateTextField: textField up: NO];
+}
+
+- (void) animateTextField: (UITextField*) textField up: (BOOL) up
+{
+    const int movementDistance = 80; // tweak as needed
+    const float movementDuration = 0.3f; // tweak as needed
+    
+    int movement = (up ? -movementDistance : movementDistance);
+    
+    [UIView beginAnimations: @"anim" context: nil];
+    [UIView setAnimationBeginsFromCurrentState: YES];
+    [UIView setAnimationDuration: movementDuration];
+    self.view.frame = CGRectOffset(self.view.frame, 0, movement);
+    [UIView commitAnimations];
+}
+
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _signuplabel.text=@"Sign up";
+    _signuplabel.text=[words getword:@"signup"];//@"Sign up";
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
     
     _t1.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
@@ -40,13 +67,13 @@
     _t3.leftView =  [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
     _t3.leftViewMode = UITextFieldViewModeAlways;
     
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:[words getword:@"username"] attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
     self.t1.attributedPlaceholder = str;
     
-    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:[words getword:@"password"] attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
     self.t2.attributedPlaceholder = str2;
     
-    NSAttributedString *str3 = [[NSAttributedString alloc] initWithString:@"Email" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *str3 = [[NSAttributedString alloc] initWithString:[words getword:@"email"] attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
     self.t3.attributedPlaceholder = str3;
     
     _t1.delegate=self;
@@ -83,10 +110,19 @@
     NSString * response=[[NSString alloc] initWithData:[IvinHelp geturlcontent:request] encoding:NSUTF8StringEncoding];
     NSLog(@"%@",response);
     
+    if ((!response)||([response length]==0))
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
+    
+    
     if ([response isEqual:@"0"])
     {
         UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:@"注册" message:@"用户名已被注册" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signup"] message:[words getword:@"signuperror"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
     }
     else
@@ -98,13 +134,13 @@
         NSString *filename=[plistPath stringByAppendingPathComponent:@"Info.plist"];
         
         NSMutableDictionary* dic =[[NSMutableDictionary alloc] initWithContentsOfFile:filename];
-        [dic setObject:response forKey: @"lang"];
+        [dic setObject:response forKey: @"username"];
         [dic writeToFile:filename atomically:YES];
         
         [SingletonClass sharedInstance].username=response;
         
         UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:@"注册" message:@"成功注册" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signup"] message:[words getword:@"signupok"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
         [self dismissViewControllerAnimated:NO completion:nil];
        // [self.previousController dismissViewControllerAnimated:YES completion:NULL];

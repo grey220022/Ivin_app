@@ -59,6 +59,10 @@ NSDictionary *winerydic;
 
 + (NSString *) purge:(NSString *) initval
 {
+    if (initval == nil || [initval isKindOfClass:[NSNull class]])
+    {
+        return @"";
+    }
     NSString * ret;
     ret=[initval stringByReplacingOccurrencesOfString:@"&#039;" withString:@"'"];
     return ret;
@@ -76,6 +80,29 @@ NSDictionary *winerydic;
     [FTWCache setObject:tmpdata forKey:url];
     return tmpdata;
 }
+
++ (NSData *) geturlcontentintocache:(NSString *) url
+{
+    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
+    NSURLResponse * response = nil;
+    NSError * error = nil;
+    NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+                                          returningResponse:&response
+                                                      error:&error];
+    if (error == nil)
+    {
+        [FTWCache setObject:data forKey:url];
+        return data;
+    }
+    return nil;
+}
+
+
++ (void) removeurlcontent:(NSString *) url
+{
+    [FTWCache removeobjectForKey:url];
+}
+
 
 + (NSData *) geturlcontent:(NSString *) url
 {
@@ -254,7 +281,11 @@ NSDictionary *winerydic;
     
     NSMutableString * tempstring;
     tempstring=[[NSMutableString alloc] initWithString:[NSString stringWithFormat: @"%d ", [[tempdic objectForKey:@"TotalMarkUser"] intValue]]];
+    NSLog(@"%@",tempstring);
     [SingletonClass sharedInstance].wine.TotalLike=[NSString stringWithFormat: @"%d", [[tempdic objectForKey:@"TotalLike"] intValue]];
+
+    NSLog(@"%@",[words getword:@"ratings"]);
+
     [tempstring appendString:[words getword:@"ratings"]];
     [SingletonClass sharedInstance].wine.TotalMarkUser= tempstring;
     

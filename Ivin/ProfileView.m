@@ -64,7 +64,7 @@ ProfileCell * profilecell;
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-        return 5;
+        return 4;
 }
 
 
@@ -91,34 +91,35 @@ ProfileCell * profilecell;
     
         //	UITextField* tf = nil ;
         switch ( indexPath.row ) {
-            case 1: {
+            case 0: {
                 cell.textLabel.text = [words getword:@"signature"];
                 break ;
             }
-            case 2: {
+            case 1: {
                 cell.textLabel.text = [words getword:@"usertype"];
                 break ;
             }
-            case 3: {
+            case 2: {
                 cell.textLabel.text = [words getword:@"email"] ;
                 break ;
             }
-            case 4: {
+            case 3: {
                 cell.textLabel.text = [words getword:@"place"] ;
                 break ;
             }
-            case 0: {
                 /*
-                cell.textLabel.text = @"头像" ;
-                UIImage * bgImage =[UIImage imageNamed:@"wine.jpg"];
+            case 0: {
+                
+             //   cell.textLabel.text = @"头像" ;
+             //   UIImage * bgImage =[UIImage imageNamed:@"wine.jpg"];
                 //[cell.imageView setFrame: CGRectMake(100, 0, 10.0, 10.0)];
                 
                 //cell.imageView.frame = CGRectMake(1000, 1000, 40,40);
                 
-                [cell.imageView setImage:bgImage];
+             //   [cell.imageView setImage:bgImage];
                 //UIImageView *imageView = [[UIImageView alloc] initWithImage:bgImage];
                 //cell.accessoryView = imageView;
-                */
+                
                 
 
                 UIImage * bgImage =[UIImage imageNamed:@"profile.png"];
@@ -127,7 +128,7 @@ ProfileCell * profilecell;
                 profilecell=cell;
                 cell.textLabel.text = @"头像" ;
                 break ;
-            }
+            }*/
         }
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
     cell.backgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"backlist.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
@@ -161,7 +162,7 @@ ProfileCell * profilecell;
     //indexPath.row得到选中的行号，提取出在数组中的内容。
         switch ( indexPath.row ) {
                 
-            case 1: {
+            case 0: {
                 
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 SignView *vc = [storyboard instantiateViewControllerWithIdentifier:@"signview"];
@@ -174,7 +175,7 @@ ProfileCell * profilecell;
                 
                 break;
             }
-            case 2: {
+            case 1: {
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 RadioButtonViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"radioview"];
                 [self.navigationController pushViewController:vc animated:YES];
@@ -185,7 +186,7 @@ ProfileCell * profilecell;
                 
                 break;
             }
-            case 3: {
+            case 2: {
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 ProfileEmailView *vc = [storyboard instantiateViewControllerWithIdentifier:@"profileemailview"];
                 //[self.navigationController setTitle:@"Email"];
@@ -203,7 +204,7 @@ ProfileCell * profilecell;
                 
                 break;
             }
-            case 4: {
+            case 3: {
                 UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
                 ProfileCityView *vc = [storyboard instantiateViewControllerWithIdentifier:@"profilecityview"];
                 //[self.navigationController setTitle:@"城市"];
@@ -216,11 +217,11 @@ ProfileCell * profilecell;
                 
                 break;
             }
-                
+                /*
             case 0: {
                 [self actionsheetshow];
                 break;
-            }
+            }*/
                 
         
     }

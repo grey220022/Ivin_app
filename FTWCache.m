@@ -41,6 +41,25 @@ static NSTimeInterval cacheTime =  (double)604800;
 	return nil;
 }
 
++ (void) removeobjectForKey:(NSString*)key {
+    NSFileManager *fileManager = [NSFileManager defaultManager];
+    NSString *filename = [self.cacheDirectory stringByAppendingPathComponent:[IvinHelp md5HexDigest:key]];
+    
+    if ([fileManager fileExistsAtPath:filename])
+    {
+ //       NSDate *modificationDate = [[fileManager attributesOfItemAtPath:filename error:nil] objectForKey:NSFileModificationDate];
+ //       if ([modificationDate timeIntervalSinceNow] > cacheTime) {
+            [fileManager removeItemAtPath:filename error:nil];
+ //       } else {
+ //           NSData *data = [NSData dataWithContentsOfFile:filename];
+ //           return data;
+ //       }
+    }
+  //  return nil;
+}
+
+
+
 + (void) setObject:(NSData*)data forKey:(NSString*)key {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSString *filename = [self.cacheDirectory stringByAppendingPathComponent:[IvinHelp md5HexDigest:key]];

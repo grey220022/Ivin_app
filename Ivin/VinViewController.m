@@ -93,6 +93,7 @@
     [self performSelectorOnMainThread:@selector(loadima) withObject:nil waitUntilDone:NO];
     
     if([UIScreen mainScreen].bounds.size.height < 568){
+        
         [self ios6move:_b1];
         [self ios6move:_b2];
         [self ios6move:_b3];
@@ -195,7 +196,7 @@
 
 -(void)ios6move: (UIView *)u
 {
-    CGPoint point =CGPointMake(0, u.frame.origin.y-30);
+    CGPoint point =CGPointMake(0, u.frame.origin.y-65);
     CGRect frame = u.frame;
     frame.origin=point;
     u.frame=frame;

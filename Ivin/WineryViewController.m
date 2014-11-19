@@ -210,7 +210,7 @@
 
 -(void)ios6move: (UIView *)u
 {
-    CGPoint point =CGPointMake(0, u.frame.origin.y-30);
+    CGPoint point =CGPointMake(0, u.frame.origin.y-65);
     CGRect frame = u.frame;
     frame.origin=point;
     u.frame=frame;

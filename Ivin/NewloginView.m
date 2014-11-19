@@ -9,6 +9,7 @@
 
 #import "SingletonClass.h"
 #import "NewloginView.h"
+#import "words.h"
 #import "NewuserView.h"
 #import "IvinHelp.h"
 
@@ -35,10 +36,18 @@
     NSString * response=[[NSString alloc] initWithData:[IvinHelp geturlcontent:request] encoding:NSUTF8StringEncoding];
     NSLog(@"%@",response);
     
+    if ((!response)||([response length]==0))
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
+    
     if ([response isEqual:@"0"])
     {
         UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:@"登录" message:@"用户名或密码错误" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signin"] message:[words getword:@"loginerror"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
     }
     else
@@ -58,7 +67,7 @@
         
         [SingletonClass sharedInstance].username=response;
         UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:@"登录" message:@"登录成功" delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signin"] message:[words getword:@"loginok"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
         [self dismissViewControllerAnimated:YES completion:nil];
     }
@@ -109,9 +118,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    _signuplabel.text=@"Sign up";
-    _loginlabel.text=@"Login";
-
+    _signuplabel.text=[words getword:@"signup"];
+    _loginlabel.text=[words getword:@"signin"];
+    
+    [_signupbutton setTitle: [words getword:@"signup"] forState: UIControlStateNormal];
+    
 	// Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
    // _t1.placeholder=@"Username";
@@ -128,10 +139,10 @@
     _t2.leftViewMode = UITextFieldViewModeAlways;
     
     
-    NSAttributedString *str = [[NSAttributedString alloc] initWithString:@"Username" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *str = [[NSAttributedString alloc] initWithString:[words getword:@"username"] attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
     self.t1.attributedPlaceholder = str;
 
-    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:@"Password" attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
+    NSAttributedString *str2 = [[NSAttributedString alloc] initWithString:[words getword:@"password"] attributes:@{ NSForegroundColorAttributeName : [UIColor grayColor] }];
     self.t2.attributedPlaceholder = str2;
     _t2.delegate=self;
     _t1.delegate=self;
