@@ -17,6 +17,9 @@
 
 @end
 
+BOOL isFullScreen,loding;
+CGRect prevFrame;
+
 @implementation VinViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -53,6 +56,7 @@
    // _ima.image=image;
     _ima.contentMode=UIViewContentModeScaleAspectFit;
     [_activityIndicator stopAnimating];
+    loding=false;
 }
 
 
@@ -60,8 +64,9 @@
 {
     [super viewDidLoad];
     self.view.backgroundColor=[UIColor clearColor];
-    
-    
+    isFullScreen = false;
+    loding=true;
+    [self.view bringSubviewToFront:_ima];
     UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] init];
     barButtonItem.title = @"";
     self.navigationItem.backBarButtonItem = barButtonItem;
@@ -91,6 +96,16 @@
     _activityIndicator.hidesWhenStopped = YES;
      */
     [self performSelectorOnMainThread:@selector(loadima) withObject:nil waitUntilDone:NO];
+    
+    
+    
+    _ima.userInteractionEnabled = YES;
+    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+                                     initWithTarget:self action:@selector(imgToFullScreen:)];
+    pgr.delegate = self;
+    [_ima addGestureRecognizer:pgr];
+    
+    
     
     if([UIScreen mainScreen].bounds.size.height < 568){
         
@@ -209,6 +224,55 @@
     CGRect frame = u.frame;
     frame.origin=point;
     u.frame=frame;
+}
+
+
+
+
+- (void)imgToFullScreen:(UITapGestureRecognizer *)pinchGestureRecognizer
+{
+    NSLog(@"aafds");
+    if ((!isFullScreen)&&(loding==false)) {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            //save previous frame
+            prevFrame = _ima.frame;
+            [_ima setFrame:[[UIScreen mainScreen] bounds]];
+        }completion:^(BOOL finished){
+            isFullScreen = true;
+            _b1.hidden=true;
+            _b2.hidden=true;
+            _b3.hidden=true;
+            _b4.hidden=true;
+            _b5.hidden=true;
+            
+            _ll1.hidden=true;
+            _ll2.hidden=true;
+            _ll3.hidden=true;
+            _ll4.hidden=true;
+            _ll5.hidden=true;
+
+        }];
+        return;
+    } else {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            [_ima setFrame:prevFrame];
+        }completion:^(BOOL finished){
+            isFullScreen = false;
+            _b1.hidden=false;
+            _b2.hidden=false;
+            _b3.hidden=false;
+            _b4.hidden=false;
+            _b5.hidden=false;
+            
+            _ll1.hidden=false;
+            _ll2.hidden=false;
+            _ll3.hidden=false;
+            _ll4.hidden=false;
+            _ll5.hidden=false;
+
+        }];
+        return;
+    }
 }
 
 @end

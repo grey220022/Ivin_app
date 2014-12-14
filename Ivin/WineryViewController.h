@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WineryViewController : UIViewController
+@interface WineryViewController : UIViewController<UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UIButton *b1;
 @property (weak, nonatomic) IBOutlet UIButton *b2;

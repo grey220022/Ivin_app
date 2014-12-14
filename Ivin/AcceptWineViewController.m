@@ -62,7 +62,8 @@
     {
         NSString *url=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/GetInfo?enduserid=%@&wineid=%@",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].wine.Id];
         NSLog(@"%@",url);
-        NSData* userwine=[IvinHelp geturlcontent:url];
+        
+        NSData* userwine=[IvinHelp geturlcontentfromcache:url];
         
         
         if ((!userwine)||([userwine length]==0))

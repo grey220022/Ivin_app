@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ContentViewController : UIViewController
+@interface ContentViewController : UIViewController<UIGestureRecognizerDelegate>
 
 @property (weak, nonatomic) IBOutlet UILabel *content;
 @property (weak, nonatomic) IBOutlet UITextView *content1;

@@ -9,6 +9,7 @@
 #import "DetailView.h"
 #import "SingletonClass.h"
 #import "NewloginView.h"
+#import "IvinHelp.h"
 #import "words.h"
 
 @interface DetailView ()
@@ -96,10 +97,17 @@ int alertstate;
     //3建立并启动连接NSRULConnection
     NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
     [conn start];
-    
 
+    //refresh cache
     
+    NSString *cacheurl=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/GetInfo?enduserid=%@&wineid=%@",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].wine.Id];
     
+    double delayInSeconds = 2.0;
+    dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+    dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
+                   ^(void){
+                       [IvinHelp geturlcontentintocache:cacheurl];
+                   });
 }
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -212,7 +220,9 @@ int alertstate;
 {
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[words getword:@"price"] message:[words getword:@"entertheprice"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert textFieldAtIndex:0].text=_pricelabel.text;
+    
+    if (_pricelabel.text!=[words getword:@"price"])
+      [alert textFieldAtIndex:0].text=_pricelabel.text;
     [alert addButtonWithTitle:@"OK"];
     [alert textFieldAtIndex:0].keyboardType=UIKeyboardTypeNumbersAndPunctuation;
     [alert show];
@@ -223,7 +233,8 @@ int alertstate;
 {
     UIAlertView * alert =[[UIAlertView alloc ] initWithTitle:[words getword:@"place"] message:[words getword:@"entertheplace"] delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     alert.alertViewStyle = UIAlertViewStylePlainTextInput;
-    [alert textFieldAtIndex:0].text=_placelabel.text;
+    if (_placelabel.text!=[words getword:@"place"])
+      [alert textFieldAtIndex:0].text=_placelabel.text;
     [alert addButtonWithTitle:@"OK"];
     [alert textFieldAtIndex:0].keyboardType=UIKeyboardTypeASCIICapable;
     [alert show];
@@ -233,10 +244,18 @@ int alertstate;
 - (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex
 {
     if (buttonIndex == 1) {  //OK button
+        NSString *string =[alertView textFieldAtIndex:0].text;
+        string=[string stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
         if (alertstate==0)
-            _pricelabel.text=[alertView textFieldAtIndex:0].text;
+        {
+            if ((![string isEqual:@""])&&(![string isEqual:[words getword:@"price"]]))
+              _pricelabel.text=string;
+        }
         else
-            _placelabel.text=[alertView textFieldAtIndex:0].text;
+        {
+            if ((![string isEqual:@""]) && (![string isEqual:[words getword:@"place"]]))
+              _placelabel.text=string;
+        }
     }
 }
 

@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface VinViewController : UIViewController
+@interface VinViewController : UIViewController <UIGestureRecognizerDelegate>
 @property (weak, nonatomic) IBOutlet UIButton *b1;
 @property (weak, nonatomic) IBOutlet UIButton *b2;
 @property (weak, nonatomic) IBOutlet UIButton *b3;

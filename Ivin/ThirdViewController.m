@@ -135,7 +135,6 @@ NSMutableArray *filterarray;
 
 -(void)viewDidAppear:(BOOL)animated
 {
-    
     [SingletonClass sharedInstance].listview=self;
     NSLog(@"thirdappear");
     if ([SingletonClass sharedInstance].fromscan==1)
@@ -464,7 +463,7 @@ NSMutableArray *filterarray;
     UIImage * ratingImage = [UIImage imageWithContentsOfFile:filePath];//[UIImage imageNamed:@"40.png"];
     [cell.ratingLable setImage: ratingImage];
     cell.nameLabel.text= [WineryName objectAtIndex:[self getvalue:indexPath.row]]; //@"Château pichon";
-    cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[WineryName objectAtIndex:[self getvalue:indexPath.row]] , [Year objectAtIndex:[self getvalue:indexPath.row]]];
+    cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[WineName objectAtIndex:[self getvalue:indexPath.row]] , [Year objectAtIndex:[self getvalue:indexPath.row]]];
     cell.subnameLabel2.text=[NSString stringWithFormat:@"%@, %@",[Appellation objectAtIndex:[self getvalue:indexPath.row]] , [WineryCountry objectAtIndex:[self getvalue:indexPath.row]]];//someString;//@"Pauillac, France";
     NSNumber *vvv=[AverageMark objectAtIndex:[self getvalue:indexPath.row]];
     cell.ratingnumberLable.text=[[NSString alloc] initWithFormat:@"%0.1f",[vvv floatValue]];
@@ -496,7 +495,9 @@ NSMutableArray *filterarray;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    if (self.navigationController.topViewController != self)
+        return;
+
     
     [NSThread detachNewThreadSelector: @selector(actIndicatorBegin) toTarget:self withObject:nil];
     

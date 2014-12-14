@@ -9,7 +9,7 @@
 #import "FTWCache.h"
 #import "IvinHelp.h"
 
-static NSTimeInterval cacheTime =  (double)604800;
+static NSTimeInterval cacheTime =  (double)3600;
 
 @implementation FTWCache
 

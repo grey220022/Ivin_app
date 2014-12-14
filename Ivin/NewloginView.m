@@ -51,6 +51,7 @@
         [myAlertView show];
     }
     else
+     
     {
         //todo remember login information.
         

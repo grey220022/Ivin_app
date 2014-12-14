@@ -14,6 +14,10 @@
 
 @end
 
+BOOL isFullScreen,loding;
+CGRect prevFrame;
+
+
 @implementation ContentViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -130,8 +134,17 @@
     // _content.text=@"adsfafsd fdqsdfs  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsd  fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq fdqsdfsq q";
     // Do any additional setup after loading the view.
     
-    
-    
+
+    isFullScreen = false;
+    loding=false;
+    [self.view bringSubviewToFront:_ima];
+
+    _ima.userInteractionEnabled = YES;
+    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(imgToFullScreen:)];
+    pgr.delegate = self;
+    [_ima addGestureRecognizer:pgr];
+
     
     if (self.title.length>40)
     {
@@ -152,9 +165,6 @@
         //[titleLabel addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.titleView = titleLabel;
     }
-    
-    
-    
 }
 
 - (void)didReceiveMemoryWarning
@@ -162,5 +172,31 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)imgToFullScreen:(UITapGestureRecognizer *)pinchGestureRecognizer
+{
+    NSLog(@"aafds");
+    if ((!isFullScreen)&&(loding==false)) {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            //save previous frame
+            prevFrame = _ima.frame;
+            [_ima setFrame:[[UIScreen mainScreen] bounds]];
+        }completion:^(BOOL finished){
+            isFullScreen = true;
+            _content1.hidden=true;
+        }];
+        return;
+    } else {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            [_ima setFrame:prevFrame];
+        }completion:^(BOOL finished){
+            isFullScreen = false;
+            _content1.hidden=false;
+        }];
+        return;
+    }
+}
+
+
 
 @end
