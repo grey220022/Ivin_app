@@ -12,7 +12,7 @@
 #import "Winery.h"
 
 
-@interface AcceptWineViewController : UIViewController<RateViewDelegate,UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate>//,UIScrollViewDelegate>
+@interface AcceptWineViewController : UIViewController<RateViewDelegate,UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIGestureRecognizerDelegate>//,UIScrollViewDelegate>
 
 
 @property (weak, nonatomic) Wine  *wine;
@@ -21,6 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView  *starts;
 
+@property (weak, nonatomic) IBOutlet UILabel *covert;
 
 @property (weak, nonatomic) IBOutlet UILabel *la1;
 @property (weak, nonatomic) IBOutlet UILabel *la2;

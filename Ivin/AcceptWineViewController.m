@@ -33,6 +33,8 @@
 
 @end
 
+BOOL isFullScreen;
+CGRect prevFrame;
 
 
 @implementation AcceptWineViewController
@@ -335,6 +337,16 @@
         
         
     }
+    
+    isFullScreen = false;
+    [_sw bringSubviewToFront:_iw];
+    _iw.userInteractionEnabled = YES;
+    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(imgToFullScreen:)];
+    pgr.delegate = self;
+    [_iw addGestureRecognizer:pgr];
+    
+    
 }
 
 /*
@@ -706,6 +718,35 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
         [self.navigationController pushViewController:nextController animated:YES];*/
     }
     
+}
+
+- (void)imgToFullScreen:(UITapGestureRecognizer *)pinchGestureRecognizer
+{
+    NSLog(@"aafds");
+    if (!isFullScreen) {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            //save previous frame
+            prevFrame = _iw.frame;
+            
+            
+            [_iw setFrame:[[UIScreen mainScreen] bounds]];
+        }completion:^(BOOL finished){
+            isFullScreen = true;
+            _covert.hidden=false;
+
+            
+        }];
+        return;
+    } else {
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            [_iw setFrame:prevFrame];
+        }completion:^(BOOL finished){
+            isFullScreen = false;
+            _covert.hidden=true;
+            
+        }];
+        return;
+    }
 }
 
 

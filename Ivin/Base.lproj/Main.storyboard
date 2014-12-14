@@ -1274,6 +1274,14 @@
                                         <rect key="frame" x="17" y="499" width="42" height="42"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QW6-87-vAR">
+                                        <rect key="frame" x="0.0" y="0.0" width="2000" height="8100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </scrollView>
@@ -1282,6 +1290,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="p7n-mS-2vI"/>
                     <connections>
+                        <outlet property="covert" destination="QW6-87-vAR" id="6Kr-1G-a2F"/>
                         <outlet property="cup" destination="kNC-q4-ZqG" id="Ou5-2x-1UB"/>
                         <outlet property="description1" destination="DI8-V4-KcO" id="a7x-DU-wBH"/>
                         <outlet property="iw" destination="19H-t6-Y3r" id="vqd-y8-Tvg"/>
