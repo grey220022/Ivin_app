@@ -63,7 +63,7 @@ CGRect prevFrame;
     if (([SingletonClass sharedInstance].username!=nil))
     {
         NSString *url=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/GetInfo?enduserid=%@&wineid=%@",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].wine.Id];
-        NSLog(@"%@",url);
+      //  NSLog(@"%@",url);
         
         NSData* userwine=[IvinHelp geturlcontentfromcache:url];
         
@@ -74,7 +74,7 @@ CGRect prevFrame;
         }
         else {
             NSString* newStr = [[NSString alloc] initWithData:userwine encoding:NSUTF8StringEncoding];
-            NSLog(@"%@",newStr);
+           // NSLog(@"%@",newStr);
             [IvinHelp wineidparse:userwine];
         }
     }
@@ -268,7 +268,7 @@ CGRect prevFrame;
     _description1.text=[SingletonClass sharedInstance].wine.WineryRecommandation;
     _li8.text=[SingletonClass sharedInstance].wine.FoodParing;
     
-    NSLog(@"%@",[SingletonClass sharedInstance].wine.Vintage);
+    //NSLog(@"%@",[SingletonClass sharedInstance].wine.Vintage);
     _li9.text=[SingletonClass sharedInstance].wine.ClassementName;
     
     
@@ -292,7 +292,7 @@ CGRect prevFrame;
     _li3.lineBreakMode = UILineBreakModeWordWrap;
     _li3.numberOfLines = 0;
     [_li3 sizeToFit];
-    NSLog(@"%@",someString);
+   // NSLog(@"%@",someString);
     
     /*
     UITapGestureRecognizer *navSingleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(navSingleTap)];
@@ -330,7 +330,7 @@ CGRect prevFrame;
         wineid=[SingletonClass sharedInstance].wine.Id;
         NSString *bodyStr = [NSString stringWithFormat:@"{\"WineId\":\"%@\",\"EndUserId\":\"%@\"}",wineid,userid];
         NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
-        NSLog(@"body data :%@", bodyStr);
+      //  NSLog(@"body data :%@", bodyStr);
         [request setHTTPBody:body];
         NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
         [conn start];
@@ -358,7 +358,7 @@ CGRect prevFrame;
 
 -(void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"acceptappear");
+   // NSLog(@"acceptappear");
     self.wine=[SingletonClass sharedInstance].wine;
     self.winery=[SingletonClass sharedInstance].winery;
     if ([[SingletonClass sharedInstance].preview isEqual:@"detail"])
@@ -513,7 +513,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
 
 - (IBAction)cancel_button:(id)sender
 {
-    NSLog(@"Helloback");
+   // NSLog(@"Helloback");
     [[self presentingViewController] dismissModalViewControllerAnimated:YES];
 }
 
@@ -522,7 +522,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
     
     if (![SingletonClass sharedInstance].username)
         return;
-    NSLog(@"%f",rating);
+   // NSLog(@"%f",rating);
     int rating_int=rating;
     self.statusLabel.text = [NSString stringWithFormat:@"Rating: %d", rating_int];
     
@@ -634,7 +634,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //该方法响应列表中行的点击事件
-    NSLog(@"here");
+   // NSLog(@"here");
 }
 
 /*
@@ -722,7 +722,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
 
 - (void)imgToFullScreen:(UITapGestureRecognizer *)pinchGestureRecognizer
 {
-    NSLog(@"aafds");
+   // NSLog(@"aafds");
     if (!isFullScreen) {
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             //save previous frame

@@ -43,7 +43,7 @@
 
 - (void)changeText
 {
-    NSLog(@"I am changing");
+    //NSLog(@"I am changing");
     self.mainlabel.text=@"葡萄";
 }
 

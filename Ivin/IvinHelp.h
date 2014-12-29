@@ -13,7 +13,7 @@
 
 @interface IvinHelp : NSObject//<NSURLConnectionDelegate>
 
-+ (NSData *) geturlcontent:(NSString *) url;
++ (NSData *) getpureurlcontent:(NSString *) url;
 + (NSData *) geturlcontentfromcache:(NSString *) url;
 + (NSData *) geturlcontentintocache:(NSString *) url;
 + (void) removeurlcontent:(NSString *) url;

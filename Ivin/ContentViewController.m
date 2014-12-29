@@ -175,7 +175,7 @@ CGRect prevFrame;
 
 - (void)imgToFullScreen:(UITapGestureRecognizer *)pinchGestureRecognizer
 {
-    NSLog(@"aafds");
+   // NSLog(@"aafds");
     if ((!isFullScreen)&&(loding==false)) {
         [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
             //save previous frame

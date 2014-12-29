@@ -86,7 +86,7 @@ NSMutableArray *filterarray;
     {
         if ([[Like objectAtIndex:i] isEqual:@"true"])
         {
-            NSLog(@"%d",i);
+            //NSLog(@"%d",i);
             [filterarray addObject:[NSNumber numberWithInteger:i]];
         }
     }
@@ -101,10 +101,10 @@ NSMutableArray *filterarray;
     filterarray=[[NSMutableArray alloc] initWithObjects: nil];
     for (int i=0; i<objectnumber; i++)
     {
-        NSLog(@"%@",[Favorite objectAtIndex:i]);
+        //NSLog(@"%@",[Favorite objectAtIndex:i]);
         if ([[Favorite objectAtIndex:i] isEqual:@"true"])
         {
-            NSLog(@"%d",i);
+            //NSLog(@"%d",i);
             [filterarray addObject:[NSNumber numberWithInteger:i]];
         }
     }
@@ -115,13 +115,13 @@ NSMutableArray *filterarray;
     NSString *buttonTitle = [actionSheet buttonTitleAtIndex:buttonIndex];
     
     if ([buttonTitle isEqualToString:@"名字排序"]) {
-        NSLog(@"Cancel pressed --> 1");
+        //NSLog(@"Cancel pressed --> 1");
     }
     if ([buttonTitle isEqualToString:@"酒庄排序"]) {
-        NSLog(@"Cancel pressed --> 2");
+        //NSLog(@"Cancel pressed --> 2");
     }
     if ([buttonTitle isEqualToString:@"年份排序"]) {
-        NSLog(@"Cancel pressed --> 3");
+        //NSLog(@"Cancel pressed --> 3");
     }
     
 }
@@ -136,23 +136,23 @@ NSMutableArray *filterarray;
 -(void)viewDidAppear:(BOOL)animated
 {
     [SingletonClass sharedInstance].listview=self;
-    NSLog(@"thirdappear");
+    //NSLog(@"thirdappear");
     if ([SingletonClass sharedInstance].fromscan==1)
     {
         if ([SingletonClass sharedInstance].username!=nil)
             [SingletonClass sharedInstance].skiphistory=0;
-        NSLog(@"3");
-        NSLog(@"%@",[SingletonClass sharedInstance].wine.Wine);
+        //NSLog(@"3");
+        //NSLog(@"%@",[SingletonClass sharedInstance].wine.Wine);
         
-        NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
+        //NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
         
         
-        NSLog(@"4");
+        //NSLog(@"4");
         
-        [SingletonClass sharedInstance].fromscan=0;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
         [self.navigationController pushViewController:nextController animated:YES];
+        [SingletonClass sharedInstance].fromscan=0;
         return;
     }
     
@@ -216,7 +216,7 @@ NSMutableArray *filterarray;
     }
     NSString * bc=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
     
-    NSLog(@"%@",bc);
+   // NSLog(@"%@",bc);
     
     if ((!winelistdata)||([winelistdata length]==0))
     {
@@ -282,7 +282,7 @@ NSMutableArray *filterarray;
         else tmp=@"true";
         [Like addObject:tmp];
         
-        NSLog(@"%@",tmp);
+        //NSLog(@"%@",tmp);
         if ([tmp isEqual:@"true"])
         {
             like_num++;
@@ -309,7 +309,7 @@ NSMutableArray *filterarray;
 
 - (void)viewDidLoad
 {
-    NSLog(@"thirddidload");
+    //NSLog(@"thirddidload");
     
     first_time=true;
     if ([SingletonClass sharedInstance].username==nil)
@@ -427,7 +427,7 @@ NSMutableArray *filterarray;
         return wine_num;
     else
     {
-        NSLog(@"%d",[filterarray count]);
+       // NSLog(@"%d",[filterarray count]);
         return [filterarray count];
     }
     //return [self.listData count];
@@ -516,7 +516,7 @@ NSMutableArray *filterarray;
     NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber];
     NSData* winestring=[IvinHelp geturlcontentfromcache:wineurl];
     
-    NSLog(@"%@",wineurl);
+   // NSLog(@"%@",wineurl);
     
     //if ((!winerystring) || (!winestring)||([winestring length]==0)||([winerystring length]==0))
     if ((!winestring)||([winestring length]==0))
@@ -631,7 +631,7 @@ NSMutableArray *filterarray;
         userid=[SingletonClass sharedInstance].username;
         NSString *bodyStr = [NSString stringWithFormat:@"{\"WineId\":\"%@\",\"EndUserId\":\"%@\"}",wineid ,userid];
         NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
-        NSLog(@"body data :%@", bodyStr);
+        //NSLog(@"body data :%@", bodyStr);
         [request setHTTPBody:body];
         NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
         [conn start];
@@ -721,7 +721,7 @@ NSMutableArray *filterarray;
 // 事件：键盘上的搜索按钮事件
 -(void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
 {
-    NSLog(@"search clicked");
+    //NSLog(@"search clicked");
     [searchBar resignFirstResponder];
     
     if ([SingletonClass sharedInstance].skiphistory==0)
@@ -729,24 +729,24 @@ NSMutableArray *filterarray;
     filter_wine=true;
     filterarray=[[NSMutableArray alloc] initWithObjects: nil];
     NSString *searchstring = [self.searchBar.text stringByTrimmingCharactersInSet: [NSCharacterSet whitespaceAndNewlineCharacterSet]];
-    NSLog(@"%@",searchstring);
+    //NSLog(@"%@",searchstring);
     int objectnumber=[WineName count];
     for (int i=0; i<objectnumber; i++)
     {
 //        NSLog(@"%@",[WineName objectAtIndex:i]);
         NSRange r1= [[WineName objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
-        NSLog(@"1");
+        //NSLog(@"1");
         NSRange r2= [[WineryName objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
-        NSLog(@"2");
+        //NSLog(@"2");
         NSRange r3= [[[Year objectAtIndex:i] stringValue]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
-        NSLog(@"3");
+        //NSLog(@"3");
         NSRange r4= [[Appellation objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
-        NSLog(@"4");
+        //NSLog(@"4");
         NSRange r5= [[WineryCountry objectAtIndex:i]  rangeOfString: searchstring options: NSCaseInsensitiveSearch];
-        NSLog(@"5");
+        //NSLog(@"5");
        if ((r1.location!=NSNotFound) || (r2.location!=NSNotFound) || (r3.location!=NSNotFound) ||(r4.location!=NSNotFound) ||(r5.location!=NSNotFound))
        {
-           NSLog(@"%d",i);
+          // NSLog(@"%d",i);
            [filterarray addObject:[NSNumber numberWithInteger:i]];
        }
        /*

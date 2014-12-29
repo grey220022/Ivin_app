@@ -44,7 +44,7 @@ int alertstate;
 
 -(void)oov
 {
-    NSLog(@"confirm");
+    //NSLog(@"confirm");
     [SingletonClass sharedInstance].rating=self.rateView.rating;
     [self.navigationController popViewControllerAnimated:YES];
     
@@ -91,7 +91,7 @@ int alertstate;
     //NSString *bodyStr = [NSString stringWithFormat:@"{\"WineId\":\"%@\",\"EndUserId\":\"%@\"}",wineid,userid];
     
     NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"body data :%@", bodyStr);
+    //NSLog(@"body data :%@", bodyStr);
     [request setHTTPBody:body];
     
     //3建立并启动连接NSRULConnection
@@ -163,9 +163,9 @@ int alertstate;
     
     if (!(temprice == nil || [temprice isKindOfClass:[NSNull class]]))
     {
-        NSLog(@"going price");
+     //   NSLog(@"going price");
 
-        NSLog(@"price: %@",temprice);
+       // NSLog(@"price: %@",temprice);
         if  (![temprice isEqual:@"0"])
         {
  //           _pricelabel.text=@"12a3";
@@ -178,9 +178,9 @@ int alertstate;
     
     if (!(templace == nil || [templace isKindOfClass:[NSNull class]]))
     {
-        NSLog(@"going place");
+       // NSLog(@"going place");
         
-        NSLog(@"place: %@",templace);
+        //NSLog(@"place: %@",templace);
         if (![templace isEqual:@""])
         {
             _placelabel.text=templace;
@@ -347,7 +347,7 @@ int alertstate;
     
     //[_gg.navigationController popToRootViewControllerAnimated:NO];
     _label1.hidden = YES;
-    NSLog(@"hahahah");
+   // NSLog(@"hahahah");
 }
 
 @end

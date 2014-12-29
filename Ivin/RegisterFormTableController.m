@@ -115,7 +115,7 @@
 
 
 - (void)cancelbtnpress{
-    NSLog(@"rcancel");
+    //NSLog(@"rcancel");
      [self dismissViewControllerAnimated:YES completion:nil];
 //[self dismissViewControllerAnimated:YES];
     //[self dismissViewControllerAnimated:NO];
@@ -123,7 +123,7 @@
 
 
 - (void)confirmbtnpress{
-    NSLog(@"rconfirm");
+    //NSLog(@"rconfirm");
     //[self dismissViewControllerAnimated:YES];
 }
 

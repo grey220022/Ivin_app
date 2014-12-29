@@ -8,8 +8,9 @@
 
 #import "FTWCache.h"
 #import "IvinHelp.h"
+#import "SingletonClass.h"
 
-static NSTimeInterval cacheTime =  (double)3600;
+//static NSTimeInterval cacheTime =  (double)3600;
 
 @implementation FTWCache
 
@@ -27,7 +28,13 @@ static NSTimeInterval cacheTime =  (double)3600;
 + (NSData*) objectForKey:(NSString*)key {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSString *filename = [self.cacheDirectory stringByAppendingPathComponent:[IvinHelp md5HexDigest:key]];
-	
+    NSTimeInterval cacheTime=(double)604800;
+	if ([SingletonClass sharedInstance].fromscan==1)
+    {
+     //   NSLog(@"nonono");
+        cacheTime=(double)3600;
+    }
+    NSLog(@"%f",cacheTime);
 	if ([fileManager fileExistsAtPath:filename])
 	{
 		NSDate *modificationDate = [[fileManager attributesOfItemAtPath:filename error:nil] objectForKey:NSFileModificationDate];

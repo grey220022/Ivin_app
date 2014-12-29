@@ -32,7 +32,7 @@
 + (void) changelang:(NSString*)lang
 {
     currentlang=lang;
-    NSLog(@"%@",lang);
+   // NSLog(@"%@",lang);
     
 }
 

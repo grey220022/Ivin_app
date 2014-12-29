@@ -32,9 +32,9 @@
     
     NSString * request=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUser/Login?username=%@&password=%@", _t1.text,[IvinHelp md5HexDigest:_t2.text]];
     
-    NSLog(@"%@",request);
-    NSString * response=[[NSString alloc] initWithData:[IvinHelp geturlcontent:request] encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",response);
+    //NSLog(@"%@",request);
+    NSString * response=[[NSString alloc] initWithData:[IvinHelp getpureurlcontent:request] encoding:NSUTF8StringEncoding];
+    //NSLog(@"%@",response);
     
     if ((!response)||([response length]==0))
     {
@@ -78,7 +78,7 @@
 
 -(IBAction) signupbutton
 {
-    NSLog(@"signupbutton press");
+    //NSLog(@"signupbutton press");
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NewuserView *newuserview = [storyboard instantiateViewControllerWithIdentifier:@"newuserview"];
     newuserview.previousController=self;

@@ -79,7 +79,7 @@
     self.tableview.dataSource=self;
     NSString* l=[SingletonClass sharedInstance].lang;
     
-    NSLog(@"%@",l);
+   // NSLog(@"%@",l);
     
     if ([l isEqual:@"fr"])
     {

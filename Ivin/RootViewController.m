@@ -35,7 +35,7 @@ int tim;
 {
     isreading=NO;
     tim=0;
-    NSLog(@"firstappear");
+    //NSLog(@"firstappear");
     [super viewDidLoad];
      self.view.backgroundColor = [UIColor blackColor];
     _activityIndicator = [[UIActivityIndicatorView alloc]
@@ -113,7 +113,7 @@ int tim;
     if (self==viewController)
     {
         [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
-      NSLog(@"tabx");
+     // NSLog(@"tabx");
     }
 }
 
@@ -147,7 +147,7 @@ int tim;
 -(void)viewWillAppear:(BOOL)animated
 {
     isreading=NO;
-    NSLog(@"appear");
+    //NSLog(@"appear");
     [self setupCamera];
     
     
@@ -209,7 +209,7 @@ int tim;
 -(void)viewWillDisappear:(BOOL)animated
 {
     [SingletonClass sharedInstance].preview=@"scan";
-    NSLog(@"disappear");
+   // NSLog(@"disappear");
     [_session stopRunning];
     [_preview removeFromSuperlayer];
 }
@@ -295,7 +295,7 @@ int tim;
         //[[UIApplication sharedApplication] openURL:[NSURL URLWithString:stringValue]];
         AVMetadataMachineReadableCodeObject * metadataObject = [metadataObjects objectAtIndex:0];
         stringValue = metadataObject.stringValue;
-        NSLog(@"%@",stringValue);
+        //NSLog(@"%@",stringValue);
         
         
         
@@ -331,13 +331,13 @@ int tim;
       //  wineryurl= [NSString stringWithFormat:@"%@%@", @"http://lapinroi-001-site1.smarterasp.net/api/winery/",winenumber];
         //http://www.ivintag.com/api/wine?winecode=FR00009001
         
-        NSLog(@"%@",wineurl);
+       // NSLog(@"%@",wineurl);
 //        NSLog(@"%@",wineryurl);
         
 //        NSData* winestring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/wine/5"];
 //        NSData* winerystring=[IvinHelp geturlcontent:@"http://www.ivindigital.com/api/winery/8"];
         
-        
+        [SingletonClass sharedInstance].fromscan=1;
         NSData* winestring=[IvinHelp geturlcontentfromcache:wineurl];
        // NSData* winerystring=[IvinHelp geturlcontent:wineryurl];
 
@@ -349,6 +349,7 @@ int tim;
             myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
             [_activityIndicator stopAnimating];
+            [SingletonClass sharedInstance].fromscan=0;
             return;
         }
         
@@ -381,7 +382,7 @@ int tim;
         
         [sound play];
 
-        [SingletonClass sharedInstance].fromscan=1;
+        
         [self.tabBarController setSelectedIndex:1];
         
         

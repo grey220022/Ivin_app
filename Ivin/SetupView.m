@@ -90,7 +90,7 @@
     if ([SingletonClass sharedInstance].username!=nil)
     {
         NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/EndUser/",[SingletonClass sharedInstance].username];
-        NSData* winestring=[IvinHelp geturlcontent:wineurl];
+        NSData* winestring=[IvinHelp getpureurlcontent:wineurl];
         if ((!winestring)||([winestring length]==0))
         {
             UIAlertView *myAlertView;
@@ -100,7 +100,7 @@
         }
         
         NSString* newStr = [NSString stringWithUTF8String:[winestring bytes]];
-        NSLog(@"%@",newStr);
+        //NSLog(@"%@",newStr);
         
         [IvinHelp userprofileparse:winestring];
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

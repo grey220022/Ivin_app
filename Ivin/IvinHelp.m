@@ -71,18 +71,21 @@ NSDictionary *winerydic;
 
 + (NSData *) geturlcontentfromcache:(NSString *) url
 {
+    NSLog(@"from cache : %@",url);
     NSData *cachedData = [FTWCache objectForKey:url];
     if (cachedData) {
         return cachedData;
     }
     NSData * tmpdata;
-    tmpdata=[IvinHelp geturlcontent:url];
+    tmpdata=[IvinHelp getpureurlcontent:url];
     [FTWCache setObject:tmpdata forKey:url];
     return tmpdata;
 }
 
 + (NSData *) geturlcontentintocache:(NSString *) url
 {
+    NSLog(@"into cache : %@",url);
+
     NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLResponse * response = nil;
     NSError * error = nil;
@@ -104,8 +107,10 @@ NSDictionary *winerydic;
 }
 
 
-+ (NSData *) geturlcontent:(NSString *) url
++ (NSData *) getpureurlcontent:(NSString *) url
 {
+    NSLog(@"get url : %@",url);
+
     NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLResponse * response = nil;
     NSError * error = nil;
@@ -137,7 +142,7 @@ NSDictionary *winerydic;
 + (void) wineidparse:(NSData *) winecontent
 {
     NSString* bnewStr = [[NSString alloc] initWithData:winecontent encoding:NSUTF8StringEncoding];
-    NSLog(@"%@",bnewStr);
+   // NSLog(@"%@",bnewStr);
     
     NSError *error;
     NSDictionary *tempdic = [NSJSONSerialization JSONObjectWithData:winecontent options:NSJSONReadingMutableLeaves error:&error];
@@ -281,10 +286,10 @@ NSDictionary *winerydic;
     
     NSMutableString * tempstring;
     tempstring=[[NSMutableString alloc] initWithString:[NSString stringWithFormat: @"%d ", [[tempdic objectForKey:@"TotalMarkUser"] intValue]]];
-    NSLog(@"%@",tempstring);
+    //NSLog(@"%@",tempstring);
     [SingletonClass sharedInstance].wine.TotalLike=[NSString stringWithFormat: @"%d", [[tempdic objectForKey:@"TotalLike"] intValue]];
 
-    NSLog(@"%@",[words getword:@"ratings"]);
+   // NSLog(@"%@",[words getword:@"ratings"]);
 
     [tempstring appendString:[words getword:@"ratings"]];
     [SingletonClass sharedInstance].wine.TotalMarkUser= tempstring;
@@ -366,7 +371,7 @@ NSDictionary *winerydic;
     
     [SingletonClass sharedInstance].winery.VinePresentation=[tempdic objectForKey:@"VinePresentation"];
     [SingletonClass sharedInstance].winery.OtherHistory=[IvinHelp strval:[tempdic objectForKey:@"OtherHistory"] replacevalue:@"Les hommes"];
-    NSLog(@"");
+    //NSLog(@"");
     [SingletonClass sharedInstance].winery.OtherHistoryTitle=[IvinHelp strval:[tempdic objectForKey:@"OtherHistoryTitle"] replacevalue:@"No data"];//Les hommes
     
 //    [SingletonClass sharedInstance].winery.Winetours=[tempdic objectForKey:@"Winetours"];
@@ -429,7 +434,7 @@ NSDictionary *winerydic;
     [someString appendString: someString12];
     [someString appendString: someString13];
     [SingletonClass sharedInstance].winery.Contact=someString;
-    NSLog(@"%@",someString);
+    //NSLog(@"%@",someString);
     [SingletonClass sharedInstance].winery.WineryPhotoUrl=[tempdic objectForKey:@"WineryPhotoUrl"];
     
     

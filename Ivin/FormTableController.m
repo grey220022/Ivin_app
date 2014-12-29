@@ -110,13 +110,13 @@
 
 
 - (void)loginbtnpress{
-    NSLog(@"login");
+    //NSLog(@"login");
     
 }
 
 
 - (void)createbtnpress{
-    NSLog(@"create");
+    //NSLog(@"create");
     
     
 //    RegisterFormTableController * formTable = [[RegisterFormTableController alloc ] initWithStyle:UITableViewStyleGrouped];
@@ -133,7 +133,7 @@
 }
 
 - (void)cancelbtnpress{
-    NSLog(@"cancel");
+    //NSLog(@"cancel");
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

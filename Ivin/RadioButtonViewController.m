@@ -52,7 +52,7 @@ int sel;
     
     NSString *bodyStr = [NSString stringWithFormat:@"{\"Id\":\"%@\",\"Email\":\"%@\",\"Address\":\"%@\",\"EndUserProfileId\":\"%@\",\"Signature\":\"%@\"}",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].email,[SingletonClass sharedInstance].city,[SingletonClass sharedInstance].usertype,[SingletonClass sharedInstance].signature];
     NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"body data :%@", bodyStr);
+    //NSLog(@"body data :%@", bodyStr);
     [request setHTTPBody:body];
     
     NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];
@@ -209,7 +209,7 @@ int sel;
 }
 
 -(void)radioButtonSelectedAtIndex:(NSUInteger)index inGroup:(NSString *)groupId{
-    NSLog(@"changed to %lu in %@",(unsigned long)index,groupId);
+    //NSLog(@"changed to %lu in %@",(unsigned long)index,groupId);
 }
 
 - (void)viewDidUnload

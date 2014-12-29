@@ -50,7 +50,7 @@
     
     NSString *bodyStr = [NSString stringWithFormat:@"{\"Id\":\"%@\",\"Email\":\"%@\",\"Address\":\"%@\",\"EndUserProfileId\":\"%@\",\"Signature\":\"%@\"}",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].email,[SingletonClass sharedInstance].city,[SingletonClass sharedInstance].usertype,[SingletonClass sharedInstance].signature];
     NSData *body = [bodyStr dataUsingEncoding:NSUTF8StringEncoding];
-    NSLog(@"body data :%@", bodyStr);
+    //NSLog(@"body data :%@", bodyStr);
     [request setHTTPBody:body];
     
     NSURLConnection *conn = [NSURLConnection connectionWithRequest:request delegate:nil];

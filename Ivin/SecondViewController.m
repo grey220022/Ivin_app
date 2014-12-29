@@ -87,7 +87,7 @@
 
 - (IBAction)finish_button:(id)sender
 {
-    NSLog(@"Hello");
+    //NSLog(@"Hello");
     AcceptWineViewController *alvc = [self.storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
    // [self presentModalViewController:alvc animated:YES];
     [self presentModalViewController:alvc animated:YES]; //completion:^{// alvc is now on screen; often we do nothing here}];

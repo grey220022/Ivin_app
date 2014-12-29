@@ -165,7 +165,7 @@ UITableViewCell *logincell;
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //该方法响应列表中行的点击事件
-    NSLog(@"here");
+    //NSLog(@"here");
     //[self performSelector:@selector(deselect) withObject:nil afterDelay:0.5f];
     
     //NSString *heroSelected=[myListArray objectAtIndex:indexPath.row];

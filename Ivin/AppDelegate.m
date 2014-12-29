@@ -23,7 +23,7 @@
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstStart"]){
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstStart"];
-        NSLog(@"第一次启动");
+      //  NSLog(@"第一次启动");
         NSString *path = [[NSBundle mainBundle]pathForResource:@"Info" ofType:@"plist"];
         NSDictionary *dic = [[NSDictionary alloc]initWithContentsOfFile:path];
         NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
@@ -32,7 +32,7 @@
         [dic writeToFile:filename atomically:YES];
         
     }else{
-        NSLog(@"不是第一次启动");
+       // NSLog(@"不是第一次启动");
     }
     
     
@@ -56,9 +56,9 @@
     }
     
     
-    NSLog(@"%d",[dic count] );
+   // NSLog(@"%d",[dic count] );
     
-    NSLog(@"%@",dic[@"lang"] );
+   // NSLog(@"%@",dic[@"lang"] );
     if (dic[@"lang"]==nil)
     //if (1==1)
     {
@@ -71,10 +71,10 @@
         NSString* deflang=[[[defaults objectForKey:@"AppleLanguages"] objectAtIndex:0] substringWithRange:NSMakeRange(0,2)];
         [dic setObject:deflang forKey: @"lang"];
 
-      NSLog(@"Success = %@", dic[@"lang"]);
+     // NSLog(@"Success = %@", dic[@"lang"]);
     
       st=[dic writeToFile:filename atomically:YES];
-      NSLog(@"Success = %d", st);
+     // NSLog(@"Success = %d", st);
         
         
     }
@@ -91,7 +91,7 @@
     
     [SingletonClass sharedInstance].lang=curlang;
     [words changelang: curlang];
-    NSLog(@"cl = %@", curlang);
+   // NSLog(@"cl = %@", curlang);
     
     
     /*
