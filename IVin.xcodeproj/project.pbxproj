@@ -26,6 +26,7 @@
 		CE31139A19B071C000D05C08 /* collect.png in Resources */ = {isa = PBXBuildFile; fileRef = CE31139619B071C000D05C08 /* collect.png */; };
 		CE5481151947798D001ED112 /* VinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5481141947798D001ED112 /* VinViewController.m */; };
 		CE54811819478D42001ED112 /* WineryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54811719478D42001ED112 /* WineryViewController.m */; };
+		CE66539C1A51ACA000018A6A /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE66539B1A51ACA000018A6A /* QRViewController.m */; };
 		CE84199818BEAF0200ECC402 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199718BEAF0200ECC402 /* Foundation.framework */; };
 		CE84199A18BEAF0200ECC402 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199918BEAF0200ECC402 /* CoreGraphics.framework */; };
 		CE84199C18BEAF0200ECC402 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199B18BEAF0200ECC402 /* UIKit.framework */; };
@@ -190,6 +191,8 @@
 		CE5481141947798D001ED112 /* VinViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VinViewController.m; sourceTree = "<group>"; };
 		CE54811619478D42001ED112 /* WineryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryViewController.h; sourceTree = "<group>"; };
 		CE54811719478D42001ED112 /* WineryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryViewController.m; sourceTree = "<group>"; };
+		CE66539A1A51AC8D00018A6A /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
+		CE66539B1A51ACA000018A6A /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
 		CE84199418BEAF0200ECC402 /* IVin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IVin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE84199718BEAF0200ECC402 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE84199918BEAF0200ECC402 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -576,6 +579,8 @@
 				CE8917B8190EEBF700231FBB /* DetailView.m */,
 				CE5481131947798D001ED112 /* VinViewController.h */,
 				CE5481141947798D001ED112 /* VinViewController.m */,
+				CE66539A1A51AC8D00018A6A /* QRViewController.h */,
+				CE66539B1A51ACA000018A6A /* QRViewController.m */,
 				CE54811619478D42001ED112 /* WineryViewController.h */,
 				CE54811719478D42001ED112 /* WineryViewController.m */,
 				CEFF3F5618E3517C00785AD7 /* ProfileEmailView.h */,
@@ -1033,6 +1038,7 @@
 				CE084C0118F0D2CD0062BB5F /* LangView.m in Sources */,
 				CE5481151947798D001ED112 /* VinViewController.m in Sources */,
 				CE95FB7C196A0F8300D882C1 /* IvinHelp.m in Sources */,
+				CE66539C1A51ACA000018A6A /* QRViewController.m in Sources */,
 				CEB4A53618C69B720037C867 /* mask.c in Sources */,
 				CE97622C18CD240D00A8C6AC /* WineView.m in Sources */,
 				CEC93428199AA9A500FF2FB8 /* NewloginView.m in Sources */,

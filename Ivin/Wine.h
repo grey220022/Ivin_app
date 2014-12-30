@@ -42,7 +42,7 @@
 @property(nonatomic,retain) NSString *AverageMark;
 @property(nonatomic,retain) NSString *TotalLike;
 @property(nonatomic,retain) NSString *TotalMarkUser;
-
+@property(nonatomic,retain) NSString *QRCodePictureUrl;
 
 @property(nonatomic,retain) NSString *WinePhotoUrl;
 

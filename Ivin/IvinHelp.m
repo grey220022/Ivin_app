@@ -265,6 +265,7 @@ NSDictionary *winerydic;
 //    NSLog(@"%@",[SingletonClass sharedInstance].wine.WineryRecommandation);
     [SingletonClass sharedInstance].wine.FoodParing=[IvinHelp purge:[tempdic objectForKey:@"FoodParing"]];
     [SingletonClass sharedInstance].wine.AppellationName=[tempdic objectForKey:@"AppellationName"];
+    [SingletonClass sharedInstance].wine.QRCodePictureUrl=[tempdic objectForKey:@"QRCodePictureUrl"];
     
     [SingletonClass sharedInstance].wine.PropertyOwner=[tempdic objectForKey:@"PropertyOwner"];
     [SingletonClass sharedInstance].wine.ClassementName=[tempdic objectForKey:@"ClassementName"];

@@ -21,7 +21,7 @@
 #import "WineryViewController.h"
 #import "GrapeViewController.h"
 #import "IvinHelp.h"
-
+#import "QRViewController.h"
 
 @interface AcceptWineViewController ()
 //@property(nonatomic,retain) UIWebView *webView;
@@ -35,6 +35,7 @@
 
 BOOL isFullScreen;
 CGRect prevFrame;
+CGRect qrFrame;
 
 
 @implementation AcceptWineViewController
@@ -104,7 +105,7 @@ CGRect prevFrame;
     }
     self.navigationItem.title= [SingletonClass sharedInstance].winery.Name;  //[_winery Name];
     [_sw setScrollEnabled:YES];
-    [_sw setContentSize:CGSizeMake(320, 820)];
+    [_sw setContentSize:CGSizeMake(320, 920)];
     
     
     if([UIScreen mainScreen].bounds.size.height < 568){
@@ -194,6 +195,11 @@ CGRect prevFrame;
    // UIImageView * image;
     [_iw loadImageFromURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.WinePhotoUrl] placeholderImage:nil cachingKey:[SingletonClass sharedInstance].wine.WinePhotoUrl];
     _iw.contentMode=UIViewContentModeScaleAspectFit;
+    /*
+    _qrphoto.contentMode=UIViewContentModeScaleAspectFit;
+
+    [_qrphoto loadImageFromURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.QRCodePictureUrl] placeholderImage:nil cachingKey:[SingletonClass sharedInstance].wine.QRCodePictureUrl];
+*/
     //[_iw setImage:image];
     //[_iw addSubview:];
     
@@ -247,6 +253,7 @@ CGRect prevFrame;
     _la1.text=[words getword:@"grape"];
     _la2.text=[words getword:@"wine"];
     _la3.text=[words getword:@"winery"];
+    _qrcode.text=[words getword:@"qrcode"];
     _la4.text=[words getword:@"recommandationofwinemaker"];
     _la5.text=[words getword:@"averagerating"];
     _la6.text=[words getword:@"upvotes"];
@@ -340,13 +347,20 @@ CGRect prevFrame;
     
     isFullScreen = false;
     [_sw bringSubviewToFront:_iw];
+    //[_sw bringSubviewToFront:_qrphoto];
     _iw.userInteractionEnabled = YES;
     UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
                                    initWithTarget:self action:@selector(imgToFullScreen:)];
     pgr.delegate = self;
     [_iw addGestureRecognizer:pgr];
     
-    
+    /*
+    _qrphoto.userInteractionEnabled=YES;
+    UITapGestureRecognizer *pgrqr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(qrsmallScreen:)];
+    pgrqr.delegate = self;
+    [_qrphoto addGestureRecognizer:pgrqr];
+    */
 }
 
 /*
@@ -385,13 +399,30 @@ CGRect prevFrame;
     [SingletonClass sharedInstance].preview=@"accept";
 }
 
+
+-(IBAction)showqrcode
+{
+//    [self qrimgToFullScreen];
+    if (isFullScreen)
+        return;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    QRViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"qrview"];
+    
+    nextController.title=[words getword:@"qrcode"];
+    [self.navigationController pushViewController:nextController animated:YES];
+}
+
+
 -(IBAction)showgrapes
 {
+    if (isFullScreen)
+        return;
     /*
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:[words getword:@"grape"]
-                                  
+     
                                                             delegate:self
-                                  
+     
                                                    cancelButtonTitle:[words getword:@"cancel"]
                                   
                                               destructiveButtonTitle:nil
@@ -416,6 +447,9 @@ CGRect prevFrame;
 
 -(IBAction) showwinery
 {
+    if (isFullScreen)
+        return;
+
     /*
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:[words getword:@"winery"]
                                   
@@ -447,6 +481,9 @@ CGRect prevFrame;
 
 -(IBAction) showwine
 {
+    if (isFullScreen)
+        return;
+
     /*
     UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:[words getword:@"wine"]
                                   
@@ -529,7 +566,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
     [SingletonClass sharedInstance].rating=rating;
 
     
-    
+
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     DetailView *nextController = [storyboard instantiateViewControllerWithIdentifier:@"detailview"];
@@ -748,9 +785,25 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
         return;
     }
 }
+/*
+- (void)qrimgToFullScreen
+{
+        [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+            qrFrame = _qrphoto.frame;
+            [_qrphoto setFrame:[[UIScreen mainScreen] bounds]];
+        }completion:^(BOOL finished){
+            _covert.hidden=false;
+        }];
+}
 
 
-
+-(void)qrsmallScreen
+{
+    [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+        [_qrphoto setFrame:qrFrame];
+    }completion:^(BOOL finished){
+        _covert.hidden=true;
+    }];
+}
+*/
 @end
-
-

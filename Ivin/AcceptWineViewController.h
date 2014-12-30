@@ -26,6 +26,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *la1;
 @property (weak, nonatomic) IBOutlet UILabel *la2;
 @property (weak, nonatomic) IBOutlet UILabel *la3;
+@property (weak, nonatomic) IBOutlet UILabel *qrcode;
+
 @property (weak, nonatomic) IBOutlet UILabel *la4;//酒农推荐label
 @property (weak, nonatomic) IBOutlet UILabel *la5;//平均评价
 @property (weak, nonatomic) IBOutlet UILabel *la6;//平均价格
@@ -50,6 +52,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *sw;
 @property (weak, nonatomic) IBOutlet UIImageView *iw;
+//@property (weak, nonatomic) IBOutlet UIImageView *qrphoto;
 
 @property (weak, nonatomic) IBOutlet UIImageView *cup;
 

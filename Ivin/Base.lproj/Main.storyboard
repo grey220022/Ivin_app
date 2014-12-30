@@ -969,6 +969,14 @@
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                     </label>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="QR Code" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="e48-hS-IkT">
+                                        <rect key="frame" x="0.0" y="720" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="highlightedColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    </label>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="赞" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7zG-a4-O6Q">
                                         <rect key="frame" x="50" y="1700" width="42" height="21"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1111,6 +1119,17 @@
                                             <action selector="showwinery" destination="DU5-cT-NPA" eventType="touchDown" id="22d-Vm-C7b"/>
                                         </connections>
                                     </button>
+                                    <button contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="iBT-DT-rZE">
+                                        <rect key="frame" x="0.0" y="720" width="320" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="QR Code Button">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="showqrcode" destination="DU5-cT-NPA" eventType="touchDown" id="Yjc-YH-fkT"/>
+                                        </connections>
+                                    </button>
                                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Seresin, Marlborough, New Zealand" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UfM-gd-8WO">
                                         <rect key="frame" x="130" y="130" width="200" height="77"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -1160,6 +1179,10 @@
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="f0j-7s-aWJ">
                                         <rect key="frame" x="0.0" y="700" width="320" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="Uh7-uh-04w">
+                                        <rect key="frame" x="0.0" y="750" width="320" height="20"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="Ks1-3b-gTl">
@@ -1312,6 +1335,7 @@
                         <outlet property="newtable" destination="rnl-xE-Iej" id="4VX-7G-1Qf"/>
                         <outlet property="personalnote" destination="6Tq-5l-HgW" id="mhz-uC-AiD"/>
                         <outlet property="price" destination="s4y-F7-vsf" id="zaG-VT-Zyd"/>
+                        <outlet property="qrcode" destination="e48-hS-IkT" id="FC5-rO-cjO"/>
                         <outlet property="rateView" destination="n3c-yr-IaC" id="Yv3-j6-B5X"/>
                         <outlet property="starts" destination="8rq-cG-LP7" id="SKe-Zg-Osg"/>
                         <outlet property="statusLabel" destination="IPc-DF-43N" id="5AX-lt-1Ur"/>
@@ -1433,6 +1457,29 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="v0d-mu-cck" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1282" y="3199"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="OQ1-V8-3Xf">
+            <objects>
+                <viewController storyboardIdentifier="qrview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="xaj-l5-pYc" customClass="QRViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="H16-Vo-j9s">
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3.png" id="QbG-8j-BLC">
+                                <rect key="frame" x="0.0" y="82" width="320" height="317"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="ima" destination="QbG-8j-BLC" id="PCW-pU-Lqg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LDB-V9-RiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1282" y="3199"/>
         </scene>
