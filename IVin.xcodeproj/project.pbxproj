@@ -1217,6 +1217,7 @@
 					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
 				);
 				PRODUCT_NAME = IVin;
+				PROVISIONING_PROFILE = "e372b745-2235-47f1-9255-455d0197d7d6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1236,6 +1237,7 @@
 					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
 				);
 				PRODUCT_NAME = IVin;
+				PROVISIONING_PROFILE = "e372b745-2235-47f1-9255-455d0197d7d6";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

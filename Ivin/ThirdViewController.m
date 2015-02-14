@@ -513,7 +513,10 @@ NSMutableArray *filterarray;
     NSString *winenumber=[WineCode objectAtIndex:[self getvalue:indexPath.row]];
     
     
-    NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber];
+    NSString* l=[SingletonClass sharedInstance].lang;
+    if ((![l isEqual:@"en"])&& (![l isEqual:@"zh"]))
+      l=@"fr";
+    NSString * wineurl= [NSString stringWithFormat:@"%@%@%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber,@"&lang=",l];
     NSData* winestring=[IvinHelp geturlcontentfromcache:wineurl];
     
    // NSLog(@"%@",wineurl);

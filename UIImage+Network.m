@@ -18,6 +18,7 @@ static char URL_KEY;
 
 - (void) loadImageFromURL:(NSURL*)url placeholderImage:(UIImage*)placeholder cachingKey:(NSString*)key {
 	self.imageURL = url;
+    self.contentMode=UIViewContentModeScaleAspectFit;
 	self.image = placeholder;
 	
     

@@ -326,8 +326,13 @@ int tim;
         NSString *winenumber=[stringValue substringFromIndex:nn-10];
         //@"http://lapinroi-001-site1.smarterasp.net/WineCard/DetailsWineryIndex?wineCode=FR00009001"
         //http://lapinroi-001-site1.smarterasp.net/api/wine?winecode=FR00009001
+
+        NSString* l=[SingletonClass sharedInstance].lang;
+        if ((![l isEqual:@"en"])&& (![l isEqual:@"zh"]))
+            l=@"fr";
+        wineurl= [NSString stringWithFormat:@"%@%@%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber,@"&lang=",l];
         
-        wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber];
+        //wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/wine?winecode=",winenumber];
       //  wineryurl= [NSString stringWithFormat:@"%@%@", @"http://lapinroi-001-site1.smarterasp.net/api/winery/",winenumber];
         //http://www.ivintag.com/api/wine?winecode=FR00009001
         

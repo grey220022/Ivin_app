@@ -770,7 +770,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
         }completion:^(BOOL finished){
             isFullScreen = true;
             _covert.hidden=false;
-
+            //[_sw setScrollEnabled:NO];
             
         }];
         return;
@@ -779,6 +779,7 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
             [_iw setFrame:prevFrame];
         }completion:^(BOOL finished){
             isFullScreen = false;
+            //[_sw setScrollEnabled:YES];
             _covert.hidden=true;
             
         }];
