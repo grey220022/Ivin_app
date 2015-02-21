@@ -67,7 +67,7 @@ CGRect qrFrame;
       //  NSLog(@"%@",url);
         
         NSData* userwine=[IvinHelp geturlcontentfromcache:url];
-        
+        NSLog(@"first");
         
         if ((!userwine)||([userwine length]==0))
         {
@@ -135,6 +135,7 @@ CGRect qrFrame;
     
     int ratingvalue;
     
+    NSLog(@"second");
     
     if ([SingletonClass sharedInstance].wine.AverageMark)
     
@@ -361,6 +362,8 @@ CGRect qrFrame;
     pgrqr.delegate = self;
     [_qrphoto addGestureRecognizer:pgrqr];
     */
+    NSLog(@"third");
+
 }
 
 /*
@@ -372,6 +375,8 @@ CGRect qrFrame;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"fourth");
+
    // NSLog(@"acceptappear");
     self.wine=[SingletonClass sharedInstance].wine;
     self.winery=[SingletonClass sharedInstance].winery;
@@ -385,11 +390,13 @@ CGRect qrFrame;
         [self.rateView setRating:self.rateView.rating];
         //[self.rateView setRating:2];
     }
+    NSLog(@"fifth");
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+    NSLog(@"sixth");
 }
 
 
@@ -544,6 +551,8 @@ actionSheet.actionSheetStyle =UIActionSheetStyleAutomatic;
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    NSLog(@"crash");
+
     // Dispose of any resources that can be recreated.
 }
 

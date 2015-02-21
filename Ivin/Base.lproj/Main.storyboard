@@ -1839,6 +1839,92 @@
             </objects>
             <point key="canvasLocation" x="2452" y="2706"/>
         </scene>
+        <!--Contact View Controller-->
+        <scene sceneID="Abg-Mm-dYL">
+            <objects>
+                <viewController storyboardIdentifier="contactview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Nus-xh-p87" customClass="ContactViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="kCa-cA-rtG">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="0ax-5u-BWU">
+                                <rect key="frame" x="0.0" y="-52" width="320" height="500"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="2St-L1-8rs">
+                                        <rect key="frame" x="0.0" y="54" width="320" height="200"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="xQH-Lk-wYT">
+                                        <rect key="frame" x="0.0" y="250" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="46r-Yc-77b">
+                                        <rect key="frame" x="0.0" y="300" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="6pU-Mj-Icb">
+                                        <rect key="frame" x="0.0" y="350" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="tDL-ZF-C5s">
+                                        <rect key="frame" x="0.0" y="400" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="iZ4-Rg-KDR">
+                                        <rect key="frame" x="0.0" y="450" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="tUZ-Si-O12">
+                                        <rect key="frame" x="0.0" y="500" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="ljk-A4-OXL">
+                                        <rect key="frame" x="0.0" y="550" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gline.png" id="ra7-4X-pIh">
+                                        <rect key="frame" x="0.0" y="600" width="320" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="call_c.png" id="UJh-Qm-AEQ">
+                                        <rect key="frame" x="14" y="314" width="43" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mail_c.png" id="WfC-rf-lLX">
+                                        <rect key="frame" x="14" y="414" width="43" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="fax.png" id="zD1-JO-pNa">
+                                        <rect key="frame" x="14" y="464" width="43" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook.png" id="OCg-rf-h86">
+                                        <rect key="frame" x="14" y="514" width="43" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="weixin_c.png" id="fU2-Ct-BLw">
+                                        <rect key="frame" x="14" y="564" width="43" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="map_c.png" id="x6z-zc-hOZ">
+                                        <rect key="frame" x="14" y="364" width="43" height="42"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="iw" destination="2St-L1-8rs" id="MtL-4O-SZg"/>
+                        <outlet property="sw" destination="0ax-5u-BWU" id="BYw-y1-wrL"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UtT-uH-VCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2912" y="2392"/>
+        </scene>
         <!--Item-->
         <scene sceneID="42M-ah-GuK">
             <objects>
@@ -1916,13 +2002,18 @@
         <image name="backlist.png" width="320" height="87"/>
         <image name="book-vide.png" width="400" height="400"/>
         <image name="cal.png" width="250" height="250"/>
+        <image name="call_c.png" width="300" height="300"/>
         <image name="cancel2.png" width="400" height="400"/>
         <image name="caved.png" width="60" height="60"/>
         <image name="collect-vide.png" width="400" height="400"/>
         <image name="cup.png" width="50" height="50"/>
+        <image name="facebook.png" width="300" height="300"/>
+        <image name="fax.png" width="300" height="300"/>
         <image name="foodpair.png" width="300" height="300"/>
         <image name="gline.png" width="320" height="24"/>
         <image name="list" width="30" height="30"/>
+        <image name="mail_c.png" width="300" height="300"/>
+        <image name="map_c.png" width="300" height="300"/>
         <image name="point.png" width="250" height="250"/>
         <image name="profile.png" width="300" height="300"/>
         <image name="qr" width="30" height="30"/>
@@ -1930,6 +2021,7 @@
         <image name="recomm.png" width="300" height="300"/>
         <image name="second" width="30" height="30"/>
         <image name="setup" width="30" height="30"/>
+        <image name="weixin_c.png" width="300" height="300"/>
         <image name="wine.jpg" width="1000" height="790"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

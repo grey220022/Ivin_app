@@ -27,6 +27,13 @@
 		CE5481151947798D001ED112 /* VinViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE5481141947798D001ED112 /* VinViewController.m */; };
 		CE54811819478D42001ED112 /* WineryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE54811719478D42001ED112 /* WineryViewController.m */; };
 		CE66539C1A51ACA000018A6A /* QRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE66539B1A51ACA000018A6A /* QRViewController.m */; };
+		CE6653A11A9898D200018A6A /* ContactViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE6653A01A9898D200018A6A /* ContactViewController.m */; };
+		CE6653A71A98AC1C00018A6A /* call_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653A21A98AC1C00018A6A /* call_c.png */; };
+		CE6653A81A98AC1C00018A6A /* fax.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653A31A98AC1C00018A6A /* fax.png */; };
+		CE6653A91A98AC1C00018A6A /* facebook.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653A41A98AC1C00018A6A /* facebook.png */; };
+		CE6653AA1A98AC1C00018A6A /* mail_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653A51A98AC1C00018A6A /* mail_c.png */; };
+		CE6653AB1A98AC1C00018A6A /* weixin_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653A61A98AC1C00018A6A /* weixin_c.png */; };
+		CE6653AE1A98AC9400018A6A /* map_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653AD1A98AC9400018A6A /* map_c.png */; };
 		CE84199818BEAF0200ECC402 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199718BEAF0200ECC402 /* Foundation.framework */; };
 		CE84199A18BEAF0200ECC402 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199918BEAF0200ECC402 /* CoreGraphics.framework */; };
 		CE84199C18BEAF0200ECC402 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199B18BEAF0200ECC402 /* UIKit.framework */; };
@@ -193,6 +200,14 @@
 		CE54811719478D42001ED112 /* WineryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryViewController.m; sourceTree = "<group>"; };
 		CE66539A1A51AC8D00018A6A /* QRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRViewController.h; sourceTree = "<group>"; };
 		CE66539B1A51ACA000018A6A /* QRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRViewController.m; sourceTree = "<group>"; };
+		CE66539F1A9898BB00018A6A /* ContactViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ContactViewController.h; sourceTree = "<group>"; };
+		CE6653A01A9898D200018A6A /* ContactViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ContactViewController.m; sourceTree = "<group>"; };
+		CE6653A21A98AC1C00018A6A /* call_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = call_c.png; sourceTree = "<group>"; };
+		CE6653A31A98AC1C00018A6A /* fax.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fax.png; sourceTree = "<group>"; };
+		CE6653A41A98AC1C00018A6A /* facebook.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook.png; sourceTree = "<group>"; };
+		CE6653A51A98AC1C00018A6A /* mail_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail_c.png; sourceTree = "<group>"; };
+		CE6653A61A98AC1C00018A6A /* weixin_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weixin_c.png; sourceTree = "<group>"; };
+		CE6653AD1A98AC9400018A6A /* map_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_c.png; sourceTree = "<group>"; };
 		CE84199418BEAF0200ECC402 /* IVin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IVin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE84199718BEAF0200ECC402 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE84199918BEAF0200ECC402 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -422,6 +437,12 @@
 		CE084C8C18F489CE0062BB5F /* newresources */ = {
 			isa = PBXGroup;
 			children = (
+				CE6653A21A98AC1C00018A6A /* call_c.png */,
+				CE6653AD1A98AC9400018A6A /* map_c.png */,
+				CE6653A31A98AC1C00018A6A /* fax.png */,
+				CE6653A41A98AC1C00018A6A /* facebook.png */,
+				CE6653A51A98AC1C00018A6A /* mail_c.png */,
+				CE6653A61A98AC1C00018A6A /* weixin_c.png */,
 				CE8A9BA218C2354700F76A4A /* kermit_empty.png */,
 				CEB4A55218C69C5D0037C867 /* line@2x.png */,
 				CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */,
@@ -615,6 +636,8 @@
 				CE8419D018BEB2CA00ECC402 /* ThirdViewController.m */,
 				CEF8CF7218C1889600943823 /* AcceptWineViewController.h */,
 				CEF8CF7318C1889600943823 /* AcceptWineViewController.m */,
+				CE66539F1A9898BB00018A6A /* ContactViewController.h */,
+				CE6653A01A9898D200018A6A /* ContactViewController.m */,
 				CE95FB5F195043E600D882C1 /* Wine.h */,
 				CE95FB60195043E600D882C1 /* Wine.m */,
 				CE95FB621950440000D882C1 /* Winery.h */,
@@ -907,6 +930,7 @@
 				CE89181B19153C6200231FBB /* cup.png in Resources */,
 				CEB4A54018C69B720037C867 /* zbar-helpicons.png in Resources */,
 				CEA073E619B1D09E009A3351 /* 10.png in Resources */,
+				CE6653A91A98AC1C00018A6A /* facebook.png in Resources */,
 				CEDC465F19966AC300C1665F /* star3.png in Resources */,
 				CE95FB79196096FA00D882C1 /* point.png in Resources */,
 				CE084CAA18F60C270062BB5F /* gline.png in Resources */,
@@ -935,9 +959,11 @@
 				CEA073E719B1D09E009A3351 /* 20.png in Resources */,
 				CE97623D18CFD82000A8C6AC /* bubbleSomeone.png in Resources */,
 				CE97623E18CFD82000A8C6AC /* bubbleSomeone@2x.png in Resources */,
+				CE6653AA1A98AC1C00018A6A /* mail_c.png in Resources */,
 				CEFF3F5518E246C500785AD7 /* RadioButton-Unselected.png in Resources */,
 				CE8917BD1914F7B600231FBB /* 222.png in Resources */,
 				CE8419A218BEAF0200ECC402 /* InfoPlist.strings in Resources */,
+				CE6653AB1A98AC1C00018A6A /* weixin_c.png in Resources */,
 				CE89181E191E327800231FBB /* caved.png in Resources */,
 				CEDC465D19966AC300C1665F /* star1.png in Resources */,
 				CE89181F191E327800231FBB /* rated.png in Resources */,
@@ -953,6 +979,7 @@
 				CE97625818CFDF5800A8C6AC /* avatar1.png in Resources */,
 				CE31139719B071C000D05C08 /* book-vide.png in Resources */,
 				CE97623C18CFD82000A8C6AC /* bubbleMine@2x.png in Resources */,
+				CE6653A81A98AC1C00018A6A /* fax.png in Resources */,
 				CEB4A53E18C69B720037C867 /* zbar-back.png in Resources */,
 				CE8918241928A13200231FBB /* backlist.png in Resources */,
 				CE31139019AE8D8A00D05C08 /* newline.png in Resources */,
@@ -968,6 +995,7 @@
 				CEC93422199A9ABA00FF2FB8 /* cancel.png in Resources */,
 				CEDC465E19966AC300C1665F /* star2.png in Resources */,
 				CEC93433199F493000FF2FB8 /* rose.png in Resources */,
+				CE6653A71A98AC1C00018A6A /* call_c.png in Resources */,
 				CE95FB75196096FA00D882C1 /* cal.png in Resources */,
 				CEC9342A199AAABC00FF2FB8 /* profile.png in Resources */,
 				CE97623F18CFD82000A8C6AC /* missingAvatar.png in Resources */,
@@ -975,6 +1003,7 @@
 				CEC93432199F493000FF2FB8 /* red.png in Resources */,
 				CEA073E519B1D09E009A3351 /* 00.png in Resources */,
 				CE97624218CFD82000A8C6AC /* typingMine@2x.png in Resources */,
+				CE6653AE1A98AC9400018A6A /* map_c.png in Resources */,
 				CE8419AB18BEAF0200ECC402 /* Main.storyboard in Resources */,
 				CE97624018CFD82000A8C6AC /* missingAvatar@2x.png in Resources */,
 				CE95FB77196096FA00D882C1 /* emptyticket.png in Resources */,
@@ -1017,6 +1046,7 @@
 				CED34F0B18CCA8C700640DFD /* SendViewController.m in Sources */,
 				CE8917B9190EEBF700231FBB /* DetailView.m in Sources */,
 				CE8A9BA118C234AA00F76A4A /* RateView.m in Sources */,
+				CE6653A11A9898D200018A6A /* ContactViewController.m in Sources */,
 				CE97625118CFD85800A8C6AC /* NSBubbleData.m in Sources */,
 				CEB4A53A18C69B720037C867 /* qrspec.c in Sources */,
 				CE8419A818BEAF0200ECC402 /* AppDelegate.m in Sources */,
@@ -1217,7 +1247,7 @@
 					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
 				);
 				PRODUCT_NAME = IVin;
-				PROVISIONING_PROFILE = "e372b745-2235-47f1-9255-455d0197d7d6";
+				PROVISIONING_PROFILE = "5320cfd2-d02b-4009-9243-151b17f9ddd4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1237,7 +1267,7 @@
 					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
 				);
 				PRODUCT_NAME = IVin;
-				PROVISIONING_PROFILE = "e372b745-2235-47f1-9255-455d0197d7d6";
+				PROVISIONING_PROFILE = "5320cfd2-d02b-4009-9243-151b17f9ddd4";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

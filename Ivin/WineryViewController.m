@@ -12,6 +12,7 @@
 #import "SingletonClass.h"
 #import "UIImage+Network.h"
 #import "IvinHelp.h"
+#import "ContactViewController.h"
 
 @interface WineryViewController ()
 @property (strong) UIActivityIndicatorView *activityIndicator;
@@ -210,15 +211,15 @@ CGRect prevFrame;
 -(IBAction) b5_push
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
+    ContactViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contactview"];
     [self.navigationController pushViewController:nextController animated:YES];
     /*
      nextController.title=[words getword:@"contact"];
      nextController.contenttype=@"contact";
      */
     nextController.title=[words getword:@"bc5"];
-    nextController.contenttype=@"bc5";
-    nextController.imageurl=@"NOIMG";
+    //nextController.contenttype=@"bc5";
+    //nextController.imageurl=@"NOIMG";
 }
 
 -(void)ios6move: (UIView *)u
