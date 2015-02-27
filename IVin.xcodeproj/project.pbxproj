@@ -34,6 +34,7 @@
 		CE6653AA1A98AC1C00018A6A /* mail_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653A51A98AC1C00018A6A /* mail_c.png */; };
 		CE6653AB1A98AC1C00018A6A /* weixin_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653A61A98AC1C00018A6A /* weixin_c.png */; };
 		CE6653AE1A98AC9400018A6A /* map_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653AD1A98AC9400018A6A /* map_c.png */; };
+		CE6654151AA07A8900018A6A /* web.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6654141AA07A8900018A6A /* web.png */; };
 		CE84199818BEAF0200ECC402 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199718BEAF0200ECC402 /* Foundation.framework */; };
 		CE84199A18BEAF0200ECC402 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199918BEAF0200ECC402 /* CoreGraphics.framework */; };
 		CE84199C18BEAF0200ECC402 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199B18BEAF0200ECC402 /* UIKit.framework */; };
@@ -208,6 +209,7 @@
 		CE6653A51A98AC1C00018A6A /* mail_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = mail_c.png; sourceTree = "<group>"; };
 		CE6653A61A98AC1C00018A6A /* weixin_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weixin_c.png; sourceTree = "<group>"; };
 		CE6653AD1A98AC9400018A6A /* map_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_c.png; sourceTree = "<group>"; };
+		CE6654141AA07A8900018A6A /* web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web.png; sourceTree = "<group>"; };
 		CE84199418BEAF0200ECC402 /* IVin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IVin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE84199718BEAF0200ECC402 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE84199918BEAF0200ECC402 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -444,6 +446,7 @@
 				CE6653A51A98AC1C00018A6A /* mail_c.png */,
 				CE6653A61A98AC1C00018A6A /* weixin_c.png */,
 				CE8A9BA218C2354700F76A4A /* kermit_empty.png */,
+				CE6654141AA07A8900018A6A /* web.png */,
 				CEB4A55218C69C5D0037C867 /* line@2x.png */,
 				CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */,
 				CE89181C191E327800231FBB /* caved.png */,
@@ -966,6 +969,7 @@
 				CE6653AB1A98AC1C00018A6A /* weixin_c.png in Resources */,
 				CE89181E191E327800231FBB /* caved.png in Resources */,
 				CEDC465D19966AC300C1665F /* star1.png in Resources */,
+				CE6654151AA07A8900018A6A /* web.png in Resources */,
 				CE89181F191E327800231FBB /* rated.png in Resources */,
 				CE89181719152B7200231FBB /* noir1.png in Resources */,
 				CE8A9BA618C2354700F76A4A /* kermit_full.png in Resources */,
@@ -1134,7 +1138,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7s,
+					armv7,
+					armv64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1179,7 +1187,7 @@
 				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "32E5A59D-F9CA-400D-84C4-92582A4C3AA2";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv6 armv7";
+				VALID_ARCHS = "armv7s armv7 armv64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1188,7 +1196,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = (
+					armv7s,
+					armv7,
+					armv64,
+				);
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1227,7 +1239,7 @@
 				PROVISIONING_PROFILE = "32E5A59D-F9CA-400D-84C4-92582A4C3AA2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv6 armv7";
+				VALID_ARCHS = "armv7s armv7 armv64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

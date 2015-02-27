@@ -25,10 +25,6 @@
 
 @interface AcceptWineViewController ()
 
-@property(nonatomic,retain) NSArray * listData;
-@property(nonatomic,retain) NSArray * grapeData;
-
-@property(nonatomic,retain) NSArray * sublistData;
 
 @end
 
@@ -66,7 +62,6 @@ CGRect qrFrame;
             [SingletonClass sharedInstance].rating=0;
         }
         else {
-            NSString* newStr = [[NSString alloc] initWithData:userwine encoding:NSUTF8StringEncoding];
             [IvinHelp wineidparse:userwine];
         }
     }
@@ -169,10 +164,6 @@ CGRect qrFrame;
     [_iw loadImageFromURL:[NSURL URLWithString:[SingletonClass sharedInstance].wine.WinePhotoUrl] placeholderImage:nil cachingKey:[SingletonClass sharedInstance].wine.WinePhotoUrl];
     _iw.contentMode=UIViewContentModeScaleAspectFit;
     
-    NSArray *array=[[NSArray alloc] initWithObjects:@"酒的故事",@"葡萄种类",@"评论",nil];
-    self.listData=array;
-    array=[[NSArray alloc] initWithObjects:@"第一种葡萄",@"第二种葡萄",@"第三种葡萄",nil];
-    self.grapeData=array;
 
     _sw.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
     
@@ -252,11 +243,11 @@ CGRect qrFrame;
     
     isFullScreen = false;
     [_sw bringSubviewToFront:_iw];
-    _iw.userInteractionEnabled = YES;
-    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:self action:@selector(imgToFullScreen:)];
-    pgr.delegate = self;
-    [_iw addGestureRecognizer:pgr];
+   // _iw.userInteractionEnabled = YES;
+   // UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+   //                                initWithTarget:self action:@selector(imgToFullScreen:)];
+   // pgr.delegate = self;
+   // [_iw addGestureRecognizer:pgr];
     
     NSLog(@"third");
 
