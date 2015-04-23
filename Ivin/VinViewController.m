@@ -105,6 +105,13 @@ CGRect prevFrame;
     pgr.delegate = self;
     [_ima addGestureRecognizer:pgr];
     
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scalePiece:)];
+    [pinchGesture setDelegate:self];
+    [_ima addGestureRecognizer:pinchGesture];
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPiece:)];
+    [pinchGesture setDelegate:self];
+    [_ima addGestureRecognizer:panGesture];
     
     
     if([UIScreen mainScreen].bounds.size.height < 568){
@@ -124,6 +131,31 @@ CGRect prevFrame;
         
     }
 
+}
+
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    if (isFullScreen)
+    {
+    [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
+        [_ima setFrame:prevFrame];
+    }completion:^(BOOL finished){
+        isFullScreen = false;
+        _b1.hidden=false;
+        _b2.hidden=false;
+        _b3.hidden=false;
+        _b4.hidden=false;
+        _b5.hidden=false;
+        
+        _ll1.hidden=false;
+        _ll2.hidden=false;
+        _ll3.hidden=false;
+        _ll4.hidden=false;
+        _ll5.hidden=false;
+    }];
+    }
 }
 
 
@@ -272,6 +304,46 @@ CGRect prevFrame;
 
         }];
         return;
+    }
+}
+
+
+- (void)adjustAnchorPointForGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        UIView *piece = gestureRecognizer.view;
+        CGPoint locationInView = [gestureRecognizer locationInView:piece];
+        CGPoint locationInSuperview = [gestureRecognizer locationInView:piece.superview];
+        
+        piece.layer.anchorPoint = CGPointMake(locationInView.x / piece.bounds.size.width, locationInView.y / piece.bounds.size.height);
+        piece.center = locationInSuperview;
+    }
+}
+
+
+- (void)scalePiece:(UIPinchGestureRecognizer *)gestureRecognizer {
+    if (!isFullScreen)
+        return;
+    [self adjustAnchorPointForGestureRecognizer:gestureRecognizer];
+    
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan || [gestureRecognizer state] == UIGestureRecognizerStateChanged) {
+        [gestureRecognizer view].transform = CGAffineTransformScale([[gestureRecognizer view] transform], [gestureRecognizer scale], [gestureRecognizer scale]);
+        [gestureRecognizer setScale:1];
+    }
+}
+
+- (void)panPiece:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    if (!isFullScreen)
+        return;
+    UIView *piece = [gestureRecognizer view];
+    
+    [self adjustAnchorPointForGestureRecognizer:gestureRecognizer];
+    
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan || [gestureRecognizer state] == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [gestureRecognizer translationInView:[piece superview]];
+        
+        [piece setCenter:CGPointMake([piece center].x + translation.x, [piece center].y + translation.y)];
+        [gestureRecognizer setTranslation:CGPointZero inView:[piece superview]];
     }
 }
 

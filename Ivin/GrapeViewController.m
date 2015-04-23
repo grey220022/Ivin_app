@@ -63,7 +63,11 @@
     
 	UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:nil];
 	cell.selectionStyle = UITableViewCellSelectionStyleBlue;
-    cell.textLabel.text = [_grapearray objectAtIndex:indexPath.row];
+//    cell.textLabel.text =     ;
+//    cell.textLabel.text =    ;
+    
+    cell.textLabel.text =[NSString stringWithFormat: @"%@ (%@ %%)", [_grapearray objectAtIndex:indexPath.row], [_graperatioarray objectAtIndex:indexPath.row] ];
+    
     cell.backgroundView = [[UIImageView alloc] initWithImage:[ [UIImage imageNamed:@"backlist.png"] stretchableImageWithLeftCapWidth:0.0 topCapHeight:5.0] ];
     cell.backgroundColor=[UIColor blackColor];
     cell.textColor=[UIColor whiteColor];

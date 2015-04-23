@@ -311,6 +311,8 @@ CGRect qrFrame;
     nextController.title=[words getword:@"grape"];
     
     nextController.grapearray=[SingletonClass sharedInstance].wine.grapearray;
+    nextController.graperatioarray=[SingletonClass sharedInstance].wine.graperatioarray;
+    
     
     [self.navigationController pushViewController:nextController animated:YES];
     

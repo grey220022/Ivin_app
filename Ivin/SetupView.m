@@ -120,26 +120,18 @@
 {
     if ([SingletonClass sharedInstance].username!=nil)
     {
-        [SingletonClass sharedInstance].skiphistory=0;
-        [SingletonClass sharedInstance].username=nil;
-        [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
         UIAlertView *myAlertView;
-        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signout"] message:[words getword:@"signoutok"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        //myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signout"] message:[words getword:@"signoutok"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        
+        
+        myAlertView = [[UIAlertView alloc] initWithTitle:[words getword:@"signout"]
+                                                        message:[words getword:@"signoutask"]
+                                                       delegate:self
+                                              cancelButtonTitle:[words getword:@"yes"]
+                                              otherButtonTitles:[words getword:@"no"], nil];
+        
+        
         [myAlertView show];
-        [_li3 setTitle:[words getword:@"userlogin"] forState:UIControlStateNormal];
-        
-        //todo
-        NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
-        NSString *plistPath = [paths objectAtIndex:0];
-        //得到完整的文件名
-        NSString *filename=[plistPath stringByAppendingPathComponent:@"Info.plist"];
-        
-        NSMutableDictionary* dic =[[NSMutableDictionary alloc] initWithContentsOfFile:filename];
-        //[dic setObject:nil forKey: @"username"];
-        [dic removeObjectForKey:@"username"];
-
-        [dic writeToFile:filename atomically:YES];
-        
         return;
     }
     
@@ -151,6 +143,35 @@
     
     
 }
+
+
+- (void) alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if( 1 == buttonIndex ){ //cancel button
+        
+    } else if ( 0 == buttonIndex ){
+        [SingletonClass sharedInstance].skiphistory=0;
+        [SingletonClass sharedInstance].username=nil;
+        [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
+        
+        [_li3 setTitle:[words getword:@"userlogin"] forState:UIControlStateNormal];
+        
+        //todo
+        NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
+        NSString *plistPath = [paths objectAtIndex:0];
+        //得到完整的文件名
+        NSString *filename=[plistPath stringByAppendingPathComponent:@"Info.plist"];
+        
+        NSMutableDictionary* dic =[[NSMutableDictionary alloc] initWithContentsOfFile:filename];
+        //[dic setObject:nil forKey: @"username"];
+        [dic removeObjectForKey:@"username"];
+        
+        [dic writeToFile:filename atomically:YES];
+
+    }
+}
+
+
 -(IBAction)websitepress
 {
     

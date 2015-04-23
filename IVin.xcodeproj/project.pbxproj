@@ -125,6 +125,8 @@
 		CEB4A54B18C69BCD0037C867 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB4A54A18C69BCD0037C867 /* QuartzCore.framework */; };
 		CEB4A55418C69C5D0037C867 /* line@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB4A55218C69C5D0037C867 /* line@2x.png */; };
 		CEB4A55518C69C5D0037C867 /* pick_bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */; };
+		CEB909D71AC465D2002CE82E /* AllWineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB909D61AC465D2002CE82E /* AllWineViewController.m */; };
+		CEB909DA1AC99759002CE82E /* AllWineListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB909D91AC99757002CE82E /* AllWineListViewController.m */; };
 		CEC934201996851E00FF2FB8 /* adward.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC9341F1996851E00FF2FB8 /* adward.png */; };
 		CEC93422199A9ABA00FF2FB8 /* cancel.png in Resources */ = {isa = PBXBuildFile; fileRef = CEC93421199A9ABA00FF2FB8 /* cancel.png */; };
 		CEC93425199AA06A00FF2FB8 /* NewuserView.m in Sources */ = {isa = PBXBuildFile; fileRef = CEC93424199AA06A00FF2FB8 /* NewuserView.m */; };
@@ -352,6 +354,10 @@
 		CEB4A54A18C69BCD0037C867 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		CEB4A55218C69C5D0037C867 /* line@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "line@2x.png"; sourceTree = "<group>"; };
 		CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "pick_bg@2x.png"; sourceTree = "<group>"; };
+		CEB909D51AC465B9002CE82E /* AllWineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllWineViewController.h; sourceTree = "<group>"; };
+		CEB909D61AC465D2002CE82E /* AllWineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllWineViewController.m; sourceTree = "<group>"; };
+		CEB909D81AC9973B002CE82E /* AllWineListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AllWineListViewController.h; sourceTree = "<group>"; };
+		CEB909D91AC99757002CE82E /* AllWineListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AllWineListViewController.m; sourceTree = "<group>"; };
 		CEC9341F1996851E00FF2FB8 /* adward.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = adward.png; sourceTree = "<group>"; };
 		CEC93421199A9ABA00FF2FB8 /* cancel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel.png; sourceTree = "<group>"; };
 		CEC93423199AA06A00FF2FB8 /* NewuserView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewuserView.h; sourceTree = "<group>"; };
@@ -595,6 +601,10 @@
 				CE8419A918BEAF0200ECC402 /* Main.storyboard */,
 				CE95FB5C194F89C000D882C1 /* ContentViewController.h */,
 				CE95FB5D194F89C000D882C1 /* ContentViewController.m */,
+				CEB909D51AC465B9002CE82E /* AllWineViewController.h */,
+				CEB909D61AC465D2002CE82E /* AllWineViewController.m */,
+				CEB909D81AC9973B002CE82E /* AllWineListViewController.h */,
+				CEB909D91AC99757002CE82E /* AllWineListViewController.m */,
 				CEC9343C199F640D00FF2FB8 /* SetupView.h */,
 				CEC9343D199F640D00FF2FB8 /* SetupView.m */,
 				CE95FB18194F70F300D882C1 /* GrapeViewController.h */,
@@ -1077,8 +1087,10 @@
 				CE97622C18CD240D00A8C6AC /* WineView.m in Sources */,
 				CEC93428199AA9A500FF2FB8 /* NewloginView.m in Sources */,
 				CE084BF918F0392F0062BB5F /* SingletonClass.m in Sources */,
+				CEB909D71AC465D2002CE82E /* AllWineViewController.m in Sources */,
 				CE8419A418BEAF0200ECC402 /* main.m in Sources */,
 				CE25A8F218D77D1500927856 /* ProfileView.m in Sources */,
+				CEB909DA1AC99759002CE82E /* AllWineListViewController.m in Sources */,
 				CE084BFC18F047CF0062BB5F /* words.m in Sources */,
 				CEFF3F5818E3517C00785AD7 /* ProfileEmailView.m in Sources */,
 				CEB4A53818C69B720037C867 /* qrencode.c in Sources */,

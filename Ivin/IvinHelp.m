@@ -251,15 +251,20 @@ NSDictionary *winerydic;
     NSString * tmp;
     
     NSMutableArray *ttt =[[NSMutableArray alloc] initWithObjects: nil];
+    NSMutableArray *ttt1 =[[NSMutableArray alloc] initWithObjects: nil];
     
     for (NSDictionary *groupDic in grapelist) {
         //Group *group = [[Group alloc] init];
         //groupDic
         tmp=[groupDic valueForKey:@"GrapeName"];
         [ttt addObject:tmp];
+        tmp=[groupDic valueForKey:@"Percentage"];
+        [ttt1 addObject:tmp];
     }
     
     [SingletonClass sharedInstance].wine.grapearray=ttt;
+    [SingletonClass sharedInstance].wine.graperatioarray=ttt1;
+    
     [SingletonClass sharedInstance].wine.WineTypeName=[tempdic objectForKey:@"WineTypeName"];
     [SingletonClass sharedInstance].wine.WineryRecommandation=[IvinHelp purge:[tempdic objectForKey:@"WineryRecommandation"]];
 //    NSLog(@"%@",[SingletonClass sharedInstance].wine.WineryRecommandation);

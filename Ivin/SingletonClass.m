@@ -40,6 +40,23 @@ static SingletonClass *sharedInstance = nil;
     self.wineset= [NSSet setWithObjects:nil];
     self = [super init];
     
+    //self.filterlevel=1;
+    
+    self.WineName=[[NSMutableArray alloc] initWithObjects: nil];
+    self.WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
+    self.WineryName=[[NSMutableArray alloc] initWithObjects: nil];
+    self.WineryCountry=[[NSMutableArray alloc] initWithObjects: nil];
+    self.Appellation=[[NSMutableArray alloc] initWithObjects: nil];
+    self.Year=[[NSMutableArray alloc] initWithObjects: nil];
+    self.AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
+    self.CreateDate=[[NSMutableArray alloc] initWithObjects: nil];
+    self.WineCode=[[NSMutableArray alloc] initWithObjects: nil];
+    self.WineId=[[NSMutableArray alloc] initWithObjects: nil];
+    self.Likewine=[[NSMutableArray alloc] initWithObjects: nil];
+    self.Favorite=[[NSMutableArray alloc] initWithObjects: nil];
+    
+    
+    
     _wine=[[Wine alloc]init];
     _winery=[[Winery alloc]init];
     

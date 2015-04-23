@@ -11,9 +11,11 @@
 #import "Wine.h"
 #import "Winery.h"
 #import "SingletonClass.h"
+#import <MessageUI/MFMailComposeViewController.h>
 
 
-@interface ContactViewController : UIViewController
+
+@interface ContactViewController : UIViewController<MFMailComposeViewControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIScrollView *sw;

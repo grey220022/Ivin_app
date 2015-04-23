@@ -64,7 +64,7 @@
         [dic setObject:response forKey: @"username"];
         [dic writeToFile:filename atomically:YES];
         
-        
+        NSLog(@"%@",response);
         
         [SingletonClass sharedInstance].username=response;
         UIAlertView *myAlertView;

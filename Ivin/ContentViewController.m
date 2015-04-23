@@ -146,6 +146,15 @@ CGRect prevFrame;
     [_ima addGestureRecognizer:pgr];
 
     
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scalePiece:)];
+    [pinchGesture setDelegate:self];
+    [_ima addGestureRecognizer:pinchGesture];
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPiece:)];
+    [pinchGesture setDelegate:self];
+    [_ima addGestureRecognizer:panGesture];
+
+    
     if (self.title.length>40)
     {
         UIButton *titleLabel = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -165,7 +174,49 @@ CGRect prevFrame;
         //[titleLabel addTarget:self action:@selector(titleTap:) forControlEvents:UIControlEventTouchUpInside];
         self.navigationItem.titleView = titleLabel;
     }
+    
 }
+
+
+- (void)adjustAnchorPointForGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        UIView *piece = gestureRecognizer.view;
+        CGPoint locationInView = [gestureRecognizer locationInView:piece];
+        CGPoint locationInSuperview = [gestureRecognizer locationInView:piece.superview];
+        
+        piece.layer.anchorPoint = CGPointMake(locationInView.x / piece.bounds.size.width, locationInView.y / piece.bounds.size.height);
+        piece.center = locationInSuperview;
+    }
+}
+
+
+- (void)scalePiece:(UIPinchGestureRecognizer *)gestureRecognizer {
+    if (!isFullScreen)
+        return;
+    [self adjustAnchorPointForGestureRecognizer:gestureRecognizer];
+    
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan || [gestureRecognizer state] == UIGestureRecognizerStateChanged) {
+        [gestureRecognizer view].transform = CGAffineTransformScale([[gestureRecognizer view] transform], [gestureRecognizer scale], [gestureRecognizer scale]);
+        [gestureRecognizer setScale:1];
+    }
+}
+
+- (void)panPiece:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    if (!isFullScreen)
+        return;
+    UIView *piece = [gestureRecognizer view];
+    
+    [self adjustAnchorPointForGestureRecognizer:gestureRecognizer];
+    
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan || [gestureRecognizer state] == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [gestureRecognizer translationInView:[piece superview]];
+        
+        [piece setCenter:CGPointMake([piece center].x + translation.x, [piece center].y + translation.y)];
+        [gestureRecognizer setTranslation:CGPointZero inView:[piece superview]];
+    }
+}
+
 
 - (void)didReceiveMemoryWarning
 {

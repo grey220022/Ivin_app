@@ -109,6 +109,7 @@ NSString * t1, *t2, *t3, *t4, *t5, *t6, *t7;
     _b7.layer.borderWidth = 0.0;
     [_b1 addTarget:self action:@selector(b1click) forControlEvents: UIControlEventTouchUpInside];
     [_b2 addTarget:self action:@selector(b2click) forControlEvents: UIControlEventTouchUpInside];
+    [_b4 addTarget:self action:@selector(b4click) forControlEvents: UIControlEventTouchUpInside];
     [_b6 addTarget:self action:@selector(b6click) forControlEvents: UIControlEventTouchUpInside];
     [_b7 addTarget:self action:@selector(b7click) forControlEvents: UIControlEventTouchUpInside];
 
@@ -141,6 +142,51 @@ NSString * t1, *t2, *t3, *t4, *t5, *t6, *t7;
     }
     
 }
+
+-(IBAction) b4click
+{
+    
+    
+    
+    MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+    mail.mailComposeDelegate = self;
+    [mail setSubject:@"Sample Subject"];
+    [mail setMessageBody:@"Here is some main text in the email!" isHTML:NO];
+    [mail setToRecipients:@[@"testingEmail@example.com"]];
+    
+    [self presentViewController:mail animated:YES completion:NULL];
+    
+    
+}
+
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    //关闭邮件发送窗口
+    [self dismissModalViewControllerAnimated:YES];
+    NSString *msg;
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            msg = @"用户取消编辑邮件";
+            break;
+        case MFMailComposeResultSaved:
+            msg = @"用户成功保存邮件";
+            break;
+        case MFMailComposeResultSent:
+            msg = @"用户点击发送，将邮件放到队列中，还没发送";
+            break;
+        case MFMailComposeResultFailed:
+            msg = @"用户试图保存或者发送邮件失败";
+            break;
+        default:
+            msg = @"";
+            break;
+    }
+    //[self alertWithMessage:msg];
+    NSLog(@"@%@",msg);
+}
+
 
 -(IBAction) b6click
 {
