@@ -103,10 +103,18 @@ int tim;
     
 //    NSLog(@"%@",[SingletonClass sharedInstance].winery.Name);
 //    NSLog(@"%@",[SingletonClass sharedInstance].wine.Wine);
-    
 }
 
-
+- (void)viewDidAppear:(BOOL)animated
+{
+    
+    [super viewDidAppear:animated];
+    if (([SingletonClass sharedInstance].username!=nil)&&([SingletonClass sharedInstance].firstswitch))
+    {
+        [self.tabBarController setSelectedIndex:1];
+    }
+    [SingletonClass sharedInstance].firstswitch=false;
+}
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
 {

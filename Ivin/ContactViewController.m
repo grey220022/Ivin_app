@@ -146,17 +146,15 @@ NSString * t1, *t2, *t3, *t4, *t5, *t6, *t7;
 -(IBAction) b4click
 {
     
-    
+    if ([MFMailComposeViewController canSendMail]) {
     
     MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
     mail.mailComposeDelegate = self;
-    [mail setSubject:@"Sample Subject"];
-    [mail setMessageBody:@"Here is some main text in the email!" isHTML:NO];
-    [mail setToRecipients:@[@"testingEmail@example.com"]];
-    
+    [mail setSubject:[SingletonClass sharedInstance].winery.Name];
+    [mail setMessageBody:@"" isHTML:NO];
+    [mail setToRecipients:@[t4]];
     [self presentViewController:mail animated:YES completion:NULL];
-    
-    
+    }
 }
 
 

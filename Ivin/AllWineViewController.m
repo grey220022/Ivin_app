@@ -28,11 +28,12 @@
     [super viewDidLoad];
     
 //    NSLog(@"%d",self.filterlevel);
+    //if ([SingletonClass sharedInstance].filterlevel==1)
     if (self.filterlevel==0)
     {
     NSString * allwinesurl=@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=2";
     
-    NSData* winelistdata=[IvinHelp geturlcontentintocache:allwinesurl];
+    NSData* winelistdata=[IvinHelp geturlcontentfromcache:allwinesurl];
 
     
     if ((!winelistdata)||([winelistdata length]==0))
@@ -76,6 +77,10 @@
             tmp=@"false";
         else tmp=@"true";
         [[SingletonClass sharedInstance].Likewine addObject:tmp];
+        tmp=[wine valueForKey:@"RegionName"];
+        [[SingletonClass sharedInstance].RegionName addObject:tmp];
+        tmp=[wine valueForKey:@"WineTypeName"];
+        [[SingletonClass sharedInstance].WineTypeName addObject:tmp];
     }
     }
     
@@ -89,12 +94,13 @@
     //mode=1;
     //[self changetable];
     
+//    if ([SingletonClass sharedInstance].filterlevel==1)
     if (self.filterlevel==0)
     {
     //_classarray=[[NSMutableArray alloc] initWithObjects:@"Pairs",@"Lyon",@"Bordeaux",@"Bourgogne",@"Auvergne",@"Bretagne",nil];
 
         _classarray = [[NSMutableArray alloc] init];
-        for(id e in [SingletonClass sharedInstance].Appellation)
+        for(id e in [SingletonClass sharedInstance].RegionName)
         {
             if(![_classarray containsObject:e])
             {
@@ -102,11 +108,70 @@
             }
         }
     }
-    else if( self.filterlevel ==1)
+    else if (self.filterlevel==1)
     {
-        
-        
+        _classarray = [[NSMutableArray alloc] init];
+        NSString* filterregion=[SingletonClass sharedInstance].filterregion;
+        for (int i=0; i<[SingletonClass sharedInstance].RegionName.count; i++)
+        {
+            NSString* left= [[SingletonClass sharedInstance].RegionName objectAtIndex:i];
+            if ([left isEqualToString:filterregion])
+            {
+                NSString* e=[[SingletonClass sharedInstance].WineryName objectAtIndex:i];
+                if(![_classarray containsObject:e])
+                {
+                  [_classarray addObject: e  ];
+                }
+            }
+        }
     }
+
+    
+    else if (self.filterlevel==2)
+    {
+        _classarray = [[NSMutableArray alloc] init];
+        NSString* filterregion=[SingletonClass sharedInstance].filterregion;
+        NSString* filterwineryname=[SingletonClass sharedInstance].filterwineryname;
+        for (int i=0; i<[SingletonClass sharedInstance].RegionName.count; i++)
+        {
+            NSString* left= [[SingletonClass sharedInstance].RegionName objectAtIndex:i];
+            NSString* left1= [[SingletonClass sharedInstance].WineryName objectAtIndex:i];
+            if (([left isEqualToString:filterregion]) && ([left1 isEqualToString:filterwineryname]))
+            {
+                NSString* e=[[SingletonClass sharedInstance].WineTypeName objectAtIndex:i];
+                if(![_classarray containsObject:e])
+                {
+                    [_classarray addObject: e  ];
+                }
+            }
+        }
+    }
+
+    /*
+    else if (self.filterlevel==3)
+    {
+        _classarray = [[NSMutableArray alloc] init];
+        NSString* filterregion=[SingletonClass sharedInstance].filterregion;
+        NSString* filtertype=[SingletonClass sharedInstance].filtertype;
+//        NSString* filterappellation=[SingletonClass sharedInstance].filterappellation;
+
+        for (int i=0; i<[SingletonClass sharedInstance].RegionName.count; i++)
+        {
+            NSString* left= [[SingletonClass sharedInstance].RegionName objectAtIndex:i];
+            NSString* left1= [[SingletonClass sharedInstance].WineTypeName objectAtIndex:i];
+            NSString* left2= [[SingletonClass sharedInstance].Appellation objectAtIndex:i];
+            
+            if (([left isEqualToString:filterregion]) && ([left1 isEqualToString:filtertype])&&([left2 isEqualToString:filterappellation]))
+            {
+                NSString* e=[[SingletonClass sharedInstance].WineryName objectAtIndex:i];
+                if(![_classarray containsObject:e])
+                {
+                    [_classarray addObject: e  ];
+                }
+            }
+        }
+    }*/
+    
     
     self.tableview.delegate=self;
     self.tableview.dataSource=self;
@@ -119,7 +184,8 @@
     
     self.navigationItem.rightBarButtonItem = rightButton;
      */
-    self.navigationItem.title=[words getword:@"search"];
+    if (self.filterlevel==0)
+      self.navigationItem.title=[words getword:@"search"];
     
 }
 
@@ -207,12 +273,36 @@
 {
     
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
+
+    if (self.filterlevel<2)
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AllWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"winefilter"];
+        nextController.filterlevel=self.filterlevel+1;
+        if (self.filterlevel==0)
+          [SingletonClass sharedInstance].filterregion=[_classarray objectAtIndex:indexPath.row];
+        else if (self.filterlevel==1)
+          [SingletonClass sharedInstance].filterwineryname=[_classarray objectAtIndex:indexPath.row];
+        //else if (self.filterlevel==2)
+        //  [SingletonClass sharedInstance].filterappellation=[_classarray objectAtIndex:indexPath.row];
+        nextController.title=[_classarray objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:nextController animated:YES];
+    }
+    else{
+        [SingletonClass sharedInstance].filtertype=[_classarray objectAtIndex:indexPath.row];
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        AllWineListViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AllWine"];
+//        nextController.title=[_classarray objectAtIndex:indexPath.row];
+        nextController.title=[_classarray objectAtIndex:indexPath.row];
+        [self.navigationController pushViewController:nextController animated:YES];
+    }
     
+    /*
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AllWineListViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AllWine"];
     nextController.title=[_classarray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:nextController animated:YES];
-    
+    */
 }
 
 

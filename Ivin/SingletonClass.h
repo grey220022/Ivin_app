@@ -36,7 +36,14 @@
 @property(nonatomic,retain) NSString *signature;
 
 
-//@property(nonatomic) int filterlevel;
+@property(nonatomic,retain) NSString *filterregion;
+@property(nonatomic,retain) NSString *filtertype;
+//@property(nonatomic,retain) NSString *filterappellation;
+@property(nonatomic,retain) NSString *filterwineryname;
+
+@property(nonatomic) bool firstswitch;
+
+@property(nonatomic) int filterlevel;
 @property(nonatomic,retain) NSMutableArray *WineName;
 @property(nonatomic,retain) NSMutableArray *WineImageUrl;
 @property(nonatomic,retain) NSMutableArray *WineryName;
@@ -49,6 +56,8 @@
 @property(nonatomic,retain) NSMutableArray *WineId;
 @property(nonatomic,retain) NSMutableArray *Likewine;
 @property(nonatomic,retain) NSMutableArray *Favorite;
+@property(nonatomic,retain) NSMutableArray *RegionName;
+@property(nonatomic,retain) NSMutableArray *WineTypeName;
 
 
 @end

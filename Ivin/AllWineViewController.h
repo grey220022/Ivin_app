@@ -15,7 +15,7 @@
 @property(nonatomic) int filterlevel;
 
 
-
+/*
 @property(nonatomic,retain) NSMutableArray *WineName;
 @property(nonatomic,retain) NSMutableArray *WineImageUrl;
 @property(nonatomic,retain) NSMutableArray *WineryName;
@@ -28,7 +28,7 @@
 @property(nonatomic,retain) NSMutableArray *WineId;
 @property(nonatomic,retain) NSMutableArray *Likewine;
 @property(nonatomic,retain) NSMutableArray *Favorite;
-
+*/
 
 
 

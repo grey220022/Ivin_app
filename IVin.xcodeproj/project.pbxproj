@@ -15,6 +15,7 @@
 		CE084CA618F4A11A0062BB5F /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE084CA518F4A11A0062BB5F /* 3.png */; };
 		CE084CAA18F60C270062BB5F /* gline.png in Resources */ = {isa = PBXBuildFile; fileRef = CE084CA718F60C270062BB5F /* gline.png */; };
 		CE189AC318E0E50300F8942F /* APPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE189AC218E0E50300F8942F /* APPViewController.m */; };
+		CE222E611AE9834A006E0B6A /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE222E601AE9834A006E0B6A /* MessageUI.framework */; };
 		CE25A8F218D77D1500927856 /* ProfileView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE25A8F118D77D1500927856 /* ProfileView.m */; };
 		CE2A3F8D18C7F910008212A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A3F8A18C7F910008212A4 /* ViewController.m */; };
 		CE2A3F8E18C7F910008212A4 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2A3F8C18C7F910008212A4 /* RootViewController.m */; };
@@ -149,6 +150,8 @@
 		CEDC465D19966AC300C1665F /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465A19966AC300C1665F /* star1.png */; };
 		CEDC465E19966AC300C1665F /* star2.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465B19966AC300C1665F /* star2.png */; };
 		CEDC465F19966AC300C1665F /* star3.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465C19966AC300C1665F /* star3.png */; };
+		CEDC92611AEE5BC60011A630 /* emptybooklist.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC925F1AEE5BC60011A630 /* emptybooklist.png */; };
+		CEDC92621AEE5BC60011A630 /* emptyticketlist.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC92601AEE5BC60011A630 /* emptyticketlist.png */; };
 		CEF3B79D1934FDF3002D7D6E /* recomm.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3B79B1934FDF3002D7D6E /* recomm.png */; };
 		CEF3B79E1934FDF3002D7D6E /* foodpair.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3B79C1934FDF3002D7D6E /* foodpair.png */; };
 		CEF8CF7518C1889600943823 /* AcceptWineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8CF7318C1889600943823 /* AcceptWineViewController.m */; };
@@ -185,6 +188,7 @@
 		CE084CA718F60C270062BB5F /* gline.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gline.png; sourceTree = "<group>"; };
 		CE189AC118E0E50300F8942F /* APPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = APPViewController.h; sourceTree = "<group>"; };
 		CE189AC218E0E50300F8942F /* APPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = APPViewController.m; sourceTree = "<group>"; };
+		CE222E601AE9834A006E0B6A /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		CE25A8F018D77D1500927856 /* ProfileView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileView.h; sourceTree = "<group>"; };
 		CE25A8F118D77D1500927856 /* ProfileView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileView.m; sourceTree = "<group>"; };
 		CE2A3F8918C7F910008212A4 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -390,6 +394,8 @@
 		CEDC465A19966AC300C1665F /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
 		CEDC465B19966AC300C1665F /* star2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star2.png; sourceTree = "<group>"; };
 		CEDC465C19966AC300C1665F /* star3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star3.png; sourceTree = "<group>"; };
+		CEDC925F1AEE5BC60011A630 /* emptybooklist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptybooklist.png; sourceTree = "<group>"; };
+		CEDC92601AEE5BC60011A630 /* emptyticketlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyticketlist.png; sourceTree = "<group>"; };
 		CEF3B79B1934FDF3002D7D6E /* recomm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recomm.png; sourceTree = "<group>"; };
 		CEF3B79C1934FDF3002D7D6E /* foodpair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodpair.png; sourceTree = "<group>"; };
 		CEF8CF6F18C14E9E00943823 /* wine 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wine 120.png"; sourceTree = "<group>"; };
@@ -417,6 +423,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE222E611AE9834A006E0B6A /* MessageUI.framework in Frameworks */,
 				CEB4A54B18C69BCD0037C867 /* QuartzCore.framework in Frameworks */,
 				CEB4A54918C69BB10037C867 /* CoreVideo.framework in Frameworks */,
 				CEB4A54718C69BA60037C867 /* CoreMedia.framework in Frameworks */,
@@ -446,6 +453,8 @@
 			isa = PBXGroup;
 			children = (
 				CE6653A21A98AC1C00018A6A /* call_c.png */,
+				CEDC925F1AEE5BC60011A630 /* emptybooklist.png */,
+				CEDC92601AEE5BC60011A630 /* emptyticketlist.png */,
 				CE6653AD1A98AC9400018A6A /* map_c.png */,
 				CE6653A31A98AC1C00018A6A /* fax.png */,
 				CE6653A41A98AC1C00018A6A /* facebook.png */,
@@ -571,6 +580,7 @@
 		CE84199618BEAF0200ECC402 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CE222E601AE9834A006E0B6A /* MessageUI.framework */,
 				CEB4A54418C69B9E0037C867 /* AVFoundation.framework */,
 				CEB4A54A18C69BCD0037C867 /* QuartzCore.framework */,
 				CEB4A54818C69BB10037C867 /* CoreVideo.framework */,
@@ -962,6 +972,7 @@
 				CEB4A54118C69B720037C867 /* zbar-samples.png in Resources */,
 				CEFF3F4A18E2396600785AD7 /* RadioButtonViewController.xib in Resources */,
 				CEC93431199F493000FF2FB8 /* Champagne.png in Resources */,
+				CEDC92621AEE5BC60011A630 /* emptyticketlist.png in Resources */,
 				CEB4A55518C69C5D0037C867 /* pick_bg@2x.png in Resources */,
 				CE97624118CFD82000A8C6AC /* typingMine.png in Resources */,
 				CE95FB76196096FA00D882C1 /* emptybook.png in Resources */,
@@ -1014,6 +1025,7 @@
 				CEC9342A199AAABC00FF2FB8 /* profile.png in Resources */,
 				CE97623F18CFD82000A8C6AC /* missingAvatar.png in Resources */,
 				CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */,
+				CEDC92611AEE5BC60011A630 /* emptybooklist.png in Resources */,
 				CEC93432199F493000FF2FB8 /* red.png in Resources */,
 				CEA073E519B1D09E009A3351 /* 00.png in Resources */,
 				CE97624218CFD82000A8C6AC /* typingMine@2x.png in Resources */,
