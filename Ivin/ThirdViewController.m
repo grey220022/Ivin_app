@@ -214,7 +214,7 @@ NSMutableArray *filterarray;
     {
     winelistdata=[IvinHelp geturlcontentintocache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
     }
-    NSString * bc=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
+    //NSString * bc=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
     
    // NSLog(@"%@",bc);
     
@@ -305,6 +305,8 @@ NSMutableArray *filterarray;
     _t3.text=[NSString stringWithFormat:@"%d",favorite_num];
     _t2.textColor=[UIColor whiteColor];
     _t3.textColor=[UIColor whiteColor];
+    int jj=[WineImageUrl count];
+    NSLog(@"%dxxxxxxxxxxxxxx",jj);
 }
 
 - (void)viewDidLoad
@@ -435,18 +437,26 @@ NSMutableArray *filterarray;
 
 //4
 -(UITableViewCell *)tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+        NSLog(@"Abegin");
     static NSString *cellIdentifier = @"historycell";
     HistoryViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.backgroundColor=[UIColor blackColor];
     if (cell == nil){
         cell = [[HistoryViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
+    NSLog(@"1+");
+    
+    int jj=[WineImageUrl count];
+    NSLog(@"%d",jj);
     
     [cell.imageLable loadImageFromURL:[NSURL URLWithString:[WineImageUrl objectAtIndex: [self getvalue:indexPath.row] ]] placeholderImage:nil cachingKey:[WineImageUrl objectAtIndex:[self getvalue:indexPath.row]]];
     
+    NSLog(@"2+");
+    
     NSString * filePath;
     float ratingvalue=[[AverageMark objectAtIndex:[self getvalue:indexPath.row]] floatValue];
-    
+    NSLog(@"3");
+
     if (ratingvalue>=4.5)
         filePath=[[NSBundle mainBundle] pathForResource:@"50" ofType:@"png"];
     else if (ratingvalue>=3.5)
@@ -459,17 +469,21 @@ NSMutableArray *filterarray;
         filePath=[[NSBundle mainBundle] pathForResource:@"10" ofType:@"png"];
     else
         filePath=[[NSBundle mainBundle] pathForResource:@"00" ofType:@"png"];
-    
+    NSLog(@"4");
     UIImage * ratingImage = [UIImage imageWithContentsOfFile:filePath];//[UIImage imageNamed:@"40.png"];
     [cell.ratingLable setImage: ratingImage];
     cell.nameLabel.text= [WineryName objectAtIndex:[self getvalue:indexPath.row]]; //@"Château pichon";
     cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[WineName objectAtIndex:[self getvalue:indexPath.row]] , [Year objectAtIndex:[self getvalue:indexPath.row]]];
+    NSLog(@"5");
     cell.subnameLabel2.text=[NSString stringWithFormat:@"%@, %@",[Appellation objectAtIndex:[self getvalue:indexPath.row]] , [WineryCountry objectAtIndex:[self getvalue:indexPath.row]]];//someString;//@"Pauillac, France";
     NSNumber *vvv=[AverageMark objectAtIndex:[self getvalue:indexPath.row]];
     cell.ratingnumberLable.text=[[NSString alloc] initWithFormat:@"%0.1f",[vvv floatValue]];
+    NSLog(@"6");
     [AverageMark objectAtIndex:[self getvalue:indexPath.row]];//@"4.0";
     cell.priceLabel.text=@"9€";
+    NSLog(@"7");
     cell.dateLabel.text=[CreateDate objectAtIndex:[self getvalue:indexPath.row]];
+        NSLog(@"Aend");
     return cell;
 }
 /*

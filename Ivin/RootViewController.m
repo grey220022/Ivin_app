@@ -156,8 +156,12 @@ int tim;
 {
     isreading=NO;
     //NSLog(@"appear");
-    [self setupCamera];
     
+    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
+    if(authStatus == AVAuthorizationStatusAuthorized)
+    {
+      [self setupCamera];
+    }
     
     
     //todo : unline the following code before submitting

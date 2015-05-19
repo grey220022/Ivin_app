@@ -1933,7 +1933,7 @@
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="historycell" selectionStyle="default" indentationWidth="10" rowHeight="200" id="ALU-82-W0e" customClass="HistoryViewCell">
+                                    <tableViewCell contentMode="scaleToFill" restorationIdentifier="historycell1" selectionStyle="default" indentationWidth="10" rowHeight="200" id="ALU-82-W0e" customClass="HistoryViewCell">
                                         <rect key="frame" x="0.0" y="22" width="320" height="200"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ALU-82-W0e" id="h2X-bq-xNK">

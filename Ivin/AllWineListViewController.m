@@ -19,20 +19,26 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property(nonatomic,retain) NSArray * listData;
 
+
+
+
+@property(nonatomic,retain) NSMutableArray *WineName;
+@property(nonatomic,retain) NSMutableArray *WineImageUrl;
+@property(nonatomic,retain) NSMutableArray *WineryName;
+@property(nonatomic,retain) NSMutableArray *WineryCountry;
+@property(nonatomic,retain) NSMutableArray *Appellation;
+@property(nonatomic,retain) NSMutableArray *Year;
+@property(nonatomic,retain) NSMutableArray *AverageMark;
+@property(nonatomic,retain) NSMutableArray *CreateDate;
+@property(nonatomic,retain) NSMutableArray *WineCode;
+@property(nonatomic,retain) NSMutableArray *WineId;
+@property(nonatomic,retain) NSMutableArray *Like;
+@property(nonatomic,retain) NSMutableArray *Favorite;
+
+
+
 @end
 
-NSMutableArray *WineName;
-NSMutableArray *WineImageUrl;
-NSMutableArray *WineryName;
-NSMutableArray *WineryCountry;
-NSMutableArray *Appellation;
-NSMutableArray *Year;
-NSMutableArray *AverageMark;
-NSMutableArray *CreateDate;
-NSMutableArray *WineCode;
-NSMutableArray *WineId;
-NSMutableArray *Like;
-NSMutableArray *Favorite;
 
 
 
@@ -48,18 +54,18 @@ NSMutableArray *Favorite;
 
     
     
-    WineName =[[NSMutableArray alloc] initWithObjects: nil];
-    WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
-    WineryName=[[NSMutableArray alloc] initWithObjects: nil];
-    WineryCountry=[[NSMutableArray alloc] initWithObjects: nil];
-    Appellation=[[NSMutableArray alloc] initWithObjects: nil];
-    Year=[[NSMutableArray alloc] initWithObjects: nil];
-    AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
-    CreateDate=[[NSMutableArray alloc] initWithObjects: nil];
-    WineCode=[[NSMutableArray alloc] initWithObjects: nil];
-    WineId=[[NSMutableArray alloc] initWithObjects: nil];
-    Like=[[NSMutableArray alloc] initWithObjects: nil];
-    Favorite=[[NSMutableArray alloc] initWithObjects: nil];
+    _WineName =[[NSMutableArray alloc] initWithObjects: nil];
+    _WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
+    _WineryName=[[NSMutableArray alloc] initWithObjects: nil];
+    _WineryCountry=[[NSMutableArray alloc] initWithObjects: nil];
+    _Appellation=[[NSMutableArray alloc] initWithObjects: nil];
+    _Year=[[NSMutableArray alloc] initWithObjects: nil];
+    _AverageMark=[[NSMutableArray alloc] initWithObjects: nil];
+    _CreateDate=[[NSMutableArray alloc] initWithObjects: nil];
+    _WineCode=[[NSMutableArray alloc] initWithObjects: nil];
+    _WineId=[[NSMutableArray alloc] initWithObjects: nil];
+    _Like=[[NSMutableArray alloc] initWithObjects: nil];
+    _Favorite=[[NSMutableArray alloc] initWithObjects: nil];
 
     
     
@@ -78,17 +84,17 @@ NSMutableArray *Favorite;
 //        NSLog(@"aaa");
         if (([left1 isEqualToString:filterregion]) &&  ( [left2 isEqualToString:filtertype]  )  &&  ( [left4 isEqualToString:filterwineryname]  )  )
         {
-            [WineName addObject: [[SingletonClass sharedInstance].WineName objectAtIndex:i] ];
-            [WineImageUrl addObject: [[SingletonClass sharedInstance].WineImageUrl objectAtIndex:i] ];
-            [WineryName addObject: [[SingletonClass sharedInstance].WineryName objectAtIndex:i] ];
-            [WineryCountry addObject: [[SingletonClass sharedInstance].WineryCountry objectAtIndex:i] ];
-            [Appellation addObject: [[SingletonClass sharedInstance].Appellation objectAtIndex:i] ];
-            [Year addObject: [[SingletonClass sharedInstance].Year objectAtIndex:i] ];
-            [AverageMark addObject: [[SingletonClass sharedInstance].AverageMark objectAtIndex:i] ];
-            [CreateDate addObject: [[SingletonClass sharedInstance].CreateDate objectAtIndex:i] ];
-            [WineCode addObject: [[SingletonClass sharedInstance].WineCode objectAtIndex:i] ];
-            [WineId addObject: [[SingletonClass sharedInstance].WineId objectAtIndex:i] ];
-            [Like addObject: [[SingletonClass sharedInstance].Likewine objectAtIndex:i] ];
+            [_WineName addObject: [[SingletonClass sharedInstance].WineName objectAtIndex:i] ];
+            [_WineImageUrl addObject: [[SingletonClass sharedInstance].WineImageUrl objectAtIndex:i] ];
+            [_WineryName addObject: [[SingletonClass sharedInstance].WineryName objectAtIndex:i] ];
+            [_WineryCountry addObject: [[SingletonClass sharedInstance].WineryCountry objectAtIndex:i] ];
+            [_Appellation addObject: [[SingletonClass sharedInstance].Appellation objectAtIndex:i] ];
+            [_Year addObject: [[SingletonClass sharedInstance].Year objectAtIndex:i] ];
+            [_AverageMark addObject: [[SingletonClass sharedInstance].AverageMark objectAtIndex:i] ];
+            [_CreateDate addObject: [[SingletonClass sharedInstance].CreateDate objectAtIndex:i] ];
+            [_WineCode addObject: [[SingletonClass sharedInstance].WineCode objectAtIndex:i] ];
+            [_WineId addObject: [[SingletonClass sharedInstance].WineId objectAtIndex:i] ];
+            [_Like addObject: [[SingletonClass sharedInstance].Likewine objectAtIndex:i] ];
 //            [Favorite addObject: [[SingletonClass sharedInstance].Favorite objectAtIndex:i]];
         }
     }
@@ -129,21 +135,23 @@ NSMutableArray *Favorite;
 
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [WineName count];
+    return [_WineName count];
 }
 
 -(UITableViewCell *)tableView:(UITableView *) tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *cellIdentifier = @"historycell";
+    static NSString *cellIdentifier = @"historycell1";
+    NSLog(@"begin");
+    
     HistoryViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     cell.backgroundColor=[UIColor blackColor];
     if (cell == nil){
         cell = [[HistoryViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
-    [cell.imageLable loadImageFromURL:[NSURL URLWithString:[WineImageUrl objectAtIndex: indexPath.row ]] placeholderImage:nil cachingKey:[WineImageUrl objectAtIndex:indexPath.row]];
+    [cell.imageLable loadImageFromURL:[NSURL URLWithString:[_WineImageUrl objectAtIndex: indexPath.row ]] placeholderImage:nil cachingKey:[_WineImageUrl objectAtIndex:indexPath.row]];
     
     NSString * filePath;
-    float ratingvalue=[[AverageMark objectAtIndex:indexPath.row] floatValue];
+    float ratingvalue=[[_AverageMark objectAtIndex:indexPath.row] floatValue];
     
     if (ratingvalue>=4.5)
         filePath=[[NSBundle mainBundle] pathForResource:@"50" ofType:@"png"];
@@ -160,14 +168,15 @@ NSMutableArray *Favorite;
     
     UIImage * ratingImage = [UIImage imageWithContentsOfFile:filePath];//[UIImage imageNamed:@"40.png"];
     [cell.ratingLable setImage: ratingImage];
-    cell.nameLabel.text= [WineryName objectAtIndex:indexPath.row]; //@"Château pichon";
-    cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[WineName objectAtIndex:indexPath.row] , [Year objectAtIndex:indexPath.row]];
-    cell.subnameLabel2.text=[NSString stringWithFormat:@"%@, %@",[Appellation objectAtIndex:indexPath.row] , [WineryCountry objectAtIndex:indexPath.row]];//someString;//@"Pauillac, France";
-    NSNumber *vvv=[AverageMark objectAtIndex:indexPath.row];
+    cell.nameLabel.text= [_WineryName objectAtIndex:indexPath.row]; //@"Château pichon";
+    cell.subnameLabel.text=[NSString stringWithFormat:@"%@ %@",[_WineName objectAtIndex:indexPath.row] , [_Year objectAtIndex:indexPath.row]];
+    cell.subnameLabel2.text=[NSString stringWithFormat:@"%@, %@",[_Appellation objectAtIndex:indexPath.row] , [_WineryCountry objectAtIndex:indexPath.row]];//someString;//@"Pauillac, France";
+    NSNumber *vvv=[_AverageMark objectAtIndex:indexPath.row];
     cell.ratingnumberLable.text=[[NSString alloc] initWithFormat:@"%0.1f",[vvv floatValue]];
-    [AverageMark objectAtIndex:indexPath.row];
+    [_AverageMark objectAtIndex:indexPath.row];
     cell.priceLabel.text=@"9€";
-    cell.dateLabel.text=[CreateDate objectAtIndex:indexPath.row];
+    cell.dateLabel.text=[_CreateDate objectAtIndex:indexPath.row];
+    NSLog(@"end");
     return cell;
 }
 /*
@@ -193,7 +202,7 @@ NSMutableArray *Favorite;
         return;
     
     int jj=indexPath.row;
-    NSString *winenumber=[WineCode objectAtIndex:jj];
+    NSString *winenumber=[_WineCode objectAtIndex:jj];
     
     NSString* l=[SingletonClass sharedInstance].lang;
     if ((![l isEqual:@"en"])&& (![l isEqual:@"zh"]))
