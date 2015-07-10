@@ -18,7 +18,7 @@
 @property (weak, nonatomic) Wine  *wine;
 @property (weak, nonatomic) Winery  *winery;
 @property (weak, nonatomic) IBOutlet UIImageView  *starts;
-@property (weak, nonatomic) IBOutlet UILabel *covert;
+//@property (weak, nonatomic) IBOutlet UILabel *covert;
 @property (weak, nonatomic) IBOutlet UILabel *la1;
 @property (weak, nonatomic) IBOutlet UILabel *la2;
 @property (weak, nonatomic) IBOutlet UILabel *la3;
@@ -29,9 +29,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *la7;//评价
 @property (weak, nonatomic) IBOutlet UILabel *li2;//酒总类
 @property (weak, nonatomic) IBOutlet UILabel *li3;//地区和国家
-@property (weak, nonatomic) IBOutlet UILabel *li4;//产区
+//@property (weak, nonatomic) IBOutlet UILabel *li4;//产区
 @property (weak, nonatomic) IBOutlet UILabel *li8;//食物
 @property (weak, nonatomic) IBOutlet UILabel *li9;//食物
+
+
 @property (weak, nonatomic) IBOutlet RateView *rateView;
 @property (weak, nonatomic) IBOutlet UILabel *statusLabel;
 @property (weak, nonatomic) IBOutlet UIScrollView *sw;

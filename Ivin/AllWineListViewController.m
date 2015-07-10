@@ -53,6 +53,20 @@
  //   winelistdata=[IvinHelp geturlcontentintocache:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=2"];
 
     
+    if ([SingletonClass sharedInstance].searchmode)
+    {
+        _WineName =[[NSMutableArray alloc] initWithArray:[SingletonClass sharedInstance].WineName];
+        _WineImageUrl=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].WineImageUrl];
+        _WineryName=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].WineryName];
+        _WineryCountry=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].WineryCountry];
+        _Appellation=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].Appellation];
+        _Year=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].Year];
+        _AverageMark=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].AverageMark];
+        _CreateDate=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].CreateDate];
+        _WineCode=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].WineCode];
+        _WineId=[[NSMutableArray alloc] initWithArray: [SingletonClass sharedInstance].WineId];
+        return;
+    }
     
     _WineName =[[NSMutableArray alloc] initWithObjects: nil];
     _WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
@@ -68,9 +82,8 @@
     _Favorite=[[NSMutableArray alloc] initWithObjects: nil];
 
     
-    
     NSString* filterregion=[SingletonClass sharedInstance].filterregion;
-    NSString* filtertype=[SingletonClass sharedInstance].filtertype;
+    //NSString* filtertype=[SingletonClass sharedInstance].filtertype;
     //NSString* filterappellation=[SingletonClass sharedInstance].filterappellation;
     NSString* filterwineryname=[SingletonClass sharedInstance].filterwineryname;
     
@@ -78,11 +91,11 @@
     {
         
         NSString* left1= [[SingletonClass sharedInstance].RegionName objectAtIndex:i];
-        NSString* left2= [[SingletonClass sharedInstance].WineTypeName objectAtIndex:i];
+        //NSString* left2= [[SingletonClass sharedInstance].WineTypeName objectAtIndex:i];
         //NSString* left3= [[SingletonClass sharedInstance].Appellation objectAtIndex:i];
         NSString* left4= [[SingletonClass sharedInstance].WineryName objectAtIndex:i];
 //        NSLog(@"aaa");
-        if (([left1 isEqualToString:filterregion]) &&  ( [left2 isEqualToString:filtertype]  )  &&  ( [left4 isEqualToString:filterwineryname]  )  )
+        if (([left1 isEqualToString:filterregion])   &&  ( [left4 isEqualToString:filterwineryname]  )  )
         {
             [_WineName addObject: [[SingletonClass sharedInstance].WineName objectAtIndex:i] ];
             [_WineImageUrl addObject: [[SingletonClass sharedInstance].WineImageUrl objectAtIndex:i] ];
@@ -91,10 +104,10 @@
             [_Appellation addObject: [[SingletonClass sharedInstance].Appellation objectAtIndex:i] ];
             [_Year addObject: [[SingletonClass sharedInstance].Year objectAtIndex:i] ];
             [_AverageMark addObject: [[SingletonClass sharedInstance].AverageMark objectAtIndex:i] ];
-            [_CreateDate addObject: [[SingletonClass sharedInstance].CreateDate objectAtIndex:i] ];
+//            [_CreateDate addObject: [[SingletonClass sharedInstance].CreateDate objectAtIndex:i] ];
             [_WineCode addObject: [[SingletonClass sharedInstance].WineCode objectAtIndex:i] ];
             [_WineId addObject: [[SingletonClass sharedInstance].WineId objectAtIndex:i] ];
-            [_Like addObject: [[SingletonClass sharedInstance].Likewine objectAtIndex:i] ];
+//            [_Like addObject: [[SingletonClass sharedInstance].Likewine objectAtIndex:i] ];
 //            [Favorite addObject: [[SingletonClass sharedInstance].Favorite objectAtIndex:i]];
         }
     }
@@ -175,7 +188,7 @@
     cell.ratingnumberLable.text=[[NSString alloc] initWithFormat:@"%0.1f",[vvv floatValue]];
     [_AverageMark objectAtIndex:indexPath.row];
     cell.priceLabel.text=@"9€";
-    cell.dateLabel.text=[_CreateDate objectAtIndex:indexPath.row];
+    //cell.dateLabel.text=[_CreateDate objectAtIndex:indexPath.row];
     NSLog(@"end");
     return cell;
 }
@@ -231,8 +244,6 @@
     {
         [SingletonClass sharedInstance].skiphistory=0;
     }
-    
-    //nextController.title=@"语言";
     [self.navigationController pushViewController:nextController animated:YES];
     
 }

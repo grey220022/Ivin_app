@@ -183,7 +183,7 @@ CGRect qrFrame;
     
     
     
-    _li4.text=[SingletonClass sharedInstance].wine.AppellationName;
+    //_li4.text=[SingletonClass sharedInstance].wine.AppellationName;
     _description1.text=[SingletonClass sharedInstance].wine.WineryRecommandation;
     _li8.text=[SingletonClass sharedInstance].wine.FoodParing;
     
@@ -243,11 +243,21 @@ CGRect qrFrame;
     
     isFullScreen = false;
     [_sw bringSubviewToFront:_iw];
-   // _iw.userInteractionEnabled = YES;
-   // UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
-   //                                initWithTarget:self action:@selector(imgToFullScreen:)];
-   // pgr.delegate = self;
-   // [_iw addGestureRecognizer:pgr];
+    _iw.userInteractionEnabled = YES;
+    UITapGestureRecognizer *pgr = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:self action:@selector(imgToFullScreen:)];
+    pgr.delegate = self;
+    [_iw addGestureRecognizer:pgr];
+    
+    UIPinchGestureRecognizer *pinchGesture = [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(scalePiece:)];
+    [pinchGesture setDelegate:self];
+    [_iw addGestureRecognizer:pinchGesture];
+    
+    UIPanGestureRecognizer *panGesture = [[UIPanGestureRecognizer alloc]initWithTarget:self action:@selector(panPiece:)];
+    [pinchGesture setDelegate:self];
+    [_iw addGestureRecognizer:panGesture];
+
+    
     
     NSLog(@"third");
 
@@ -396,7 +406,21 @@ CGRect qrFrame;
             [_iw setFrame:[[UIScreen mainScreen] bounds]];
         }completion:^(BOOL finished){
             isFullScreen = true;
-            _covert.hidden=false;
+            //_covert.hidden=false;
+//            _la1.hidden=true;
+//            _la2.hidden=true;
+//            _la3.hidden=true;
+//            _qrcode.hidden=true;
+            for (UIView *subview in [_sw subviews])
+            {
+                //[subview logViewHierarchy];
+                //if([subview isKindOfClass:[UILabel class]])
+                  {
+                   subview.hidden=true;
+                  }
+            }
+            _iw.hidden=false;
+            _sw.scrollEnabled=false;
         }];
         return;
     } else {
@@ -404,10 +428,65 @@ CGRect qrFrame;
             [_iw setFrame:prevFrame];
         }completion:^(BOOL finished){
             isFullScreen = false;
-            _covert.hidden=true;
-            
+            //_covert.hidden=true;
+            //_la1.hidden=false;
+            //_la2.hidden=false;
+            //_la3.hidden=false;
+            //_qrcode.hidden=false;
+            for (UIView *subview in [_sw subviews])
+            {
+                {
+                    subview.hidden=false;
+                }
+            }
+
         }];
+        _sw.scrollEnabled=true;
         return;
     }
 }
+
+
+- (void)adjustAnchorPointForGestureRecognizer:(UIGestureRecognizer *)gestureRecognizer {
+    if (gestureRecognizer.state == UIGestureRecognizerStateBegan) {
+        UIView *piece = gestureRecognizer.view;
+        CGPoint locationInView = [gestureRecognizer locationInView:piece];
+        CGPoint locationInSuperview = [gestureRecognizer locationInView:piece.superview];
+        
+        piece.layer.anchorPoint = CGPointMake(locationInView.x / piece.bounds.size.width, locationInView.y / piece.bounds.size.height);
+        piece.center = locationInSuperview;
+    }
+}
+
+
+
+- (void)scalePiece:(UIPinchGestureRecognizer *)gestureRecognizer {
+    if (!isFullScreen)
+        return;
+    [self adjustAnchorPointForGestureRecognizer:gestureRecognizer];
+    
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan || [gestureRecognizer state] == UIGestureRecognizerStateChanged) {
+        [gestureRecognizer view].transform = CGAffineTransformScale([[gestureRecognizer view] transform], [gestureRecognizer scale], [gestureRecognizer scale]);
+        [gestureRecognizer setScale:1];
+    }
+}
+
+- (void)panPiece:(UIPanGestureRecognizer *)gestureRecognizer
+{
+    if (!isFullScreen)
+        return;
+    UIView *piece = [gestureRecognizer view];
+    
+    [self adjustAnchorPointForGestureRecognizer:gestureRecognizer];
+    
+    if ([gestureRecognizer state] == UIGestureRecognizerStateBegan || [gestureRecognizer state] == UIGestureRecognizerStateChanged) {
+        CGPoint translation = [gestureRecognizer translationInView:[piece superview]];
+        
+        [piece setCenter:CGPointMake([piece center].x + translation.x, [piece center].y + translation.y)];
+        [gestureRecognizer setTranslation:CGPointZero inView:[piece superview]];
+    }
+}
+
+
+
 @end

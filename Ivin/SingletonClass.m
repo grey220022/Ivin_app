@@ -30,19 +30,8 @@ static SingletonClass *sharedInstance = nil;
     return sharedInstance;
 }
 
-
-
-// We can still have a regular init method, that will get called the first time the Singleton is used.
-- (id)init
+-(void)resetdate
 {
-    self.fromscan=0;
-    self.skiphistory=0;
-    self.wineset= [NSSet setWithObjects:nil];
-    self = [super init];
-    
-    self.filterlevel=1;
-    self.firstswitch=true;
-    
     self.WineName=[[NSMutableArray alloc] initWithObjects: nil];
     self.WineImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
     self.WineryName=[[NSMutableArray alloc] initWithObjects: nil];
@@ -57,8 +46,22 @@ static SingletonClass *sharedInstance = nil;
     self.Favorite=[[NSMutableArray alloc] initWithObjects: nil];
     self.RegionName=[[NSMutableArray alloc] initWithObjects: nil];
     self.WineTypeName=[[NSMutableArray alloc] initWithObjects: nil];
+    self.WineryImageUrl=[[NSMutableArray alloc] initWithObjects: nil];
     
+}
+
+// We can still have a regular init method, that will get called the first time the Singleton is used.
+- (id)init
+{
+    self.fromscan=0;
+    self.skiphistory=0;
+    self.wineset= [NSSet setWithObjects:nil];
+    self = [super init];
+    self.searchmode=false;
+    self.filterlevel=1;
+    self.firstswitch=true;
     
+    [self resetdate];
     
     _wine=[[Wine alloc]init];
     _winery=[[Winery alloc]init];

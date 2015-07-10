@@ -109,10 +109,12 @@ int tim;
 {
     
     [super viewDidAppear:animated];
-    if (([SingletonClass sharedInstance].username!=nil)&&([SingletonClass sharedInstance].firstswitch))
-    {
-        [self.tabBarController setSelectedIndex:1];
-    }
+//    if (([SingletonClass sharedInstance].username!=nil)&&([SingletonClass sharedInstance].firstswitch))
+    if ([SingletonClass sharedInstance].firstswitch)
+//    {
+//        [self.tabBarController setSelectedIndex:1];
+//    }
+    [self.tabBarController setSelectedIndex:2];
     [SingletonClass sharedInstance].firstswitch=false;
 }
 

@@ -205,14 +205,19 @@ NSMutableArray *filterarray;
     
     //        NSData* winelistdata=[IvinHelp geturlcontent:@"http://lapinroi-001-site1.smarterasp.net/api/EndUserWine/WineList?enduserid=1"];
     NSData* winelistdata;
+    NSString* l=[SingletonClass sharedInstance].lang;
+    if ((![l isEqual:@"en"])&& (![l isEqual:@"zh"]))
+        l=@"fr";
+
     if (first_time)
     {
-        winelistdata=[IvinHelp geturlcontentfromcache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+        winelistdata=[IvinHelp geturlcontentfromcache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@&lang=%@", [SingletonClass sharedInstance].username,l]];
         first_time=false;
     }
     else
     {
-    winelistdata=[IvinHelp geturlcontentintocache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+
+    winelistdata=[IvinHelp geturlcontentintocache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@&lang=%@", [SingletonClass sharedInstance].username,l]];
     }
     //NSString * bc=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username];
     
@@ -658,9 +663,12 @@ NSMutableArray *filterarray;
         
         double delayInSeconds = 2.0;
         dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+        NSString* l=[SingletonClass sharedInstance].lang;
+        if ((![l isEqual:@"en"])&& (![l isEqual:@"zh"]))
+            l=@"fr";
         dispatch_after(popTime, dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0),
                        ^(void){
-                           [IvinHelp geturlcontentintocache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@", [SingletonClass sharedInstance].username]];
+                           [IvinHelp geturlcontentintocache:[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/WineList?enduserid=%@&lang=%@", [SingletonClass sharedInstance].username,l]];
                        });
         
     }

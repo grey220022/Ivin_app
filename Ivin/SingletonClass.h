@@ -8,7 +8,7 @@
 }
 
 + (SingletonClass*) sharedInstance;
-
+-(void)resetdate;
 
 @property(nonatomic,retain) NSString *username;
 @property(nonatomic,retain) NSString *password;
@@ -42,6 +42,8 @@
 @property(nonatomic,retain) NSString *filterwineryname;
 
 @property(nonatomic) bool firstswitch;
+@property(nonatomic) bool searchmode;
+
 
 @property(nonatomic) int filterlevel;
 @property(nonatomic,retain) NSMutableArray *WineName;
@@ -58,7 +60,7 @@
 @property(nonatomic,retain) NSMutableArray *Favorite;
 @property(nonatomic,retain) NSMutableArray *RegionName;
 @property(nonatomic,retain) NSMutableArray *WineTypeName;
-
+@property(nonatomic,retain) NSMutableArray *WineryImageUrl;
 
 @end
 

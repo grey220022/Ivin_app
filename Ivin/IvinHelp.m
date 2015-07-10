@@ -71,7 +71,7 @@ NSDictionary *winerydic;
 
 + (NSData *) geturlcontentfromcache:(NSString *) url
 {
-    NSLog(@"from cache : %@",url);
+    //NSLog(@"from cache : %@",url);
     NSData *cachedData = [FTWCache objectForKey:url];
     if (cachedData) {
         return cachedData;
@@ -84,7 +84,7 @@ NSDictionary *winerydic;
 
 + (NSData *) geturlcontentintocache:(NSString *) url
 {
-    NSLog(@"into cache : %@",url);
+    //NSLog(@"into cache : %@",url);
 
     NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLResponse * response = nil;
@@ -109,9 +109,9 @@ NSDictionary *winerydic;
 
 + (NSData *) getpureurlcontent:(NSString *) url
 {
-    NSLog(@"get url : %@",url);
-
-    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
+    //NSLog(@"get url : %@",url);
+    NSString * strUrl = [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:[NSURL URLWithString:strUrl] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20];
     NSURLResponse * response = nil;
     NSError * error = nil;
     NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest

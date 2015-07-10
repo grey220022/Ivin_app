@@ -100,6 +100,12 @@
 		CE97625518CFD85800A8C6AC /* UIBubbleTypingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE97624F18CFD85800A8C6AC /* UIBubbleTypingTableViewCell.m */; };
 		CE97625818CFDF5800A8C6AC /* avatar1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE97625618CFDF5800A8C6AC /* avatar1.png */; };
 		CE97625918CFDF5800A8C6AC /* halloween.jpg in Resources */ = {isa = PBXBuildFile; fileRef = CE97625718CFDF5800A8C6AC /* halloween.jpg */; };
+		CE995D231B4204250035ECCA /* WineryViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE995D221B4204250035ECCA /* WineryViewCell.m */; };
+		CE995D281B4209730035ECCA /* SalonViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE995D271B4209730035ECCA /* SalonViewCell.m */; };
+		CE995D2B1B444C8A0035ECCA /* SalonWineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE995D2A1B444C8A0035ECCA /* SalonWineViewController.m */; };
+		CE995D311B4C3AC10035ECCA /* h1.png in Resources */ = {isa = PBXBuildFile; fileRef = CE995D2E1B4C3AC10035ECCA /* h1.png */; };
+		CE995D321B4C3AC10035ECCA /* h2.png in Resources */ = {isa = PBXBuildFile; fileRef = CE995D2F1B4C3AC10035ECCA /* h2.png */; };
+		CE995D331B4C3AC10035ECCA /* h3.png in Resources */ = {isa = PBXBuildFile; fileRef = CE995D301B4C3AC10035ECCA /* h3.png */; };
 		CEA073E519B1D09E009A3351 /* 00.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073DF19B1D09E009A3351 /* 00.png */; };
 		CEA073E619B1D09E009A3351 /* 10.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073E019B1D09E009A3351 /* 10.png */; };
 		CEA073E719B1D09E009A3351 /* 20.png in Resources */ = {isa = PBXBuildFile; fileRef = CEA073E119B1D09E009A3351 /* 20.png */; };
@@ -152,6 +158,8 @@
 		CEDC465F19966AC300C1665F /* star3.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465C19966AC300C1665F /* star3.png */; };
 		CEDC92611AEE5BC60011A630 /* emptybooklist.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC925F1AEE5BC60011A630 /* emptybooklist.png */; };
 		CEDC92621AEE5BC60011A630 /* emptyticketlist.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC92601AEE5BC60011A630 /* emptyticketlist.png */; };
+		CEDC92641B3B04100011A630 /* HomepageController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDC92631B3B04100011A630 /* HomepageController.m */; };
+		CEDC92691B3C67840011A630 /* SalonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEDC92681B3C67840011A630 /* SalonViewController.m */; };
 		CEF3B79D1934FDF3002D7D6E /* recomm.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3B79B1934FDF3002D7D6E /* recomm.png */; };
 		CEF3B79E1934FDF3002D7D6E /* foodpair.png in Resources */ = {isa = PBXBuildFile; fileRef = CEF3B79C1934FDF3002D7D6E /* foodpair.png */; };
 		CEF8CF7518C1889600943823 /* AcceptWineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CEF8CF7318C1889600943823 /* AcceptWineViewController.m */; };
@@ -304,6 +312,15 @@
 		CE97625018CFD85800A8C6AC /* UIBubbleTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBubbleTableViewDataSource.h; sourceTree = "<group>"; };
 		CE97625618CFDF5800A8C6AC /* avatar1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar1.png; sourceTree = "<group>"; };
 		CE97625718CFDF5800A8C6AC /* halloween.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = halloween.jpg; sourceTree = "<group>"; };
+		CE995D1F1B4203FF0035ECCA /* WineryViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WineryViewCell.h; sourceTree = "<group>"; };
+		CE995D221B4204250035ECCA /* WineryViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WineryViewCell.m; sourceTree = "<group>"; };
+		CE995D241B4209570035ECCA /* SalonViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalonViewCell.h; sourceTree = "<group>"; };
+		CE995D271B4209730035ECCA /* SalonViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalonViewCell.m; sourceTree = "<group>"; };
+		CE995D291B444C770035ECCA /* SalonWineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SalonWineViewController.h; sourceTree = "<group>"; };
+		CE995D2A1B444C8A0035ECCA /* SalonWineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalonWineViewController.m; sourceTree = "<group>"; };
+		CE995D2E1B4C3AC10035ECCA /* h1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h1.png; sourceTree = "<group>"; };
+		CE995D2F1B4C3AC10035ECCA /* h2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h2.png; sourceTree = "<group>"; };
+		CE995D301B4C3AC10035ECCA /* h3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = h3.png; sourceTree = "<group>"; };
 		CEA073DF19B1D09E009A3351 /* 00.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 00.png; sourceTree = "<group>"; };
 		CEA073E019B1D09E009A3351 /* 10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 10.png; sourceTree = "<group>"; };
 		CEA073E119B1D09E009A3351 /* 20.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 20.png; sourceTree = "<group>"; };
@@ -396,6 +413,10 @@
 		CEDC465C19966AC300C1665F /* star3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star3.png; sourceTree = "<group>"; };
 		CEDC925F1AEE5BC60011A630 /* emptybooklist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptybooklist.png; sourceTree = "<group>"; };
 		CEDC92601AEE5BC60011A630 /* emptyticketlist.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emptyticketlist.png; sourceTree = "<group>"; };
+		CEDC92631B3B04100011A630 /* HomepageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomepageController.m; sourceTree = "<group>"; };
+		CEDC92661B3B04BF0011A630 /* HomepageController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomepageController.h; sourceTree = "<group>"; };
+		CEDC92671B3C67750011A630 /* SalonViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SalonViewController.h; sourceTree = "<group>"; };
+		CEDC92681B3C67840011A630 /* SalonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SalonViewController.m; sourceTree = "<group>"; };
 		CEF3B79B1934FDF3002D7D6E /* recomm.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recomm.png; sourceTree = "<group>"; };
 		CEF3B79C1934FDF3002D7D6E /* foodpair.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = foodpair.png; sourceTree = "<group>"; };
 		CEF8CF6F18C14E9E00943823 /* wine 120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "wine 120.png"; sourceTree = "<group>"; };
@@ -452,6 +473,9 @@
 		CE084C8C18F489CE0062BB5F /* newresources */ = {
 			isa = PBXGroup;
 			children = (
+				CE995D2E1B4C3AC10035ECCA /* h1.png */,
+				CE995D2F1B4C3AC10035ECCA /* h2.png */,
+				CE995D301B4C3AC10035ECCA /* h3.png */,
 				CE6653A21A98AC1C00018A6A /* call_c.png */,
 				CEDC925F1AEE5BC60011A630 /* emptybooklist.png */,
 				CEDC92601AEE5BC60011A630 /* emptyticketlist.png */,
@@ -609,21 +633,19 @@
 				CED34F0818CC7A3100640DFD /* TableCell */,
 				CE8419A718BEAF0200ECC402 /* AppDelegate.m */,
 				CE8419A918BEAF0200ECC402 /* Main.storyboard */,
+				CE995D2C1B4C176D0035ECCA /* Salon */,
 				CE95FB5C194F89C000D882C1 /* ContentViewController.h */,
 				CE95FB5D194F89C000D882C1 /* ContentViewController.m */,
-				CEB909D51AC465B9002CE82E /* AllWineViewController.h */,
-				CEB909D61AC465D2002CE82E /* AllWineViewController.m */,
-				CEB909D81AC9973B002CE82E /* AllWineListViewController.h */,
-				CEB909D91AC99757002CE82E /* AllWineListViewController.m */,
+				CE995D2D1B4C17EB0035ECCA /* pro */,
 				CEC9343C199F640D00FF2FB8 /* SetupView.h */,
 				CEC9343D199F640D00FF2FB8 /* SetupView.m */,
 				CE95FB18194F70F300D882C1 /* GrapeViewController.h */,
 				CE95FB19194F70F300D882C1 /* GrapeViewController.m */,
 				CE8917B7190EEBF700231FBB /* DetailView.h */,
+				CE66539A1A51AC8D00018A6A /* QRViewController.h */,
 				CE8917B8190EEBF700231FBB /* DetailView.m */,
 				CE5481131947798D001ED112 /* VinViewController.h */,
 				CE5481141947798D001ED112 /* VinViewController.m */,
-				CE66539A1A51AC8D00018A6A /* QRViewController.h */,
 				CE66539B1A51ACA000018A6A /* QRViewController.m */,
 				CE54811619478D42001ED112 /* WineryViewController.h */,
 				CE54811719478D42001ED112 /* WineryViewController.m */,
@@ -657,6 +679,8 @@
 				CE84199E18BEAF0200ECC402 /* Supporting Files */,
 				CE8419CF18BEB2CA00ECC402 /* ThirdViewController.h */,
 				CE8419D018BEB2CA00ECC402 /* ThirdViewController.m */,
+				CEDC92661B3B04BF0011A630 /* HomepageController.h */,
+				CEDC92631B3B04100011A630 /* HomepageController.m */,
 				CEF8CF7218C1889600943823 /* AcceptWineViewController.h */,
 				CEF8CF7318C1889600943823 /* AcceptWineViewController.m */,
 				CE66539F1A9898BB00018A6A /* ContactViewController.h */,
@@ -734,6 +758,28 @@
 				CE97625018CFD85800A8C6AC /* UIBubbleTableViewDataSource.h */,
 			);
 			name = BubbleSrc;
+			sourceTree = "<group>";
+		};
+		CE995D2C1B4C176D0035ECCA /* Salon */ = {
+			isa = PBXGroup;
+			children = (
+				CEDC92671B3C67750011A630 /* SalonViewController.h */,
+				CEDC92681B3C67840011A630 /* SalonViewController.m */,
+				CE995D291B444C770035ECCA /* SalonWineViewController.h */,
+				CE995D2A1B444C8A0035ECCA /* SalonWineViewController.m */,
+			);
+			name = Salon;
+			sourceTree = "<group>";
+		};
+		CE995D2D1B4C17EB0035ECCA /* pro */ = {
+			isa = PBXGroup;
+			children = (
+				CEB909D51AC465B9002CE82E /* AllWineViewController.h */,
+				CEB909D61AC465D2002CE82E /* AllWineViewController.m */,
+				CEB909D81AC9973B002CE82E /* AllWineListViewController.h */,
+				CEB909D91AC99757002CE82E /* AllWineListViewController.m */,
+			);
+			name = pro;
 			sourceTree = "<group>";
 		};
 		CEB4A50618C69B710037C867 /* ZBarSDK */ = {
@@ -844,6 +890,10 @@
 				CED34F0618CC7A1800640DFD /* RecipeTableCell.m */,
 				CE8918201928965100231FBB /* HistoryViewCell.h */,
 				CE8918211928965100231FBB /* HistoryViewCell.m */,
+				CE995D241B4209570035ECCA /* SalonViewCell.h */,
+				CE995D271B4209730035ECCA /* SalonViewCell.m */,
+				CE995D1F1B4203FF0035ECCA /* WineryViewCell.h */,
+				CE995D221B4204250035ECCA /* WineryViewCell.m */,
 			);
 			name = TableCell;
 			sourceTree = "<group>";
@@ -950,6 +1000,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE995D321B4C3AC10035ECCA /* h2.png in Resources */,
 				CE89181B19153C6200231FBB /* cup.png in Resources */,
 				CEB4A54018C69B720037C867 /* zbar-helpicons.png in Resources */,
 				CEA073E619B1D09E009A3351 /* 10.png in Resources */,
@@ -993,6 +1044,7 @@
 				CE6654151AA07A8900018A6A /* web.png in Resources */,
 				CE89181F191E327800231FBB /* rated.png in Resources */,
 				CE89181719152B7200231FBB /* noir1.png in Resources */,
+				CE995D331B4C3AC10035ECCA /* h3.png in Resources */,
 				CE8A9BA618C2354700F76A4A /* kermit_full.png in Resources */,
 				CEC934201996851E00FF2FB8 /* adward.png in Resources */,
 				CE084BFE18F0CE910062BB5F /* try.plist in Resources */,
@@ -1012,6 +1064,7 @@
 				CE8917BC1914F7B600231FBB /* 111.png in Resources */,
 				CE95FB78196096FA00D882C1 /* fullticket.png in Resources */,
 				CE89180F1915261E00231FBB /* newsort.png in Resources */,
+				CE995D311B4C3AC10035ECCA /* h1.png in Resources */,
 				CEC93434199F493000FF2FB8 /* white.png in Resources */,
 				CE8A9BA518C2354700F76A4A /* kermit_empty.png in Resources */,
 				CEA073E819B1D09E009A3351 /* 30.png in Resources */,
@@ -1053,6 +1106,7 @@
 			files = (
 				CE95FB61195043E600D882C1 /* Wine.m in Sources */,
 				CE97625518CFD85800A8C6AC /* UIBubbleTypingTableViewCell.m in Sources */,
+				CE995D281B4209730035ECCA /* SalonViewCell.m in Sources */,
 				CEC9343A199F553C00FF2FB8 /* FTWCache.m in Sources */,
 				CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */,
 				CE8419B118BEAF0200ECC402 /* SecondViewController.m in Sources */,
@@ -1075,6 +1129,7 @@
 				CE6653A11A9898D200018A6A /* ContactViewController.m in Sources */,
 				CE97625118CFD85800A8C6AC /* NSBubbleData.m in Sources */,
 				CEB4A53A18C69B720037C867 /* qrspec.c in Sources */,
+				CEDC92691B3C67840011A630 /* SalonViewController.m in Sources */,
 				CE8419A818BEAF0200ECC402 /* AppDelegate.m in Sources */,
 				CEB4A53918C69B720037C867 /* qrinput.c in Sources */,
 				CEB4A53718C69B720037C867 /* QRCodeGenerator.m in Sources */,
@@ -1085,9 +1140,11 @@
 				CEFF3F4D18E2397E00785AD7 /* RadioButton.m in Sources */,
 				CEC93437199F536B00FF2FB8 /* UIImage+Network.m in Sources */,
 				CEC93425199AA06A00FF2FB8 /* NewuserView.m in Sources */,
+				CEDC92641B3B04100011A630 /* HomepageController.m in Sources */,
 				CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */,
 				CE2A3F8D18C7F910008212A4 /* ViewController.m in Sources */,
 				CE85706719F41BF700314A75 /* WQPlaySound.m in Sources */,
+				CE995D2B1B444C8A0035ECCA /* SalonWineViewController.m in Sources */,
 				CE8918221928965100231FBB /* HistoryViewCell.m in Sources */,
 				CE8419AE18BEAF0200ECC402 /* FirstViewController.m in Sources */,
 				CE2A3F8E18C7F910008212A4 /* RootViewController.m in Sources */,
@@ -1098,6 +1155,7 @@
 				CEB4A53618C69B720037C867 /* mask.c in Sources */,
 				CE97622C18CD240D00A8C6AC /* WineView.m in Sources */,
 				CEC93428199AA9A500FF2FB8 /* NewloginView.m in Sources */,
+				CE995D231B4204250035ECCA /* WineryViewCell.m in Sources */,
 				CE084BF918F0392F0062BB5F /* SingletonClass.m in Sources */,
 				CEB909D71AC465D2002CE82E /* AllWineViewController.m in Sources */,
 				CE8419A418BEAF0200ECC402 /* main.m in Sources */,

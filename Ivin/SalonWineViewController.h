@@ -1,5 +1,5 @@
 //
-//  ContentViewController.h
+//  SalonWineViewController.h
 //  Ivin
 //
 //  Created by user on 6/16/14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AllWineViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
+@interface SalonWineViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,retain) IBOutlet UITableView *tableview;
 @property(nonatomic,retain) NSMutableArray *classarray;
 @property(nonatomic,retain) NSMutableArray *idarray;
