@@ -1260,11 +1260,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
-					/Users/user/Documents/v8simple/Ivin/ZBarSDK/Headers,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "32E5A59D-F9CA-400D-84C4-92582A4C3AA2";
@@ -1312,11 +1308,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
-					/Users/user/Documents/v8simple/Ivin/ZBarSDK/Headers,
-				);
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
 				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "32E5A59D-F9CA-400D-84C4-92582A4C3AA2";
 				SDKROOT = iphoneos;
@@ -1338,7 +1330,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
+					/Users/user/Documents/v8/Ivin/ZBarSDK,
 				);
 				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "5320cfd2-d02b-4009-9243-151b17f9ddd4";
@@ -1358,7 +1350,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/user/Documents/v8simple/Ivin/ZBarSDK,
+					/Users/user/Documents/v8/Ivin/ZBarSDK,
 				);
 				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "5320cfd2-d02b-4009-9243-151b17f9ddd4";
