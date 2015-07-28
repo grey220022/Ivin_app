@@ -153,6 +153,12 @@
 		CED34EC318CA4DB700640DFD /* RegisterFormTableController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34EC118CA4DB700640DFD /* RegisterFormTableController.m */; };
 		CED34F0718CC7A1800640DFD /* RecipeTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0618CC7A1800640DFD /* RecipeTableCell.m */; };
 		CED34F0B18CCA8C700640DFD /* SendViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED34F0A18CCA8C700640DFD /* SendViewController.m */; };
+		CED57AA81B66758000E3570D /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED57AA71B66758000E3570D /* PageContentViewController.m */; };
+		CED57AAD1B66758A00E3570D /* page1.png in Resources */ = {isa = PBXBuildFile; fileRef = CED57AA91B66758A00E3570D /* page1.png */; };
+		CED57AAE1B66758A00E3570D /* page2.png in Resources */ = {isa = PBXBuildFile; fileRef = CED57AAA1B66758A00E3570D /* page2.png */; };
+		CED57AAF1B66758A00E3570D /* page3.png in Resources */ = {isa = PBXBuildFile; fileRef = CED57AAB1B66758A00E3570D /* page3.png */; };
+		CED57AB01B66758A00E3570D /* page4.png in Resources */ = {isa = PBXBuildFile; fileRef = CED57AAC1B66758A00E3570D /* page4.png */; };
+		CED57AB61B6676C700E3570D /* SlidesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CED57AB51B6676C700E3570D /* SlidesViewController.m */; };
 		CEDC465D19966AC300C1665F /* star1.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465A19966AC300C1665F /* star1.png */; };
 		CEDC465E19966AC300C1665F /* star2.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465B19966AC300C1665F /* star2.png */; };
 		CEDC465F19966AC300C1665F /* star3.png in Resources */ = {isa = PBXBuildFile; fileRef = CEDC465C19966AC300C1665F /* star3.png */; };
@@ -408,6 +414,14 @@
 		CED34F0618CC7A1800640DFD /* RecipeTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeTableCell.m; sourceTree = "<group>"; };
 		CED34F0918CCA8C700640DFD /* SendViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendViewController.h; sourceTree = "<group>"; };
 		CED34F0A18CCA8C700640DFD /* SendViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendViewController.m; sourceTree = "<group>"; };
+		CED57AA61B66758000E3570D /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		CED57AA71B66758000E3570D /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
+		CED57AA91B66758A00E3570D /* page1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page1.png; sourceTree = "<group>"; };
+		CED57AAA1B66758A00E3570D /* page2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page2.png; sourceTree = "<group>"; };
+		CED57AAB1B66758A00E3570D /* page3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page3.png; sourceTree = "<group>"; };
+		CED57AAC1B66758A00E3570D /* page4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = page4.png; sourceTree = "<group>"; };
+		CED57AB41B6676C700E3570D /* SlidesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SlidesViewController.h; sourceTree = "<group>"; };
+		CED57AB51B6676C700E3570D /* SlidesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SlidesViewController.m; sourceTree = "<group>"; };
 		CEDC465A19966AC300C1665F /* star1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star1.png; sourceTree = "<group>"; };
 		CEDC465B19966AC300C1665F /* star2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star2.png; sourceTree = "<group>"; };
 		CEDC465C19966AC300C1665F /* star3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star3.png; sourceTree = "<group>"; };
@@ -621,6 +635,7 @@
 		CE84199D18BEAF0200ECC402 /* Ivin */ = {
 			isa = PBXGroup;
 			children = (
+				CED57AA51B66754500E3570D /* Slides */,
 				CEC9343B199F559A00FF2FB8 /* NetWorkImage */,
 				CE2A3F9318C931A8008212A4 /* QRcode VIew */,
 				CE8A9B9F18C234AA00F76A4A /* RateView.h */,
@@ -629,8 +644,8 @@
 				CE97622D18CFD79B00A8C6AC /* CommentView.h */,
 				CE97622E18CFD79B00A8C6AC /* CommentView.m */,
 				CE97623018CFD80A00A8C6AC /* bubbleimage */,
-				CE8419A618BEAF0200ECC402 /* AppDelegate.h */,
 				CED34F0818CC7A3100640DFD /* TableCell */,
+				CE8419A618BEAF0200ECC402 /* AppDelegate.h */,
 				CE8419A718BEAF0200ECC402 /* AppDelegate.m */,
 				CE8419A918BEAF0200ECC402 /* Main.storyboard */,
 				CE995D2C1B4C176D0035ECCA /* Salon */,
@@ -898,6 +913,21 @@
 			name = TableCell;
 			sourceTree = "<group>";
 		};
+		CED57AA51B66754500E3570D /* Slides */ = {
+			isa = PBXGroup;
+			children = (
+				CED57AA91B66758A00E3570D /* page1.png */,
+				CED57AAA1B66758A00E3570D /* page2.png */,
+				CED57AAB1B66758A00E3570D /* page3.png */,
+				CED57AAC1B66758A00E3570D /* page4.png */,
+				CED57AB41B6676C700E3570D /* SlidesViewController.h */,
+				CED57AB51B6676C700E3570D /* SlidesViewController.m */,
+				CED57AA61B66758000E3570D /* PageContentViewController.h */,
+				CED57AA71B66758000E3570D /* PageContentViewController.m */,
+			);
+			name = Slides;
+			sourceTree = "<group>";
+		};
 		CEFF3F4518E2391500785AD7 /* RadioView */ = {
 			isa = PBXGroup;
 			children = (
@@ -1002,8 +1032,10 @@
 			files = (
 				CE995D321B4C3AC10035ECCA /* h2.png in Resources */,
 				CE89181B19153C6200231FBB /* cup.png in Resources */,
+				CED57AAD1B66758A00E3570D /* page1.png in Resources */,
 				CEB4A54018C69B720037C867 /* zbar-helpicons.png in Resources */,
 				CEA073E619B1D09E009A3351 /* 10.png in Resources */,
+				CED57AB01B66758A00E3570D /* page4.png in Resources */,
 				CE6653A91A98AC1C00018A6A /* facebook.png in Resources */,
 				CEDC465F19966AC300C1665F /* star3.png in Resources */,
 				CE95FB79196096FA00D882C1 /* point.png in Resources */,
@@ -1034,6 +1066,7 @@
 				CEA073E719B1D09E009A3351 /* 20.png in Resources */,
 				CE97623D18CFD82000A8C6AC /* bubbleSomeone.png in Resources */,
 				CE97623E18CFD82000A8C6AC /* bubbleSomeone@2x.png in Resources */,
+				CED57AAE1B66758A00E3570D /* page2.png in Resources */,
 				CE6653AA1A98AC1C00018A6A /* mail_c.png in Resources */,
 				CEFF3F5518E246C500785AD7 /* RadioButton-Unselected.png in Resources */,
 				CE8917BD1914F7B600231FBB /* 222.png in Resources */,
@@ -1061,6 +1094,7 @@
 				CE8918241928A13200231FBB /* backlist.png in Resources */,
 				CE31139019AE8D8A00D05C08 /* newline.png in Resources */,
 				CE31139919B071C000D05C08 /* collect-vide.png in Resources */,
+				CED57AAF1B66758A00E3570D /* page3.png in Resources */,
 				CE8917BC1914F7B600231FBB /* 111.png in Resources */,
 				CE95FB78196096FA00D882C1 /* fullticket.png in Resources */,
 				CE89180F1915261E00231FBB /* newsort.png in Resources */,
@@ -1117,6 +1151,7 @@
 				CE8419D218BEB2CA00ECC402 /* ThirdViewController.m in Sources */,
 				CEB4A53C18C69B720037C867 /* split.c in Sources */,
 				CE189AC318E0E50300F8942F /* APPViewController.m in Sources */,
+				CED57AA81B66758000E3570D /* PageContentViewController.m in Sources */,
 				CE97625318CFD85800A8C6AC /* UIBubbleTableViewCell.m in Sources */,
 				CE95FB641950440000D882C1 /* Winery.m in Sources */,
 				CE95FB1A194F70F300D882C1 /* GrapeViewController.m in Sources */,
@@ -1126,6 +1161,7 @@
 				CED34F0B18CCA8C700640DFD /* SendViewController.m in Sources */,
 				CE8917B9190EEBF700231FBB /* DetailView.m in Sources */,
 				CE8A9BA118C234AA00F76A4A /* RateView.m in Sources */,
+				CED57AB61B6676C700E3570D /* SlidesViewController.m in Sources */,
 				CE6653A11A9898D200018A6A /* ContactViewController.m in Sources */,
 				CE97625118CFD85800A8C6AC /* NSBubbleData.m in Sources */,
 				CEB4A53A18C69B720037C867 /* qrspec.c in Sources */,

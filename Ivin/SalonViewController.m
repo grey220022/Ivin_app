@@ -14,6 +14,7 @@
 #import "IvinHelp.h"
 #import "SalonViewCell.h"
 #import "SalonWineViewController.h"
+#import "SlidesViewController.h"
 
 @interface SalonViewController ()
 
@@ -126,6 +127,8 @@ NSString* expoid;
     self.navigationItem.title=[words getword:@"h1"];
 }
 
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -136,6 +139,7 @@ NSString* expoid;
     // Return the number of sections.
     return 1;
 }
+
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

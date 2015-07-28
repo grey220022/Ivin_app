@@ -129,7 +129,7 @@
    // _t1.placeholder=@"Username";
    // _t2.placeholder=@"Password";
     
-    
+    self.titlelabel.text=[words getword:@"signin"];
 
     _t1.leftView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 5, 20)];
     _t1.leftViewMode = UITextFieldViewModeAlways;

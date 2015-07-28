@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+BOOL needslides;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

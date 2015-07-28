@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6250" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" variant="6xAndEarlier" propertyAccessControl="none" initialViewController="8YX-ce-x5E">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
@@ -664,6 +664,13 @@
                                     <action selector="signupbutton" destination="jvc-5P-39e" eventType="touchDown" id="4q3-4k-JtY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fol-JO-3p2">
+                                <rect key="frame" x="63" y="20" width="195" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.92156862745098034" green="0.84705882352941175" blue="0.56862745098039214" alpha="1" colorSpace="deviceRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -673,6 +680,7 @@
                         <outlet property="signuplabel" destination="m3h-rD-0si" id="XfJ-f4-Fii"/>
                         <outlet property="t1" destination="QRa-eW-LTP" id="ZJK-P3-Jrf"/>
                         <outlet property="t2" destination="eme-rb-pJP" id="bHj-Fi-qO1"/>
+                        <outlet property="titlelabel" destination="fol-JO-3p2" id="ZTp-qZ-Jas"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R3O-HJ-bQb" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1970,7 +1978,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eq6-ii-AgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-426" y="-2234"/>
+            <point key="canvasLocation" x="-906" y="-2042"/>
         </scene>
         <!--Salon View Controller-->
         <scene sceneID="PM0-Zu-fp1">
@@ -2142,6 +2150,84 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6FT-KQ-gCD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-103" y="817"/>
+        </scene>
+        <!--Slides View Controller-->
+        <scene sceneID="b66-CJ-hB2">
+            <objects>
+                <viewController storyboardIdentifier="slidesview" useStoryboardIdentifierAsRestorationIdentifier="YES" id="0fL-1b-Qvq" customClass="SlidesViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1mg-Kk-EZa">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="gxg-lg-dDR">
+                                <rect key="frame" x="0.0" y="521" width="101" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sign in">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="signinWalkthrough:" destination="0fL-1b-Qvq" eventType="touchDown" id="UsJ-RI-piR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ZGv-82-0XC">
+                                <rect key="frame" x="224" y="521" width="96" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="startWalkthrough:" destination="0fL-1b-Qvq" eventType="touchDown" id="tjL-iw-76g"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="signinbutton" destination="gxg-lg-dDR" id="gjI-HM-FTc"/>
+                        <outlet property="startbutton" destination="ZGv-82-0XC" id="Srd-yr-u2X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="juD-Nc-stY" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-880" y="-3116"/>
+        </scene>
+        <!--Page Content View Controller-->
+        <scene sceneID="euc-r7-f5a">
+            <objects>
+                <viewController storyboardIdentifier="PageContentViewController" id="Lcd-K9-mRU" customClass="PageContentViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4NW-GJ-aUx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="DmO-sW-hM3">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n5i-vl-fkA">
+                                <rect key="frame" x="29" y="32" width="263" height="26"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue-CondensedBold" family="Helvetica Neue" pointSize="20"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundImageView" destination="DmO-sW-hM3" id="8c0-EO-hS6"/>
+                        <outlet property="titleLabel" destination="n5i-vl-fkA" id="NW5-l4-Ev3"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="utu-hL-T4r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-426" y="-2918"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="bXN-f1-IkL">
+            <objects>
+                <pageViewController storyboardIdentifier="PageViewController" autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="pbb-rj-o6W" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t7G-5f-eim" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-426" y="-3688"/>
         </scene>
     </scenes>
     <resources>

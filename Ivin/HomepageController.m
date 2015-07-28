@@ -1,3 +1,4 @@
+#import "AppDelegate.h"
 #import "UIImage+Network.h"
 #import "HomepageController.h"
 #import "AcceptWineViewController.h"
@@ -10,6 +11,7 @@
 #import "AllWineListViewController.h"
 #import "AllWineViewController.h"
 #import "SalonViewController.h"
+#import "SlidesViewController.h"
 
 
 
@@ -131,6 +133,21 @@
 {
     [super viewDidAppear:animated];
     [[self navigationController] setNavigationBarHidden:NO animated:NO];
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    
+    if ((!needslides) || ([SingletonClass sharedInstance].username!=nil))
+    {
+        needslides=NO;
+        return;
+    }
+    needslides=NO;
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SlidesViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"slidesview"];
+    nextController.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:nextController animated:NO];
 }
 
 

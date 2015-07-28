@@ -10,16 +10,13 @@
 #import "words.h"
 #import "SingletonClass.h"
 
+
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
     [words initword];
-    
-    
-    
-    
     
     if(![[NSUserDefaults standardUserDefaults] boolForKey:@"firstStart"]){
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"firstStart"];
@@ -30,9 +27,10 @@
         NSString *plistPath = [paths objectAtIndex:0];
         NSString *filename=[plistPath stringByAppendingPathComponent:@"Info.plist"];
         [dic writeToFile:filename atomically:YES];
-        
+        needslides=YES;
     }else{
        // NSLog(@"不是第一次启动");
+        needslides=YES;
     }
     
     
