@@ -43,6 +43,7 @@
     NSData* winelistdata=[IvinHelp geturlcontentfromcache:allwinesurl];
     if ((!winelistdata)||([winelistdata length]==0))
     {
+        [_activityIndicator stopAnimating];
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
@@ -68,6 +69,7 @@
         NSData* winelistdata=[IvinHelp geturlcontentfromcache:allwinesurl];
         if ((!winelistdata)||([winelistdata length]==0))
         {
+            [_activityIndicator stopAnimating];
             UIAlertView *myAlertView;
             myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
@@ -255,7 +257,14 @@
      */
     if (self.filterlevel==0)
       self.navigationItem.title=[words getword:@"region"];
-    
+
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -369,6 +378,7 @@
     
     if ((!winelistdata)||([winelistdata length]==0))
     {
+        [_activityIndicator stopAnimating];
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
@@ -413,7 +423,8 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
+
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
 
     if (self.filterlevel<2)
@@ -488,9 +499,17 @@
 
 
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_activityIndicator stopAnimating];
+}
 
 
 
+- (void) threadStartAnimating:(id)data {
+    [_activityIndicator startAnimating];
+}
 
 
 

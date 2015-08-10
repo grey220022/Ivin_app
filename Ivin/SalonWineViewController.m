@@ -13,7 +13,9 @@
 #import "AllWineListViewController.h"
 #import "IvinHelp.h"
 #import "UIImage+Network.h"
+#import "UIImage+Network.h"
 #import "WineryViewCell.h"
+#import "SalonViewController.h"
 
 @interface SalonWineViewController ()
 
@@ -131,8 +133,38 @@
     self.navigationItem.rightBarButtonItem = rightButton;
      */
     if (self.filterlevel==0)
-      self.navigationItem.title=[words getword:@"search"];
-    
+    {
+      self.navigationItem.title=[words getword:@"h1"];
+      
+        
+        
+      [_sw setScrollEnabled:YES];
+      [_sw setContentSize:CGSizeMake(320, 1020)];
+
+      
+      UIImageView *salonimage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"brick-1.png"]];
+      salonimage.frame = CGRectMake(0, 0, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height/2-80);
+      [_sw addSubview:salonimage];
+      
+      UILabel *expoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height/2-80, [UIScreen mainScreen].applicationFrame.size.width, 450)];
+      expoLabel.text=expotext;
+      expoLabel.lineBreakMode = NSLineBreakByWordWrapping;
+      expoLabel.numberOfLines = 0;
+      expoLabel.textColor = [UIColor grayColor];
+      [_sw addSubview:expoLabel];
+      
+      
+      salonimage.contentMode=UIViewContentModeScaleAspectFit;
+      [salonimage loadImageFromURL: [NSURL URLWithString:  expoimage] placeholderImage:nil cachingKey:expoimage];
+      self.tableview.frame = CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height/2+450, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height/2+10);
+    }
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -291,7 +323,8 @@
 */
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
+
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
 
   //  if (self.filterlevel<2)
@@ -367,8 +400,16 @@
 
 
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_activityIndicator stopAnimating];
+}
 
 
+- (void) threadStartAnimating:(id)data {
+    [_activityIndicator startAnimating];
+}
 
 
 

@@ -21,7 +21,6 @@
 @end
 
 
-NSString* expoid;
 
 
 @implementation SalonViewController
@@ -33,7 +32,7 @@ NSString* expoid;
     _datearray=[[NSMutableArray alloc] init];
     _imagearray = [[NSMutableArray alloc] init];
     _idarray=[[NSMutableArray alloc] init];
-    
+    _descriptionarray=[[NSMutableArray alloc] init];
     NSString* l=[SingletonClass sharedInstance].lang;
     if ((![l isEqual:@"en"])&& (![l isEqual:@"zh"]))
         l=@"fr";
@@ -42,6 +41,7 @@ NSString* expoid;
     NSData* winelistdata=[IvinHelp geturlcontentfromcache:allwinesurl];
     if ((!winelistdata)||([winelistdata length]==0))
     {
+        [_activityIndicator stopAnimating];
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
@@ -63,6 +63,9 @@ NSString* expoid;
         tmp=[wine valueForKey:@"StartDate"];
         tmp2=[wine valueForKey:@"EndDate"];
         [_datearray addObject:[NSString stringWithFormat:@"%@%@%@",tmp,@" - ",tmp2]];
+        tmp=[wine valueForKey:@"Description"];
+        [_descriptionarray addObject:tmp];
+        
     }
 }
 
@@ -125,6 +128,13 @@ NSString* expoid;
     self.tableview.backgroundColor=[UIColor blackColor];
     self.view.backgroundColor=[UIColor blackColor];
     self.navigationItem.title=[words getword:@"h1"];
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+
 }
 
 
@@ -180,9 +190,19 @@ NSString* expoid;
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
+
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
     expoid=[_idarray objectAtIndex:indexPath.row];
+    expoimage=[_imagearray objectAtIndex:indexPath.row];
+    expotext=[NSMutableString stringWithString:[_classarray objectAtIndex:indexPath.row]];
+    [expotext appendString: @" ("];
+    [expotext appendString: [_datearray objectAtIndex:indexPath.row]];
+    [expotext appendString: @")"];
+    [expotext appendString: @"\n\n\t"];
+    [expotext appendString: [_descriptionarray objectAtIndex:indexPath.row]];
+    
+    
     [self loadwinedata];
 
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -253,8 +273,16 @@ NSString* expoid;
  */
 
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_activityIndicator stopAnimating];
+}
 
 
+- (void) threadStartAnimating:(id)data {
+    [_activityIndicator startAnimating];
+}
 
 
 

@@ -47,7 +47,7 @@ NSString * t1, *t2, *t3, *t4, *t5, *t6, *t7;
 {
     [super viewDidLoad];
     
-    self.view.backgroundColor=[UIColor clearColor];
+    self.view.backgroundColor=[UIColor blackColor];
     self.navigationItem.title=[words getword:@"bc5"];//[SingletonClass sharedInstance].winery.Name;
     [_sw setScrollEnabled:YES];
     [_sw setContentSize:CGSizeMake(320, 620)];

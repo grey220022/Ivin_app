@@ -11,6 +11,7 @@
 @interface AllWineListViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 //@property(nonatomic,retain) IBOutlet UITableView *tableview;
 //@property(nonatomic,retain) NSMutableArray *classarray;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 @end
 int mode;

@@ -15,6 +15,7 @@
 @property(nonatomic,retain) NSMutableArray *imagearray;
 
 @property(nonatomic) int filterlevel;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 
 /*

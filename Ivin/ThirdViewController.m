@@ -172,7 +172,7 @@ NSMutableArray *filterarray;
     {
         if ([[SingletonClass sharedInstance].preview isEqual:@"login"])
         {
-            [self.tabBarController setSelectedIndex:0];
+            [self.tabBarController setSelectedIndex:2];
             return;
         }
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];

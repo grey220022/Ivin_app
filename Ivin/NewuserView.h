@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UIViewController *previousController;
 
 @property(nonatomic, copy) NSAttributedString *attributedPlaceholder;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 
 @end

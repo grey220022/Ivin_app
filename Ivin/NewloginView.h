@@ -16,5 +16,6 @@
 @property (weak, nonatomic) IBOutlet UITextField *t1;
 @property (weak, nonatomic) IBOutlet UITextField *t2;
 @property(nonatomic, copy) NSAttributedString *attributedPlaceholder;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 @end

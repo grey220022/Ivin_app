@@ -81,7 +81,13 @@
     _t3.delegate=self;
 
     _t2.secureTextEntry=YES;
-    
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+
 }
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
@@ -99,6 +105,11 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (void) threadStartAnimating:(id)data {
+    [_activityIndicator startAnimating];
+}
+
+
 -(IBAction) signupbutton
 {
 //    [self dismissViewControllerAnimated:YES completion:nil];
@@ -106,10 +117,13 @@
     
     NSString * request=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUser/SignIn?username=%@&password=%@&email=%@&profileId=2",_t1.text,  [IvinHelp md5HexDigest:_t2.text], _t3.text];
     
-    //NSLog(@"%@",request);
+//    [_activityIndicator startAnimating];
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
+
     NSString * response=[[NSString alloc] initWithData:[IvinHelp getpureurlcontent:request] encoding:NSUTF8StringEncoding];
     //NSLog(@"%@",response);
-    
+    [_activityIndicator stopAnimating];
+
     if ((!response)||([response length]==0))
     {
         UIAlertView *myAlertView;

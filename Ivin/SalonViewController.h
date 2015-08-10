@@ -1,4 +1,7 @@
 #import <UIKit/UIKit.h>
+NSString* expoid;
+NSString* expoimage;
+NSMutableString* expotext;
 
 @interface SalonViewController : UIViewController<UITableViewDataSource,UITableViewDelegate>
 @property(nonatomic,retain) IBOutlet UITableView *tableview;
@@ -6,6 +9,8 @@
 @property(nonatomic,retain) NSMutableArray *datearray;
 @property(nonatomic,retain) NSMutableArray *idarray;
 @property(nonatomic,retain) NSMutableArray *imagearray;
+@property(nonatomic,retain) NSMutableArray *descriptionarray;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 //@property(nonatomic) int filterlevel;
 

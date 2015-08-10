@@ -64,7 +64,13 @@
 
     [self loaddata];
     
-    
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+
 }
 -(void)loaddata
 {
@@ -137,7 +143,6 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
-    
     if ((!needslides) || ([SingletonClass sharedInstance].username!=nil))
     {
         needslides=NO;
@@ -148,6 +153,12 @@
     SlidesViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"slidesview"];
     nextController.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:nextController animated:NO];
+}
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_activityIndicator stopAnimating];
 }
 
 
@@ -174,9 +185,9 @@
     NSString *searchurl= [NSString stringWithFormat:@"%@%@%@%@",@"http://www.ivintag.com/api/Wine/SearchWine?keyword=",searchstring,@"&lang=",l];
     
     
-    
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
     NSData* winelistdata=[IvinHelp geturlcontentfromcache:searchurl];
-    
+    [_activityIndicator stopAnimating];
     if ((!winelistdata)||([winelistdata length]==0))
     {
         UIAlertView *myAlertView;
@@ -218,6 +229,14 @@
         tmp=[wine valueForKey:@"WineTypeName"];
         [[SingletonClass sharedInstance].WineTypeName addObject:tmp];
     }
+    if ([winelist count]==0)
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"information"] message:[words getword:@"noresulterror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
+    
     [SingletonClass sharedInstance].searchmode=true;
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AllWineListViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AllWine"];
@@ -247,7 +266,9 @@
     SalonViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"salon"];
     //    nextController.title=[_classarray objectAtIndex:indexPath.row];
     [self.navigationController pushViewController:nextController animated:YES];
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
 
+    
 }
 
 -(IBAction) b2click
@@ -257,6 +278,7 @@
     nextController.title=[words getword:@"salon"];
     nextController.filterlevel=0;
     [self.navigationController pushViewController:nextController animated:YES];
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
 
 }
 
@@ -343,7 +365,8 @@
 {
     if (self.navigationController.topViewController != self)
         return;
-    
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
+
     int jj=indexPath.row;
     NSString *winenumber=[_WineCode objectAtIndex:jj];
     
@@ -355,6 +378,7 @@
     
     if ((!winestring)||([winestring length]==0))
     {
+        [_activityIndicator stopAnimating];
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
@@ -383,6 +407,9 @@
 }
 
 
+- (void) threadStartAnimating:(id)data {
+    [_activityIndicator startAnimating];
+}
 
 
 

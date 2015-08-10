@@ -19,7 +19,7 @@
 @property (weak, nonatomic) Winery  *winery;
 @property (weak, nonatomic) IBOutlet UIImageView  *starts;
 //@property (weak, nonatomic) IBOutlet UILabel *covert;
-@property (weak, nonatomic) IBOutlet UILabel *la1;
+//@property (weak, nonatomic) IBOutlet UILabel *la1;
 @property (weak, nonatomic) IBOutlet UILabel *la2;
 @property (weak, nonatomic) IBOutlet UILabel *la3;
 @property (weak, nonatomic) IBOutlet UILabel *qrcode;
@@ -32,6 +32,7 @@
 //@property (weak, nonatomic) IBOutlet UILabel *li4;//产区
 @property (weak, nonatomic) IBOutlet UILabel *li8;//食物
 @property (weak, nonatomic) IBOutlet UILabel *li9;//食物
+@property (weak, nonatomic) IBOutlet UILabel *li10;//葡萄
 
 
 @property (weak, nonatomic) IBOutlet RateView *rateView;
@@ -50,7 +51,7 @@
 
 
 
--(IBAction) showgrapes;
+//-(IBAction) showgrapes;
 -(IBAction) showwine;
 -(IBAction) showwinery;
 

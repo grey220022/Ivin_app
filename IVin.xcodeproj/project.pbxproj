@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE0095371B67F664007BBA60 /* grape.png in Resources */ = {isa = PBXBuildFile; fileRef = CE0095361B67F664007BBA60 /* grape.png */; };
 		CE084BF918F0392F0062BB5F /* SingletonClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084BF818F0392F0062BB5F /* SingletonClass.m */; };
 		CE084BFC18F047CF0062BB5F /* words.m in Sources */ = {isa = PBXBuildFile; fileRef = CE084BFB18F047CF0062BB5F /* words.m */; };
 		CE084BFE18F0CE910062BB5F /* try.plist in Resources */ = {isa = PBXBuildFile; fileRef = CE084BFD18F0CE910062BB5F /* try.plist */; };
@@ -36,6 +37,8 @@
 		CE6653AB1A98AC1C00018A6A /* weixin_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653A61A98AC1C00018A6A /* weixin_c.png */; };
 		CE6653AE1A98AC9400018A6A /* map_c.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6653AD1A98AC9400018A6A /* map_c.png */; };
 		CE6654151AA07A8900018A6A /* web.png in Resources */ = {isa = PBXBuildFile; fileRef = CE6654141AA07A8900018A6A /* web.png */; };
+		CE7AEE101B76B30700E6438B /* cancel22.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7AEE0F1B76B30700E6438B /* cancel22.png */; };
+		CE7AEE121B76B62B00E6438B /* cancel222.png in Resources */ = {isa = PBXBuildFile; fileRef = CE7AEE111B76B62B00E6438B /* cancel222.png */; };
 		CE84199818BEAF0200ECC402 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199718BEAF0200ECC402 /* Foundation.framework */; };
 		CE84199A18BEAF0200ECC402 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199918BEAF0200ECC402 /* CoreGraphics.framework */; };
 		CE84199C18BEAF0200ECC402 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE84199B18BEAF0200ECC402 /* UIKit.framework */; };
@@ -190,6 +193,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE0095361B67F664007BBA60 /* grape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grape.png; sourceTree = "<group>"; };
 		CE084BF718F0392F0062BB5F /* SingletonClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingletonClass.h; sourceTree = "<group>"; };
 		CE084BF818F0392F0062BB5F /* SingletonClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingletonClass.m; sourceTree = "<group>"; };
 		CE084BFA18F047CF0062BB5F /* words.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = words.h; sourceTree = "<group>"; };
@@ -230,6 +234,8 @@
 		CE6653A61A98AC1C00018A6A /* weixin_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weixin_c.png; sourceTree = "<group>"; };
 		CE6653AD1A98AC9400018A6A /* map_c.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = map_c.png; sourceTree = "<group>"; };
 		CE6654141AA07A8900018A6A /* web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web.png; sourceTree = "<group>"; };
+		CE7AEE0F1B76B30700E6438B /* cancel22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel22.png; sourceTree = "<group>"; };
+		CE7AEE111B76B62B00E6438B /* cancel222.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel222.png; sourceTree = "<group>"; };
 		CE84199418BEAF0200ECC402 /* IVin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IVin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE84199718BEAF0200ECC402 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CE84199918BEAF0200ECC402 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -494,6 +500,7 @@
 				CEDC925F1AEE5BC60011A630 /* emptybooklist.png */,
 				CEDC92601AEE5BC60011A630 /* emptyticketlist.png */,
 				CE6653AD1A98AC9400018A6A /* map_c.png */,
+				CE0095361B67F664007BBA60 /* grape.png */,
 				CE6653A31A98AC1C00018A6A /* fax.png */,
 				CE6653A41A98AC1C00018A6A /* facebook.png */,
 				CE6653A51A98AC1C00018A6A /* mail_c.png */,
@@ -504,9 +511,11 @@
 				CEB4A55318C69C5D0037C867 /* pick_bg@2x.png */,
 				CE89181C191E327800231FBB /* caved.png */,
 				CEC93421199A9ABA00FF2FB8 /* cancel.png */,
+				CE7AEE0F1B76B30700E6438B /* cancel22.png */,
 				CE31139119AF7A0D00D05C08 /* cancel2.png */,
 				CEC9341F1996851E00FF2FB8 /* adward.png */,
 				CE89181D191E327800231FBB /* rated.png */,
+				CE7AEE111B76B62B00E6438B /* cancel222.png */,
 				CE8A9BA318C2354700F76A4A /* kermit_full.png */,
 				CE8A9BA418C2354700F76A4A /* kermit_half.png */,
 				CE31139319B071BF00D05C08 /* book-vide.png */,
@@ -1034,6 +1043,7 @@
 				CE89181B19153C6200231FBB /* cup.png in Resources */,
 				CED57AAD1B66758A00E3570D /* page1.png in Resources */,
 				CEB4A54018C69B720037C867 /* zbar-helpicons.png in Resources */,
+				CE0095371B67F664007BBA60 /* grape.png in Resources */,
 				CEA073E619B1D09E009A3351 /* 10.png in Resources */,
 				CED57AB01B66758A00E3570D /* page4.png in Resources */,
 				CE6653A91A98AC1C00018A6A /* facebook.png in Resources */,
@@ -1110,6 +1120,7 @@
 				CE6653A71A98AC1C00018A6A /* call_c.png in Resources */,
 				CE95FB75196096FA00D882C1 /* cal.png in Resources */,
 				CEC9342A199AAABC00FF2FB8 /* profile.png in Resources */,
+				CE7AEE101B76B30700E6438B /* cancel22.png in Resources */,
 				CE97623F18CFD82000A8C6AC /* missingAvatar.png in Resources */,
 				CE97623B18CFD82000A8C6AC /* bubbleMine.png in Resources */,
 				CEDC92611AEE5BC60011A630 /* emptybooklist.png in Resources */,
@@ -1119,6 +1130,7 @@
 				CE6653AE1A98AC9400018A6A /* map_c.png in Resources */,
 				CE8419AB18BEAF0200ECC402 /* Main.storyboard in Resources */,
 				CE97624018CFD82000A8C6AC /* missingAvatar@2x.png in Resources */,
+				CE7AEE121B76B62B00E6438B /* cancel222.png in Resources */,
 				CE95FB77196096FA00D882C1 /* emptyticket.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

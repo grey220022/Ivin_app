@@ -24,8 +24,8 @@
     [[self navigationController] setNavigationBarHidden:YES animated:NO];
 
 	// Create the data model
-    _pageTitles = @[@"Over 200 Tips and Tricks", @"Discover Hidden Features", @"Bookmark Favorite Tip", @"Free Regular Update"];
-    _pageImages = @[@"page1.png", @"page2.png", @"page3.png", @"page4.png"];
+    _pageTitles = @[[words getword:@"slide1"] , [words getword:@"slide2"], [words getword:@"slide3"]];
+    _pageImages = @[@"page1.png", @"page2.png", @"page3.png"];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -41,7 +41,7 @@
     [self addChildViewController:_pageViewController];
     [self.view addSubview:_pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
-    [_startbutton setTitle:[words getword:@"start"]  forState:UIControlStateNormal];
+    [_startbutton setTitle:[words getword:@"skip"]  forState:UIControlStateNormal];
     [_signinbutton setTitle:[words getword:@"signin"]  forState:UIControlStateNormal];
 }
 

@@ -167,7 +167,7 @@ CGRect qrFrame;
 
     _sw.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"3" ofType:@"png"]]];
     
-    _la1.text=[words getword:@"grape"];
+   // _la1.text=[words getword:@"grape"];
     _la2.text=[words getword:@"wine"];
     _la3.text=[words getword:@"winery"];
     _qrcode.text=[words getword:@"qrcode"];
@@ -188,6 +188,25 @@ CGRect qrFrame;
     _li8.text=[SingletonClass sharedInstance].wine.FoodParing;
     
     _li9.text=[SingletonClass sharedInstance].wine.ClassementName;
+    
+    NSMutableString *grapestring = [NSMutableString stringWithString:@""];
+    int grapenumber=[[SingletonClass sharedInstance].wine.graperatioarray count];
+    
+    for (int i=0; i<grapenumber-1; i++)
+    {
+        [grapestring appendString:[[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:i] stringValue]];
+        [grapestring appendString:@"% "];
+        [grapestring appendString:[[SingletonClass sharedInstance].wine.grapearray objectAtIndex:i]];
+        [grapestring appendString:@", "];
+    }
+    
+    
+    [grapestring appendString:[[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:grapenumber-1] stringValue]];
+    [grapestring appendString:@"% "];
+    [grapestring appendString:[[SingletonClass sharedInstance].wine.grapearray objectAtIndex:grapenumber-1]];
+    
+    
+    _li10.text=grapestring;
     
     
     
@@ -309,7 +328,7 @@ CGRect qrFrame;
     [self.navigationController pushViewController:nextController animated:YES];
 }
 
-
+/*
 -(IBAction)showgrapes
 {
     if (isFullScreen)
@@ -327,7 +346,7 @@ CGRect qrFrame;
     [self.navigationController pushViewController:nextController animated:YES];
     
 }
-
+*/
 
 -(IBAction) showwinery
 {

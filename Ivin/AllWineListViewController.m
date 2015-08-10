@@ -127,7 +127,12 @@
     [self.tableView setSeparatorColor:[UIColor colorWithWhite:1.0 alpha:0.0]];
     self.tableView.backgroundColor=[UIColor blackColor];
     self.view.backgroundColor=[UIColor blackColor];
-
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -211,9 +216,11 @@
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     if (self.navigationController.topViewController != self)
         return;
-    
+    [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
+
     int jj=indexPath.row;
     NSString *winenumber=[_WineCode objectAtIndex:jj];
     
@@ -225,6 +232,7 @@
     
     if ((!winestring)||([winestring length]==0))
     {
+        [_activityIndicator stopAnimating];
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
         [myAlertView show];
@@ -251,5 +259,17 @@
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
     return NO;
 }
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_activityIndicator stopAnimating];
+}
+
+
+- (void) threadStartAnimating:(id)data {
+    [_activityIndicator startAnimating];
+}
+
 
 @end

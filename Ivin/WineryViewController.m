@@ -87,7 +87,7 @@ CGRect prevFrame;
     [_ima addGestureRecognizer:panGesture];
 
     
-    self.view.backgroundColor=[UIColor clearColor];
+    self.view.backgroundColor=[UIColor blackColor];
     //self.title=@"string";
     /*
      [_b1 setTitle:[words getword:@"winery"] forState:UIControlStateNormal];

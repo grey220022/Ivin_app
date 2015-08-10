@@ -13,6 +13,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *l1;
 @property (weak, nonatomic) IBOutlet UILabel *l2;
 @property (weak, nonatomic) IBOutlet UILabel *l3;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 
 @end

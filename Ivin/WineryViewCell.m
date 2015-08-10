@@ -14,14 +14,14 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(100, 35, 220, 40)];
+        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(135, 35, 220, 40)];//description
         _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(19, 130, 90, 20)];
         _priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(230, 45, 90, 20)];
         _subnameLabel= [[UILabel alloc]initWithFrame:CGRectMake(100, 40, 200, 80)];
         _subnameLabel2= [[UILabel alloc]initWithFrame:CGRectMake(100, 121, 220, 20)];
         _ratingnumberLable= [[UILabel alloc]initWithFrame:CGRectMake(67, 115, 50, 20)];
         
-        _imageLable = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 90, 105)];
+        _imageLable = [[UIImageView alloc] initWithFrame:CGRectMake(5, 5, 130, 105)];//image
         
         [_nameLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:14]];
         [_subnameLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:18]];

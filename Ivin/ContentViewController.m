@@ -51,7 +51,7 @@ CGRect prevFrame;
     
     _content.numberOfLines = 3;
     
-    self.view.backgroundColor=[UIColor clearColor];
+    self.view.backgroundColor=[UIColor blackColor];
     
     self.content1.backgroundColor=[UIColor blackColor];
     

@@ -15,7 +15,8 @@
 @property(nonatomic,retain) NSMutableArray *imagearray;
 
 @property(nonatomic) int filterlevel;
-
+@property (strong) UIActivityIndicatorView *activityIndicator;
+@property (weak, nonatomic) IBOutlet UIScrollView *sw;
 
 /*
 @property(nonatomic,retain) NSMutableArray *WineName;
