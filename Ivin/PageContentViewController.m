@@ -28,8 +28,9 @@
     [super viewDidLoad];
 
     self.backgroundImageView.image = [UIImage imageNamed:self.imageFile];
+    self.titleLabel.numberOfLines=0;
     self.titleLabel.text = self.titleText;
-
+    self.titleLabel.textColor=[UIColor colorWithRed:235.0f/255.0f green:216.0f/255.0f blue:145.0f/255.0f alpha:1.0f];
 }
 
 - (void)didReceiveMemoryWarning

@@ -152,6 +152,8 @@ NSMutableArray *filterarray;
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
         [self.navigationController pushViewController:nextController animated:YES];
+        [[SingletonClass sharedInstance].homeview.navigationController popToRootViewControllerAnimated:NO];
+
         [SingletonClass sharedInstance].fromscan=0;
         return;
     }
@@ -172,7 +174,7 @@ NSMutableArray *filterarray;
     {
         if ([[SingletonClass sharedInstance].preview isEqual:@"login"])
         {
-            [self.tabBarController setSelectedIndex:2];
+            [self.tabBarController setSelectedIndex:0];
             return;
         }
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -565,7 +567,8 @@ NSMutableArray *filterarray;
     AcceptWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"AcceptWine"];
     //nextController.title=@"语言";
     [self.navigationController pushViewController:nextController animated:YES];
-    
+    [[SingletonClass sharedInstance].homeview.navigationController popToRootViewControllerAnimated:NO];
+
 }
 
 /*

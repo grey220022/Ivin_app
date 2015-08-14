@@ -21,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *li6;
 @property (weak, nonatomic) IBOutlet UIButton *li7;
 @property (weak, nonatomic) IBOutlet UIButton *li8;
+@property (strong) UIActivityIndicatorView *activityIndicator;
 
 
 

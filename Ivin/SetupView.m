@@ -68,7 +68,13 @@
     [_li6 setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [_li7 setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
     [_li8 setContentHorizontalAlignment:UIControlContentHorizontalAlignmentLeft];
-    
+    _activityIndicator = [[UIActivityIndicatorView alloc]
+                          initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
+    [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    [self.view addSubview:_activityIndicator];
+    _activityIndicator.center=CGPointMake(160, 250);
+    _activityIndicator.hidesWhenStopped = YES;
+
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -89,6 +95,7 @@
 {
     if ([SingletonClass sharedInstance].username!=nil)
     {
+        [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
         NSString * wineurl= [NSString stringWithFormat:@"%@%@",@"http://www.ivintag.com/api/EndUser/",[SingletonClass sharedInstance].username];
         NSData* winestring=[IvinHelp getpureurlcontent:wineurl];
         if ((!winestring)||([winestring length]==0))
@@ -96,6 +103,7 @@
             UIAlertView *myAlertView;
             myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];
             [myAlertView show];
+            [_activityIndicator stopAnimating];
             return;
         }
         
@@ -217,12 +225,6 @@
 }
 
 
-- (void)viewDidDisappear:(BOOL)animated
-{
-    [super viewDidAppear:animated];
-}
-
-
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewDidAppear:animated];
@@ -305,5 +307,17 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [_activityIndicator stopAnimating];
+}
+
+
+- (void) threadStartAnimating:(id)data {
+    [_activityIndicator startAnimating];
+}
+
 
 @end

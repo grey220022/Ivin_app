@@ -253,7 +253,8 @@
         [SingletonClass sharedInstance].skiphistory=0;
     }
     [self.navigationController pushViewController:nextController animated:YES];
-    
+    [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
+
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

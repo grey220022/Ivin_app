@@ -110,12 +110,12 @@ int tim;
     
     [super viewDidAppear:animated];
 //    if (([SingletonClass sharedInstance].username!=nil)&&([SingletonClass sharedInstance].firstswitch))
-    if ([SingletonClass sharedInstance].firstswitch)
+//    if ([SingletonClass sharedInstance].firstswitch)
 //    {
 //        [self.tabBarController setSelectedIndex:1];
 //    }
-    [self.tabBarController setSelectedIndex:2];
-    [SingletonClass sharedInstance].firstswitch=false;
+//    [self.tabBarController setSelectedIndex:2];
+//    [SingletonClass sharedInstance].firstswitch=false;
 }
 
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController;
@@ -402,7 +402,7 @@ int tim;
         [sound play];
 
         
-        [self.tabBarController setSelectedIndex:1];
+        [self.tabBarController setSelectedIndex:2];
         
         
         

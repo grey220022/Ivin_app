@@ -54,12 +54,17 @@ CGRect qrFrame;
     if (([SingletonClass sharedInstance].username!=nil))
     {
         NSString *url=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUserWine/GetInfo?enduserid=%@&wineid=%@",[SingletonClass sharedInstance].username,[SingletonClass sharedInstance].wine.Id];
+        NSLog(@"%@",url);
         NSData* userwine=[IvinHelp geturlcontentfromcache:url];
         NSLog(@"first");
         
+        [SingletonClass sharedInstance].rating=0;
+        
         if ((!userwine)||([userwine length]==0))
         {
-            [SingletonClass sharedInstance].rating=0;
+     //       [SingletonClass sharedInstance].rating=0;
+            [IvinHelp wineidparse:userwine];
+
         }
         else {
             [IvinHelp wineidparse:userwine];
@@ -192,6 +197,8 @@ CGRect qrFrame;
     NSMutableString *grapestring = [NSMutableString stringWithString:@""];
     int grapenumber=[[SingletonClass sharedInstance].wine.graperatioarray count];
     
+    if (grapenumber>0)
+    {
     for (int i=0; i<grapenumber-1; i++)
     {
         [grapestring appendString:[[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:i] stringValue]];
@@ -204,7 +211,7 @@ CGRect qrFrame;
     [grapestring appendString:[[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:grapenumber-1] stringValue]];
     [grapestring appendString:@"% "];
     [grapestring appendString:[[SingletonClass sharedInstance].wine.grapearray objectAtIndex:grapenumber-1]];
-    
+    }
     
     _li10.text=grapestring;
     

@@ -114,7 +114,13 @@
 {
 //    [self dismissViewControllerAnimated:YES completion:nil];
    // NSLog(@"signup button pressed");
-    
+    if ([_t2.text length]<5)
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"information"] message:[words getword:@"passwordshorterror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
     NSString * request=[NSString stringWithFormat:@"http://www.ivintag.com/api/EndUser/SignIn?username=%@&password=%@&email=%@&profileId=2",_t1.text,  [IvinHelp md5HexDigest:_t2.text], _t3.text];
     
 //    [_activityIndicator startAnimating];

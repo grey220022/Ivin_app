@@ -25,7 +25,7 @@
 
 	// Create the data model
     _pageTitles = @[[words getword:@"slide1"] , [words getword:@"slide2"], [words getword:@"slide3"]];
-    _pageImages = @[@"page1.png", @"page2.png", @"page3.png"];
+    _pageImages = @[@"S2.png", @"S3.png", @"S1.png"];
     
     // Create page view controller
     self.pageViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"PageViewController"];
@@ -43,6 +43,14 @@
     [self.pageViewController didMoveToParentViewController:self];
     [_startbutton setTitle:[words getword:@"skip"]  forState:UIControlStateNormal];
     [_signinbutton setTitle:[words getword:@"signin"]  forState:UIControlStateNormal];
+    if([UIScreen mainScreen].bounds.size.height < 568)
+    {
+        _startbutton.frame = CGRectOffset( _startbutton.frame, 0, -85 );
+        _signinbutton.frame = CGRectOffset( _signinbutton.frame, 0, -85 );
+        
+      //[self ios6move:_startbutton];
+      //[self ios6move:_signinbutton];
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated
@@ -132,5 +140,14 @@
 {
     return 0;
 }
+
+-(void)ios6move: (UIView *)u
+{
+    CGPoint point =CGPointMake(0, u.frame.origin.y-65);
+    CGRect frame = u.frame;
+    frame.origin=point;
+    u.frame=frame;
+}
+
 
 @end

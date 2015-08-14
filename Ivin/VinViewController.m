@@ -129,6 +129,12 @@ CGRect prevFrame;
         [self ios6move:_ll5];
         [self ios6posmove:_ima];
         
+        [self ios6move:_f1];
+        [self ios6move:_f2];
+        [self ios6move:_f3];
+        [self ios6move:_f4];
+        [self ios6move:_f5];
+
     }
 
 }
@@ -154,6 +160,12 @@ CGRect prevFrame;
         _ll3.hidden=false;
         _ll4.hidden=false;
         _ll5.hidden=false;
+        _f1.hidden=false;
+        _f2.hidden=false;
+        _f3.hidden=false;
+        _f4.hidden=false;
+        _f5.hidden=false;
+
     }];
     }
 }
@@ -283,6 +295,11 @@ CGRect prevFrame;
             _ll4.hidden=true;
             _ll5.hidden=true;
 
+            _f1.hidden=true;
+            _f2.hidden=true;
+            _f3.hidden=true;
+            _f4.hidden=true;
+            _f5.hidden=true;
         }];
         return;
     } else {
@@ -301,6 +318,11 @@ CGRect prevFrame;
             _ll3.hidden=false;
             _ll4.hidden=false;
             _ll5.hidden=false;
+            _f1.hidden=false;
+            _f2.hidden=false;
+            _f3.hidden=false;
+            _f4.hidden=false;
+            _f5.hidden=false;
 
         }];
         return;

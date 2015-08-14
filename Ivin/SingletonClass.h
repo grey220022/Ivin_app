@@ -20,6 +20,8 @@
 @property(nonatomic) int fromscan;
 @property(nonatomic) int skiphistory;
 @property(nonatomic,retain) UIViewController *listview;
+@property(nonatomic,retain) UIViewController *homeview;
+
 
 @property(nonatomic,retain) NSString *comment;
 @property(nonatomic,retain) NSString *price;

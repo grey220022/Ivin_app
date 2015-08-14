@@ -127,7 +127,7 @@
     [self.tableview setSeparatorColor:[UIColor colorWithWhite:1.0 alpha:0.0]];
     self.tableview.backgroundColor=[UIColor blackColor];
     self.view.backgroundColor=[UIColor blackColor];
-    self.navigationItem.title=[words getword:@"h1"];
+    self.navigationItem.title=[words getword:@"salonlist"];
     _activityIndicator = [[UIActivityIndicatorView alloc]
                           initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
     [_activityIndicator setActivityIndicatorViewStyle:UIActivityIndicatorViewStyleWhiteLarge];
@@ -195,7 +195,8 @@
     [self performSelector:@selector(deselect) withObject:nil afterDelay:0.0f];
     expoid=[_idarray objectAtIndex:indexPath.row];
     expoimage=[_imagearray objectAtIndex:indexPath.row];
-    expotext=[NSMutableString stringWithString:[_classarray objectAtIndex:indexPath.row]];
+    expotext=[NSMutableString stringWithString:@"\t"];
+    [expotext appendString:[_classarray objectAtIndex:indexPath.row]];
     [expotext appendString: @" ("];
     [expotext appendString: [_datearray objectAtIndex:indexPath.row]];
     [expotext appendString: @")"];
@@ -211,6 +212,7 @@
 //    nextController.title=[_classarray objectAtIndex:indexPath.row];
 
     [self.navigationController pushViewController:nextController animated:YES];
+
     /*
     if (self.filterlevel<2)
     {

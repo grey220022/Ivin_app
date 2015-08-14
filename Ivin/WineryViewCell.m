@@ -14,7 +14,7 @@
 {
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
-        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(135, 35, 220, 40)];//description
+        _nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(140, 35, 178, 40)];//description
         _dateLabel = [[UILabel alloc]initWithFrame:CGRectMake(19, 130, 90, 20)];
         _priceLabel = [[UILabel alloc]initWithFrame:CGRectMake(230, 45, 90, 20)];
         _subnameLabel= [[UILabel alloc]initWithFrame:CGRectMake(100, 40, 200, 80)];

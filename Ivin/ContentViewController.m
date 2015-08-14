@@ -9,6 +9,7 @@
 #import "ContentViewController.h"
 #import "SingletonClass.h"
 #import "UIImage+Network.h"
+#import "SalonViewController.h"
 
 @interface ContentViewController ()
 
@@ -125,6 +126,11 @@ CGRect prevFrame;
         _content1.text=[SingletonClass sharedInstance].winery.bc5;
     }
     
+    else if ([_contenttype isEqual:@"w1"])
+    {
+        _content1.text=expotext;
+    }
+
     
     [_content1 setUserInteractionEnabled:TRUE];
     //_content.textColor=[UIColor whiteColor];

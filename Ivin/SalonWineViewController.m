@@ -16,6 +16,7 @@
 #import "UIImage+Network.h"
 #import "WineryViewCell.h"
 #import "SalonViewController.h"
+#import "ContentViewController.h"
 
 @interface SalonWineViewController ()
 
@@ -139,24 +140,54 @@
         
         
       [_sw setScrollEnabled:YES];
-      [_sw setContentSize:CGSizeMake(320, 1020)];
+      [_sw setContentSize:CGSizeMake(320, 720)];
 
       
       UIImageView *salonimage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"brick-1.png"]];
       salonimage.frame = CGRectMake(0, 0, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height/2-80);
       [_sw addSubview:salonimage];
       
+        
+      UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+      [button addTarget:self action:@selector(descriptionclick:) forControlEvents:UIControlEventTouchUpInside];
+      [button setTitle:[words getword:@"salondescription"] forState:UIControlStateNormal];
+      
+      CGRect frame=CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height/2-50, [UIScreen mainScreen].applicationFrame.size.width, 40.0);
+        
+        
+      UILabel *descriptionlabel = [[UILabel alloc]initWithFrame:frame];
+      descriptionlabel.text = @">\t";
+      descriptionlabel.font=[UIFont boldSystemFontOfSize:23];
+      descriptionlabel.backgroundColor = [UIColor clearColor];
+      descriptionlabel.textColor = [UIColor whiteColor];
+      descriptionlabel.textAlignment = NSTextAlignmentRight;
+      
+      button.frame =frame;
+      button.backgroundColor=[UIColor grayColor];
+      button.titleLabel.font = [UIFont boldSystemFontOfSize:19];
+
+      UILabel *searchlabel = [[UILabel alloc]initWithFrame:CGRectMake(20, [UIScreen mainScreen].applicationFrame.size.height/2+10, [UIScreen mainScreen].applicationFrame.size.width, 40.0)];
+      //searchlabel.text=[words getword:@"search"];
+        
+      searchlabel.textColor = [UIColor whiteColor];
+      searchlabel.textAlignment = NSTextAlignmentLeft;
+      [_sw addSubview:button];
+      [_sw addSubview:descriptionlabel];
+      [_sw addSubview:searchlabel];
+        
+      
+      /*
       UILabel *expoLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height/2-80, [UIScreen mainScreen].applicationFrame.size.width, 450)];
       expoLabel.text=expotext;
       expoLabel.lineBreakMode = NSLineBreakByWordWrapping;
       expoLabel.numberOfLines = 0;
       expoLabel.textColor = [UIColor grayColor];
       [_sw addSubview:expoLabel];
-      
+      */
       
       salonimage.contentMode=UIViewContentModeScaleAspectFit;
       [salonimage loadImageFromURL: [NSURL URLWithString:  expoimage] placeholderImage:nil cachingKey:expoimage];
-      self.tableview.frame = CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height/2+450, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height/2+10);
+      self.tableview.frame = CGRectMake(0, [UIScreen mainScreen].applicationFrame.size.height/2+30, [UIScreen mainScreen].applicationFrame.size.width, [UIScreen mainScreen].applicationFrame.size.height/2+10);
     }
     _activityIndicator = [[UIActivityIndicatorView alloc]
                           initWithFrame:CGRectMake(0.0f, 0.0f, 32.0f, 32.0f)];
@@ -178,6 +209,16 @@
     return 1;
 }
 
+-(void)descriptionclick:(UIButton*)sender
+{
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ContentViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"contentview"];
+    [self.navigationController pushViewController:nextController animated:YES];
+    nextController.contenttype=@"w1";
+    nextController.imageurl=expoimage;
+    nextController.title=[words getword:@"h1"];
+    //nextController.imageurl=@"NOIMG";
+}
 
 /*
 -(void)oov

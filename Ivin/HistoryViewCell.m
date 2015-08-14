@@ -21,7 +21,7 @@
         _subnameLabel2= [[UILabel alloc]initWithFrame:CGRectMake(100, 121, 220, 20)];
         _ratingnumberLable= [[UILabel alloc]initWithFrame:CGRectMake(67, 115, 50, 20)];
         
-        _imageLable = [[UIImageView alloc] initWithFrame:CGRectMake(15, 15, 70, 100)];
+        _imageLable = [[UIImageView alloc] initWithFrame:CGRectMake(5, 10, 90, 105)];
         
         [_nameLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:14]];
         [_subnameLabel setFont:[UIFont fontWithName:@"Arial-BoldMT" size:18]];

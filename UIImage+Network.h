@@ -11,7 +11,8 @@
 @interface UIImageView(Network)
 
 @property (nonatomic, copy) NSURL *imageURL;
-
+@property (nonatomic, strong)UIActivityIndicatorView * iactivityIndicator;
+//UIActivityIndicatorView *iactivityIndicator;
 - (void) loadImageFromURL:(NSURL*)url placeholderImage:(UIImage*)placeholder cachingKey:(NSString*)key;
 
 @end

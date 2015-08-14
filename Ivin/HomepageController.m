@@ -143,6 +143,7 @@
 
 - (void)viewDidAppear:(BOOL)animated {
     [super viewDidAppear:animated];
+    [SingletonClass sharedInstance].homeview=self;
     if ((!needslides) || ([SingletonClass sharedInstance].username!=nil))
     {
         needslides=NO;
@@ -275,7 +276,7 @@
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     AllWineViewController *nextController = [storyboard instantiateViewControllerWithIdentifier:@"winefilter"];
-    nextController.title=[words getword:@"salon"];
+    //nextController.title=[words getword:@"salon"];
     nextController.filterlevel=0;
     [self.navigationController pushViewController:nextController animated:YES];
     [NSThread detachNewThreadSelector:@selector(threadStartAnimating:) toTarget:self withObject:nil];
@@ -284,7 +285,7 @@
 
 -(IBAction) b3click
 {
-    [self.tabBarController setSelectedIndex:0];
+    [self.tabBarController setSelectedIndex:1];
 }
 
 
@@ -399,7 +400,8 @@
         [SingletonClass sharedInstance].skiphistory=0;
     }
     [self.navigationController pushViewController:nextController animated:YES];
-    
+    [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
+
 }
 
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
