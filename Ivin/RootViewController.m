@@ -156,6 +156,7 @@ int tim;
 
 -(void)viewWillAppear:(BOOL)animated
 {
+    [super viewWillAppear:animated];
     isreading=NO;
     //NSLog(@"appear");
     
@@ -222,6 +223,7 @@ int tim;
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    [super viewWillDisappear:animated];
     [SingletonClass sharedInstance].preview=@"scan";
    // NSLog(@"disappear");
     [_session stopRunning];
@@ -230,7 +232,7 @@ int tim;
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewDidDisappear:animated];
 }
 
 

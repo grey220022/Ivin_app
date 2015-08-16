@@ -129,11 +129,11 @@ CGRect prevFrame;
         [self ios6move:_ll5];
         [self ios6posmove:_ima];
         
-        [self ios6move:_f1];
-        [self ios6move:_f2];
-        [self ios6move:_f3];
-        [self ios6move:_f4];
-        [self ios6move:_f5];
+        [self ios6newmove:_f1];
+        [self ios6newmove:_f2];
+        [self ios6newmove:_f3];
+        [self ios6newmove:_f4];
+        [self ios6newmove:_f5];
 
     }
 
@@ -142,7 +142,7 @@ CGRect prevFrame;
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillDisappear:animated];
     if (isFullScreen)
     {
     [UIView animateWithDuration:0.5 delay:0 options:0 animations:^{
@@ -256,6 +256,16 @@ CGRect prevFrame;
 -(void)ios6move: (UIView *)u
 {
     CGPoint point =CGPointMake(0, u.frame.origin.y-65);
+    CGRect frame = u.frame;
+    frame.origin=point;
+    u.frame=frame;
+}
+
+
+
+-(void)ios6newmove: (UIView *)u
+{
+    CGPoint point =CGPointMake(u.frame.origin.x, u.frame.origin.y-65);
     CGRect frame = u.frame;
     frame.origin=point;
     u.frame=frame;

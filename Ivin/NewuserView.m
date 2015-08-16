@@ -172,12 +172,12 @@
 
 - (void)viewDidDisappear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewDidDisappear:animated];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
-    [super viewDidAppear:animated];
+    [super viewWillDisappear:animated];
     [SingletonClass sharedInstance].preview=@"signup";
 }
 
