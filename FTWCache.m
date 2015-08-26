@@ -28,11 +28,11 @@
 + (NSData*) objectForKey:(NSString*)key {
 	NSFileManager *fileManager = [NSFileManager defaultManager];
 	NSString *filename = [self.cacheDirectory stringByAppendingPathComponent:[IvinHelp md5HexDigest:key]];
-    NSTimeInterval cacheTime=(double)3600;
+    NSTimeInterval cacheTime=(double)120;
 	if ([SingletonClass sharedInstance].fromscan==1)
     {
      //   NSLog(@"nonono");
-        cacheTime=(double)3600;
+        cacheTime=(double)120;
     }
 	if ([fileManager fileExistsAtPath:filename])
 	{

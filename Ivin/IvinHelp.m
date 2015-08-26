@@ -71,7 +71,7 @@ NSDictionary *winerydic;
 
 + (NSData *) geturlcontentfromcache:(NSString *) url
 {
-    //NSLog(@"from cache : %@",url);
+    NSLog(@"from cache : %@",url);
     NSData *cachedData = [FTWCache objectForKey:url];
     if (cachedData) {
         return cachedData;
@@ -254,20 +254,20 @@ NSDictionary *winerydic;
     NSMutableArray *ttt1 =[[NSMutableArray alloc] initWithObjects: nil];
     
     for (NSDictionary *groupDic in grapelist) {
-        //Group *group = [[Group alloc] init];
-        //groupDic
         tmp=[groupDic valueForKey:@"GrapeName"];
         [ttt addObject:tmp];
         tmp=[groupDic valueForKey:@"Percentage"];
         [ttt1 addObject:tmp];
     }
+    //NSLog(@"%@",tmp);
     
     [SingletonClass sharedInstance].wine.grapearray=ttt;
     [SingletonClass sharedInstance].wine.graperatioarray=ttt1;
     
+   // NSLog(@"%@",[[ttt1 objectAtIndex:0] stringValue]);
+    
     [SingletonClass sharedInstance].wine.WineTypeName=[tempdic objectForKey:@"WineTypeName"];
     [SingletonClass sharedInstance].wine.WineryRecommandation=[IvinHelp purge:[tempdic objectForKey:@"WineryRecommandation"]];
-//    NSLog(@"%@",[SingletonClass sharedInstance].wine.WineryRecommandation);
     [SingletonClass sharedInstance].wine.FoodParing=[IvinHelp purge:[tempdic objectForKey:@"FoodParing"]];
     [SingletonClass sharedInstance].wine.AppellationName=[tempdic objectForKey:@"AppellationName"];
     [SingletonClass sharedInstance].wine.QRCodePictureUrl=[tempdic objectForKey:@"QRCodePictureUrl"];

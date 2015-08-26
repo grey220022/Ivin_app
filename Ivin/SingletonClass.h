@@ -5,6 +5,7 @@
 @interface SingletonClass : NSObject {
   NSString *username_;
   NSString *password_;
+  NSString *profilename_;
 }
 
 + (SingletonClass*) sharedInstance;
@@ -12,6 +13,8 @@
 
 @property(nonatomic,retain) NSString *username;
 @property(nonatomic,retain) NSString *password;
+@property(nonatomic,retain) NSString *profilename;
+
 @property(nonatomic,retain) NSString *lang;
 @property(nonatomic,retain) NSString *preview;
 @property (nonatomic) float rating;

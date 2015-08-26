@@ -51,6 +51,7 @@
     else
     {
         [SingletonClass sharedInstance].username=dic[@"username"];
+        [SingletonClass sharedInstance].profilename=dic[@"profilename"];        
     }
     
     

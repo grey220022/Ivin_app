@@ -46,7 +46,7 @@
     [_li8 setTitle:[words getword:@"lang"] forState:UIControlStateNormal];
     
     
-    [_li1 setTitle:  [words getword:@"profile"] forState:UIControlStateNormal];
+    //[_li1 setTitle:  [words getword:@"profile"] forState:UIControlStateNormal];
     //[_li1 setTitle:  [words getword:@"photo"] forState:UIControlStateNormal];
     //[_li2 setTitle:[words getword:@"profile"] forState:UIControlStateNormal];
     
@@ -82,10 +82,12 @@
     if ([SingletonClass sharedInstance].username == nil)
     {
         [_li3 setTitle:[words getword:@"userlogin"] forState:UIControlStateNormal];
+        [_li1 setTitle:  [words getword:@"profile"] forState:UIControlStateNormal];
     }
     else
     {
         [_li3 setTitle:[words getword:@"signout"] forState:UIControlStateNormal];
+        [_li1 setTitle: [IvinHelp strval:[SingletonClass sharedInstance].profilename replacevalue:[words getword:@"profile"]] forState:UIControlStateNormal];
     }
 }
 
@@ -163,7 +165,8 @@
         [[SingletonClass sharedInstance].listview.navigationController popToRootViewControllerAnimated:NO];
         
         [_li3 setTitle:[words getword:@"userlogin"] forState:UIControlStateNormal];
-        
+        [_li1 setTitle:  [words getword:@"profile"] forState:UIControlStateNormal];
+
         //todo
         NSArray *paths=NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask,YES);
         NSString *plistPath = [paths objectAtIndex:0];
@@ -171,8 +174,8 @@
         NSString *filename=[plistPath stringByAppendingPathComponent:@"Info.plist"];
         
         NSMutableDictionary* dic =[[NSMutableDictionary alloc] initWithContentsOfFile:filename];
-        //[dic setObject:nil forKey: @"username"];
         [dic removeObjectForKey:@"username"];
+        [dic removeObjectForKey:@"profilename"];
         
         [dic writeToFile:filename atomically:YES];
 
@@ -234,9 +237,20 @@
 
 -(IBAction)feedbackpress
 {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SendViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"sendview"];
-    [self presentModalViewController:vc animated:NO];
+    if ([MFMailComposeViewController canSendMail]) {
+        MFMailComposeViewController *mail = [[MFMailComposeViewController alloc] init];
+        mail.mailComposeDelegate = self;
+        [mail setSubject:[words getword:@"feedback"]];
+        [mail setMessageBody:[words getword:@"leavemessage"] isHTML:NO];
+        [mail setToRecipients:@[@"contact@ivintag.com"]];
+        [self presentViewController:mail animated:YES completion:NULL];
+    }
+    else
+    {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        SendViewController *vc = [storyboard instantiateViewControllerWithIdentifier:@"sendview"];
+        [self presentModalViewController:vc animated:NO];
+    }
 }
 
 -(IBAction)appratingpress
@@ -317,6 +331,33 @@
 
 - (void) threadStartAnimating:(id)data {
     [_activityIndicator startAnimating];
+}
+
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    //关闭邮件发送窗口
+    [self dismissModalViewControllerAnimated:YES];
+    NSString *msg;
+    switch (result) {
+        case MFMailComposeResultCancelled:
+            msg = @"用户取消编辑邮件";
+            break;
+        case MFMailComposeResultSaved:
+            msg = @"用户成功保存邮件";
+            break;
+        case MFMailComposeResultSent:
+            msg = @"用户点击发送，将邮件放到队列中，还没发送";
+            break;
+        case MFMailComposeResultFailed:
+            msg = @"用户试图保存或者发送邮件失败";
+            break;
+        default:
+            msg = @"";
+            break;
+    }
+    //[self alertWithMessage:msg];
+    NSLog(@"@%@",msg);
 }
 
 

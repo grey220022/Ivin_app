@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MessageUI/MFMailComposeViewController.h>
 
 
 
-@interface SetupView : UIViewController
+@interface SetupView : UIViewController<MFMailComposeViewControllerDelegate>
 
 
 @property (weak, nonatomic) IBOutlet UIButton *li1;

@@ -155,9 +155,12 @@
         
         NSMutableDictionary* dic =[[NSMutableDictionary alloc] initWithContentsOfFile:filename];
         [dic setObject:response forKey: @"username"];
+        [dic setObject:_t1.text forKey: @"profilename"];
+        
         [dic writeToFile:filename atomically:YES];
         
         [SingletonClass sharedInstance].username=response;
+        [SingletonClass sharedInstance].profilename=_t1.text;
         
         UIAlertView *myAlertView;
         myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"signup"] message:[words getword:@"signupok"] delegate:nil cancelButtonTitle:@"ok" otherButtonTitles:nil];

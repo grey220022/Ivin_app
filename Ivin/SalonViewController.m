@@ -76,9 +76,19 @@
     NSString* l=[SingletonClass sharedInstance].lang;
     if ((![l isEqual:@"en"])&& (![l isEqual:@"zh"]))
         l=@"fr";
-    [[SingletonClass sharedInstance] resetdate];
 
     NSData* winelistdata=[IvinHelp geturlcontentfromcache:[NSString stringWithFormat:@"http://www.ivintag.com/api/ExpoWine/WineList?expoid=%@&lang=%@",expoid,l]];
+    
+    if ((!winelistdata)||([winelistdata length]==0))
+    {
+        UIAlertView *myAlertView;
+        myAlertView = [[UIAlertView alloc]initWithTitle:[words getword:@"error"] message:[words getword:@"networkerror"] delegate:self cancelButtonTitle:@"ok" otherButtonTitles:nil];
+        [myAlertView show];
+        return;
+    }
+
+    [[SingletonClass sharedInstance] resetdate];
+    
     NSError *error;
     NSArray *winelist= [NSJSONSerialization JSONObjectWithData:winelistdata options:NSJSONReadingMutableLeaves error:&error];
     NSString * tmp;

@@ -17,6 +17,7 @@
 
 @synthesize username = username_ ;
 @synthesize password = password_ ;
+@synthesize profilename = profilename_ ;
 
 
 static SingletonClass *sharedInstance = nil;

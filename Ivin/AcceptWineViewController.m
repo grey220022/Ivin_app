@@ -196,23 +196,31 @@ CGRect qrFrame;
     
     NSMutableString *grapestring = [NSMutableString stringWithString:@""];
     int grapenumber=[[SingletonClass sharedInstance].wine.graperatioarray count];
-    
+    id tmp;
     if (grapenumber>0)
     {
     for (int i=0; i<grapenumber-1; i++)
     {
-        [grapestring appendString:[[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:i] stringValue]];
+        
+        tmp=[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:i];
+        if (tmp == nil || [tmp isKindOfClass:[NSNull class]] || [tmp isEqual:@"0"])
+        {
+            continue;
+        }
+        [grapestring appendString:[tmp stringValue]];
         [grapestring appendString:@"% "];
         [grapestring appendString:[[SingletonClass sharedInstance].wine.grapearray objectAtIndex:i]];
         [grapestring appendString:@", "];
     }
     
-    
-    [grapestring appendString:[[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:grapenumber-1] stringValue]];
-    [grapestring appendString:@"% "];
-    [grapestring appendString:[[SingletonClass sharedInstance].wine.grapearray objectAtIndex:grapenumber-1]];
+    tmp=[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:grapenumber-1];
+    if (tmp != nil && ![tmp isKindOfClass:[NSNull class]] && ![tmp isEqual:@"0"]  )
+    {
+        [grapestring appendString:[tmp stringValue]];
+        [grapestring appendString:@"% "];
+        [grapestring appendString:[[SingletonClass sharedInstance].wine.grapearray objectAtIndex:grapenumber-1]];
     }
-    
+    }
     _li10.text=grapestring;
     
     

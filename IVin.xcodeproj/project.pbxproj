@@ -1264,7 +1264,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1301,11 +1300,11 @@
 				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LIBRARY_SEARCH_PATHS = "$(inherited)";
-				ONLY_ACTIVE_ARCH = NO;
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "32E5A59D-F9CA-400D-84C4-92582A4C3AA2";
 				SDKROOT = iphoneos;
-				VALID_ARCHS = "armv7 armv64 armv7s";
+				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1314,7 +1313,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
-				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
@@ -1350,7 +1348,7 @@
 				PROVISIONING_PROFILE = "32E5A59D-F9CA-400D-84C4-92582A4C3AA2";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
-				VALID_ARCHS = "armv7 armv64 armv7s";
+				VALID_ARCHS = "armv7 arm64";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
@@ -1364,15 +1362,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Ivin/IVin.pch;
 				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/user/Documents/v8/Ivin/ZBarSDK,
+					"$(PROJECT_DIR)/ZBarSDK",
 				);
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "5320cfd2-d02b-4009-9243-151b17f9ddd4";
-				VALID_ARCHS = "armv7 armv64 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1386,15 +1382,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Ivin/IVin.pch;
 				INFOPLIST_FILE = "Ivin/IVin-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/user/Documents/v8/Ivin/ZBarSDK,
+					"$(PROJECT_DIR)/ZBarSDK",
 				);
-				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = IVin;
 				PROVISIONING_PROFILE = "5320cfd2-d02b-4009-9243-151b17f9ddd4";
-				VALID_ARCHS = "armv7 armv64 armv7s";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
