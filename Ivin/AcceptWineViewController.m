@@ -203,7 +203,7 @@ CGRect qrFrame;
     {
         
         tmp=[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:i];
-        if (tmp == nil || [tmp isKindOfClass:[NSNull class]] || [tmp isEqual:@"0"])
+        if (tmp == nil || [tmp isKindOfClass:[NSNull class]] || [[tmp stringValue] isEqual:@"0"])
         {
             continue;
         }
@@ -214,7 +214,7 @@ CGRect qrFrame;
     }
     
     tmp=[[SingletonClass sharedInstance].wine.graperatioarray objectAtIndex:grapenumber-1];
-    if (tmp != nil && ![tmp isKindOfClass:[NSNull class]] && ![tmp isEqual:@"0"]  )
+    if (tmp != nil && ![tmp isKindOfClass:[NSNull class]] && ![[tmp stringValue] isEqual:@"0"]  )
     {
         [grapestring appendString:[tmp stringValue]];
         [grapestring appendString:@"% "];

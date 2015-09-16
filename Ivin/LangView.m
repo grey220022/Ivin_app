@@ -61,6 +61,7 @@
     [dic setObject:l forKey: @"lang"];
     [dic writeToFile:filename atomically:YES];
    // NSLog(@"%lu",(unsigned long)[dic count]);
+
 }
 
 
